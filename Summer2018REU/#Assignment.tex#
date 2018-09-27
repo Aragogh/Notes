@@ -1,0 +1,303 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkClassInstructor:  \hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{exercise}{Exercise}[section]
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Summer 2018 REU}
+\newcommand{\hmwkDueDate}{September 26th, 2018}
+\newcommand{\hmwkClass}{Theory of Semisimple Rings}
+\newcommand{\hmwkClassInstructor}{Professor Richard Elman}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.3in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\section{Central Simple Algebras}
+
+In this section the theory of semisimple rings is applied to the concept of finite $F$-dimensional simple algebras that contain a field $F$ as their center. In particular, as these rings are simple and left artinian, they are isomorphic to matrix rings over division rings. We use this fact to prove important results such as the Double Centralizer Theorem, which is later used to classify the fields over which a division algebra is split; the Skolem-Noether Theorem, which classifies all automorphisms of a central simple algebra and the conjugacy classes of simple subalgebras in addition to proving Wedderburn's Theorem on finite division rings, and classify the reduced characteristic polynomial, an invariant which we use to prove Tsen's theorem.
+
+\begin{exercise}
+Let $D$ be a division $F$ -algebra with char $F$ = $p > 0$. Let $a \in D \setminus F$
+satisfy $a^{p^{n}} = a$ for some positive integer $n$. Show that there exists
+an element $x \in D^{\times}$ satisfying $xax^{-1} = a^{i} \neq a$ for some $i$.
+\end{exercise}
+
+\begin{proof}
+
+We have that field $F$ is of characteristic $p$ and thus must contain the prime subfield $\mathbb{Z}_{p}$. From field theory, we have that there is a unique finite field extension of order $p^{n}$ such that every element of the field is a rootof $t^{p^{n}}-t$; i.e. that $a$ must belong to some subfield of this extension. As the polynomial is of degree $p^{n}$, these must be all the solutions, and as every root is distinct, the polynomial is separable. In particular, we have that the field extension $K/F$ containing $\mathbb{Z}_{p^{n}}$ is separable over the base field and that any given root of the polynomial must also be separable. Thus, $a$ is separable over the base field. Furthermore, as every extension K of a finite field is normal (i.e. the splitting field of the polynomial $t^{p^{n}}-t$ for $n = \text{dim}_{\mathbb{Z}_{p}}K$ we have that the extension $F(a)$ must in particular be the extension $F(\mathbb{Z}_{p}(a))$ and thus must also be a normal extension, given that it is a splitting field. Thus, $F(a)$ is a Galois extension of dimension greater than 1, and there is thus a nontrivial Galois group $G(F(a)/F)$. There exists a $\sigma \in G(F(a)/F)$ s.t. $\sigma(a) \neq a$ as the Galois group is nontrivial and must permute the roots of the minimal polynomial, and this yields two distinct F-algebra maps into $D$ given by the inclusion map $\iota: F(a) \hookrightarrow D$ and the Galois transformation $f = \iota \circ \sigma$. By Skolem-Noether, there is a unit $u \in D^{\times}$ s.t. $uf u^{\times} = \iota$. The result follows. \end{proof}
+
+
+\begin{exercise}
+The $F$-subalgebras in $M_{n}(F)$  that are isomorphic to $F^{n}$ are conjugate
+to the subalgebra of diagonal matrices.
+\end{exercise}
+\begin{proof}
+
+  If $A$ is $F$-split then $A \cong \mathbb{M}_{n}(F)$, we have the diagonal F-subalgebra $B$ on generators ${a_{ii} \mid 1 \leq i \leq n}$ where $a_{ii}$ represents the matrix $T$ that is 0 in every entry except in the $ii$ entry, where it is 1. The direct product $F^{n}$ is an n dimensional F-vector space equipped with coordinate wise multiplication, and thus the generators of the algebra are the basis vectors of the direct product $\{e_{1},...,e_{n}\}$. Define an $F$-algebra map by $\phi:F^{n} \to B$ via $\phi: e_{i} \mapsto a_{ii}$. For any given diagonal matrix with entries $\{\lambda_{1},...,\lambda_{n}\}$ we have that the vector $(\lambda_{1},...,\lambda_{n})$ maps to it under $\phi$. Furthermore, as $a_{ii}$ are linearly independent in $\mathbb{M}_{n}(F)$ and $e_{i}$ is not mapped to zero for any $e_{i}$, the map $\phi$ must be injective as $F$ is a field. So $\phi$ is an isomorphism. By the Skolem-Noether Theorem, if there is another algebra isomorphic to $F_{n}$ it is isomorphic to the subalgebra of diagonal matrices and thus conjugate to the subalgebra of diagonal matrices.
+  
+\end{proof}
+
+\begin{exercise}
+Show a finite dimensional central simple $F$-algebra $A$ of degree $n$
+is split if and only if it contains an $F$-subalgebra isomorphic to the
+direct product $F^{n} = F \times ... \times F$.
+\end{exercise}
+\begin{proof}
+
+  ``$\Rightarrow$'' Subalgebra of diagonal matrices from the previous problem suffices. \\
+  ``$\Leftarrow$'' Suppose $A$ contains an $F$-subalgebra B isomorphic to $F^{n}$. As $A$ is of degree $n$, we have that there is a maximal subfield $K/F$ that splits $A$. As the tensor product takes $F$-subalgebras to $K$-subalgebras, we have that 
+
+  
+\end{proof}
+
+
+\pagebreak
+
+
+\section{Brauer Group}
+
+This section furthers on the ideas of the Central Simple Algebras section by introducing the notion of a Brauer group, a field invariant that is a group on the set of all Brauer-equivalent central simple $F$-algebras. The Brauer group is a torsion group, and it is possible to derive which central simple $F$-algebras are split over some field extension $K/F$ by using the isomorphism of Br($K/F$) to the second cohomology group of the Galois group $G(K/F)$ with coefficients in $L^{(\times)}$. This allows us to derive that the Brauer group is torsion, an application of which we will explore in the exercise below; the proof has been adapted from \cite{CSABr}.  
+
+\pagebreak
+
+
+\section{$C_{n}$-fields}
+
+This section introduces the concept of a $C_{n}$-field, a field such that every homogenous polynomial of degree $d$ in more than $d^{n}$ variables has a nontrivial zero; i.e. we have that algebraically closed fields are $C_{0}$, so on and so forth. The Lang-Nagata and the Lang theorems provide two important classifications about such fields: one, a generalization of the Nullstellensatz to arbitrary $C_{n}$-fields, and the facts that all algebraic extensions $K/F$ of a $C_{n}$ field $F$ are $C_{n}$, though $F(t)$ for $t$ and indeterminate is always $C_{n+1}$. The concept is used to show Tsen's theorem; this chapter deals with a specific case of Tsen's theorem, namely the generalized quaternion algebras.
+
+\begin{exercise}
+
+  \end{exercise}
+
+
+\pagebreak
+
+\section{Introduction to Representation Theory}
+\subsection{Representations}
+
+This section serves to present one of the motivations behind classifying semisimple rings. We introduce the idea of a group ring $R[G]$ as an algebra over some ring R or field F, with the algebra multiplication inherited from the group. The group ring thus may have an associated module N that it acts upon using the standard R-multiplication from the ring and some map $\phi:G \to Aut_{F}N$ such that the G-multiplication acts via the group action on N as an F-module. These maps are called representations. The section goes on to prove Maschke's Theorem, that every group ring over a field $F[G]$ is semisimple, i.e. completely reducible over itself as a module. Thus, every group ring over a field is isomorphic to some product $\mathbb{M}_{n_{1}}(D_{1}) \times ... \times \mathbb{M}_{n_{m}}(D_{m})$ unique up to order via the Artin-Wedderburn theorem. This yields several maps from the group into matrix rings over division rings, which can be restricted to maps $\phi_{i}: G \to GL_{n_{i}}(D_{i})$. These maps are the representations of G into some $Aut_{F}N$. 
+
+\begin{lemma}
+  
+  Let $A$ be a semisimple $F$-algebra with basic set $\{\mathfrak{A}_{i},...,\mathfrak{A}_{m}\}$. If $M$ is a nonzero irreducible $A$-module, then $M \cong \mathfrak{A}_{i}$ as an $A$-module for some $1 \leq i \leq r$. Let $m \in M$.
+
+\begin{proof}
+  
+    By the universal property of free modules, we have an $A$-module map $\psi: A \to M$ via $1_{A} \mapsto v$. As an $A$-module, being semisimple, we have that $A = \coprod_{i=1}^{r}\mathfrak{A}_{i}^{n_{i}}$. Given that $M$ is irreducible and contains no proper submodules, and clearly $\psi$ is not the zero map, we must have that $\psi(A) = M$. However, $\psi$ is an $A$-module map and thus must commute with coproduct. This means that
+  \[
+    \psi(A) = \psi\left(\coprod_{i=1}^{r}\mathfrak{A}_{i}^{n_{i}}\right) = \bigoplus_{i=1}^{r}\psi(\mathfrak{A}_{i})^{n_{i}} = M
+  \]
+
+  As M is irreducible, it contains no proper submodules, and thus there exists some unique $\mathfrak{A}_{i}^{(k)}$ s.t. $\psi(\mathfrak{A}_{i}^{(k)}) = M$. Furthermore, as every element of the basic set is a minimal left ideal, it must be an irreducible left $A$-submodule and contains no proper submodules, i.e. no kernels. Thus, $\psi|_{\mathfrak{A}_{i}^{(k)}}$ is an isomorphism, and we have the claim. \end{proof}
+\end{lemma}
+
+\begin{exercise}
+
+   Show that for $F$  an algebraically closed field of characteristic zero, G
+a finite group, $z$ an element of the center of $F[G]$,  $V$
+an irreducible $F[G]$-module, there exists an element $\lambda$ in F
+satisfying $zv = \lambda v$ for all $v \in V$.
+
+    \begin{proof}
+
+      We have that $F$ is algebraically closed of characteristic zero. Thus, Maschke's theorem applies, and as $F$ is algebraically closed, we have that $F[G]$ must be $F$-split. We thus have
+
+      \[
+        F[G] \cong \prod_{i=1}^{r}\mathbb{M}_{n_{i}}(F) 
+      \]
+
+      as rings and F-algebras. Moreover, this isomorphism occurs via the left regular representation of $F[G]$ on itself. We will view this isomorphism as equality. We have from the lemma above that any irreducible module of $F[G]$ must be isomorphic to some column space of a simple component of $F[G]$ as an $F[G]$ module; it is the clear that there is a ring homomorphism. However, the center of $F[G]$ is an F-vector space on basis $\{I_{1},...,I_{r}\}$ for $1\leq i \leq r$ the corresponding simple component. Thus, we have if $z \in Z(F[G])$, then $z = (\lambda_{1}I_{1},...,\lambda_{r}I_{r}$. Let $\mathfrak{A}_{i}$ be some column space of $\mathbb{M}_{n_{i}}(F)$. Let $v \in \mathfrak{A}_{i}$ be arbitrary. Then $z(0,...,v,...,0) = (0,...,\lambda_{i}v,...,0)$. The result follows.  \end{proof}
+\end{exercise}
+
+
+\pagebreak
+
+\section{Split Group Rings}
+
+This section introduces Jacobson's Density Theorem for irreducible R-modules, i.e. that for $\lambda: R \to End_{End_{R}(M)}(M)$, Im$\lambda$ acts densely on M as an End$_{R}(M)$ module (vector space, as it is a division ring by Schur's Lemma). This leads into Burnside's Theorem on irreducible modules over F-algebras, which the following exercises make use of to formalise the conditions for which an algebra is F-split.
+
+\begin{exercise}
+  Let $F$ be a field, $A$ an $F$-algebra (not necessarily finitely generated), and $M$ a completely reducible $A$-module. Show if End$_{A}(M) \cong F$ then $M$ is an irreducible $A$-module.
+\begin{proof}
+
+  As $M$ is a completely reducible $A$-module then $M = \coprod_{I}M_{i}$ for $M_{i \in I}$ irreducible $A$-modules. Fix $j \in I$ s.t. $M_{j} \neq 0$, there exists an $A$ endomorphism $\sigma: M \to M$ s.t. $sigma|_{M_{j}}= Id_{M_{j}}$ and is zero everywhere else. $\sigma$ is clearly a well defined endomorphism as the submodules in the direct sum are pairwise disjoint. However, $\sigma$ cannot contain a kernel as by assumption every $A$ endomorphism is invertible. Thus, $I = \{j\}$ and $M$ is irreducible. \end{proof}
+  
+\end{exercise}
+
+It is important to note that the above proof generalizes to any arbitrary division ring.
+\begin{exercise}
+  Let $F$ be a field, $A$ a semi-simple finite dimensional $F$ -algebra. Then $A$ is $F$-split $\iff$ $F \cong \text{End}_{A}(M)$ for every irreducible A-module M. In particularly, if $F$ is algebraically closed, then $A$ is $F$-split.
+  
+\end{exercise}
+
+\begin{proof}
+  We have that $A$ is a semisimple finite dimensional $F$-algebra, and thus $A \cong \mathbb{M}_{n_{1}}(D_{1}) \times ... \times \mathbb{M}_{n_{m}}(D_{m})$ for some division rings $D_{1},...,D_{m}$. Let $\{\mathfrak{A}_{1},..., \mathfrak{A}_{r}\}$ be a basic set for $A$, representing all possible irreducible $A$-modules. \newline
+
+
+  ``$\Leftarrow$'' By Burnside's Theorem, End$_{A}(M) = F$ $\implies L_{A}(M) =$ End$_{F}(M) = \mathbb{M}_{n}(F)$ for $n =$ dim$_{F}M$. Furthermore, we note that $M \cong \mathfrak{A}_{i}$ for some column space of $A$. If $A$ were not $F$-split, then we have some decomposition of $A \cong \mathbb{M}_{n_{1}}(D_{1}) \times ... \times \mathbb{M}_{n_{m}}(D_{m})$. Fix $1\leq i \leq r$. $A$ being the product ring described above, the action of $A$ on any column space of $\mathbb{M}_{n_{i}}(D_{i})$ via left multiplication can be described by $M_{n_{i}}(D_{i})$. As $A$ is an F-algebra, we have that every matrix in $A$ must commute with $F$. Thus, under $\lambda: A \to \text{End}_{F}(M)$ via $\lambda: a \mapsto (\lambda_{a}: v \to av)$ we have $\lambda(A) = \mathbb{M}_{n_{i}}(D_{i})$. However, from above, we have that $L_{A}(M) = \mathbb{M}_{n}(F)$. Thus, $\mathbb{M}_{n}(D) \cong \mathbb{M}_{n}(F)$ for $D$ a division ring with $F$ in its center $\implies D \cong F$. Without loss of generality, this applies to all division rings $D_{i}$ in the decomposition of $A$, and thus $A$ must be $F$-split. \\
+
+  ``$\Rightarrow$'' If $A$ is F-split, we have that $A \cong \mathbb{M}_{n_{1}}(F) \times ... \times \mathbb{M}_{n_{r}}(F)$. $M = \mathfrak{A}_{i}$ represents some column space of $\mathbb{M}_{n_{i}}(F)$ and is thus an $n_{i}$ dimensional vector space over F. Thus, End$_{F}(M) \cong \mathbb{M}_{n_{i}}(F)$ any $A$-endomorphism must be left multiplication by matrix in End$_{F}(M)$ that commutes with every element of A. However, the center of $\mathbb{M}_{n_{i}}(F)$ is a one-dimensional $F$-vector space on the basis $I$. The result follows. \\
+
+  In particular, as there cannot exist any nontrivial division $F$-algebras for $F$ algebraically closed, End$_{A}(M) = F$ for $M$ irreducible $A$-modules; i.e. $A$ must by $F$-split for $F$ algebraically closed. \end{proof}
+
+\pagebreak
+
+
+\section{Characters}
+
+This section introduces the notion of the character function, given by the trace of the image of a group element under a given representation. The character function has the advantage of being basis invariant and K-linear as a result, and in the section it is shown that the character function completely determines the group representation and the module up to isomorphism.
+
+\begin{exercise}
+Let $G$ be a finite group and $F$ be a field of positive
+characteristic $p$, and $G$ a p-group. Suppose that $\psi: G \to GL_{n}(F)$ is an
+irreducible representation, show that $\psi$ is the trivial representation.
+\end{exercise}
+
+\begin{proof}
+
+  Let $\psi: G \to GL_{n}(F)$ be an irreducible representation. We have that as $G$ is a p-group, there is an element $a$ in the center of order $p$. Thus, this element is a root of $t^{p} - 1 = (t - 1)^{p}$. Thus, under the representation $\psi$ we have $\psi(a)$ contains 1 as an eigenvalue, and thus there is at least one invariant subspace fixed by $a$, implying there is a basis where 1 lies on the diagonal of $\psi(a)$. As $a$ is in the center of $F[G]$ (in the center pf $G$) and $\psi$ is an irreducible representation we have that $\psi(a)$ must be a diagonal matrix with all entries equal. However, as there is a basis where 1 lies on the diagonal, this must mean all entries are 1 and thus  $a \in ker(\psi)$. Thus, the irreducible representation $\psi$ has $a$ in its kernel and can thus be restricted to an irreducible representation $\widetilde\psi: G/<a> \to GL_{n}(F)$. As $G/<a>$ is another $p$-group, we have another nontrivial kernel and by induction we have that $G \subset ker\psi$. This yields that $\psi$ must be the trivial representation into $F$. 
+  \end{proof}
+
+
+\pagebreak 
+
+\section{Orthogonality Relations}
+
+One of the motivations behind character theory is to find an F-linear map on semisimple algebras that is basis invariant for a given representation: these are called class functions, and provide another mechanism for analysis of F-algebras, as they furthermore have the property of being multiplicative over the tensor product. These functions are useful as they provide conjugation-invariant (and therefore basis invariant) mechanisms to characterise elements of the algebra spanned by the group, as we will see in the exercises below. In the last section, it was shown that the character completely determines the module up to isomorphism. In this section, character theory is further developed via development of an inner product and orthogonality relations, including the orthogonality of irreducible characters. 
+\begin{exercise}
+  Let $G$ be a finite group. Suppose that char $F$ is zero or does not divide the order of $G$ and $F[G]$ is $F$-split. Let
+$\mathfrak{A}$ be an irreducible  $F[G]$-module and $B_{\mathfrak{A}}$ the simple component corresponding to $\mathfrak{A}$
+corresponding to $\mathfrak{A}$. Then show the unit $f = 1_{B_{\mathfrak{A}}}$ of $B_{\mathfrak{A}}$ satisfies
+
+\[
+  f = \frac{\chi_{\mathfrak{A}}(1)}{|G|} \sum_{G}\chi_{\mathfrak{A}}(x^{-1})x 
+\]
+\end{exercise}
+
+\begin{proof}
+
+  We may assume that $G$ is not the trivial group. From the previous chapter, we have that the unit $f = 1_{B_{\mathfrak{A}}}$ is an idempotent of the ring and is represented by a projection onto the simple component corresponding to $B_\mathfrak{A}$. Thus, $f \in Z(F[G])$ and satisfies the following:
+  
+  \[
+    \chi_{\mathfrak{A}_{i}}(f) = \begin{cases} 0 & \mathfrak{A}_{i} \not\cong \mathfrak{A} \\ \chi_{\mathfrak{A}}(1) & \mathfrak{A}_{i} \cong \mathfrak{A} \end{cases}
+  \]
+
+  These two properties uniquely characterize $f$, as if $f \in Z(F[G])$ then $f = \mu_{i} I_{\mathfrak{A}_{i}}$, $\mu_{i} \in F$ for every irreducible module. If the trace is 0 then $\mu_{i}= 0$ and if it is dim$_{F}\mathfrak{A} = \chi_{\mathfrak{A}}(1)$ then by the logic of the last chapter it must be the identity.
+
+  Furthermore, as $f$ is an element of the algebra $F[G]$, $f$ can be represented as some sum $ f = \lambda \sum_{G}\alpha(x)x \text{ with } \alpha: G \to F\text{ some coefficient function and } \lambda \in F\text{ some constant}$. We furthermore have that for any $\sigma \in G$, $\sigma \alpha(x)x \sigma^{-1} = \alpha(\sigma x \sigma^{-1}) \sigma x \sigma^{-1}$ as $f \in Z(F[G])$ and thus the sum must be also be conjugation invariant. Thus, $\alpha$ is a class function, and from the lemma and properties above we have that $\alpha$ must be some class function that is orthogonal (by $F$-linearity of trace) to every irreducible character that is not $\chi_{\mathfrak{A}}$. The most natural choice, of course, is $\chi_{\mathfrak{A}}(x^{-1})$.  We may determine $\lambda$ via:
+
+  \begin{align*} \chi_{\mathfrak{A}}(f)  = \  \lambda \sum_{G} \chi_{\mathfrak{A}}(x^{-1})\chi_{\mathfrak{A}}(x) & \implies \chi_{\mathfrak{A}}(f)  =   \lambda \sum_{G} \chi_{\mathfrak{A}}(x^{-1})\chi_{\mathfrak{A}}(x) \\
+  &\implies  \chi_{\mathfrak{A}}(1)  =   \lambda |G| \\
+                                                                                                                 &\implies \lambda = \frac{\chi_{\mathfrak{A}}(1)}{|G|}
+  \end{align*}
+
+  The result follows.\end{proof}
+
+\pagebreak
+
+\section{Schur's Theorem}
+
+This section provides a generalization to one of the applications of Frobenius's arithmetic lemma, namely that for $F$ a field of characteristic zero $G$ a finite group, $F[G]$ being $F$-split , the $F$-dimension of an irreducible $F[G]$-module divides the index of $G$ over its center. The proof makes use of the concept of absolutely irreducible modules $F[G]$ and the fact their $F$-tensor products remain absolutely irreducible under the diagonal action. This idea will be explored further in the exercises below:
+
+\begin{exercise}
+Show that an irreducible $F[G]$-module $V$, finite dimensional as an $F$-vector
+space, is absolutely irreducible if and only if End$_{F[G]}(V) = F$.
+\end{exercise}
+
+\begin{proof}
+
+  ``$\Rightarrow$'' 
+  
+  
+``$\Leftarrow$'' Applying Burnside's lemma on irreducible modules over $F$-algebras, we have that if $F = \text{End}_{F[G]}(V)$ then $L_{F[G]}(M) = \text{End}_{F}(M)$. In particular, $L_{F[G]}(M) = \mathbb{M}_{n}(F)$. Under the tensor product with the algebraic closure $\widetilde F$, we have that a dimension $n$ $F$-vector space is sent to a dimension $n$ $\widetilde F$-vector space, and that $\widetilde F \otimes_{F} F[G] = \widetilde F [G]$. We furthermore have that $L_{\widetilde F[G]}(M) = \widetilde F \otimes_{F} \mathbb{M}_{n}(F) =  \mathbb{M}_{n}(\widetilde F)$. Thus, given any two arbitrary vectors $m, n \in \widetilde F \otimes M$, we have an $a \in \widetilde F[G]$ s.t. $am = n$ (as image of $\widetilde F[G]$ under left multiplication is all endomorphisms of $\widetilde F \otimes_{F}M$. Thus, $M$ is a absolutely irreducible.  
+  \end{proof}
+\pagebreak
+
+
+\section{Torsion Linear Groups}
+
+This section explores the conditions one can impose on a torsion group to force it to be finite. It deals with work of Burnside in classifying torsion subgroups of a linear group, and culminates in a result of Schur that any finitely generated torsion subgroup of a general linear group is finite.
+
+\begin{exercise}
+Let $F$ be a field of characteristic $p > 0$ and $G$ a finitely generated torsion
+subgroup of $GL_{n}(F)$. Show that $G$ has bounded period. 
+\end{exercise}
+
+\begin{proof}
+
+
+  \end{proof}
+
+\bibliography{REU}
+\bibliographystyle{chicago}
+
+
+\end{document}
+
