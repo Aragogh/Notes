@@ -79,6 +79,25 @@
 
 \pagebreak
 
+\section{The Artin-Wedderburn Theorem}
+
+\begin{exercise}
+  
+  Let $A$ be a semisimple $F$-algebra with basic set $\{\mathfrak{A}_{i},...,\mathfrak{A}_{m}\}$. If $M$ is a nonzero irreducible $A$-module, then $M \cong \mathfrak{A}_{i}$ as an $A$-module for some $1 \leq i \leq r$. Let $m \in M$.
+
+\begin{proof}
+  
+    By the universal property of free modules, we have an $A$-module map $\psi: A \to M$ via $1_{A} \mapsto v$. As an $A$-module, being semisimple, we have that $A = \coprod_{i=1}^{r}\mathfrak{A}_{i}^{n_{i}}$. Given that $M$ is irreducible and contains no proper submodules, and clearly $\psi$ is not the zero map, we must have that $\psi(A) = M$. However, $\psi$ is an $A$-module map and thus must commute with coproduct. This means that
+  \[
+    \psi(A) = \psi\left(\coprod_{i=1}^{r}\mathfrak{A}_{i}^{n_{i}}\right) = \bigoplus_{i=1}^{r}\psi(\mathfrak{A}_{i})^{n_{i}} = M
+  \]
+
+  As M is irreducible, it contains no proper submodules, and thus there exists some unique $\mathfrak{A}_{i}^{(k)}$ s.t. $\psi(\mathfrak{A}_{i}^{(k)}) = M$. Furthermore, as every element of the basic set is a minimal left ideal, it must be an irreducible left $A$-submodule and contains no proper submodules, i.e. no kernels. Thus, $\psi|_{\mathfrak{A}_{i}^{(k)}}$ is an isomorphism, and we have the claim. \end{proof}
+\end{exercise}
+
+
+\pagebreak
+
 \section{Central Simple Algebras}
 
 In this section the theory of semisimple rings is applied to the concept of finite $F$-dimensional simple algebras that contain a field $F$ as their center. In particular, as these rings are simple and left artinian, they are isomorphic to matrix rings over division rings. We use this fact to prove important results such as the Double Centralizer Theorem, which is later used to classify the fields over which a division algebra is split; the Skolem-Noether Theorem, which classifies all automorphisms of a central simple algebra and the conjugacy classes of simple subalgebras in addition to proving Wedderburn's Theorem on finite division rings, and classify the reduced characteristic polynomial, an invariant which we use to prove Tsen's theorem.
@@ -104,28 +123,47 @@ to the subalgebra of diagonal matrices.
   
 \end{proof}
 
-\begin{exercise}
-Show a finite dimensional central simple $F$-algebra $A$ of degree $n$
-is split if and only if it contains an $F$-subalgebra isomorphic to the
-direct product $F^{n} = F \times ... \times F$.
-\end{exercise}
-\begin{proof}
-
-  ``$\Rightarrow$'' Subalgebra of diagonal matrices from the previous problem suffices. \\
-  ``$\Leftarrow$'' Suppose $A$ contains an $F$-subalgebra B isomorphic to $F^{n}$. As $A$ is of degree $n$, we have that there is a maximal subfield $K/F$ that splits $A$. As the tensor product takes $F$-subalgebras to $K$-subalgebras, we have that 
-
-  
-\end{proof}
-
-
 \pagebreak
 
 
 \section{Brauer Group}
 
-This section furthers on the ideas of the Central Simple Algebras section by introducing the notion of a Brauer group, a field invariant that is a group on the set of all Brauer-equivalent central simple $F$-algebras. The Brauer group is a torsion group, and it is possible to derive which central simple $F$-algebras are split over some field extension $K/F$ by using the isomorphism of Br($K/F$) to the second cohomology group of the Galois group $G(K/F)$ with coefficients in $L^{(\times)}$. This allows us to derive that the Brauer group is torsion, an application of which we will explore in the exercise below; the proof has been adapted from \cite{CSABr}.  
+This section furthers on the ideas of the Central Simple Algebras section by introducing the notion of a Brauer group, a field invariant that is a group on the set of all Brauer-equivalent central simple $F$-algebras. The Brauer group is a torsion group, and it is possible to derive which central simple $F$-algebras are split over some field extension $K/F$ by using the isomorphism of Br($K/F$) to the second cohomology group of the Galois group $G(K/F)$ with coefficients in $L^{\times}$. This allows us to derive that the Brauer group is torsion, an application of which we will explore in the exercise below; the proof has been adapted from \cite{CSABr} using methods from cohomology, which are outside the scope of this assignment and have not been discussed.   
 
-\pagebreak
+\begin{lemma}
+The index and the exponent of an algebra $A$ have the same prime factors.
+\end{lemma}
+
+\begin{proof}
+  Let $A \in$ Br$(F)$. We have $L/F$ a Galois splitting field of $A$, by assumption there exists $p$ a prime number dividing $[L:F]$ but not exp $A$. As $L/F$ is Galois $p$ divides its order and we have $H$ a Sylow p-subgroup of $G(L/F)$. Let $M$ be the field fixed by $H$. We have from cohomology that the restriction map composed with the corestriction map corresponds to multiplcation by the index $[G:H]$ and thus  we have a map Br($M) \to$ Br$(L)$ that corresponds to multiplication by $p$. As we have that exp$A$ is not divisible by $p$ and that $A \mapsto 0$ for splitting field $L$, $A$ must have been 0 in $M$ initially, thus yielding a splitting field of $A$ that is not divisible by $p$. The result follows. 
+\end{proof}
+
+\begin{lemma}
+If $D_{1}$ and $D_{2}$ are $F$-division algebras with relatively prime degrees $m \text{ and } n$ then the index of $D_{1} \otimes_{F} D_{2}$ is $mn$, and it is also a division algebra.
+  \end{lemma}
+
+  \begin{proof}
+    Let $L_{1}$ and $L_{2}$ be self-centralizing separable splitting fields in $D_{1}$ and $D_{2}$. We have that $L_{1}L_{2}$ must split $D_{1} \otimes_{F} D_{2}$, and thus the index of $D_{1}\otimes_{F} D_{2}\ | \ mn$ which is the dimension of the product field over the base field. Conversely, we have that ind$(L_{1} \otimes_{F}D_{1} \otimes_{F}D_{2}) =$ ind$(L_{1}\otimes_{F}D_{2}) \ | \ n$. If $K/L_{1}$ splits  $L_{1} \otimes D_{1}$ with $[K:L_{1}] = $ ind$(L_{1} \otimes_{F} D_{1})$ then $K$ splits $D_{1}$, so ind$D_{1} \ | \ [K:F] = \text{ind}(L_{1} \otimes_{F} D_{1}) \times [L_{1}:K]$ and as $n$ is coprime to $[L_{1}:K] = m$ we have that $n \ | \ \text{ind}(L_{1} \otimes_{F} D_{1}) \ | \ ind(D_{1}\otimes_{F} D_{1}$. A symmetric argument yields that $m$ must also divide $D_{1} \otimes_{F} D_{2}$ and thus it must equal $mn$ by coprimality. The result follows.         
+  \end{proof}
+
+  \begin{exercise}
+
+    Let $D$ be a central division $F$-algebra with deg$D = p_{1}^{e_{1}}  ...  p_{r}^{e_{r}}$ its
+standard factorization. Then there exists an $F$-algebra isomorphism
+$D = D_{1} \otimes_{F} ... \otimes_{F} D_{r}$ with $D_{i}$ a central $F$-division algebra with
+deg$D_{i} = p_{i}^{e_{i}}$ for all $i = 1, . . . , r$, unique up to isomorphism.
+\end{exercise}
+
+\begin{proof}
+  We have that the Brauer group of $F$ is a torsion abelian group, and that exp$[D]$ shares the same prime factors as ind$D$. Applying Chinese Remainder Theorem, we have that:
+
+  \[
+    <[D]> \ \cong \ \bigoplus_{i-1}^{r} <[D_{i}]>
+  \]
+
+  With the order of each $<[D_{i}]>$ some nonzero power of $p_{i}$. We have that each $D_{i}$ must necessarily be a division algebra as if one algebra contains a noninvertible element then the tensor product contains a noninvertible element. We have that the index and the exponent share the same prime factors and thus the index of each $D_{i}$ must be a power of $p_{i}$, and from the earlier lemma, as all the indices are coprime, that the tensor product $D_{1}\otimes_{F} ... \otimes_{F} D_{r}$ must be a division algebra. That deg$D_{i} = p_{i}^{e_{i}}$ follows immediately from the above. 
+  \end{proof}
+  \pagebreak
 
 
 \section{$C_{n}$-fields}
@@ -133,8 +171,16 @@ This section furthers on the ideas of the Central Simple Algebras section by int
 This section introduces the concept of a $C_{n}$-field, a field such that every homogenous polynomial of degree $d$ in more than $d^{n}$ variables has a nontrivial zero; i.e. we have that algebraically closed fields are $C_{0}$, so on and so forth. The Lang-Nagata and the Lang theorems provide two important classifications about such fields: one, a generalization of the Nullstellensatz to arbitrary $C_{n}$-fields, and the facts that all algebraic extensions $K/F$ of a $C_{n}$ field $F$ are $C_{n}$, though $F(t)$ for $t$ and indeterminate is always $C_{n+1}$. The concept is used to show Tsen's theorem; this chapter deals with a specific case of Tsen's theorem, namely the generalized quaternion algebras.
 
 \begin{exercise}
+Show if $A = \left(\frac{a,b}{F}\right)$ is a generalized quaternion algebra, then $A$
+is not a division $F$-algebra if and only if the quadratic polynomial
+$at_{1}^{2} + bt_{2}^{2} = 1$ has a non-trivial solution. In particular, if $a \neq 0 \text{ or } 1$,
+then $\left(\frac{a,1-a}{F}\right)$ is not a division F -algebra.
+\end{exercise}
 
-  \end{exercise}
+\begin{proof}
+If $A$ is not a division algebra then we have that $b$ must be a norm in the extension $F(\sqrt{a})$, i.e. that $b = x^{2} - ay^{2}$ for some $x, y \in F$. Thus, we have that $a\frac{y^{2}}{x^{2}} + \frac{b^{2}}{x^{2}} = 1 $ is a nontrivial solution. Similarly, if there is a nontrivial solution in $F$ for the above quadratic, then $b = \frac{1}{t_{2}^{2}}- at_{1}^{2}$, and is a norm in the quadratic extension over $a$.  
+  
+  \end{proof}
 
 
 \pagebreak
@@ -144,19 +190,7 @@ This section introduces the concept of a $C_{n}$-field, a field such that every 
 
 This section serves to present one of the motivations behind classifying semisimple rings. We introduce the idea of a group ring $R[G]$ as an algebra over some ring R or field F, with the algebra multiplication inherited from the group. The group ring thus may have an associated module N that it acts upon using the standard R-multiplication from the ring and some map $\phi:G \to Aut_{F}N$ such that the G-multiplication acts via the group action on N as an F-module. These maps are called representations. The section goes on to prove Maschke's Theorem, that every group ring over a field $F[G]$ is semisimple, i.e. completely reducible over itself as a module. Thus, every group ring over a field is isomorphic to some product $\mathbb{M}_{n_{1}}(D_{1}) \times ... \times \mathbb{M}_{n_{m}}(D_{m})$ unique up to order via the Artin-Wedderburn theorem. This yields several maps from the group into matrix rings over division rings, which can be restricted to maps $\phi_{i}: G \to GL_{n_{i}}(D_{i})$. These maps are the representations of G into some $Aut_{F}N$. 
 
-\begin{lemma}
-  
-  Let $A$ be a semisimple $F$-algebra with basic set $\{\mathfrak{A}_{i},...,\mathfrak{A}_{m}\}$. If $M$ is a nonzero irreducible $A$-module, then $M \cong \mathfrak{A}_{i}$ as an $A$-module for some $1 \leq i \leq r$. Let $m \in M$.
 
-\begin{proof}
-  
-    By the universal property of free modules, we have an $A$-module map $\psi: A \to M$ via $1_{A} \mapsto v$. As an $A$-module, being semisimple, we have that $A = \coprod_{i=1}^{r}\mathfrak{A}_{i}^{n_{i}}$. Given that $M$ is irreducible and contains no proper submodules, and clearly $\psi$ is not the zero map, we must have that $\psi(A) = M$. However, $\psi$ is an $A$-module map and thus must commute with coproduct. This means that
-  \[
-    \psi(A) = \psi\left(\coprod_{i=1}^{r}\mathfrak{A}_{i}^{n_{i}}\right) = \bigoplus_{i=1}^{r}\psi(\mathfrak{A}_{i})^{n_{i}} = M
-  \]
-
-  As M is irreducible, it contains no proper submodules, and thus there exists some unique $\mathfrak{A}_{i}^{(k)}$ s.t. $\psi(\mathfrak{A}_{i}^{(k)}) = M$. Furthermore, as every element of the basic set is a minimal left ideal, it must be an irreducible left $A$-submodule and contains no proper submodules, i.e. no kernels. Thus, $\psi|_{\mathfrak{A}_{i}^{(k)}}$ is an isomorphism, and we have the claim. \end{proof}
-\end{lemma}
 
 \begin{exercise}
 
@@ -216,14 +250,18 @@ This section introduces the notion of the character function, given by the trace
 
 \begin{exercise}
 Let $G$ be a finite group and $F$ be a field of positive
-characteristic $p$, and $G$ a p-group. Suppose that $\psi: G \to GL_{n}(F)$ is an
-irreducible representation, show that $\psi$ is the trivial representation.
+characteristic $p$, and $G$ a p-group. Suppose that $\phi: G \to GL_{n}(F)$ is a representation, show that $\phi$ must map every element of $G$ to $I$, the identity matrix. Furthermore, show that $\chi_{V}= \chi_{V'}$ if dim$_{F}V \equiv$ dim$_{F}V'$ mod $p$. 
 \end{exercise}
 
 \begin{proof}
 
-  Let $\psi: G \to GL_{n}(F)$ be an irreducible representation. We have that as $G$ is a p-group, there is an element $a$ in the center of order $p$. Thus, this element is a root of $t^{p} - 1 = (t - 1)^{p}$. Thus, under the representation $\psi$ we have $\psi(a)$ contains 1 as an eigenvalue, and thus there is at least one invariant subspace fixed by $a$, implying there is a basis where 1 lies on the diagonal of $\psi(a)$. As $a$ is in the center of $F[G]$ (in the center pf $G$) and $\psi$ is an irreducible representation we have that $\psi(a)$ must be a diagonal matrix with all entries equal. However, as there is a basis where 1 lies on the diagonal, this must mean all entries are 1 and thus  $a \in ker(\psi)$. Thus, the irreducible representation $\psi$ has $a$ in its kernel and can thus be restricted to an irreducible representation $\widetilde\psi: G/<a> \to GL_{n}(F)$. As $G/<a>$ is another $p$-group, we have another nontrivial kernel and by induction we have that $G \subset ker\psi$. This yields that $\psi$ must be the trivial representation into $F$. 
-  \end{proof}
+  Let $\psi: G \to GL_{n}(F)$ be an irreducible representation. We have that as $G$ is a p-group, there is an element $a$ in the center of order $p$. Thus, this element is a root of $t^{p} - 1 = (t - 1)^{p}$. Thus, under the representation $\psi$ we have $\psi(a)$ contains 1 as an eigenvalue, and thus there is at least one invariant subspace fixed by $a$, implying there is a basis where 1 lies on the diagonal of $\psi(a)$. As $a$ is in the center of $F[G]$ (in the center pf $G$) and $\psi$ is an irreducible representation we have that $\psi(a)$ must be a diagonal matrix with all entries equal. However, as there is a basis where 1 lies on the diagonal, this must mean all entries are 1 and thus  $a \in ker(\psi)$. Thus, the irreducible representation $\psi$ has $a$ in its kernel and can thus be restricted to an irreducible representation $\widetilde\psi: G/<a> \to GL_{n}(F)$. As $G/<a>$ is another $p$-group, we have another nontrivial kernel and by induction we have that $G \subset ker\psi$. This yields that $\psi$ must be the trivial representation into $F$. We furthermore have that for an arbitrary representation $\phi: G \to GL_{N}(F)$ and an associated dimension $n \ F$-vector space as an $F[G]$ there must exist a minimal irreducible submodule ($M$ is an artinian $F[G]$ module as a finite dimensional vector space). However, any irreducible submodule of $F[G]$ is acted on by the trivial representation, and thus we have that there is a fixed 1-dimensional subspace of $M$ under the action of $\phi$. We have a decomposition of the representation into $\phi = (\phi_{1}: G \to GL_{n-1}(F)) \times (\phi_{2}: G \to GL_{1}(F))$ with $\phi_{2}$ the trivial representation. Applying an inductive argument yields that:
+
+  \[
+    \phi = \prod_{i=1}^{n}\phi_{i} \text{ with each } \phi_{i}= \psi \text{, the trivial representation.}
+  \]
+  
+And thus any arbitrary representation must map every element of $G$ to $I$. Thus, the associated character $\chi_{V}:G \to F$ for any $n$-dimensional vector space $V$ is the constant function $\chi_{V}: x \mapsto n \text{ mod }p$. The result follows. \end{proof} 
 
 
 \pagebreak 
@@ -272,10 +310,11 @@ space, is absolutely irreducible if and only if End$_{F[G]}(V) = F$.
 \end{exercise}
 
 \begin{proof}
-
-``$\Rightarrow$'' 
   
-``$\Leftarrow$'' Applying Burnside's lemma on irreducible modules over $F$-algebras, we have that if $F = \text{End}_{F[G]}(V)$ then $L_{F[G]}(M) = \text{End}_{F}(M)$. In particular, $L_{F[G]}(M) = \mathbb{M}_{n}(F)$. Under the tensor product with the algebraic closure $\widetilde F$, we have that a dimension $n$ $F$-vector space is sent to a dimension $n$ $\widetilde F$-vector space, and that $\widetilde F \otimes_{F} F[G] = \widetilde F [G]$. We furthermore have that $L_{\widetilde F[G]}(M) = \widetilde F \otimes_{F} \mathbb{M}_{n}(F) =  \mathbb{M}_{n}(\widetilde F)$. Thus, given any two arbitrary vectors $m, n \in \widetilde F \otimes M$, we have an $a \in \widetilde F[G]$ s.t. $am = n$ (as image of $\widetilde F[G]$ under left multiplication is all endomorphisms of $\widetilde F \otimes_{F}M$. Thus, $M$ is a absolutely irreducible.  
+  ``$\Leftarrow$'' Applying Burnside's lemma on irreducible modules over $F$-algebras, we have that if $F = \text{End}_{F[G]}(V)$ then $L_{F[G]}(M) = \text{End}_{F}(M)$. In particular, $L_{F[G]}(M) = \mathbb{M}_{n}(F)$. Under the tensor product with the algebraic closure $\widetilde F$, we have that a dimension $n$ $F$-vector space is sent to a dimension $n$ $\widetilde F$-vector space, and that $\widetilde F \otimes_{F} F[G] = \widetilde F [G]$. We furthermore have that $L_{\widetilde F[G]}(M) = \widetilde F \otimes_{F} \mathbb{M}_{n}(F) =  \mathbb{M}_{n}(\widetilde F)$. Thus, given any two arbitrary vectors $m, n \in \widetilde F \otimes M$, we have an $a \in \widetilde F[G]$ s.t. $am = n$ (as image of $\widetilde F[G]$ under left multiplication is all endomorphisms of $\widetilde F \otimes_{F}M$. Thus, $M$ is a absolutely irreducible. \\ 
+
+  
+``$\Rightarrow$'' Applying Burnside's Lemma, we have that L$_{\widetilde F[G]}(V \otimes_{F}\widetilde F) = \mathbb{M}_{m}(\widetilde F)$ for some $m$, and thus that $(V \otimes_{F} \widetilde F) \cong \widetilde F^{m}$. We furthermore have L$_{\widetilde F[G]}(V \otimes_{F} \widetilde F) \cong$ L$_{F[G]}(V)$ and thus dim$_{F[G]}\text{L}_{F[G]}(V) = m^{2}$ and dim$_{F}V = m$. We additionally have that dim$_{F}L_{F[G]}(V) = d^{2}\text{dim}_{F}D$ for the division ring of $F[G]$ endomorphisms and the number $d^{2}$ for the dimension of the vector space over the division ring $D$ following from the map in Burnside's Lemma. Furthermore, dim$_{F}(V) = d \text{dim}_{F}D$. Thus, dim$_{F}D$ must be 1, and the result follows.
   \end{proof}
 \pagebreak
 

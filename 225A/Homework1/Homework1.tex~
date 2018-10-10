@@ -1,0 +1,112 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 1}
+\newcommand{\hmwkDueDate}{October 3rd, 2018}
+\newcommand{\hmwkClass}{Math 225A Differential Topology}
+\newcommand{\hmwkClassInstructor}{Professor Peter Petersen}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{exercise}
+  By generalizing stereographic projection define a diffeomorphism $S^{k} - \{N\} \to \mathbb{R}^{k}$.
+\end{exercise}
+
+\begin{proof}
+  We define stereographic projection by sending every point $x$ on the sphere $S^{k}$ to the intersection of the line from the north pole to the point $x$ and the plane of vectors perpendicular to the vector $\vec{N}$. Explicitly, the sphere $S^{k} = \{x \in \mathbb{R}^{k+1} \ | \ ||x|| = 1\}$, and so we set the north pole at $N = (0,...,1)$ and the south pole at $-N$. Given a point $x = (x_{1},...,x_{k}) \in S^{k} - N$, the line between $N$ and $x$ is given by $\overrightarrow{L(t)} = \{\vec{N} + t(\vec{N}-\vec{x}) \ | \ t \in \mathbb{R}\}$. We have that for $\langle \overrightarrow{L(t_{0})},\vec{N}\rangle = 0$ with the standard inner product on $\mathbb{R}^{k}$, we must have that $1 - t_{0}(1-x_{k}) = 0$. We cannot have that $x_{k} = 1$ as $x$ is not the north pole, and thus $t_{0}= \frac{1}{1-x_{k}}$ is a unique value of $t_{0}$ and thus there is only a single point at which the line intersects the hyperplane of all vectors perpendicular to $\vec{N}$ given by $(\frac{x_{1}}{1-x_{k}}, \frac{x_{2}}{1-x_{k}},..., \frac{x_{k-1}}{1-x_{k}},0)$. We know $\vec{N}^{\bot} = R^{k}\times\{0\} \cong R^{k}$ from linear algebra, yielding a well-defined function
+
+  \[\pi: S^{k} \to R^{k} \text{ via } (x_{1},...,x_{k}) \mapsto \left(\frac{x_{1}}{1-x_{k}}, \frac{x_{2}}{1-x_{k}},..., \frac{x_{k-1}}{1-x_{k}},0 \right) \]
+
+   
+\end{proof}
+
+
+\begin{exercise}
+The diagonal $\Delta \in X\times X$ is the set of points of the form $(x,x)$. Show that $\Delta$ is diffeomorphic to $X.$
+  \end{exercise}
+
+  \begin{proof}
+    We define a smooth map $f: X \to X \times X$ via $x \mapsto (x,x)$. We have that the map $f$ is continuous as for every $a$ s.t. $||x-a|| < \epsilon$ we have $||(x,x) - (a,a)|| < \sqrt{2\epsilon^{2}}$. We furthermore have that its derivative exists and is equal to (1,1), being the identity map in each coordinate. It is clearly injective, being the identity map in each coordinate, and surjective as every point in the diagonal is some element of $x$ in an ordered pair with itself. We define a map $\pi: X \times X \to X$ via $(x_{1},x_{2}) \mapsto x_{1}$, which is continuous and differentiable as it is a projection. Restricting $\pi$ to $\pi|_{\Delta}$ we have that $\pi|_{\Delta}\circ f = \text{Id}_{X}$ and vice versa as $x_{1} = x_{2}$ in $\Delta$. Thus, we have constructed an explicit diffeomorphism and $\Delta$ is diffeomorphic to $X$.  
+    \end{proof}
+
+    \begin{exercise}
+Show that if a function $f$ is smooth, then $F: X \to \text{graph}(f)$ by $x \mapsto (x,f(x))$ is a diffeomorphism. 
+      \end{exercise}
+
+      \begin{proof}
+        We have that the function $F$ must be continuous as it is continuous in each coordinate by similar logic as above. 
+        \end{proof}
+  \end{document}

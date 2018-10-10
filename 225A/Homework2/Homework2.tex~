@@ -1,0 +1,140 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 2}
+\newcommand{\hmwkDueDate}{October 10th, 2018}
+\newcommand{\hmwkClass}{Math 225A Differential Topology}
+\newcommand{\hmwkClassInstructor}{Professor Peter Petersen}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{exercise}
+Explicitly calculate the tangent space of a point $(a,b) \in S^{1}$ in terms of $a$ and $b$. 
+  \end{exercise}
+  \begin{proof}
+    From Homework 1 and earlier we have explicit parametrizations from $\mathbb{R}$ covering $S^{1}$ given by $\phi_{1}: (0,2\pi) \to S^{1}$ via $\theta \mapsto (\cos\theta, \sin\theta)$ and $\phi_{2}: \theta \mapsto (\sin(\theta + \pi), \cos(\theta + \pi))$. The corresponding linear transformation $D_{\phi_{i}}: T_{\theta}(\mathbb{R}) \to T_{(a,b)}(S^{1})$ is given by $(-\sin\theta, \cos\theta)$ or $(-\sin(\theta + \pi), \cos(\theta + \pi))$ for each parametrization; thus we have that the tangent space at each point $(a,b)$ is spanned by $(-b,a)$, the image of the linear transformation $D_{\phi_{i}}$. 
+    \end{proof}
+
+    \begin{exercise}
+Exhibit a basis for $T_{p}(S^{2})$ at an arbitrary point $p = (a,b,c)$.
+      \end{exercise}
+      \begin{proof}
+        The sphere is given by the equations $x^{2}+y^{2}+z^{2}-1=0$; let $f: \mathbb{R}^{3} \to \mathbb{R}$ be the function taking $(x,y,z) \to (x^{2}+y^{2}+z^{2}-1)$. Consider an arbitrary curve $r(t) = (x_{1}(t),x_{2}(t), x_{3}(t))$ on the sphere passing through a point $p$. The function $f(r(t))=0$, and so the derivative of $f(r(t))$ with respect to tis given by the chain rule:
+        \[
+          \frac{df(r(t))}{dt} = \frac{df(r(t))}{dx_{1}(t)}\frac{dx_{1}(t)}{dt} + \frac{df(r(t))}{dx_{2}(t)}\frac{dx_{2}(t)}{dt} + \frac{df(r(t))}{dx_{3}(t)}\frac{dx_{3}(t)}{dt}
+        \]
+        Which implies that the gradient (derivative of the level set) and the tangent to the curve are orthogonal at every point for any arbitrary curve on the sphere, i.e. that the gradient at a point is normal to every tangent vector at that point on the sphere (This step references exercise 12, which is proven later on). As the gradient is given by $(2x,2y,2z)$ for any given $(x,y,z)$ we have that the location vector is the normal vector.
+        We have a parametrizations covering $S^{2}$ given by stereographic projection, and roation composed with stereographic projection, and thus the tangent space to an arbitrary point must be two dimensional and it suffices to find two linearly independent vectors orthogonal to the location vector at $p$ to span the space orthogonal to $p$ and thus the tangent space at $p$. We may consider the vectors $(-b,a,0)$ and $(0,-c,b)$ at any point $p=(a,b,c)$, which both clearly orthogonal to $p$ and linearly independent, and thus span the tangent space at $p$. 
+         
+      \end{proof}
+
+      \begin{exercise}
+        Let 
+        \end{exercise}
+
+      \begin{exercise}
+      Prove that every vector in T$_{x}(X)$ is the velocity vector of some curve, and conversely.
+      \end{exercise}
+
+      \begin{proof}
+        Given a curve $c(t)$, we have that the difference quotient at $t_{0}$ is given by:
+
+        \[
+          \lim_{h \to 0} \frac{c(t_{0}+h) - c(t_{0})}{h} = \lim_{h \to 0} \frac{(c_{1}(t_{o}+h) - c_{1}(t_{0}), ...., c_{n}(t_{0}+h) - c_{n}(t_{0}))}{h}
+        \]
+
+        Which we may separate out componentwise to yield that the velocity vector is indeed given by $(c_{1}'(t_{0}),...,c_{n}'(t_{0}))$. In $\mathbb{R^{k}}$ we have that any vector $w=(x_{1},...,x_{k})$ is the velocity vector of the curve given by $c_{w}(t) = (x_{1}t,...,x_{k}t)$. Given an arbitrary point $x \in X$, we have a neighborhood that may be parametrized by some map $\phi$ such that $\phi^{-1}(x) = 0$ by precomposing with translation of the domain. We have that the differential of the map $D_{\phi}$ yields a linear map from $R^{k}$ to the tangent space $T_{x}(X)$, and thus the velocity vectors of curves in $\mathbb{R^{k}}$ are mapped to vectors in the tangent space at $x$. Under $\phi$, we have that smooth curves in $U \subset \mathbb{R}^{k}$ are mapped to smooth curves in $X$ and the velocity vectors of the curves in $\mathbb{R}^{k}$ are natural, i.e. by chain rule mapped under $D_{phi}$ to velocity vectors of their corresponding curves in $\phi(U)$. Thus, the velocity vectors of curves at $x \in X$ lie in the tangent space at $x$. Conversely, if $v$ is a tangent vector at $x$, we have a corresponding coordinate vector $w \in \mathbb{R}^{k}$ that maps to $v$, and thus the curve $c_{w}(t)$ in $U$ having $w$ as its velocity vector is mapped under $\phi$ to a curve in $\phi(U)$ having $v$ as its velocity vector. Thus, every vector in the tangent space at $x$ is the velocity vector of some curve at $x$.   
+        \end{proof}
+
+        \begin{exercise}
+          Suppose $Z$ is an $l$-dimensional submanifold of $X$ and that $z \in Z$. Show that there exists a local coordinate system $\{x_{1},...,x_{k}\}$ defined in a neighborhood $U$ of $z$ s.t. $Z \cap U$ is defined by the equations $x_{l+1}=0,...,x_{k} = 0$.
+        \end{exercise}
+
+        \begin{proof}
+          We have that the embedding induced by the inclusion of $Z \subset X$ is an immersion, and by the local immersion theorem we have that this map is locally equivalent to the canonical immersion near $z$. Viewing the map as an inclusion, we have that the local immersion theorem induces a coordinate system on some neighborhood $U$ that satisfies the property required, as the image of the inclusion map is $Z$ itself. We have a local equivalence to the canonical immersion $CI: W \to V$ for $W, V$ local parametrizations of nbhds of $z$ in $Z,X$. Intersecting $(\text{Im}(CI)\times \mathbb{R}^{k-l}) \cap V$ yields an open neighborhood of $U$ X that satisfies the condition that any coordinates with the last $k-l$ coordinates zero must lie in $\text{Im}(CI) \times \{0,...,0\}$, i.e. in $Z \cap U$. Thus we have the result. 
+        \end{proof}
+
+        \begin{exercise}
+          
+          \end{exercise}
+        \begin{exercise}
+          Check that $g:\mathbb{R}^{1} \to S^{1}$ via $g(t): t \mapsto (\cos 2\pi t, \sin 2\pi t)$ is a local diffeomorphism. Check that for $G: \mathbb{R}^{2} \to S^{1}\times S^{1}$ via $g \times g$, which is a local diffeomorphism, we have that any line $L$ in $R^{2}$ with irrational slope is mapped one-to-one onto the torus via $G$. 
+        \end{exercise}
+        \begin{proof}
+          Given any point $x \in \mathbb{R}$, we have that the differential matrix at $x$ is always at least of rank one, as it is a single nonzero column vector in $\mathbb{R}^{2}$, i.e. linearly independent. Furthermore, we may shrink to closed neighborhood $N$ of $x$ that is of the form $(\frac{k}{2},\frac{k+1}{2})$ for some $k$ and it is clear that $g|_{N}$ is both one-to-one and proper, and is thus an embedding mapping $N$ diffeomorphically onto a submanifold of $S^{1}$. The image of $N$ can be represented by the open triangle $K \subset \mathbb{R}^{2}$ subtended by the vectors $4(\cos k \pi, \sin k \pi)$ and $4(\cos((k+1)\pi), \sin(k+1(\pi)))$, intersected with the circle $S^{1}$. As such, it is open in $S^{1}$, yielding that is a local diffeomorphism onto some open neighborhood of $S^{1}$. \\
+          We have that $G$ is a local diffeomorphism that induces a one-to-one local diffeomorphism on $\mathbb{R}^{2}/\mathbb{Z}^{2}$ via the canonical surjection. If a line $L$ has irrational slope, we have that for any given point $x \in L/\mathbb{Z}^{2}$, if there are two points $a = (x,y),b = (x + h, y + kh) \in L$ with $k$ slope of $L$, $h \in \mathbb{R}$ s.t. $a \equiv b \text{ mod } \mathbb{Z}^{2}$ then we have both $h, kh \equiv 0$ mod $\mathbb{Z}$, which is not possible for $k$ irrational unless $h\equiv0$, given that no irrational number multiplied by an integer can yield another integer by definition. Thus, $L$ is mapped one-to-one on the canonical surjection and is therefore mapped one-to-one on the torus.           
+          \end{proof}
+      \end{document}.

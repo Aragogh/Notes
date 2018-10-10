@@ -1,0 +1,184 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 1}
+\newcommand{\hmwkDueDate}{October 3rd, 2018}
+\newcommand{\hmwkClass}{Math 225A Differential Topology}
+\newcommand{\hmwkClassInstructor}{Professor Peter Petersen}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{exercise}
+  Let $B_{a}$ be the open ball of radius $\sqrt{a}$ centered at the origin in $\mathbb{R}^{k}$. Show that
+  \[ x \to \frac{ax}{\sqrt{a^{2}-|x|^{2}}} \]
+is a diffeomorphism of $B_{a}$ onto $\mathbb{R}^{k}$. In particular, show that any point on a $k$-manifold has a neighborhood diffeomorphic to $\mathbb{R}^{k}$.
+  \end{exercise}
+
+  \begin{proof}
+    We may first check the map for the ball of radius 1 and then precompose with a linear scaling map. For the ball of radius 1, the map is
+    \[ x \to \frac{x}{\sqrt{1-|x|^{2}}} \]
+
+    We can compute the inverse for this map directly, via:
+
+    \begin{align*}  & \left|\frac{x}{\sqrt{1-|x|^{2}}}\right|^{2} = \frac{|x|^{2}}{1 - |x|^{2}} \\
+        \implies & |f(x)|^{2} + 1 = \frac{1}{1-|x|^{2}} \\
+                   \implies & f(x)* \frac{1}{\sqrt{f(x)}} =  \frac{x}{\sqrt{1-|x|^{2}}}*\sqrt{1-|x|^{2}} = x\\ \end{align*}
+
+                 And thus the inverse map is $g(y) = \frac{y}{\sqrt{1+|y|^{2}}}$. As the inverse exists and the domain is all of $R^{k}$ the function must be invertible on all of $R^{k}$ and thus bijective. We have that both maps are smooth and thus are diffeomorphisms. We may precompose this map with a diffeomorphic (as it is an invertible linear transformation) map $\lambda_{a}: B_{a} \to B_{1}$ via $\lambda_{a}: x \to \frac{x}{a}$. Composing these maps yields
+
+                 \[ x \to \frac{\frac{x}{a}}{\sqrt{1 - \left|\frac{x}{a}\right|^{2}}} = \frac{ax}{\sqrt{a^{2} - |x|^{2}}}\]
+As desired. In particular, we have that for any point $x \in X$ a $k$-manifold, there is an open neighborhood $x \in U \subset X$ diffeomorphic via a map $f$ to an open neighborhood $V$ of $\mathbb{R}^{k}$, which we may consider s.t. $f(x) = 0$ via translation being a diffeomorphism in $\mathbb{R}^{k}$. Thus, there must exist an open neighborhood $x \in N \subset X$ s.t. $f(N) = B_{a} \in V$ for some radius $a$ by $V$ being open in a metric space. By composing diffeomorphisms, we have that $N$ must be diffeomorphic to $\mathbb{R}^{k}$. 
+    \end{proof}
+\begin{exercise}
+Explicitly exhibit enough parametrizations to cover $S^{1}\times S^{1} \subset \mathbb{R}^{k}$
+  \end{exercise}
+
+  \begin{proof}
+    As $S^{1} \ = \ \{(\cos\theta,\sin\theta) \ | \ \theta \in [0,2\pi)\}$ we may define a coordinate system on $S^{1}$by using the transform to polar coordinates and omitting the radius as an invariant coordinate, i.e. using $\theta$. Thus, we have a coordinate system on $S^{1}\times S^{1}$ using $(\theta,\psi) \in (\mathbb{R}/\{0 \sim  2\pi\})^{2}$. We have an explicit map $\phi: (0,2\pi) \times (0,2\pi) \subset R^{2} \to S^{1}\times S^{1}$ via this coordinate system. We have that $S^{1}\times S^{1} \setminus \text{Im}\phi = [0,2\pi) \times \{0\} \cup \{0\} \times [0,2\pi)$. We may cover this subset by applying the map $\phi$ and composing it with $\sigma: S^{1}\times S^{1} \to S^{1} \times S^{1}$ via $(a,b) \mapsto (a+\pi, b+\pi)$. Thus, our two parametrizations are $\phi$ and $\sigma \circ\phi$, and these cover $S^{1}\times S^{1}$.   
+    \end{proof}
+\begin{exercise}
+  By generalizing stereographic projection define a diffeomorphism $S^{k} - \{N\} \to \mathbb{R}^{k}$.
+\end{exercise}
+
+\begin{proof}
+  We define stereographic projection by sending every point $x$ on the sphere $S^{k}$ to the intersection of the line from the north pole to the point $x$ and the plane of vectors perpendicular to the vector $\vec{N}$. Explicitly, the sphere $S^{k} = \{x \in \mathbb{R}^{k+1} \ | \ ||x|| = 1\}$, and so we set the north pole at $N = (0,...,1)$ and the south pole at $-N$. Given a point $x = (x_{1},...,x_{k}) \in S^{k} - N$, the line between $N$ and $x$ is given by $\overrightarrow{L(t)} = \{\vec{N} + t(\vec{N}-\vec{x}) \ | \ t \in \mathbb{R}\}$. We have that for $\langle \overrightarrow{L(t_{0})},\vec{N}\rangle = 0$ with the standard inner product on $\mathbb{R}^{k}$, we must have that $1 - t_{0}(1-x_{k}) = 0$. We cannot have that $x_{k} = 1$ as $x$ is not the north pole, and thus $t_{0}= \frac{1}{1-x_{k}}$ is a unique value of $t_{0}$ and thus there is only a single point at which the line intersects the hyperplane of all vectors perpendicular to $\vec{N}$ given by $(\frac{x_{1}}{1-x_{k}}, \frac{x_{2}}{1-x_{k}},..., \frac{x_{k-1}}{1-x_{k}},0)$. We know $\vec{N}^{\bot} = R^{k}\times\{0\} \cong R^{k}$ from linear algebra, yielding a well-defined function
+
+  \[\pi: S^{k} \to R^{k} \text{ via } (x_{1},...,x_{k}) \mapsto \left(\frac{x_{1}}{1-x_{k}}, \frac{x_{2}}{1-x_{k}},..., \frac{x_{k-1}}{1-x_{k}} \right) \]
+
+  We may recover the initial coordinate $x_{i}$ via:
+
+  \begin{align*}
+    &\frac{2x_{i}}{1-x_{k}} * \frac{1}{1+ \sum_{i=1}^{k-1}\left(\frac{x_{i}}{1-x_{k}}\right)^{2}} \  = \ \frac{2x_{i}}{1-x_{k}}*\frac{(1-x_{k})^{2}}{(1-x_{k})^{2}+ \sum_{i=1}^{k-1}x_{i}^{2}} \\
+    = & \ 2x_{i}*\frac{(1-x_{k})}{1- 2x_{k} + \sum_{i=1}^{k}x_{i}^{2}} \ = \ 2x_{i}*\frac{1-x_{k}}{2-2x_{k}} \ = \ x_{i}
+  \end{align*}
+  
+  As $\sum_{i=1}^{k}x_{k}^{2} = 1$ on the $k$-sphere. We may also recover the coordinate $x_{k}$ via:
+
+  \begin{align*}
+    &\left[-1 + \sum_{i=1}^{k-1}\left(\frac{x_{i}}{1-x_{k}}\right)^{2}\right] * \frac{1}{1+ \sum_{i=1}^{k-1}\left(\frac{x_{i}}{1-x_{k}}\right)^{2}} \  = \ \frac{2x_{k}-2x_{k}^{2}}{(1-x_{k})^{2}}*\frac{(1-x_{k})^{2}}{(1-x_{k})^{2}+ \sum_{i=1}^{k-1}x_{i}^{2}} \\
+    = & \ \frac{(2x_{k}-2x_{k}^{2})}{1- 2x_{k} + \sum_{i=1}^{k}x_{i}^{2}} \ = \ \frac{2x_{k}-2x_{k}^{2}}{2-2x_{k}} \ = \ x_{k}
+  \end{align*}
+  
+  We thus have a well defined inverse $g: \mathbb{R}^{k}\to S^{k}-\{N\}$ via the equation above:
+
+  \[ (X_{1},...,X_{k-1}) \mapsto \left(\frac{2X_{1}}{1+\sum_{j=1}^{k-1}(X_{j})^{2}},...,\frac{2X_{k-1}}{1+\sum_{j=1}^{k-1}(X_{j})^{2}}, \frac{-1 + \sum_{j=1}^{k-1}X_{j}^{2}}{1+\sum_{j=1}^{k-1}(X_{j})^{2}}\right)
+  \]
+
+  Both maps are smooth and thus we have explicitly constructed a diffeomorphism.
+  \end{proof}
+  
+  \begin{exercise}
+    Show that all tori are diffeomorphic to $S^{1}\times S^{1}$
+  \end{exercise}
+
+  \begin{proof}
+    The torus is the set of all points that are at a distance $b$ from a circle of radius $a$. Suppose a point on the circle of radius $a$, which we assume lies on the $xy$-plane, is such that the distance from it to some point $(x_{1},x_{2},x_{3})$ is minimal then
+
+    \begin{align*}
+      & \frac{\partial}{\partial\theta}[(x_{1}-a\cos\theta)^{2}+(x_{2}-a\sin\theta)^{2}+(x_{3})^{2}] = 0 \\
+      \implies & - 2(x_{1}-a\cos\theta)a\sin\theta + 2(x_{2}-a\sin\theta)a\cos\theta = 0 \\
+      \implies & x_{1}\sin\theta + a\cos\theta\sin\theta - a\cos\theta\sin\theta + x_{2}\cos\theta = 0 \\
+      \implies & x_{1}\sin\theta - x_{2}\cos\theta = 0
+    \end{align*}
+
+    And thus the point $(x_{1},x_{2},x_{3})$ must be perpendicular to $(\sin\theta, -\cos\theta,0)$ which is the vector tangent to the circle at $a$ for $d(a,x)$ minimal. Thus, any point on the torus must lie on the circle of radius b parallel to the location vector of some point on the circle of radius $a$ as the distance to the circle is minimal and must be $b$. We may thus explicitly define a map from $S^{1}\times S^{1}$ to the torus using the $(\theta,\psi)$ coordinate system above as follows:
+
+    \[ f: S^{1}\times S^{1} \to \mathbb{R}^{3} \text{ via } (\theta,\psi) \mapsto a\begin{pmatrix} \cos\theta \\ \sin\theta \\ 0 \end{pmatrix} + b\begin{pmatrix}  \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\  0 & 0 & 1 \end{pmatrix}\begin{pmatrix} \cos\psi \\ \sin\psi \\ o \end{pmatrix} 
+    \]
+
+    The map above maps $\theta$ to the circle of radius $a$, and maps $\psi$ to the circle of radius b parallel to $(\cos\theta, \sin\theta, 0)$ which characterizes every point on the torus from above. Thus, the map $f$ is onto, and being a sum of smooth functions and linear transformations of smooth functions, it must also be smooth. We may construct an inverse on the torus by considering the angle of the point on the circle of radius $a$ that is closest to the point $(x_{1},x_{2},x_{3})$ in consideration, i.e. $\tan^{-1}(\frac{x_{2}}{x_{1}})$, and applying the inverse rotation
+
+    \[ \begin{pmatrix}  \cos(-\theta) & -\sin(-\theta) & 0 \\ \sin(-\theta) & \cos(-\theta) & 0 \\  0 & 0 & 1 \end{pmatrix} \begin{pmatrix}x_{1} \\ x_{2} \\ x_{3} \end{pmatrix} = \begin{pmatrix} y_{1} \\ y_{2} \\ y_{3} \end{pmatrix}\]
+
+Applying $\tan^{-1}(\frac{y_{3}}{y_{1}}$ yields the angle of the point on the circle of radius $b$ on the circle of radius $a$. It is easy to check that these functions are inverses and are both smooth, yielding the diffeomorphism.    
+    \end{proof}
+  
+\begin{exercise}
+The diagonal $\Delta \in X\times X$ is the set of points of the form $(x,x)$. Show that $\Delta$ is diffeomorphic to $X.$
+  \end{exercise}
+
+  \begin{proof}
+    We define a map $f: X \to X \times X$ via $x \mapsto (x,x)$. It is clearly well-defined and injective, being the identity map in each coordinate, and surjective as every point in the diagonal is some element of $x$ in an ordered pair with itself. We define a map $\pi: X \times X \to X$ via $(x_{1},x_{2}) \mapsto x_{1}$, which is continuous and differentiable as it is a projection. Restricting $\pi$ to $\pi|_{\Delta}$ we have that $\pi|_{\Delta}\circ f = \text{Id}_{X}$ and vice versa as $x_{1} = x_{2}$ in $\Delta$. We have that the map $f$ is continuous as every open set in the product topology must project to an open set in $X$; thus, for a set $U \subset \Delta$ open we have that it projects down to an open set $U_{0} \in X$ which by the invertibility yields that it must be the preimage of $U$. We furthermore have that its derivative exists and is equal to (1,1), being the identity map in each coordinate. Thus, we have constructed an explicit diffeomorphism and $\Delta$ is diffeomorphic to $X$.  
+    \end{proof}
+
+    \begin{exercise}
+Show that if a function $f$ is smooth, then $F: X \to \text{graph}(f)$ by $x \mapsto (x,f(x))$ is a diffeomorphism. 
+    \end{exercise}
+    \begin{proof}
+    We have that the function $F$ must be smooth as it contains continuous partial derivatives of all orders in each coordinate, given that both the identity and the map $f$ are smooth. The map is injective as the identity map is one-to-one, and thus there cannot exist two points $a, x \in X$ s.t. $F(a) = F(x)$ in the first coordinate. Furthermore, the map is surjective as any point in the graph of $f$ is of the form $(x,f(x))$ and so has a point $x$ in $F^{-1}\{(x,f(x)\}$. By similar logic as in the previous question, we may use the projection map $\pi_{X}: X \times Y \to X$ as an inverse for the map $F$, which, being smooth, yields that $F$ is a diffeomorphism. 
+    \end{proof}
+    
+  \end{document}
