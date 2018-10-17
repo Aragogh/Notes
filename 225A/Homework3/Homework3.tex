@@ -1,0 +1,101 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 3}
+\newcommand{\hmwkDueDate}{October 17th, 2018}
+\newcommand{\hmwkClass}{Math 225A Differential Topology}
+\newcommand{\hmwkClassInstructor}{Professor Peter Petersen}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{exercise}
+Show that if $f: X \to Y$ is a submersion then $f$ maps open sets to open sets.
+  \end{exercise}
+
+  \begin{proof}
+    By the local submersion theorem, we have that $f$ is locally equivalent to the canonical submersion for $x \in X$,$y\in Y$ s.t. $f(x) = y$ is a submersion. Let $U \subset X$ be an open set containing $x \in X$. Without loss of generality, we may select a neighborhood $x \in N(x)$ with local coordinates for $N(x), f(N(x))$ fulfilling the local submersion theorem, and shrink $N(x)$ s.t. $N(x) \subset U$. The product topology on $R^{n}$ for $N(x)$ diffeomorphic to $V \subset R^{n}$ yields that the projection of any open set onto any subspace yields an open set, i.e. that the projection map is an open map. As $f$ is equivalent to the canonical submersion for $N(x)$, we have that the image of $f$ on $N(x)$ must be an open set in $Y$. Thus, for any arbitrary $x \in f(U)$ we have a neighborhood $f(x) \in f(N(x)) \subset f(U)$ as constructed above, yielding the claim.
+  \end{proof}
+
+  \begin{exercise}
+    Show that every submersion of a compact space into a connected space is surjective. In particular, show that there exist no submersions of compact manifolds into Euclidean spaces.
+  \end{exercise}
+
+  \begin{proof}
+    From the previous exercise, we have that the image of an open set under a submersion is an open set. Thus, for $f:X \to Y$ with $X$ compact, $Y$ connected, we have that the image $f(X)$ must be open as $X \subset X$ open. However, $X$ is compact, $f$ is continuous, and thus $f(X)$ must be closed. As $Y$ is connected, this implies the only clopen set is $Y$ itself, and thus $f(X) = Y$. In particular, we have that as Euclidean space is connected and not compact, there are no continuous surjections from a compact space to all of Euclidean space and therefore no submersions.
+  \end{proof}
+
+  
+\end{document}
