@@ -1,0 +1,12 @@
+#include <iostream>
+
+int main()
+{
+  int odostrt;
+  int odoend;
+  int days;
+
+  cout << "Odometer at start:";
+  cin >> odostrt;
+  cout << "odometer at end:" 
+  
