@@ -1,0 +1,35 @@
+a) Initially, I had an idea to do a series of if-else statements that would assign each situation case numbers that could then be toggled via a switch statement. Originally, having had to miss class on Monday due to an emergency, I was not sure if we had covered switch statements and I was unsure of how to go about tackling the problem. I managed to do it through an extensive set of nested if-else statements that switched each case as I required, which while messy, did not take too much work to write.
+
+b) Test data to test the program would have to be done case-wise: i.e. to test the starting odometer being negative, the test data would have to not violate any other conditions or the one line appearing need not specifically cater to the issue of the starting odometer being negative, given that the cases are given different orders of testing in the if-else statements. The following test data are listed by order of input, separated by semicolons.
+
+For negative odometer reading:
+
+-10;10;3;Generic Name With Spaces;y;5
+
+
+If the ending odometer reading is less than the starting reading:
+10;4;3;Generic Name With Spaces;y;5
+
+If the number of rental days is not positive:
+10;14;-4;Generic Name With Spaces;y;5
+
+If an empty string was provided for the customer name:
+10;14;4;;y;5
+
+If the luxury status is not y or n (must be lower case):
+10;14;4;Generic Name With Spaces;Yes;5
+(this case retrieves the Yes as a cin, and so only retrieves the first string amongst a spaced set of strings;
+i.e. for y Yes, the program would run as normal, given that only the first string need be read for this input.
+I was unsure if the spec required that any input that was not strictly y or n, i.e. had a second word, should
+produce an error message.)
+
+
+If the month number is not an integer between 1 and 12 inclusive:
+10;14;4;Generic Name;y;0 or 10;14;-4;Generic Name;y;16
+
+
+If the input is valid and none of the preceding situations holds:
+1060;1223;7;Generic Name With Spaces;y;5
+
+
+

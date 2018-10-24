@@ -1,0 +1,66 @@
+1. The output would be
+endlendl
+grendel
+
+2. The program prints an increasing sequence of "#" signs until the number that was entered (if the number was positive), i.e. if the number was 6 the output would be one row each first of one #, then another row of ## in a different line, then ### in a different line, and so on and so forth until the ith row with i '#' signs. 
+
+3. The program may be rewritten as below:
+
+#include <iostream>
+	using namespace std;
+
+	int main()
+	{
+	    int side;
+
+	    cout << "Enter a number: ";
+	    cin >> side;
+
+	    for (int i = 0; i < side; i++)
+	    {
+	    int j = i
+		while (j >= 0)
+		{
+		    cout << "#";
+		    j--;
+		}
+		cout << "\n";
+	    }
+	}
+
+
+4. #include <iostream>
+	using namespace std;
+
+	int main()
+	{
+	    int side;
+	    int i = 1;
+
+	    cout << "Enter a number: ";
+	    cin >> side;
+
+	    do {
+	        int j = i
+		while (j >= 0)
+		{
+		    cout << "#";
+		    j--;
+		}
+		cout << "\n";
+		i++;
+		}while (int i < side);
+		cout << "\n";
+	    }
+	}
+
+5. Assuming namespace std is being used, and that codeSection was previously defined as an int
+
+	switch(codeSection)
+		{
+		case 281: cout << "bigamy"; break;
+		case 321: cout << "selling illegal lottery tickets"; break;
+		case 383: out << "selling rancid butter"; break;
+		case 598: cout << "injuring a bird in a public cemetery";
+		default: cout << "some other crime"; break; 
+		} 

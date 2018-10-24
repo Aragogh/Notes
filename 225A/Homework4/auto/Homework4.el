@@ -1,5 +1,5 @@
 (TeX-add-style-hook
- "Homework3"
+ "Homework4"
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-package-options
                      '(("algorithm" "plain")))
@@ -11,6 +11,7 @@
     "extramarks"
     "amsmath"
     "amsthm"
+    "amssymb"
     "amsfonts"
     "tikz"
     "algorithm"

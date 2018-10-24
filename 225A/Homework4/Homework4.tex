@@ -1,0 +1,167 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 4}
+\newcommand{\hmwkDueDate}{October 24th, 2018}
+\newcommand{\hmwkClass}{Math 225A Differential Topology}
+\newcommand{\hmwkClassInstructor}{Professor Peter Petersen}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{exercise}
+Show that every connected manifold is arcwise connected.
+  \end{exercise}
+
+  \begin{proof}
+    From lectures and by assumption of the problem, we have that homotopy is an equivalence relation on maps. Given any two points $x_{0}$ and $x_{1}$ that can be connected by a path $f: [0,1] \to X$ s.t. $f(0) = x_{0}$ and $f(1) = x_{1}$. We may extend the function $f$ to a function $F:[0,1] \times [0,1] \to X$ given by $F(x,y) = f(y)$ for all $x,y \in [0,10]$. This yields a homotopy from the constant map to $x_{0}$ to the constant map to $x_{1}$. Similarly, any homotopy $G$from the constant map from the interval to $x_{0}$ to the constant map from the interval to $x_{1}$ yields a smooth map $F_{x}: [0,1] \to X$ with $F_{x}(0) = x_{0}$ and $F_{x}(1) = x_{1}$ with $F_{x} (y) = G(x,y)$ at a fixed $x$. Thus, any homotopy between two constant maps yields a path, and vice versa. Thus, two points being equivalent if they are connected by a path is an equivalence relation (as homotopy is an equivalence relation). We have that the set of all points $A$ that can be connected by smooth paths is open, as every point on a manifold has a neighborhood that is diffeomorphic to an open ball in $\mathbb{R}^{k}$, and every point in an open ball can be connected via a straight line, which is a smooth map. Similarly, the set of all points that can be connected by smooth paths is closed, as any adherent point $a$ has an open neighborhood $N$ diffeomorphic to a ball s.t. $N \cap A \neq \varnothing$. Thus, by logic before, there is a smooth path connecting $a$ and a point in $N$, yielding that $a \in N$. By connectedness, $A$ must be the whole manifold. 
+    \end{proof}
+
+    \begin{exercise}
+      Show that all contractible manifolds are simply connected.
+      \end{exercise}
+
+      \begin{proof}
+        Let $X$ be a contractible manifold, i.e. there exists a homotopy $F:X \times I \to X$ s.t. $F(x,1)$ is the constant map $G:X \to {x_{0}} \in X$. Given any map $g: S^{1} \to X$, we may restrict the homotopy $F$ to the image of $g$, yielding a homotopy from the image of the smooth map to a point.  
+        \end{proof}
+
+        \begin{exercise}
+          Show that the antipodal map on $S^{k}$ is homotopic to the identity when $k$ is odd.
+        \end{exercise}
+        \begin{proof}
+          If $k$ is odd, we have that $k$ embeds in $\mathbb{R}^{k+1}$. The antipodal map sending $x \mapsto -x$ can be extended to a linear map sending $x \mapsto -x$ in $\mathbb{R}^{k+1}$. We have that $k+1$ is even, and so we can break a $k+1 \times k+1$ matrix into $\frac{k+1}{2}$ $2 \times 2$ Jordan blocks on the diagonal of the following form:
+
+          \[
+            A_{i}(t): \mathbb{R}^{k+1} \times I \to \mathbb{R}^{k+1}: \begin{pmatrix} \cos t \pi & -\sin t \pi \\ \sin t \pi & \cos t \pi \end{pmatrix}
+          \]
+
+          With $t \in I$ and $i = 1 ... \frac{k+1}{2}$. We must show that the function $A_{i}(t)$ is smooth in $t$, as thus it is a smooth homotopy from $I$ to $-I$ where $I$ is the identity matrix. The difference quotient is given by:
+
+          \[
+            \lim_{t \to a} \frac{\begin{pmatrix} \cos t \pi & -\sin t \pi \\ \sin t \pi & \cos t \pi \end{pmatrix} - \begin{pmatrix} \cos a \pi & -\sin a \pi \\ \sin a \pi & \cos a \pi \end{pmatrix}}{t-a} = \begin{pmatrix} - \pi \sin t \pi & - \pi \cos t \pi \\ \pi \cos t \pi & \pi \cos t \pi \end{pmatrix} \Bigg|_{t=a}
+            \]
+Which is continuous at all $a$, yielding that that it is continuously differentiable and thus smooth. This yields the desired homotopy on Euclidean space, and thus the desired homotopy on $S^{k}$.
+          \end{proof}
+
+
+          \begin{exercise}
+            Show that T$(\mathbb{R}^{k}) = \mathbb{R}^{k} \times \mathbb{R}^{k} $.
+          \end{exercise}
+
+          \begin{proof}
+            We have that $\mathbb{R}^{k}$ is a manifold with a local parametrization given by translation to the origin: thus, the tangent space $T_{x}(\mathbb{R}^{k}) = \mathbb{R}^{k}$ for any point $x \in \mathbb{R}^{k}$, as this is the induced map on the vector space based at the origin. Thus, the tangent space $T(\mathbb{R}^{k}) = \mathbb{R}^{k} \times \mathbb{R}^{k}$, with the first coordinate being the point in $\mathbb{R}^{k}$ and the second coordinate being the vector of the tangent space at that point. 
+            \end{proof}
+            \pagebreak
+            
+            \begin{exercise}
+              Show that the tangent bundle to $S^{1}$ is diffeomorphic to $S^{1} \times \mathbb{R}^{1}$
+              \end{exercise}
+
+              \begin{proof}
+                We have from prior homeworks that the tangent space at any given point $(a,b) \in S^{1}$ is spanned by the vector $(-b,a)$, and is one-dimensional. Thus, we may reparametrize the tangent bundle for $S^{1}$ via $f: S^{1}\times \mathbb{R}^{1} \to T(S^{1})$ via $((a,b),t) \mapsto ((a,b), t(-b,a))$. This map is clearly surjective, as the entire tangent space is spanned by $(-b,a)$ at each point. We also have that the map is one-to-one; fixing the first coordinate, it is a linear isomorphism from $\mathbb{R} \to T_{(a,b)}(S^{1})$, and it is the identity in the first coordinate. Furthermore, the partial derivatives exist for both coordinates and are continuous. For the first coordinate fixed, the map is smooth. Furthermore, the map from the first coordinate is smooth, being the identity. Thus, the partials derivatives exist and are continuous, and both partials are nonsingular, implying that the derivative is invertible. The result follows by IFT. 
+              \end{proof}
+
+              \begin{exercise}
+                Verify that a cross section of T(X) for a manifold X is a vector field on X.
+                \end{exercise}
+
+                \begin{proof}
+                  A cross section is a smooth map $\vec{v}: X \to T(X)$ with $p \circ \vec{v} = Id_{X}$. We have that the projection onto the second coordinate, given by $p_{2} \circ \vec{v}$ yields a smooth map $X \to \mathbb{R}^{N}$ with each $x \mapsto T_{x}(X)$ (as projection onto the first coordinate is the identity, we have that the second coordiante must be a vector in the corresponding tangent space of that point). This, by definition, is a vector field on $X$, as every $x \mapsto v \in \mathbb{R}^{N}$ with $v \in T_{x}(X)$.   
+                \end{proof}
+
+                \begin{exercise}
+                  Show that if $k$ is odd, there is a vector field on $S^{k}$ having no zeros.
+                \end{exercise}
+
+                \begin{proof}
+                  We have that as $k$ is odd, $S^{k}$ embeds in $R^{k+1}$ as the set of all points with unit norm. As $k+1$ is even, we may group the coordinates pairwise and define our map by $(x_{1},...,x_{k}) \mapsto (-x_{2},x_{1},...,-x_{i+1},x_{i},...,-x_{k+1},x_{k})$. Each of these vectors is tangent to the sphere, as the normal vector to any point on the sphere is the location vector of that sphere, by taking the gradient of the level curve $x_{1}^{2}+...+x_{k+1}^{2} - 1 = 0$, and $-x_{1}x_{2} + x_{1}x_{2} + ... -x_{k}x_{k+1} + x_{k}x_{k+1} = 0$, implying that the two vectors are orthogonal. At every point, this map is a linear isomorphism, and we have that the map is smooth as all the partials exist and are continuous. Finally, as at any given point at least one coordinate is nonzero, we have that the image contains no zeros as at least one coordinate is nonzero.
+                \end{proof}
+
+                \begin{exercise}
+                  Prove that if $S^{k}$ has nonvanishing vector field then its antipodal map is homotopic to the identity.
+                \end{exercise}
+                \begin{proof}
+                  If $S^{k}$ has a nonvanishing vector field, then we have a map $\vec{v}: S^{k} \to R^{k}$ that is smooth s.t. it is nonzero on every point. We may normalize this field to a map $\vec{v}: S^{k} \mapsto S^{k}$ by normalizing the image of each point. We have a homotopy on $S^{k}$ given by $f_{t}:S^{k} \to S^{k}$ via $x \mapsto (\cos t\pi)x + (\sin t\pi)\vec{v}(x)$. This map is formed via composition and addition of smooth maps and is thus a smooth map in $x$. Furthermore, at every $t$, the map maps to $S^{k}$, and is clearly smooth in $t$. Thus, we have a smooth map on $S^{k}\times I \to S^{k}$ s.t. $f_{0} = Id_{S^{k}}$ and $f_{1} = -Id_{S^{k}}$. Thus, the identity is homotopic to the antipodal map.                   
+                \end{proof}
+
+                \begin{exercise}
+                  Prove that every $k$-dimensional manifold may be immersed in $\mathbb{R}^{2k}$
+                \end{exercise}
+
+                \begin{proof}
+                  We have that every $k$-dimensional manifold has an embedding $f$ in $\mathbb{R}^{2k+1}$. We have that the tangent space is of dimension $2k$, and thus by Sard's theorem there is a point that is not in the image of the embedding. We pick a point $a$ that is not in the image of the induced map on the tangent space, given by $G: (x,v) \mapsto df_{x}(v)$. We may take the orthogonal projection $H$ onto the complement of this vector $a$. Suppose $d(H \circ f)$ is not injective for some $x$, we have that $dH_{f} \circ df_{x}(v) = 0$ for some vector $v \in T_{x}(X)$. However, this implies that $df_{x}(v) = ta$ for some $t$, which is a contradiction as by assumption $a \notin G(T(X))$. Thus, we have an immersion onto the orthogonal complement of $a$, which is isomorphic to $\mathbb{R}^{2k}$. 
+                  \end{proof}
+\end{document}
