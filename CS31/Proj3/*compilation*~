@@ -1,0 +1,6 @@
+-*- mode: compilation; default-directory: "~/Notes/CS31/Proj3/" -*-
+Compilation started at Mon Oct 29 21:37:13
+
+g31 -o poll poll.cpp
+
+Compilation finished at Mon Oct 29 21:37:13
