@@ -41,18 +41,21 @@ int stuffandthings(string whatshappening)
     case 'd':
       j--;
       if(isdigit(whatshappening[j])) {
+	int temp = j;
 	while(isdigit(whatshappening[j])){
 	  j--;
 	}
+	if(temp - j > 2)
+	  k*=0; 
       }
       else{
 	k *= 0;
 	j = -1;
       }
-      break;
+      break;   
     default: k*=0; j = -1;
-			 }
     }
+  }
     return k;
 }
 
@@ -61,6 +64,9 @@ bool hasProperSyntax(string omgwhat){
   //is invalid, the result multiplies to 0, otherwise it's 1 and is proper syntax
   int k=1;
   string wow;
+  const int j = omgwhat.size() - 1;
+  if(omgwhat[0] == ',' || omgwhat[j] == ',')
+    return false; 
   for(int i=0; i != omgwhat.size();i++){
     if( omgwhat[i] == ',' )
       {
@@ -85,7 +91,7 @@ int countthings(string ermahgerd, char suchwow)
   for(int i = ermahgerd.size() - 1; i > 1; i--){
     if(ermahgerd[i] != suchwow)
       continue;
-    for(int j = i-2; j>1 && j<i ; j++){
+    for(int j = i-2; j>0 && j<i ; j++){
       if( isdigit(ermahgerd[j]) ){
 	lolz *= 10;
 	lolz += (ermahgerd[j] - '0');
@@ -100,20 +106,22 @@ int countthings(string ermahgerd, char suchwow)
 int tallySeats(string pollData, char party, int& seatTally)
 {
   string wow;
-  if(!hasProperSyntax(pollData))
+  int seats = 0;
+  if(hasProperSyntax(pollData) != true)
     return 1;
-  else if(toupper(party) != 'D' || toupper(party) != 'R' || toupper(party) != 'I')
+  else if(toupper(party) != 'D' && toupper(party) != 'R' && toupper(party) != 'I')
     return 2;
   for(int i = 0; i != pollData.size();i++){
     if( pollData[i] == ',' )
       {
-  	seatTally += countthings(wow, party);
+  	seats += countthings(wow, party);
         wow = "";
   	continue;
       }
     wow += pollData[i];
   }
-  seatTally += countthings(wow,party);
+  seats += countthings(wow,party);
+  seatTally = seats;
   return 0;
  }
 
@@ -131,6 +139,3 @@ int main()
   cout << "Predicted seats for " << party << " is " << seats << endl;  
 
 }
-
-
-  

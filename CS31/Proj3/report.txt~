@@ -1,0 +1,33 @@
+a. Notable obstacles I overcame were misreading the spec the first time and having to rewrite the way the program verified valid polldata;
+luckily it was a quick fix from a ++ to a --, but a significant amount of initial panic. Deciding a way in which to simplify the pollData
+reading was also a little bit of a challenge, as instinct was not to use, as I had done, additional functions to solve the issue.
+
+b. For each function, I simplified the problem by breaking it down into each comma-separated component. Thus, we have
+functions "stuffandthings" and "countthings", which verify that a comma-separated component is valid and counts it respectively, in addition to the provided isValidUppercaseStateCode
+
+stuffandthings (string)
+	int k=0
+	check if empty string: if so, return 1
+	check capitalised first two letters valid state code
+	      if so, k=1
+	check each character going backwards, case for each party
+	      look before each party letter for digits, k = 0 if none
+	      k = 0 if not valid party letter
+	return k
+
+hasproperSyntax(string)
+	int k = 1
+	look at each bit before a comma hits
+	     multiply k by the stuffandthings value
+	if all the stuffandthings values are 1, then k is 1, otherwise k is 0
+	return (k == 1)
+
+
+Similar structure essentially for countthings and tallySeats. Countthings operates under the assumption that
+it's only being passed valid comma-separated pollData, as it's only called by tallySeats when the polldata is valid.
+Hence, it makes assumptions about the data it's being passed, i.e. only looking two digits before each character.
+
+c. 
+	     
+	      
+	
