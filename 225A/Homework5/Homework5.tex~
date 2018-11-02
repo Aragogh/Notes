@@ -1,0 +1,103 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 5}
+\newcommand{\hmwkDueDate}{November 2nd, 2018}
+\newcommand{\hmwkClass}{Math 225A Differential Topology}
+\newcommand{\hmwkClassInstructor}{Professor Peter Petersen}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{exercise}
+  Find maps of the solid torus into itself having no fixed points. Where does the proof of the Brouwer theorem fail?
+  \end{exercise}
+
+  \begin{proof}
+    As the torus is given by $S^{1}\times S^{1}$, we may assume the solid torus may be written as $S^{1} \times D^{2}$, where $D^{2}$ is the closed ball of radius 1 in $\mathbb{R}^{2}$. Let $f:S^{1}\times D^{2}\to S^{1} \times D^{2}$ via $f:(\theta,x) \mapsto (\theta + \pi, x)$ where we parametrize $S^{1}$ by $\mathbb{R}/2\pi\mathbb{Z}$. Assume $x$ is a fixed point of this map. Then we have that $\exists x \in [0,2\pi)$ s.t. $x \equiv x \mod \pi$, which is not possible as $0 \not\equiv 0\mod \pi$. Thus, this map has no fixed points. This is possible as the proof of the Brouwer theorem aassumes that every line from $x$ to $f(x)$ (viewed via the parametrization to Euclidean space) must eventually intersect the boundary of the manifold, resulting in a retract to the boundary. However, for the parametrization of $S^{1} \times D^{2}$, we have that this map yields a line from $(\theta,x)$ to $(\theta + \pi, x)$ lying entirely in $S^{1}\times\{x\}$, which never leaves this subspace and thus never passes through the boundary. Thus, we cannot extend this map to a retract onto the boundary of a compact manifold and the proof fails. 
+  \end{proof}
+
+  \begin{exercise}
+    Prove that if the entries of an $n \times n$ matrix $A$ are all nonnegative, then $A$ has a real nonnegative eigenvalue. 
+  \end{exercise}
+
+  \begin{proof}
+    We have that as all the entries of $A$ are nonnegative, for any $x$ s.t. $x_{1},...,x_{n} \geq 0$ we have that for $Ax = b$, $b_{1},...,b_{n} \geq 0$. Thus, we may view the map $f: x \mapsto \frac{Ax}{|Ax|}$ as a smooth map, normalizing the image, as a map $f:S^{n-1} \to S^{n-1}$ mapping the compact submanifold with boundary $M = \{x \in S^{n-1} | x_{1},...,x_{n} \geq 0\}$ to itself. We have that the manifold $M$ is homeomorphic to the closed ball $B^{n-1} \subset \mathbb{R}^{n-1}$. We now prove the following general result:
+    \begin{lemma}
+      If $f:B^{n-1} \to B^{n-1}$ is a continuous map, $f$ has a fixed point
+    \end{lemma}
+    If $f$ is a continuous map from $\mathbb{R}^{n} \to \mathbb{R}^{n}$, we have that it can be coordinatewise approximated by polynomials $p_{n}$ s.t. $\forall \epsilon > 0 \ \exists \ N \in \mathbb{N}$ s.t.  
+    \end{proof}
+\end{document}
