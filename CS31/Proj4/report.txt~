@@ -1,0 +1,5 @@
+1. Some notable obstacles I overcame: debugging the flip function. Initially I swapped i and n-i for the entire list,
+not realising that what I'd effectively told the program to flip it twice. It took me a while to debug, but I
+succeeded eventually.
+
+2. 

@@ -1,0 +1,6 @@
+1. Some notable obstacles I overcame: debugging the flip function. Initially I swapped i and n-i for the entire list,
+not realising that what I'd effectively told the program to flip it twice. It took me a while to debug, but I
+succeeded eventually.
+
+2. Any arbitrary set of strings should work and build fine under the program as it currently runs. I used seven or
+eight randomly generated arrays and manually created repeats where required. 

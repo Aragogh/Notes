@@ -1,3 +1,4 @@
+
 \documentclass{article}
 
 \usepackage{fancyhdr}
@@ -82,6 +83,38 @@
 \pagebreak
 
 \begin{exercise}
+  Prove that $H_{x}(X)$ does not depend on the choice of local parametrization.
+  \end{exercise}
+  \begin{proof}
+    Suppose there are two local parametrizations of $x \in \partial X$, $\phi: U \to X$ and $\psi: V \to X$. By shrinking, we may assume $\phi(U) = \psi(V)$, where $U, V \subset H^{k}$ open. We have that $h: \psi^{-1} \circ \phi$ is a diffeomorphism from $U$ to $V$. Then $\phi = \psi \circ h$. Let $w \in H^{k}$. We have that diffeomorphisms must take boundaries to boundaries: thus, that $h(IntH^{k}) \subset IntH^{k}$. Thus, the map sends the tangent space $T_{x}(\partial X)$ to $T_{x}(\partial X)$, and $w$ to a vector in the upper half plane. At 0, we have that $dh(w) = \lim_{t \to 0}\frac{h(tw)}{t} \in H^{k}$ as all values $h(w)$ lie in $H^{k}$. Thus, by chain rule, we have that $d\phi(H^{k}) \subset d\psi(H^{k}$. Symmetric reasoning by reversing the order of $h$ yields the result.  
+  \end{proof}
+ 
+
+  \begin{exercise}
+    Show that there are precisely two vectors perpendicular to $T_{x}(\partial X)$ in $T_{x}(X)$: one inside $H^{k}$ and one outside $H^{k}$
+  \end{exercise}
+
+  \begin{proof}
+    We have that if a vector is perpendicular to $T_{x}(\partial X)$ then it is linearly independent from $T_{x}(\partial X)$. As any parametrization $\phi$ induces an isomorphism from $\mathbb{R}^{k} \to T_{x}(X)$ for $X$ locally a $k$-dimensional manifold. we have that the preimage of any vector linearly independent from $T_{x}(\partial X)$ must be linearly independent from the plane $\mathbb{R}^{k-1}$, yielding that it lies in either the upper or lower half space. As codimension of $(\partial X)$ in $X$ is 1, we have that the space of vectors perpendicular to that submanifold tangent space is one-dimensional, from linear algebra. Thus, there are precisely two unit vectors perpendicular, one in the upper and one in the lower half space. 
+  \end{proof}
+
+
+  \begin{exercise}
+    Show that for any $x \in \partial X$, there is a smooth nonnegative function $f$ on $x \in U \subset X$ open s.t. $f(z) = 0$ iff $z \in \partial U$, and if $z \in \partial U$, then $df_{z}(\vec{n}(z)) > 0$.
+  \end{exercise}
+  \begin{proof}
+    We have that the function exists for any open set $U \subset H^{k}$ open, namely given by the projection onto the $k^{th}$ coordinate, or the one-dimensional linear subspace perpendicular to the boundary hyperplane $\mathbb{R}^{k-1}$. Thus, the function exists by composition with any coordinate system $\phi: N(x) \to H^{l}$ on an open neighborhood $N(x)$, which exists by assumption. It is clear that all the conditions must hold: if $z \in \partial U$, then $z \in \mathbb{R}^{k-1}$ and thus the projection is zero, and this is clearly an if and only if. If $z \in \partial U$, we have from before that $\vec{n}(z)$ belongs in the upper half space of the coordinate system, and thus has a nonzero projection onto the $k^{th}$ coordinate. Thus, $df_{x}\vec{n}(z) > 0$. 
+  \end{proof}
+
+  \begin{exercise}
+    Show that there exists a smooth nonnegative function $f$ on $X$ with a regular value at $0$ s.t. $\partial X = f^{-1}(0)$.
+\end{exercise}
+
+\begin{proof}
+We have that $\parital X$ is a manifold and thus has a compact exhaustion. We have a covering of countably many compact sets covering $\partial X$ with a refinement s.t. every compact set is diffeomorphic to a compact set in the half space $H^{k}$. We then union this with a countable compact exhaustion of the interior of $X$ Using partitions of unity, we may construct a smooth proper nonzero function $p$ from $X$ to $\mathbb{R}$ subordinate to the covering above. For each compact set homeomorphic to the half space $H^{k}$, we may multiply this proper function with the local smooth functions on each compact set covering $\partial X$, given by $f_{n}$, from the previous exercise to yield a function that is identically $0$ on all points on the boundary, and nonnegative elsewhere. This function has a regular value at $0$ as each local function $f_{n}$ has a regular value at $0$, and the proper function constructed via the partitions of unity yields a nonzero vector in $\mathbb{R}$ as the differential locally is given by $\frac{df_{n}}{dx}p + \frac{dp}{dx}f_{n}$, by the product rule, with $f_{n} = 0$ at all points on the boundary, guaranteeing regularity at all points on the preimage. 
+\end{proof}
+
+\begin{exercise}
   Find maps of the solid torus into itself having no fixed points. Where does the proof of the Brouwer theorem fail?
   \end{exercise}
 
@@ -110,6 +143,10 @@
       Prove that if $w \in Y^{\epsilon}$, with $Y$ compact, then $\pi(w)$ is the unique point closest to $w$ in $Y$. 
     \end{exercise}
     \begin{proof}
-      We have that we may set $\epsilon$ sufficiently small 
-      \end{proof}
+      We have that if there is a point $y \in Y$ closest to $w \in Y^{\epsilon}$ then $w-y$ is in the space normal to $Y$. Given that $h$ is a diffeomorphism, we have that $w-y$ is perpendicular to $y$ and is minimal in $Y^{epsilon}$ if and only if $(y,w-y) \in h^{-1}(w)$, as if it belongs in the $\epsilon$ nbhd of some point $y$ then it is in the preimage of the open neighborhood around that $y$ in $N(Y)$: for fixed epsilon, the open nbhd mapped diffeomorphically onto $Y$by $h$ is the neighborhood of all normal vectors with norm less than $\epsilon$ around a point $y$, given that $|y-w| = |h^{-1}(w)|$ evidently from the map. Thus, as the diffeomorphism must be injective, we have each point must have a unique preimage and thus only one point such that it is normal to that point. Thus, thus point must be the unique point closest to it, as all points fulfilling this property have the vector $w-y$ as a normal vector.
+    \end{proof}
+
+    \pagebreak
+
+    
 \end{document}

@@ -1,0 +1,84 @@
+#include<iostream>
+#include<ctype.h>
+#include<string>
+using namespace std;
+
+int appendToAll(string a[], int n, string value){
+  for(int i=1; i<=n; i++){
+    a[i-1]+=value;
+    cerr << a[i-1] << endl;
+  }
+  return n;
+}
+
+int lookup(const string a[], int n, string target)
+{
+  int k=-1;
+    for(int i=1; i<=n; i++){
+      if(a[i-1] == target){
+	k = i;
+	break;
+      }
+    }
+  return k;
+}
+
+int lookupAny(const string a1[], int n1, const string a2[], int n2)
+{
+  int l = -1;
+  for(int i=n1-1; i >= 0; i--)
+    {
+      for(int j = n2-1; j>=0; j--)
+	{
+	  if(a1[i] == a2[j])
+	    {
+	      l = i;
+	      break;
+	    }
+	}
+    }
+  cerr << l;
+  return l;
+}
+
+
+int divide(string a[], int n, string divider)
+{
+  int i = 0;
+  for(int j=0; j<n; j++){
+    if(a[j] < divider){
+      string l = a[i];
+      a[i] = a[j];
+      a[j] = l;
+      i++;
+    }
+  }
+  int l = 0;
+  while(a[l] < divider){
+    l++;
+  }
+  for(int q=0; q<n; q++){
+    cerr << a[q] << endl;
+  }
+  cerr << l << endl;
+  return l;
+}
+
+
+
+int main(){
+  
+  string target,fuckoff, a[6] = { "dianne", "fiona", "gavin", "xavier", "ed", "betty" }, b[7]={"anish", "is", "a", "fucking", "little", "bitch", "xavier"};
+  int n;
+  cout << "Input some shit: ";
+  getline(cin, target);
+  cout << "Some other shit: ";
+  getline(cin, fuckoff);
+  cout << "Input a number: ";
+  cin >> n;
+  cout << lookup(a, n, target) << " bitch" << endl;
+  divide(a, n, fuckoff);
+  lookupAny(a, 6, b, 7);
+}
+
+	  
