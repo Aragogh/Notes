@@ -34,6 +34,8 @@ bool fuzzyStrCmp(char a1[], char a2[]){
 }
 
 bool isWord(char word1[]){
+    if(word1[0]=='\0')
+        return false;
     int j=0;
     while(word1[j] != '\0'){
             if(!isalpha(word1[j]))
@@ -86,49 +88,125 @@ int makeProper(char word1[][MAX_WORD_LENGTH+1], char word2[][MAX_WORD_LENGTH+1],
     return n;
 }
 
-int find(const char document[], const char a1[MAX_WORD_LENGTH+1])
+int documentWords(const char document[], char a[][MAX_WORD_LENGTH+1])
 {
-    int n = strlen(document);
-    int n1 = strlen(a1);
+    int i = 0;
     int l = 0;
-    for(int i=0; i < n; i++){
-        if(document[i] == a2[0]){
-            while(a1[l] && l+i < n && document[l+i] == a2[l])
+    while(document[l]){
+        while(document[l] == ' ')
+            l++;
+        if(document[l] != ' '){
+            int k = 0;
+            while(document[l] && document[l] != ' '){
+                a[i][k] = document[l];
                 l++;
+                k++;
+                if(document[l] == ' '){
+                    a[i][k] = '\0';
+                    i++;
+                }
             }
-    if(l == n1){
-      k = i;
-      break;
+        }
     }
-  }
-  if(l != n2)
-    return -1;
-  return k;
+    for(int j = 0; j <= i; j++){
+        int g = 0;
+        int z = 0;
+        char b[MAX_WORD_LENGTH+1] = ""; 
+        while(a[j][g]){
+            while(isalpha(a[j][g])){
+                b[z] = a[j][g];
+                z++;
+                g++;
+            }
+            g++;
+        }
+        strcpy(a[j], b);
     }
+    int h = 0;
+    while( h <= i ){
+        if(!strcmp(a[h], "")){
+            for(int w = h; w<= i; w++)
+                strcpy(a[w], a[w+1]);
+            i--;
+            continue;
+        }
+        h++;    
+    }
+    return i;
+}
+
+int ratePattern(const char document[], const char a1[MAX_WORD_LENGTH+1], const char a2[MAX_WORD_LENGTH+1], const int separation)
+{
+    char b[250][MAX_WORD_LENGTH+1]; 
+    char c[MAX_WORD_LENGTH+1] = "";
+    char d[MAX_WORD_LENGTH+1] = "";
+    for(int j = 0; j < 250; j++){
+        for(int k = 0; k < MAX_WORD_LENGTH+1; k++){
+            b[j][k] = '\0';
+        }
+    }
+    strcpy(c, a1);
+    strcpy(d, a2);
+    documentWords(document, b);
+    int k = documentWords(document, b);
+    for(int i = 0; i<=k ; i++){
+        if(fuzzyStrCmp(b[i], c)){
+            for(int g = 0; g <= separation + 1; g++){
+                if(i + g <= k && fuzzyStrCmp(b[i + g], d)){
+                   return 1;
+                }
+                if(i - g >= 0 && fuzzyStrCmp(b[i - g], d)){
+                    return 1;
+                }
+            }
+        }
+    }
+    return 0;
 }
 
 int rate(const char document[], const char word1[][MAX_WORD_LENGTH+1], const char word2[][MAX_WORD_LENGTH+1], const int separation[], int nPatterns)
 {
-    
+    int k = 0;
+    for(int i = 0; i < nPatterns; i++)
+        k += ratePattern(document, word1[i], word2[i], separation[i]);
+    return k;
 }
 
 int main(){
-    char a1[20] = "nefarious", a2[20] = "NefAriOus";
-    assert(fuzzyStrCmp(a1, a2) == 1);
-    strcpy(a2, "lavida");
-    assert(fuzzyStrCmp(a1, a2) == 0);
-    
-    const int TEST1_NRULES = 5;
+    char a5[250] = "The k'illiam william illiam the illest";
+    assert(ratePattern(a5, "Killiam", "The", 0) == 1);
+    assert(ratePattern(a5, "Illest", "The", 0) == 1);
+    assert(ratePattern(a5, "The", "Illest", 5) == 1);
+    assert(ratePattern(a5, "Brosephine", "The", 0) == 0);
+    assert(ratePattern(a5, "The", "Killiam", 0) == 1);
+    assert(ratePattern(a5, "The", "illiam", 2) == 1);
+    char b7[250] = "Friends friend's frenemiss-johansson aaaaaaaaaaaaaaaaaaa is";
+    assert(ratePattern("My friend's friends' friends killed Bronson", "friends", "Bronson", 3) == 1);
+    assert(ratePattern(b7, "is", "aaaaaaaaaaaaaaaaaaa", 0) == 1);
+    assert(ratePattern(b7, "aaaaaaaaaaaaaaaaaaa", "is", 0) == 1);
+    assert(ratePattern("This project took me over 24 32 ---- hours", "over", "hours", 0) == 1);
+    assert(ratePattern("This project took me ov33er hours", "over", "hours", 0) == 1);
+    const int TEST1_NRULES = 4;
     char test1w1[TEST1_NRULES][MAX_WORD_LENGTH+1] = {
-        "mad", "deranged", "nefarious", "PloT", "have"
+        "mad",       "deranged", "nefarious", "have"
     };
     char test1w2[TEST1_NRULES][MAX_WORD_LENGTH+1] = {
-        "scientist", "robot", "plot", "nEfArious", "mad"
+        "scientist", "robot",    "plot",      "mad"
     };
-    int test1dist[TEST1_NRULES] = {1,3,3,4,1};
-    int k = makeProper(test1w1, test1w2, test1dist, TEST1_NRULES);
-    for(int i = 0; i < k; i++){
-        cout << test1w1[i] << " " << test1w2[i] << " " << test1dist[i] << endl;
-    }
+    int test1dist[TEST1_NRULES] = {
+        1,           3,          0,           12
+    };
+    assert(rate("The mad UCLA scientist unleashed a deranged evil giant robot.",
+	test1w1, test1w2, test1dist, TEST1_NRULES) == 2);
+    assert(rate("The mad UCLA scientist unleashed      have  a deranged robot.",
+	test1w1, test1w2, test1dist, TEST1_NRULES) == 3);
+    assert(rate("**** 2018 ****",
+	test1w1, test1w2, test1dist, TEST1_NRULES) == 0);
+    assert(rate("  That plot: NEFARIOUS!",
+	test1w1, test1w2, test1dist, TEST1_NRULES) == 1);
+    assert(rate("deranged deranged robot deranged robot robot",
+	test1w1, test1w2, test1dist, TEST1_NRULES) == 1);
+    assert(rate("That scientist said two mad scientists suffer from deranged-robot fever.",
+	test1w1, test1w2, test1dist, TEST1_NRULES) == 0);
     cout << "All tests succeeded!" << endl;
 }
