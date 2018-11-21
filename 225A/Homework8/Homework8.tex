@@ -1,0 +1,162 @@
+
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 8}
+\newcommand{\hmwkDueDate}{November 22nd, 2018}
+\newcommand{\hmwkClass}{Math 225A Differential Topology}
+\newcommand{\hmwkClassInstructor}{Professor Peter Petersen}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{exercise}
+  Show that if X and Z are transversely intersecting submanifolds of Y with complimentary dimension, then $y \in X \cap Z$ has positive orientation if and only if the orientations of X and Z add up to the orientation of Y. 
+\end{exercise}
+
+\begin{proof}
+  We have that we may endow $T_{y}(X) \oplus T_{y}(Z)$ with the direct sum orientation via the product of their signs. We furthermore have that $T_{y}(y)$ as a 0-dimensional submanifold is just the zero vector, and thus that $T_{y}(X) \oplus T_{y}(Z) \oplus T_{y}(y) = T_{y}(Y)$, and thus the orientation of $y \in X \cap Z$ may be written as the direct sum orientation (product of signs) as listed. By convention, we have that the orientation at $y$ is positive, and thus, if $T_{y}(X) \oplus T_{y}(Z)$ does not add up to the orientation of $T_{y}(Y)$ then $T_{y}(y)$ must have the negative orientation in order for the orientation of $y \in X \cap Z$ to correspond with the one in $Y$, and likewise if it is positive then $y$ is positively oriented.  
+\end{proof}
+
+\begin{exercise}
+Prove that if X and Z are transversely intersecting submanifolds of Y with complimentary dimension, then $X \cap Z = (-1)^{(codimZ)(codimX)} Z \cap X$.   
+\end{exercise}
+
+\begin{proof}
+  The orientation of the intersection manifold is given by the orientation of $T_{y}(X) \oplus T_{y}(Z)$, the basis being given by $(v_{1},0)...,(v_{dimZ}$
+\end{proof}
+
+\begin{exercise}
+  Prove t.f.a.e. for Z a hypersurface of a manifold Y:
+  \begin{enumerate}
+  \item Z is orientable.
+  \item There exists a smooth field of normal vectors $\vec{n}$(z) along Z in Y.
+  \item The normal bundle N(Z;Y) is trivial.
+  \item Z is globally definable by an independent function.
+  \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+  ``$1 \iff 2$'' As $Z$ is of codimension 1 we may select normal vectors $\vec{n}(z)$ at each point s.t. the direct sum orientation $T_{z}(Z) \oplus \text{span}}(\vec{n}(z))$ is positive, i.e. corresponding with the orientation of $Y$. As $Z$ is orientable, we have that there is a smooth choice of orientation for the tangent space at every point of $Z$: thus, for a parametrization $h: \mathbb{R}^{k} \to Y$ with $h|_{\mathbb{R}^{k-1}}$ a parametrization of $Z$ by the local immersion theorem, s.t. $h(0) = x \in Z$, we may represent a normal vector of $x$ as lying in the upper half plane. Via consistency of orientation, we may choose a normal vector $v$ to $\mathbb{R}^{k-1}$ also lying in the upper half plane for any point in $\mathbb{R}^{k-1}$ as they all possess the same choice of sign as 0. Applying Gram-Schmidt to $dh(v)$ is a smooth function yielding a nonzero normal vector to $z \in Im(h)$ for all $z$, clearly lying in $T_{y}(Y)$. Thus, there is a smooth field of normal vectors along $Z$ in $Y$. For the other direction, for each associated normal vector $\vec{n}(z)$ we pick a basis of $T_{z}(Z)$ s.t. $T_{z}(Z) \oplus \text{span}(\vec{n}(z)) = T_{y}(Y)$. Supposing the resultant choice of orientation for each point is not smooth, we have two intersecting neighborhoods such that one neighborhood has positive and the other neighborhood has negative orientation under this assignment. However, as the normal vectors were chosen s.t. the direct sum orientation is positive, the normal vectors for each neighborhood must point in opposite directions and are thus not smooth at the intersection, which is a contradiction. \newline
+
+``$2 \iff 3$'' Suppose there exists a smooth field of normal vectors along $Z$ in $Y$. We have a smooth bijective map from $N(Z;Y) \to Z \times \mathbb{R}$ by $(z, t \vec{n}(z)) \mapsto (z,t)$, which is a diffeomorphism as it induces an invertible differential operator on every local parametrization, and clearly restricts to a linear isomorphism at each point. Similarly, if there exists a diffeomorphism as above, the inverse image of $(z, 1)$ automatically induces a smooth field of normal vectors. \newline
+
+``$3 \iff 4$'' Suppose the normal bundle is trivial. We have a diffeomorphism $N(Z; Y) \to Z \times \mathbb{R}$ that restricts to linear isomorphisms at each point, and the functional given by projection onto the second coordinate yields the required smooth map with nonzero differential on $Z$ on a neighborhood via the tubular neighborhood theorem. Conversely, suppose that such a map exists. We have that the transpose of the map $dg$ must carry $\mathbb{R}$ isomorphically onto the normal space of any individual point $z \in Z$, and thus we have a map $Z \times \mathbb{R} \to N(Z;Y)$via $(z, 1) \mapsto (z, dg^{t}(1))$ which restricts to a linear isomorphism $\{z\} \times \mathbb{R}$ at each point. Thus, we have the required result.  
+\end{proof}
+
+
+\begin{exercise}
+Show that the outward unit normal vector field is the unique choice of normal vector for which the orientation of an oriented hypersurface $Z \in Y$, also oriented, s.t. the direct sum orientation corresponds with the orientation of $Y$ for a point $z \in Y$.   
+\end{exercise}
+
+\begin{proof}
+  
+\end{proof}
+
+\begin{exercise}
+Prove that the Mobius band is not orientable, and that it cannot be globally defined by an independent function.   
+\end{exercise}
+
+\begin{proof}
+  We have that the central circle in the Mobius band is orientable via the standard orientation on $S^{1}$. Assuming that the Mobius band is orientable is equivalent to assuming that the central circle has a smooth normal vector field in the Mobius band. If this is true, we may perturb the central circle along this nonvanishing normal field to yield a homotopic map from the circle to the Mobius band that does not intersect the original $S^{1}$. However, we have that the central circle has nonzero mod 2 intersection number with itself, which is a contradiction, as a map homotopic to the inclusion has zero intersection number by assumption. \newline
+
+  As the Mobius band can be embedded in $R^{3}$, we have that an independent function on a neighborhood of $Z$ restricts to an independent function on a neighborhood of $Z$ in $R^{3}$ s.t. $Z$ is the preimage of 0, which is not possible as $Z$ is a non orientable manifold of codimension 1 in $R^{3}$, which from earlier cannot be defined by a globally independent function. 
+\end{proof}
+
+\begin{exercise}
+  Prove that there exists a natural orientation of some neighborhood of $\Delta \in X \times X$, regardless of if $X$ is orientable. 
+\end{exercise}
+
+\begin{proof}
+  The product orientation on any orientable open set $U$ is given by $sgn(U)sgn(U)$, which is always positive for all choices of orientation on $U$. We may cover the diagonal $(x,x) \in X$ by open sets $U \times U$, which all naturally agree on orientation by the logic above. Thus, there is a natural orientation of this open neighborhood covering the points on the diagonal. 
+\end{proof}
+
+\begin{exercise}
+Show that the orientation induced by an outward pointing vector is independent of perpendicularity.   
+\end{exercise}
+
+\begin{proof}
+We have that Gram-Scmidt process of orthogonalization yields a change of basis matrix that is upper triangular with strictly positive entries along the diagonal (normalization factors) and thus must be a positive determinant transformation taking the non-orthogonal vector in the upper half plane to an orthogonal outward pointing vector in the upper half plane while preserving positive orientation, yielding the result.   
+\end{proof}
+
+\begin{exercise}
+Show that orthogonality is not required in defining preimage orientations.   
+\end{exercise}
+
+\begin{proof}
+  Similar to the previous result, we may proceed by induction. For a preimage of codimension 1, the result above yields the result via using the local immersion theorem to identify a parametrization of the preimage as the canonical inclusion of $\mathbb{R}^{k-1} \hookarrow \mamthbb{R}^{k}$. Successively applying the Gram-Schmidt process to eventually yield an orthogonal basis of the same orientation as the initial basis yields the result. 
+\end{proof}
+
+\end{document}

@@ -90,6 +90,7 @@ int makeProper(char word1[][MAX_WORD_LENGTH+1], char word2[][MAX_WORD_LENGTH+1],
 
 int documentWords(const char document[], char a[][MAX_WORD_LENGTH+1])
 {
+    // puts a[] through a bunch of different filters to get the words we care about
     int i = 0;
     int l = 0;
     while(document[l]){
@@ -137,6 +138,7 @@ int documentWords(const char document[], char a[][MAX_WORD_LENGTH+1])
 
 int ratePattern(const char document[], const char a1[MAX_WORD_LENGTH+1], const char a2[MAX_WORD_LENGTH+1], const int separation)
 {
+    // looks through the ordered array containing the document words and returns 1 if there's a pattern matching the idea
     char b[250][MAX_WORD_LENGTH+1]; 
     char c[MAX_WORD_LENGTH+1] = "";
     char d[MAX_WORD_LENGTH+1] = "";
@@ -186,6 +188,7 @@ int main(){
     assert(ratePattern(b7, "aaaaaaaaaaaaaaaaaaa", "is", 0) == 1);
     assert(ratePattern("This project took me over 24 32 ---- hours", "over", "hours", 0) == 1);
     assert(ratePattern("This project took me ov33er hours", "over", "hours", 0) == 1);
+    assert(ratePattern("This project god I'm so over this", "over", "this", 0) == 1);
     const int TEST1_NRULES = 4;
     char test1w1[TEST1_NRULES][MAX_WORD_LENGTH+1] = {
         "mad",       "deranged", "nefarious", "have"
