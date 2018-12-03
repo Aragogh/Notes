@@ -1,0 +1,206 @@
+1. a. 
+#include<iostream>
+#include<cctype>
+#include<string>
+using namespace std;
+
+int main()
+{
+    int arr[3] = { 5, 10, 15 };
+    int *ptr = arr;
+    *ptr = 30;          // set arr[0] to 30
+    *(ptr+1) = 20;      // set arr[1] to 20
+    ptr += 2;
+    ptr[0] = 10;        // set arr[2] to 10
+    ptr -= 2;
+    while (ptr <= arr+2)
+    {
+        cout << *ptr << endl;    // print values
+        ptr++;
+    }
+}
+
+1. b.  Two issues: One, the for loop initialized i at 1 instead of 0, meaning that the maximum
+fails to take into account the first value of the array. Second, the pointer was not passed by 
+reference: so while the value that the pointer points to may be edited, the actual pointer value 
+itself is never initialized. The rectified version is below:
+
+#include<iostream>
+#include<cctype>
+#include<string>
+using namespace std;
+
+void findMax(int arr[], int n, int* &pToMax)
+{
+    if (n <= 0) 
+        return;      // no items, no maximum!
+    pToMax = arr;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] > *pToMax)
+             pToMax = arr + i;
+    }
+}       
+int main()
+{
+    int nums[4] = { 5, 500, 15, 6 };
+    int* ptr;
+    findMax(nums, 4, ptr);
+    cout << "The maximum is at address " << ptr << endl;
+    cout << "It's at position " << ptr - nums << endl;
+    cout << "Its value is " << *ptr << endl;
+}
+
+1. c. The function may not work as the pointer in the initial case is uninitialized,
+and thus editing the value that the pointer points to is not possible. The following 
+is the rectified version, with the pointer initialized to the address of another variable.
+
+#include<iostream>
+#include<cctype>
+#include<string>
+using namespace std;
+
+    void computeCube(int n, int* ncubed)
+    {
+        *ncubed = n * n * n;
+    }
+
+    int main()
+    {
+        int x;
+        int* ptr = &x;
+        computeCube(5, ptr);
+        cout << "Five cubed is " << *ptr << endl;
+    }
+
+1. d. The initial program's if statement compared the values str1 and str2, not the 
+corresponding characters that they pointed to. The same issue existed with the return
+str1 == str2 instead of the *str1 == *str2 to check that both ended at the same time.
+Furthermore, the while loop condition contained (str1 != 0) as opposed to (*str1 != '\0').
+Normally, the null pointer has the 0 address, but in this case it is stored at the array
+address, and so the prior while condition results in an infinite loop.
+
+#include<iostream>
+#include<cctype>
+#include<string>
+using namespace std;
+
+bool strequal(const char str1[], const char str2[])
+{
+    while (*str1 != '\0'  &&  *str2 != '\0')
+    {
+        if (*str1 != *str2)  // compare corresponding characters
+            return false;
+        str1++;            // advance to the next character
+        str2++;
+    }
+    return *str1 == *str2;   // both ended at same time?
+}
+
+int main()
+{
+    char a[15] = "Zhou";
+    char b[15] = "Zhou";
+
+    if (strequal(a,b))
+        cout << "They're the same person!\n";
+}
+
+
+1. e. Does not initialize the junk array in a different address than the getPtrToArray
+array: the f() function overwrites anArray with junk array. 
+
+
+2. 
+    a. double* cat;
+    b. double mouse[5];
+    c. cat = mouse + 4;
+    d. *cat = 25;
+    e. *(mouse + 3) = 42;
+    f. cat -= 3;
+    g. cat[1] = 27;
+    h. cat[0] = 54;
+    i. bool b = (*cat == *(cat + 1));
+    j. bool d = (cat -  mouse == 0);
+
+
+3. 
+
+a. 
+double mean(const double* scores, int numScores)
+{
+    const double* ptr = scores;
+    double tot = 0;
+    for(int i = 0; i < numScores; i++)
+    {
+        tot += *(ptr+i);
+    }
+    return tot/numScores;
+}
+
+b. 
+
+const char* findTheChar(const char str[], char chr)
+{
+    for (int k = 0; *(str + k) != '\0'; k++)
+        if (*(str+k) == chr)
+            return (str + k);
+    return nullptr;
+}
+
+c. 
+
+const char* findTheChar(const char str[], char chr)
+{
+    while(*str != '\0'){
+        if (*(str) == chr)
+            return str;
+        str++;
+    }
+    return nullptr;
+}
+
+4. Maxwell returns the address of the greater number between 5 and 4 in the array.
+The greater number is 5, so ptr = array. ptr += 2 set ptr to &array[2], and ptr[1] 
+is array[3]. The prgram in this stage sets array[0] to -1, array[3] to 9, and 
+array[1] to 79.
+
+it then couts &array[5] -  &array[2], which is 3.
+
+Swap1 has no effect on the pointers below as the pointers themselves are not passed
+by reference, and the values they point to are not affected. 
+
+Swap2 interchanges the valus pointed two by array[0] and array[2], which sets array[0]
+to 4 and array[2] to -1.
+
+The program then couts the array.
+
+The output of the program should be (including the first cout):
+
+3
+4
+79
+-1
+9
+22
+19
+
+
+5. 
+
+void removeS(char* stuff){
+    char* a;
+    while(*stuff != '\0'){
+        if(toupper(*stuff) == 'S'){
+            a = stuff;
+            while(*a != '\0'){
+                *a = *(a+1);
+                a++;
+            }
+            *a = '\0';
+            continue;
+        }
+        stuff++;
+    }
+    return;
+}

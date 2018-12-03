@@ -26,7 +26,7 @@
     "hmwkClass"
     "hmwkClassInstructor"
     "hmwkAuthorName")
-   (LaTeX-add-environments
+   (LaTeX-add-amsthm-newtheorems
     "lemma"
     "exercise"))
  :latex)

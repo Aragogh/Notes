@@ -83,6 +83,22 @@
 \pagebreak
 
 \begin{exercise}
+  Show that if $f: X \to Y$ a diffeomorphism of connected oriented manifolds with boundary preserves orientation at one point x, it preserves orientation globally.
+\end{exercise}
+
+\begin{proof}
+  If $f$ is orientation preserving, we have that the associated map on tangent spaces at any given point must have strictly positive determinant. By smoothness, if the map has positive determinant at one point, it must have positive determinant in a neighborhood of that point, and thus we have that the set of all points with orientation preserved by the map must be open. Similarly, we have that for a point on the boundary of the set above, the associated map on the tangent space (in the manifold) must have positive determinant (as it cannot have negative determinant, and diffeomorpism implies the determinant is nonzero). Thus, the set of all points for which orientation is preserved must be clopen and is thus the entire manifold. 
+\end{proof}
+
+\begin{exercise}
+  Prove that every compact hypersurface in Euclidean space is orientable.
+\end{exercise}
+
+\begin{proof}
+By the Jordan-Brouwer separation theorem, we have that a compact connected hypersurface in Euclidean space is the boundary of an open set in Euclidean space. As any open set in Euclidean space inherits the standard orientation from the standard basis, we have that the boundary must inherit the natural outward pointing orientation. Applying this result to each connected component of an arbitrary hypersurface yields the result.  
+\end{proof}
+
+\begin{exercise}
   Show that if X and Z are transversely intersecting submanifolds of Y with complimentary dimension, then $y \in X \cap Z$ has positive orientation if and only if the orientations of X and Z add up to the orientation of Y. 
 \end{exercise}
 
@@ -91,12 +107,22 @@
 \end{proof}
 
 \begin{exercise}
-Prove that if X and Z are transversely intersecting submanifolds of Y with complimentary dimension, then $X \cap Z = (-1)^{(codimZ)(codimX)} Z \cap X$.   
+Prove that if X and Z are transversely intersecting submanifolds of Y with complimentary dimension, then $X \cap Z = (-1)^{(dimZ)(dimX)} Z \cap X$.   
 \end{exercise}
 
 \begin{proof}
-  The orientation of the intersection manifold is given by the orientation of $T_{y}(X) \oplus T_{y}(Z)$, the basis being given by $(v_{1},0)...,(v_{dimZ}$
+  The orientation of the intersection manifold is given by the orientation of $T_{y}(X) \oplus T_{y}(Z)$, the basis being given by $(v_{1},0)...,(v_{dimX}, 0)(0, w_{1}),...,(0,w_{dimZ})$. with $v_{i}$ a basis for $T_{y}(X)$ and $w_{i}$ a basis for $T_{y}(Z)$. We may successively apply dim$X$ transpositions to move the above basis to $(0,w_{1})(v_{1},0),...,(v_{dimX},0)(0,w_{2}),...,\\ (0,w_{dimZ})$. Successively applying the same process to each of the dim$Z$ basis vectors yields a flipped version of the initial basis, which is the basis for $Z \cap X$. The transformation above has sign $(-1)^{(dimX)(dimZ)}$. 
 \end{proof}
+
+\begin{exercise}
+  Prove that if X and Z are transversely intersecting submanifolds of Y then $X \cap Z = \\ (-1)^{(codimX)(codimZ)}Z\cap X$.
+\end{exercise}
+
+\begin{proof}
+  We have that under the inclusion map, the orientation of $S = X \cap Z$ is given by the direct sum orientation of $N(S; X) \oplus T_{y}(Z)$. We furthermore have that the orientation of $T_{y}(Z)$ can be given by the direct sum orientation of $N(S; Z) \oplus T_{y}(S)$. This in turn yields that the orientation of $S$ can be derived from the direct sum orientation of $N(S; X) \oplus N(S; Z) \oplus T_{y}(S)$. Interchanging $Z$ and $X$ reverses the order of the first two summands, which by the process of transpositions used in the previous exercise has a sign given by $(-1)^{(codimZ)(codimX)}$, via that many transpositions (as the dimension of $N(S; X) = codim Z$ by transversality and similarly for $Z$).
+\end{proof}
+
+\pagebreak
 
 \begin{exercise}
   Prove t.f.a.e. for Z a hypersurface of a manifold Y:
@@ -109,7 +135,7 @@ Prove that if X and Z are transversely intersecting submanifolds of Y with compl
 \end{exercise}
 
 \begin{proof}
-  ``$1 \iff 2$'' As $Z$ is of codimension 1 we may select normal vectors $\vec{n}(z)$ at each point s.t. the direct sum orientation $T_{z}(Z) \oplus \text{span}}(\vec{n}(z))$ is positive, i.e. corresponding with the orientation of $Y$. As $Z$ is orientable, we have that there is a smooth choice of orientation for the tangent space at every point of $Z$: thus, for a parametrization $h: \mathbb{R}^{k} \to Y$ with $h|_{\mathbb{R}^{k-1}}$ a parametrization of $Z$ by the local immersion theorem, s.t. $h(0) = x \in Z$, we may represent a normal vector of $x$ as lying in the upper half plane. Via consistency of orientation, we may choose a normal vector $v$ to $\mathbb{R}^{k-1}$ also lying in the upper half plane for any point in $\mathbb{R}^{k-1}$ as they all possess the same choice of sign as 0. Applying Gram-Schmidt to $dh(v)$ is a smooth function yielding a nonzero normal vector to $z \in Im(h)$ for all $z$, clearly lying in $T_{y}(Y)$. Thus, there is a smooth field of normal vectors along $Z$ in $Y$. For the other direction, for each associated normal vector $\vec{n}(z)$ we pick a basis of $T_{z}(Z)$ s.t. $T_{z}(Z) \oplus \text{span}(\vec{n}(z)) = T_{y}(Y)$. Supposing the resultant choice of orientation for each point is not smooth, we have two intersecting neighborhoods such that one neighborhood has positive and the other neighborhood has negative orientation under this assignment. However, as the normal vectors were chosen s.t. the direct sum orientation is positive, the normal vectors for each neighborhood must point in opposite directions and are thus not smooth at the intersection, which is a contradiction. \newline
+  ``$1 \iff 2$'' As $Z$ is of codimension 1 we may select normal vectors $\vec{n}(z)$ at each point s.t. the direct sum orientation $T_{z}(Z) \oplus \text{span}(\vec{n}(z))$ is positive, i.e. corresponding with the orientation of $Y$. As $Z$ is orientable, we have that there is a smooth choice of orientation for the tangent space at every point of $Z$: thus, for a parametrization $h: \mathbb{R}^{k} \to Y$ with $h|_{\mathbb{R}^{k-1}}$ a parametrization of $Z$ by the local immersion theorem, s.t. $h(0) = x \in Z$, we may represent a normal vector of $x$ as lying in the upper half plane. Via consistency of orientation, we may choose a normal vector $v$ to $\mathbb{R}^{k-1}$ also lying in the upper half plane for any point in $\mathbb{R}^{k-1}$ as they all possess the same choice of sign as 0. Applying Gram-Schmidt to $dh(v)$ is a smooth function yielding a nonzero normal vector to $z \in Im(h)$ for all $z$, clearly lying in $T_{y}(Y)$. Thus, there is a smooth field of normal vectors along $Z$ in $Y$. For the other direction, for each associated normal vector $\vec{n}(z)$ we pick a basis of $T_{z}(Z)$ s.t. $T_{z}(Z) \oplus \text{span}(\vec{n}(z)) = T_{y}(Y)$. Supposing the resultant choice of orientation for each point is not smooth, we have two intersecting neighborhoods such that one neighborhood has positive and the other neighborhood has negative orientation under this assignment. However, as the normal vectors were chosen s.t. the direct sum orientation is positive, the normal vectors for each neighborhood must point in opposite directions and are thus not smooth at the intersection, which is a contradiction. \newline
 
 ``$2 \iff 3$'' Suppose there exists a smooth field of normal vectors along $Z$ in $Y$. We have a smooth bijective map from $N(Z;Y) \to Z \times \mathbb{R}$ by $(z, t \vec{n}(z)) \mapsto (z,t)$, which is a diffeomorphism as it induces an invertible differential operator on every local parametrization, and clearly restricts to a linear isomorphism at each point. Similarly, if there exists a diffeomorphism as above, the inverse image of $(z, 1)$ automatically induces a smooth field of normal vectors. \newline
 
@@ -122,7 +148,7 @@ Show that the outward unit normal vector field is the unique choice of normal ve
 \end{exercise}
 
 \begin{proof}
-  
+  Suppose the direct sum orientation on $N_{z}(Z; Y) \oplus T_{y}(Z)$ matches up with the one on $Y$, with the orientation on the normal space positively given by the basis of the outward unit normal vector field. We have that the normal bundle is trivial yields a diffeomorphism from $Z \times R \to N(Z;Y)$ via $(z,1) \mapsto (z, \vec{n}(z))$, which by assumption is orientation preserving at some point and is thus orientation preserving on the entire connected component. As $\vec{n}(z)$ is a smooth vector field that is nonvanishing (as they are unit vectors), we have that there are only two smooth fields of unit normal vectors (either $Z \times \{1\}$ or $Z \times \{-1\}$ under the above diffeomorphism. Thus, as one field matches up with the orientation, this field is the unique normal vector field such that this is the case. For boundary orientations, we have that the sign of any boundary orientation is the sign of the boundary orientation affixed with the outward normal. Thus, by the rationale above, the outward normal vector is the unique unit normal vector field for which the boundary orientation coincides with the orientation of $T_{x}(X)$. 
 \end{proof}
 
 \begin{exercise}
@@ -148,7 +174,15 @@ Show that the orientation induced by an outward pointing vector is independent o
 \end{exercise}
 
 \begin{proof}
-We have that Gram-Scmidt process of orthogonalization yields a change of basis matrix that is upper triangular with strictly positive entries along the diagonal (normalization factors) and thus must be a positive determinant transformation taking the non-orthogonal vector in the upper half plane to an orthogonal outward pointing vector in the upper half plane while preserving positive orientation, yielding the result.   
+  We have that Gram-Scmidt process of orthogonalization yields a change of basis matrix that is upper triangular with strictly positive entries along the diagonal (normalization factors) and thus must be a positive determinant transformation taking the non-orthogonal vector in the upper half plane to an orthogonal outward pointing vector in the upper half plane while preserving positive orientation, yielding the result.
+  An explicit formulation of this would be to write down any outward pointing vector as a sum $v = n_{x} + c$ with $n_{x}$ a perpendicular outward pointing normal and $c$ an offset lying inside $T_{x}(\partial X)$ for some $x \in \partial X$. The shear matrix given by
+  \[
+    \begin{pmatrix}
+      v & -c \\
+      0 & I
+    \end{pmatrix}
+  \]
+  With the basis given by $(v, \beta')$ for $\beta '$ basis for $T_{x}(\partial X)$. The matrix above clearly has positive determinant, and thus yields the same orientation as the basis it is changing to, which is the one with a normal outward pointing vector. 
 \end{proof}
 
 \begin{exercise}
@@ -156,7 +190,7 @@ Show that orthogonality is not required in defining preimage orientations.
 \end{exercise}
 
 \begin{proof}
-  Similar to the previous result, we may proceed by induction. For a preimage of codimension 1, the result above yields the result via using the local immersion theorem to identify a parametrization of the preimage as the canonical inclusion of $\mathbb{R}^{k-1} \hookarrow \mamthbb{R}^{k}$. Successively applying the Gram-Schmidt process to eventually yield an orthogonal basis of the same orientation as the initial basis yields the result. 
+  Similar to the previous result, we may proceed by induction. For a preimage of codimension 1, the result above yields the result via using the local immersion theorem to identify a parametrization of the preimage as the canonical inclusion of $\mathbb{R}^{k-1} \hookrightarrow \mathbb{R}^{k}$. Successively applying the Gram-Schmidt process to eventually yield an orthogonal basis of the same orientation as the initial basis yields the result. 
 \end{proof}
 
 \end{document}
