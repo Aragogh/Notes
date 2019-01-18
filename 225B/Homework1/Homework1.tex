@@ -1,0 +1,189 @@
+
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 1}
+\newcommand{\hmwkDueDate}{Jan 11th, 2019}
+\newcommand{\hmwkClass}{Math 225B Differential Topology}
+\newcommand{\hmwkClassInstructor}{Professor Peter Petersen}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{exercise}
+  Compute the Laplacian in terms of polar coordinates. (Notation has been borrowed from http://ramanujan.math.trinity.edu/rdaileda/teach/s12/m3357/lectures/lecture_3_27_2_short.pdf)
+\end{exercise}
+
+\begin{proof}
+  We use the notation $u_{kl}$ to denote partial derivative with repect first to $k$ and then to $l$, and $r(x,y)$ and $\theta(x,y)$ as the coordinate transformations from Cartesian to polar.
+  We have from the chain rule that $\frac{\partial}{\partial x} = \frac{\partial}{\partial r}\frac{\partial r}{\partial x} + \frac{\partial}{\partial \theta}\frac{\partial \theta}{\partial x}$ via the chain rule, and similarly for $y$. The second order derivative with respect to $x$ can be computed using this formula via:
+  \[
+    \frac{\partial^{2}}{\partial x^{2}} = \frac{\partial}{\partial r}\Big(\frac{\partial}{\partial r}\frac{\partial r}{\partial x} + \frac{\partial}{\partial \theta}\frac{\partial \theta}{\partial x} \Big)\cdot \frac{\partial r}{\partial x} + \frac{\partial}{\partial \theta}\Big(\frac{\partial}{\partial r}\frac{\partial r}{\partial x} + \frac{\partial}{\partial \theta}\frac{\partial \theta}{\partial x} \Big)\cdot\frac{\partial \theta}{\partial x} 
+  \]
+  To which we can apply the chain and product rules, obtaining:
+  \[
+    u_{xx} = (u_{rr}r_{x} + u_{r}r_{xr} + u_{\theta r}\theta_{x} + u_{\theta}\theta_{xr})\cdot r_{x} + (u_{r\theta}r_{x} + u_{r}r_{x\theta} + u_{\theta \theta}\theta_{x} + u_{\theta}\theta_{x \theta})\cdot \theta_{x} 
+  \]
+  We apply a similar computation to $y$, which we add and further simplify by collecting terms to obtain:
+  \[
+    \nabla^{2}u = \frac{\partial^{2}}{\partial r^{2}} + \frac{1}{r}\frac{\partial}{\partial r} + \frac{1}{r^{2}}\frac{\partial^{2}}{\partial \theta^{2}}
+    \]
+Which is the Laplacian in polar coordinates.
+\end{proof}
+
+\begin{exercise}
+  Show the following: \\ 
+  a) An immersion from one n-manifold to another is an open map. \\
+  b) If M and N are n-manifolds with M compact and N connected, then an immersion is onto.
+\end{exercise}
+
+\begin{proof} Here ``Euclidean'' is given to mean open and diffeomorphic to $\mathbb{R}^{n}$
+  a) At any given point $x \in M$, we have that some Euclidean neighborhood $x \in U$ is mapped diffeomorphically to a Euclidean neighborhood $f(x) \in V$ as the immersion is equivalent to an injective linear transformation from two n-dimensional real vector spaces, i.e. a linear isomorphism. Thus, the image of the union of Euclidean neighborhoods in any open set $W$ is the union of Euclidean neighborhoods in $f(W)$, and as $M, N$ are manifolds we have that the union of Euclidean neighborhoods in $W$ is equal to $W$, and thus $f(W)$ is open being a union of open sets. \\
+  b) Follows immediately as the image of $M$ must be open, $M$ being the union of Euclidean neighborhoods in $M$, the images of which are open, and also closed as $M$ is compact. Any clopen set in $N$ must be the whole space.
+\end{proof}
+
+\begin{exercise}
+  Prove if f: $M^{n} \to N$ has constant rank k on a neighborhood of $f^{-1}(y)$ then $f^{-1}(y)$ is a closed submanifold of dimension $n - k$ (or empty). 
+\end{exercise}
+
+\begin{proof}
+  We have that $k$ must be less than or equal to $n$. Let $N$ be the nbhd of the hypothesis Considering any point $x \in f^{-1}(y)$ yields the diagram:
+  \[
+    \begin{tikzcd}
+      x \in U \subset N \arrow{r}{f} \arrow[swap]{d}{\phi} & V \ni y \arrow{d}{\psi}\\
+      \mathbb{R}^{n} \arrow{r}{\psi \circ f \circ \phi^{-1}} & \mathbb{R}^{m} \\
+    \end{tikzcd}
+  \]
+  With the bottom map having rank $k$. This yields that the preimage of $y$ in $U$ corresponds to the preimage of the origin in $V$, which is an $n - k$ dimensional vector space corresponding to an $n - k$ closed submanifold of $U$. Taking the union of all the preimages in $N$ is the preimage of $y$, which is closed (as it contains any point adherent to it, being of dimension less than the dimension of the manifold) and a submanifold of dimension $n - k$ (as each point in the preimage has a nbhd diffeomorphic to a subspace of dimension $n - k$ from the diagram above). 
+\end{proof}
+
+\begin{exercise}
+  Let $f: \mathbb{P}^{2} \to \mathbb{R}^{3}$ be the map $g([x,y,z]) = (yz,xz,xy)$, whose image is the Steiner surface. Show that g fails to be an immersion at 6 points.
+\end{exercise}
+
+\begin{proof}
+  We may first analyse the Steiner map as a map from $\mathbb{R}^{3} \to \mathbb{R}^{3}$ and then look at the induced map on the quotient space $\mathbb{P}^{2}$. We have that the vectors orthogonal to the line bundle in $\mathbb{R}^{3}$ remain orthogonal to the point on the projective plane; i.e. the map takes the orthogonal space to the tangent space, and thus if the derivative of the Steiner map contains a vector orthogonal to the line bundle in its kernel then it contains a vector in the tangent space in its kernel. Looking at the derivative of the Steiner function on $\mathbb{R}^{3}$ yields us the matrix:
+  \[
+    \begin{pmatrix}
+      0 & z & y \\
+      z & 0 & x \\
+      y & x & 0 \\
+    \end{pmatrix}
+  \]
+  It thus suffices to find vector classes $(x,y,z)$ s.t. some vector orthogonal to this vector class is in the kernel of the derivative. We first consider the vector classes $(1,1,0), (1,0,1), (0,1,1)$. The associated derivative matrices for these respective points are:
+
+  \[
+    \begin{pmatrix}
+      0 & 0 & 1 \\
+      0 & 0 & 1 \\
+      1 & 1 & 0 \\
+    \end{pmatrix} ;
+    \begin{pmatrix}
+      0 & 1 & 0 \\
+      1 & 0 & 1 \\
+      0 & 1 & 0 \\
+    \end{pmatrix} ;
+    \begin{pmatrix}
+      0 & 1 & 1 \\
+      1 & 0 & 0 \\
+      1 & 0 & 0 \\
+    \end{pmatrix}
+  \]
+
+  Which contain the orthogonal vectors $(1, -1, 0), (1, 0, -1), (0, -1, 1)$ respectively. We also have the exact same condition holding for the vector classes $(1, -1, 0), (1, 0 , -1), (0, -1, 1)$, thus yielding six points at which the map fails to be injective on orthogonal spaces and ultimately thus fails to be injective on the tangent spaces at these points, implying the failure to be an immersion on $\mathbb{P}^{2}$ at these points. 
+\end{proof}
+
+\begin{exercise}
+  Show the following: \\
+  a) L(f) = $\emptyset$ iff f is proper. \\
+  b) f(X) $\subset Y$ is closed iff $L(f) \subset f(X)$. \\
+  c) There is a continuous $f: \mathbb{R} \to \mathbb{R}^{2} \text{ with } f(\mathbb{R})$ closed, but $L(f) \neq \emptyset$. \\
+  d) A one-to-one continuous function $f: X \to Y$ is a homeomorphism onto its image if and only if $L(f) \cap f(X) = \emptyset$. \\
+  e) A submanifold $M_{1} \subset M$ is closed iff the inclusion map is proper. \\
+  f) If M is a manifold then there is a proper map $f: M \to \mathbb{R}$; the function $f$ can be made $C^{\infty}$ if M is a $C^{\infty}$ manifold.
+  g) The result holds if M has at most countably many connectec components.
+\end{exercise}
+
+\begin{proof}
+  a) The forward direction holds as if $f$ were not proper then there would exist a compact set $C$ with a noncompact preimage $K$, which implies that we may select a sequence in $K$ with no convergent subsequence with the image having a convergent subsequence: the limit point of this convergent subsequence clearly belongs to $L(f)$. The backwards direction is also immediate as the preimage of any convergent sequence is a compact, implying that the preimage must necessarily have a convergent subsequence. \\
+  b) Is immediate as $L(f) \subset f(X)$ if and only if all adherent points belong to $f(X)$, implying that it is closed. \\
+  c) Consider the map $\mathbb{R}^{+} \to \mathbb{R}^{2}$ via $t \mapsto (t,0)$, and the map $\mathbb{R}^{-} \to \mathbb{R}^{2}$ via $t \mapsto (\cos(2\pi \tan^{-1}(t)), \sin(2\pi \tan^{-1}(t)) $. The image of the sequence (-1, -2, -3 ...) converges to the point (1, 0), and thus $L(f) \neq \emptyset$. \\
+  d) The forward direction is immediate as if $f$ is a homeomorphism then any convergent sequence in the image has a preimage that is convergent. The backward direction implies that the map $f$ is proper, and thus that the image of any open set must be open, as if an interior point $x \in U$ is mapped to a boundary point then there is a sequence of points in $f(X)$ that converge to $f(x)$ that do not belong to $f(U)$. As $f$ is continuous, we have that the preimage sequence in $X \setminus U$ cannot converge as if it does then the limit of the preimage sequence must map to the point $f(x)$, which is not possible as the limit of the preimage sequence in must belong in $X \setminus U$ and is thus not $x$, but the map is one-to-one. Thus, $f$ is an open one-to-one map and this implies it is a homeomorphism onto its image. \\
+  e) If the closuion map is proper we have that $L(f) = \emptyset \subset i(M_{1)})$ and thus part b) implies that $M_{1}$ is closed. \\
+  f) For $M$ a manifold we may select an arbitrary point $x \in M$, and being embedded in some Euclidean space we may use the map $d(x, -) : t \mapsto d(x,t)$ as a proper map. If $M$ is $C^{\infty}$ then we have that this map is differentiable at each point as at each point it is the composition $d(t,-) \circ (\phi)$ for $\phi$ some parametrization, which is the composition of two $C^{\infty}$ maps and thus itself a $C^{\infty}$ map. \\
+  g) This result holds as $M$ has a compact exhaustion, and thus we may take the smooth Urysohn Lemma to obtain proper maps s.t. each compact set is mapped to 0 and some closed neighborhood of the complement is mapped to 1. Enumerating each compact set and using the corresponding indices for each function yields a smooth map defined on each compact set given by summing all the functions of index less than or equal to the index of that compact set, s.t. the preimage of each interval is at most the union of $n$ compact sets where $n$ is the ceiling of the supremum. This is a proper map to $\mathbb{R}^{+}$. \end{proof}
+
+\end{document}

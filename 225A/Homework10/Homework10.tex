@@ -1,0 +1,164 @@
+
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 10}
+\newcommand{\hmwkDueDate}{December 5th, 2018}
+\newcommand{\hmwkClass}{Math 225A Differential Topology}
+\newcommand{\hmwkClassInstructor}{Professor Peter Petersen}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{exercise}
+  Prove that two maps from the circle into itself are homotopic iff they have the same degree.
+\end{exercise}
+
+\begin{proof}
+  The forward direction is immediate by definition, as if two maps are homotopic then they have the same degree by invariance of intersection number. The reverse direction can be done using the method of lifting the map $f: S^{1} \to S^{1}$ to a map $\widetilde f: S^{1} \to \mathbb{R}$ via using the winding number integral, given by \[ \widetilde f(x) : \int\limits_{0}^{x}f(t) dt\]  with coordinate system $\phi: S^{1} \to [0,1]/\{0 \sim 1\}$, or $\mathbb{R}/\mathbb{Z}$. It was proved in homework 7 that the integral over the whole interval was an integer, which we will show is equivalent to the degree. We also have that the map $h: S^{1} \to S^{1}$ given by composing $\phi \circ \exp\{i \widetilde f(x)\}$ corresponds exactly to the map $f$. Thus, any homotopy $F$ of the map $\widetilde f$ fixing the value of $\widetilde f(0), \ \widetilde f(1)$ for every $F_{s}$ yields a homotopy of the maps from $\mathbb{R}/\mathbb{Z} \to \mathbb{R}/\mathbb{Z}$ via the composition above. 
+  
+  Suppose the value of $\widetilde f(1)$ is not the degree. Then we have the straight line homotopy fixing $\widetilde f(0), \widetilde f(1)$ via $F: \mathbb{R}/\mathbb{Z} \times I \to \mathbb{R}$ via $F: (x,t) \mapsto \widetilde f(1) \cdot x s - (1 - s) \widetilde f(x)$. The composition with the exponentiation map followed by the parametrization yields $\widetilde f(1)$ different preimages of $0$, as every integer value of $\widetilde f(1)\cdot xs$ maps to $0$ in $\mathbb{R}/\mathbb{Z}$. Thus, $\widetilde f(1)$ must be the degree, and by the exact same logic, if two maps $f_{0}, f_{1}$ have the same degree then the corresponding lifts are homotopic to the map $nx$ for $n$ the degree, which reduces to a homotopy of the corresponding $S^{1}$ maps to the same map given by $n: \mathbb{R}/\mathbb{Z} \to \mathbb{R}/\mathbb{Z}$ via $n-multiplication$. As homotopy is an equivalence relation, we have the result. 
+\end{proof}
+
+\begin{exercise}
+  Prove that the Euler characteristic of an orientable manifold X is the same for all choices of orientation.
+\end{exercise}
+
+\begin{proof}
+  We have from previous homeworks that the orientation of the product manifold $X \times X$ is the same for all choices of orientation of $X$. Thus, the oriented intersection number of $I(\Delta \times \Delta, X \times X \times X \times X)$ must remain the same regardless of all choices of orientation for $X$, as the diagonal inherits the product orientation. 
+\end{proof}
+
+\begin{exercise}
+  Suppose X and Z are submanifolds of a manifold Y with complimentary dimension s.t. there exists an open neighborhood U of $X \cap Z$ s.t. $U, U \cap Z, U \cap X$ are all oriented. Prove that I(X,Z) is well defined and unaltered by small deformations of X or Z.
+\end{exercise}
+
+\begin{proof}
+  In the neighborhood $U$, we may use the extension theorem to extend the inclusion map of $X$ to be transveral in $U$: X trivially intersects $Z$ transversely outside $U$, and thus we may extend the map from the closed set $Y \ U$ to $Y$ to be transversal. Furthermore, as $X$ and $Z$ are of complimentary dimension and $U, U \cap X and U \cap Z$ are all oriented, we may equip any point in the intersection $X \cap Z$ with the preimage orientation in $X$ given by the direct sum orientation of $T_{y}(U \cap X) \oplus T_{y}(U \cap Z) = T_{y}(U)$, and thus we have an intersection number $I(U \cap X,U \cap Z)$ given by summing the $U \cap X$ orientation numbers of each point in the intersection. As $U$ contains the entire intersection, we have that every point in the intersection can be consistently assigned an intersection number and thus $I(X,Z)$ is well-defined. We furthermore have that transversality is stable, and thus the intersection remains within $U$, remains oriented as above, and remain transverse for small deformations of $X$ and $Z$. The stability of the intersection number follows as homotopies of the inclusion map $i: U \cap X \to U$ do not alter the intersection number $I(i, U \cap Z)$. Symmetric logic applies for deformations of $Z$.
+\end{proof}
+
+\pagebreak
+
+\begin{exercise}
+  Suppose Z is a compact submanifold of Y with dimZ = $\frac{1}{2}$dimY with Y oriented. Show that the self intersection number of Z is well-defined and unaltered by small deformations. In particular, prove that the Euler characteristic is well-defined and a diffeomorphism invariant for nonorientable manifolds.
+\end{exercise}
+
+\begin{proof}
+  We may define the self intersection number as the intersection $I(Z \times Z, \Delta)$. From the previous exercise and from earlier homeworks, there is a canonical orientation on a neighborhood of the diagonal, and thus on a neighborhood of the intersection above. The previous exercise yields the result. In particular, we have that the self-intersection of the diagonal is defined for arbitrary manifolds via the canonical orientation of a neighborhood of the diagonal, and application of the previous result. It is a diffeomorphism invariant as any diffeomorphism of $X$ maps the diagonal of $X \times X$ diffeomorphically onto the diagonal of the product of the target manifold via a degree 1 map, therefore maps a neighborhood of the diagonal diffeomorphically onto a neighborhood of the target diagonal (as the diagonal is closed). This preserves canonical orientation in some neighborhood of the target and thus preserves intersection numbers. 
+\end{proof}
+
+\begin{exercise}
+  Show t.f.a.e.:
+
+  a) x is a Lefschetz fixed point of f
+
+  b) 0 is a Lefschetz fixed point of df$_{x}$: T$_{x}(X) \to T_{x}(X)$
+
+  c) df$_{x}$ is a Lefschetz map
+\end{exercise}
+
+\begin{proof}
+If x is a Lefschetz fixed point we have that the differential has no singular eigenvalues, and thus $d(df_{x}) = df_{x}$ also has no singular eigenvalues and thus we have a) implies b). If 0 is a Lefschetz fixed point, we have that $d(df_{x})$ has no singular eigenvalues and thus there are no vectors fixed by $d(df_{x}) = df_{x}$, i.e. that 0 is the only fixed point and thus the map is Lefschetz. Finally, if $df_{x}$ is Lefschetz we have that 0 is a Lefschetz fixed point of the linear isomorphism and the differential thus has no singular eigenvalues, yielding a).  
+\end{proof}
+
+\begin{exercise}
+Prove that the class of Lefschetz maps of a compact manifold from X to itself are stable.   
+\end{exercise}
+
+\begin{proof}
+  We have that any Lefschetz map $f$ has associated graph$(f)$ s.t. homotopies of maps $f$ lift to homotopies of the inclusion map of the space graph$(f) \subset X \times X$. As transversal intersection is a stable condition, we have that graph$(F_{s})$ transversely intersects $\Delta$ for sufficiently small $s$ in $F:X \times I \mapsto X$. Thus, the property of being Lefschetz is a stable condition. 
+\end{proof}
+\begin{exercise}
+  Show the following for $z \in \mathbb{C}$:
+
+  a) The map $z \mapsto z + z^{m}$ has a fixed point with local Lefschetz number m at the origin.
+
+  b) For any $c \neq 0$, the homotopic map z$z \mapsto z + z^{m} + c$ is Lefschetz with m fixed points that are close to 0 for small c.
+
+  c) Show that the map $z \mapsto z + \overline{z}^{m}$ has a fixed point with Lefschetz number -m at the origin.
+\end{exercise}
+
+\begin{proof}
+  Part a) is immediate from the result that \[ L_{z}(f) = \frac{f(z)-z}{|f(z) - z|} \]. We have that the resulting map $\frac{z^{m}}{|z^{m}|}$ has degree $m$ and thus the local Lefschetz number is $m$. We have that the map in part b) is Lefschetz as for all nonzero points we have that the differential $(m-1)z^{m-1} + 1$ has nonidentity eigenvalues for $m>0$, and 0 is not a fixed point and thus all fixed points are Lefschetz. Any fixed point of this map is a solution to the equation $z^{m} + c = 0$, for which there are $m$ distinct solutions by properties of the complex numbers (one associated to each $m$th root of unity), which have magnitude $|c|^{\frac{1}{m}}|$ and are thus close to 0 for small c. Finally, we have part c) from the resulting map $\frac{\overline{z}^{m}}{|z^{m}|}$, which viewing $\mathbb{C}$ as $\mathbb{R}^{2}$, the conjugation map yields a normalized differential which sends the standard basis $(1, i) \mapsto (1, -i)$, which reverses orientation at each point in a small ball about 0. This yields a degree $-m$ map around 0, by first reversing orientation at each point and then applying a degree $m$ map, giving the result. 
+\end{proof}
+
+\begin{exercise}
+  Show that the Euler characteristic of any compact Lie group is zero.
+\end{exercise}
+
+\begin{proof}
+  Given a Lie group $G$, we have a diffeomorphism in the connected component of $I$ given by left multiplication by a nonidentity element $A$. As this map contains no fixed points, (as if $AB = B$ we have $A = I$) we have a map from $\Delta$ to itself that has no fixed points: furthermore, we have a smooth homotopy from the identity map to this map given by $F: O(n) \times I \to O(n)$ via $F: (B, t) \mapsto ((1-t)I + tA)B$. Thus, the diagonal has trivial self-intersection number.  
+\end{proof}
+
+\end{document}

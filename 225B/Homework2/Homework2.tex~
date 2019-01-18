@@ -1,0 +1,137 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\st}{\text \ \text{s.t.} \hspace{0.025in} }
+\newcommand{\Claim}[1]{\vspace{0.05in} \\ \underline{\textbf{Claim:}} #1 \vspace{0.05in} \\}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 2}
+\newcommand{\hmwkDueDate}{Jan 18th, 2019}
+\newcommand{\hmwkClass}{Math 225B Differential Geometry}
+\newcommand{\hmwkClassInstructor}{Professor Peter Petersen}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\begin{exercise}
+  Show the following: \\
+  a) For any bundle $\pi: E \to B$, the map $s:B \to E$ with $s: p \mapsto 0 \in \pi^{-1}(p)$ is a section. \\
+  b) Show that an n-plane bundle is trivial if and only if there exist everywhere linearly independent sections global $s_{1},...,s_{n}$.\\
+  c) Show that locally every n-plane bundle has n linearly independent sections.
+\end{exercise}
+
+\begin{proof}
+  a) It suffices to show that $s$ is continuous, as the composition with the projection is clearly the identity. We have that a base of open sets for a vector bundle locally corresponds with the product topology. Thus, the preimage of any open set in $E$ is determined by local preimages in $U_{i}\times \mathbb{R^{k}}$ for $U_{i}$ a cover of the manifold, and we have that the preimage of any open set $O \subset U_{i} \times \mathbb{R^{k}}$ is $O \cap U_{i} \times 0$ which is open in the relative topology on $U_{i}$, coinciding with the topology of the manifold and thus the section is continuous. \\
+  b) One direction is clear, as if a bundle is trivial then we have the bundle is $M \times \mathbb{R}^{k}$ and we define $n$ linearly independent sections by $s_{i}: p \mapsto (p, (0,...,v_{i},...,0))$, which is continuous as it corresponds to the zero section followed by translation in the second coordinate. For the backwards direction, we define a homeomorphism from $M \times \mathbb{R}^{n}$ to $E$ given by $(p,x_{1},...,x_{n}) \mapsto (p, x_{1}s_{1}(p),...,x_{n}s_{n}(p))$. This map restricts to linear isomorphisms at each point as a linearly independent basis is sent to a linearly independent basis, and is thus bijective, continuous as every open set $E$ is the union of open sets of the form $\bigcup_{x_{i} \in V_{i}} U_{i}\times (s_{1}x_{1},...,s_{1}x_{n})$ as by linear independence, a local trivialization of every open set can be given with the basis of sections, and the preimage is $U_{i} \times V_{i} \subset  M \times \mathbb{R}^{n}$ ($V_{i}$ open by product topology on local trivialization. Clearly, open sets are mapped to open sets and this is a homeomorphism. \\
+  c) For an $n-plane$ bundle, around every point we have a local trivialization given by $U \times \mathbb{R}^{k}$. Selecting any closed subset $K \subset U$ containing $p$, we define $n$ sections of $p$ by sending $p$ to $(p, w_{i})$ for $(w_{i})_{i=1,...,n}$ an orthonormal basis for $\pi_{2}(U \times \mathbb{R}^{k})$. This corresponds to the zero section followed by translation in the second coordinate and is clearly smooth. We define this to vanish on $M \setminus U$. This may be extended to a map on all of $M$ by the Tietze extension theorem (the map factors through a map to $1 \in \mathbb{R}$ on $K$ and to $0$ on $M\setminus U$. This yields a section of the manifold that locally maps to a basis element. Repeating this process for each basis vector yields $n$ distinct sections that are linearly independent on $p \in K^{o}$, i.e. satisfying the local condition. 
+\end{proof}
+
+\begin{exercise}
+  If $g:\mathbb{R} \to \mathbb{R}$ is $C^{\infty}$ show that $g(x) = g(0) + g'(0)x + x^{2}h(x)$ for some $C^{\infty}$ function $h: \mathbb{R} \to \mathbb{R}$.
+\end{exercise}
+\begin{proof}
+  Define $h(x) = \frac{g(x) - g(0) - g'(0)x}{x^{2}}$ for $x \neq 0$. At $0$ we evaluate the limit:
+  \[
+    \lim_{x \to 0}\frac{g(x)-g(0) - g'(0)}{x^{2}} = \lim_{{x \to 0}}\frac{g'(x) - g'(0)}{2x} = \frac{g''(0)}{2}
+  \]
+  By l'H\"opital's rule. Thus, this function is continuous. Furthermore, evaluating the derivative at 0 yields us:
+  \[
+    \lim_{x\to 0} \frac{g(x)-g(0)-g'(0)x - g''(0)}{2x^{2}} = \lim_{x\to 0}\frac{g'(x) - g'(0)}{4x} = \frac{g''(0)}{4}
+  \]
+  Which agrees on both sides of the limit. Thus, the function is clearly $C^{\infty}$ everywhere and differentiable at 0, and by similar logic as above we may show that higher derivatives of this function also exist for all $n$th derivatives. 
+\end{proof}
+
+\newpage
+
+\begin{exercise}
+  Show the following: \\
+  a) Let p$_{0} \in S^{n-1}$ be the point $(0,...,1)$. For $n \geq 2$ define $f: SO(n) \to S^{n-1}$ by $f(A) = A(p_{0})$. Show that $f$ is continuous and open. Show that $f^{-1}(p_{0})$ is homeomorphic to $SO(n-1)$, and then show that $f^{-1}(p)$ is homeomorphic to $SO(n-1)$ for all $p \in S^{n-1}$. \\
+  b) SO(1) is a point, so it is connected. Using part a) and induction on n show that SO(n) is connected for all n.\\
+  c) Show that O(n) has exactly two components. 
+\end{exercise}
+
+\begin{proof}
+  $f$ is clearly continuous, as under the normal metric topology on $\mathbb{R}^{n\times n}$ we have that for small perturbations in the entries of an $n \times n$ matrix that the resultant image points of a fixed vector are also perturbed by small amounts: thus, metric space continuity holds.
+  \Claim{This map is open.}
+  Let $A\in U$ open. We have some $\epsilon > 0$ s.t. $B_{\epsilon}(A) \subset U$ under the Euclidean metric. Thus, there is a $\delta > 0$ s.t. $\forall \ w \in B_{\delta}(v),  \exists \ B \in B_{\epsilon}(A) \st B(v) = w$. Thus, the map is open and we have the claim. The preimage of $p_{0}$ is all maps that fix the $n$th vector, which are of the form:
+  \begin{pmatrix}
+    A & 0 \\ 0 & 1
+  \end{pmatrix}
+  with $A$ orthogonal $n-1$ dimensional square matrix with determinant 1; i.e. isomorphic to $SO(n-1)$ via the map $A \mapsto B$ by projecting onto the first $(n-1)^{2}$ coordinates. This is clearly continuous (it is a projection), injective as the last $2n-1$ coordinates are constant, and bijective as every $n-1$ dimension orthgonal matrix can be augmented to an $n$ dimensional one as above. Finally, it is a bijective continuous map from a compact space to a Hausdorff space, and is thus a homeomorphism. Finally, the preimage of any point $p$ is the left coset of the stabilizer of subgroup of $p_{0}$, which is homeomorphic to $SO(n-1)$. \vspace{0.1in} \\
+  For part b), assume that $SO(n-1)$ is connected for some $n$. We have that 
+\end{proof}
+
+\end{document}

@@ -1,0 +1,111 @@
+
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 10}
+\newcommand{\hmwkDueDate}{December 5th, 2018}
+\newcommand{\hmwkClass}{Math 225A Differential Topology}
+\newcommand{\hmwkClassInstructor}{Professor Peter Petersen}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{exercise}
+  Prove that two maps from the circle into itself are homotopic iff they have the same degree.
+\end{exercise}
+
+\begin{proof}
+  The forward direction is immediate by definition, as if two maps are homotopic then they have the same degree by invariance of intersection number. The reverse direction can be done using the method of lifting the map $f: S^{1} \to S^{1}$ to a map $\widetilde f: S^{1} \to \mathbb{R}$ via using the winding number integral, given by \[ \widetilde f(x) : \int\limits_{0}^{x}f(t) dt\]  with coordinate system $\phi: S^{1} \to [0,1]/\{0 \sim 1\}$, or $\mathbb{R}/\mathbb{Z}$. It was proved in homework 7 that the integral over the whole interval was an integer, which we will show is equivalent to the degree. We also have that the map $h: S^{1} \to S^{1}$ given by composing $\phi \circ \exp\{i \widetilde f(x)\}$ corresponds exactly to the map $f$. Thus, any homotopy $F$ of the map $\widetilde f$ fixing the value of $\widetilde f(0), \ \widetilde f(1)$ for every $F_{s}$ yields a homotopy of the maps from $\mathbb{R}/\mathbb{Z} \to \mathbb{R}/\mathbb{Z}$ via the composition above. 
+  
+  Suppose the value of $\widetilde f(1)$ is not the degree. Then we have the straight line homotopy fixing $\widetilde f(0), \widetilde f(1)$ via $F: \mathbb{R}/\mathbb{Z} \times I \to \mathbb{R}$ via $F: (x,t) \mapsto \widetilde f(1) \cdot x s - (1 - s) \widetilde f(x)$. The composition with the exponentiation map followed by the parametrization yields $\widetilde f(1)$ different preimages of $0$, as every integer value of $\widetilde f(1)\cdot xs$ maps to $0$ in $\mathbb{R}/\mathbb{Z}$. Thus, $\widetilde f(1)$ must be the degree, and by the exact same logic, if two maps $f_{0}, f_{1}$ have the same degree then the corresponding lifts are homotopic to the map $nx$ for $n$ the degree, which reduces to a homotopy of the corresponding $S^{1}$ maps to the same map given by $n: \mathbb{R}/\mathbb{Z} \to \mathbb{R}/\mathbb{Z}$ via $n-multiplication$. As homotopy is an equivalence relation, we have the result. 
+\end{proof}
+
+\begin{exercise}
+  Prove that the Euler characteristic of an orientable manifold X is the same for all choices of orientation.
+\end{exercise}
+
+\begin{proof}
+  We have from previous homeworks that the orientation of the product manifold $X \times X$ is the same for all choices of orientation of $X$. Thus, the oriented intersection number of $I(\Delta, \Delta)$ must remain the same regardless of all choices of orientation for $X$, as the diagonal inherits the product orientation.  
+\end{proof}
+
+\begin{exercise}
+  Suppose X and Z are submanifolds of a manifold Y with complimentary dimension s.t. there exists an open neighborhood U of $X \cap Z$ s.t. $U, U \cap Z, U \cap X$ are all oriented. Prove that I(X,Z) is well defined and unaltered by small deformations of X or Z.
+\end{exercise}
+
+\begin{proof}
+  
+\end{proof}
+
+\end{document}

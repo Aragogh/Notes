@@ -1,0 +1,180 @@
+
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 1}
+\newcommand{\hmwkDueDate}{Jan 11th, 2019}
+\newcommand{\hmwkClass}{Math 225B Differential Topology}
+\newcommand{\hmwkClassInstructor}{Professor Peter Petersen}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{exercise}
+  Compute the Laplacian in terms of polar coordinates. (Notation has been borrowed from http://ramanujan.math.trinity.edu/rdaileda/teach/s12/m3357/lectures/lecture_3_27_2_short.pdf)
+\end{exercise}
+
+\begin{proof}
+  We have from the chain rule that $\frac{\partial}{\partial x} = \frac{\partial}{\partial r}\frac{\partial r}{\partial x} + \frac{\partial}{\partial \theta}\frac{\partial \theta}{\partial x}$ via the chain rule, and similarly for $y$. The second order derivative with respect to $x$ can be computed using this formula via:
+  \[
+    \frac{\partial^{2}}{\partial x^{2}} = \frac{\partial}{\partial r}\Big(\frac{\partial}{\partial r}\frac{\partial r}{\partial x} + \frac{\partial}{\partial \theta}\frac{\partial \theta}{\partial x} \Big)\cdot \frac{\partial r}{\partial x} + \frac{\partial}{\partial \theta}\Big(\frac{\partial}{\partial r}\frac{\partial r}{\partial x} + \frac{\partial}{\partial \theta}\frac{\partial \theta}{\partial x} \Big)\cdot\frac{\partial \theta}{\partial x} 
+  \]
+  To which we can apply the chain and product rules, obtaining:
+  \[
+    u_{xx} = (u_{rr}r_{x} + u_{r}r_{xr} + u_{\theta r}\theta_{x} + u_{\theta}\theta_{xr})\cdot r_{x} + (u_{r\theta}r_{x} + u_{r}r_{x\theta} + u_{\theta \theta}\theta_{x} + u_{\theta}\theta_{x \theta})\cdot \theta_{x} 
+  \]
+
+  Which we can further simplify to 
+  And similarly for $y$. 
+\end{proof}
+
+\begin{exercise}
+  a) 
+\end{exercise}
+
+\begin{exercise}
+  Prove if f: $M^{n} \to N$ has constant rank k on a neighborhood of $f^{-1}(y)$ then $f^{-1}(y)$ is a closed submanifold of dimension $n - k$ (or empty). 
+\end{exercise}
+
+\begin{proof}
+  We have that $k$ must be less than or equal to $n$. Let $N$ be the nbhd of the hypothesis Considering any point $x \in f^{-1}(y)$ yields the diagram:
+  \[
+    \begin{tikzcd}
+      x \in U \subset N \arrow{r}{f} \arrow[swap]{d}{\phi} & V \ni y \arrow{d}{\psi}\\
+      \mathbb{R}^{n} \arrow{r}{\psi \circ f \circ \phi^{-1}} & \mathbb{R}^{m} \\
+    \end{tikzcd}
+  \]
+  With the bottom map having rank $k$. This yields that the preimage of $y$ in $U$ corresponds to the preimage of the origin in $V$, which is an $n - k$ dimensional vector space corresponding to an $n - k$ closed submanifold of $U$. Taking the union of all the preimages in $N$ is the preimage of $y$, which is closed (as it contains any point adherent to it, being of dimension less than the dimension of the manifold) and a submanifold of dimension $n - k$ (as each point in the preimage has a nbhd diffeomorphic to a subspace of dimension $n - k$ from the diagram above). 
+\end{proof}
+
+\begin{exercise}
+  Let $f: \mathbb{P}^{2} \to \mathbb{R}^{3}$ be the map $g([x,y,z]) = (yz,xz,xy)$, whose image is the Steiner surface. Show that g fails to be an immersion at 6 points.
+\end{exercise}
+
+\begin{proof}
+  We may first analyse the Steiner map as a map from $\mathbb{R}^{3} \to \mathbb{R}^{3}$ and then look at the induced map on the quotient space $\mathbb{P}^{2}$. We have that the vectors orthogonal to the line bundle in $\mathbb{R}^{3}$ remain orthogonal to the point on the projective plane; i.e. the map takes the orthogonal space to the tangent space, and thus if the derivative of the Steiner map contains a vector orthogonal to the line bundle in its kernel then it contains a vector in the tangent space in its kernel. Looking at the derivative of the Steiner function on $\mathbb{R}^{3}$ yields us the matrix:
+  \[
+    \begin{pmatrix}
+      0 & z & y \\
+      z & 0 & x \\
+      y & x & 0 \\
+    \end{pmatrix}
+  \]
+  It thus suffices to find vector classes $(x,y,z)$ s.t. some vector orthogonal to this vector class is in the kernel of the derivative. We first consider the vector classes $(1,1,0), (1,0,1), (0,1,1)$. The associated derivative matrices for these respective points are:
+
+  \[
+    \begin{pmatrix}
+      0 & 0 & 1 \\
+      0 & 0 & 1 \\
+      1 & 1 & 0 \\
+    \end{pmatrix} ;
+    \begin{pmatrix}
+      0 & 1 & 0 \\
+      1 & 0 & 1 \\
+      0 & 1 & 0 \\
+    \end{pmatrix} ;
+    \begin{pmatrix}
+      0 & 1 & 1 \\
+      1 & 0 & 0 \\
+      1 & 0 & 0 \\
+    \end{pmatrix}
+  \]
+
+  Which contain the orthogonal vectors $(1, -1, 0), (1, 0, -1), (0, -1, 1)$ respectively. We also have the exact same condition holding for the vector classes $(1, -1, 0), (1, 0 , -1), (0, -1, 1)$, thus yielding six points at which the map fails to be injective on orthogonal spaces and ultimately thus fails to be injective on the tangent spaces at these points, implying the failure to be an immersion on $\mathbb{P}^{2}$ at these points. 
+\end{proof}
+
+\newpage
+
+\begin{exercise}
+  Show the following: \\
+  a) L(f) = $\emptyset$ iff f is proper. \\
+  b) f(X) $\subset Y$ is closed iff $L(f) \subset f(X)$. \\
+  c) There is a continuous $f: \mathbb{R} \to \mathbb{R}^{2} \text{ with } f(\mathbb{R})$ closed, but $L(f) \neq \emptyset$. \\
+  d) A one-to-one continuous function $f: X \to Y$ is a homeomorphism onto its image if and only if $L(f) \cap f(X) = \emptyset$. \\
+  e) A submanifold $M_{1} \subset M$ is closed iff the inclusion map is proper. \\
+  f) If M is a manifold then there is a proper map $f: M \to \mathbb{R}$; the function $f$ can be made $C^{\infty}$ if M is a $C^{\infty}$ manifold.
+\end{exercise}
+
+\begin{proof}
+  a) The forward direction holds as if $f$ were not proper then there would exist a compact set $C$ with a noncompact preimage $K$, which implies that we may select a sequence in $K$ with no convergent subsequence with the image having a convergent subsequence: the limit point of this convergent subsequence clearly belongs to $L(f)$. The backwards direction is also immediate as the preimage of any convergent sequence is a compact, implying that the preimage must necessarily have a convergent subsequence. \\
+  b) Is immediate as $L(f) \subset f(X)$ if and only if all adherent points belong to $f(X)$, implying that it is closed. \\
+  c) Consider the map $\mathbb{R}^{+} \to \mathbb{R}^{2}$ via $t \mapsto (t,0)$, and the map $\mathbb{R}^{-} \to \mathbb{R}^{2}$ via $t \mapsto (\cos(2\pi \tan^{-1}(t)), \sin(2\pi \tan^{-1}(t)) $. The image of the sequence (-1, -2, -3 ...) converges to the point (1, 0), and thus $L(f) \neq \emptyset$. \\
+  d) The forward direction is immediate as if $f$ is a homeomorphism then any convergent sequence in the image has a preimage that is convergent. The backward direction implies that the map $f$ is proper, and thus that the image of any open set must be open, as if an interior point is mapped to a point  \\
+  e) If the closuion map is proper we have that $L(f) = \emptyset \subset i(M_{1)})$ and thus part b) implies that $M_{1}$ is closed. \\
+  f) For $M$ a manifold we may select an arbitrary point $x \in M$, and being embedded in some Euclidean space we may use the map $d(x, -) : t \mapsto d(x,t)$ as a proper map. If $M$ is $C^{\infty}$ then we have that this map is differentiable at each point as at each point it is the composition $d(t,-) \circ (\phi)$ for $\phi$ some parametrization, which is the composition of two $C^{\infty}$ maps and thus itself a $C^{\infty}$ map. 
+\end{proof}
+
+\end{document}
