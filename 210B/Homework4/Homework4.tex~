@@ -1,0 +1,196 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 6}
+\newcommand{\hmwkDueDate}{March 15th, 2019}
+\newcommand{\hmwkClass}{Math 210B Algebra}
+\newcommand{\hmwkClassInstructor}{Professor Sharifi}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle 
+\newpage 
+\begin{exercise}
+  Find a set of representatives for the similarity classes of matrices A $\in \bb{M}_{2}(\bb{F}_{19})$ with $A^{5}=I$.
+\end{exercise}
+\begin{proof}
+  We have that $19 \equiv 4 \mod 5$ has multiplicative order 2, and so $[\bb{F}_{19}(\zeta_{5}):\bb{F}_{19}] = 2$. Thus, consider the polynomial $p = (t - \zeta_{5})(t - \zeta_{5}^{2})(t - \zeta_{5}^{3})(t-\zeta_{5}^{4}) \in \bb{F}_{19}[t]$. The minimal polynomial of any root divides $p$ and must be degree 2, so we may assume the irreducible factors of this polynomial in $\bb{F}_{19}[t]$ are $(t - \zeta_{5})(t - \zeta_{5}^{4})$ and $(t - \zeta_{5}^{2})(t - \zeta_{5}^{3})$ (as for any other product $(t - \zeta_{5})(t - \zeta_{5}^{n})$ the constant term does not belong in $\mathbb{F}_{19}$). Thus, the irreducible factors of $t^{5}-1$ are $(t - \zeta_{5})(t - \zeta_{5}^{4}), \ (t - \zeta_{5}^{3})(t - \zeta_{5}^{2}), \ (t-1)$. Thus, for any $A \in \bb{M}_{2}(\bb{F}_{19})$ with $q_{A} \ | \ t^{5} - 1$ and deg $q_{A} \leq 2$, the minimal polynomial of $A$ is either $(t - \zeta_{5})(t - \zeta_{5}^{4})$, $(t - \zeta_{5}^{3})(t - \zeta_{5}^{2})$ or $(t-1)$, and so the representatives (by rational canonical form) are:
+  \[
+    \begin{pmatrix}
+      0 & -1 \\
+      1 & \zeta_{5} + \zeta_{5}^{4} \end{pmatrix}  \ , \
+    \begin{pmatrix}
+      0 & -1 \\
+      1 & \zeta_{5}^{2} + \zeta_{5}^{3} \end{pmatrix} \ , \
+    \begin{pmatrix}
+      1 & 0 \\
+      0 & 1 \end{pmatrix}
+  \]
+  
+\end{proof}
+
+\begin{exercise}
+  Let $A \in \text{GL}_{n}(\bb{C})$ with minimal and characteristic polynomial $(x - \lambda)^{n}$. Find the Jordan Canonical Forms of all $A^{k}$ with $k \geq 1$.
+\end{exercise}
+
+\begin{proof}
+  In Jordan Canonical Form, $A$ may be represented as:
+  \[
+  \begin{pmatrix}
+      \lambda &  & 0 \\
+       & \ddots & \\
+       0 &  & \lambda \end{pmatrix} + N_{n}
+    \]
+    For $N_{n}$ representing the nilpotent element of order $n$ in $\bb{M}_{n}(\bb{C})$:
+     \[ N_{n} = 
+        \begin{pmatrix}
+      0 &  &  & 0 \\
+        1 & \ddots & \\
+         & \ddots & \ddots \\
+     0 & & 1 & 0 \end{pmatrix}
+     \]
+    As these matrices commute with each other, we have a binomial expansion for $A^{k}$, given by:
+    \[ A^{k} = 
+       \begin{pmatrix}
+      \lambda^{k} &  & 0 \\
+       & \ddots & \\
+       0 &  & \lambda^{k} \end{pmatrix} + k \begin{pmatrix}
+      \lambda^{k-1} &  & 0 \\
+       & \ddots & \\
+       0 &  & \lambda^{k-1} \end{pmatrix} N_{n} +
+     {k \choose 2} \begin{pmatrix}
+      \lambda^{k-2} &  & 0 \\
+       & \ddots & \\
+       0 &  & \lambda^{k-2} \end{pmatrix} N_{n}^{2} + ... + N_{n}^{k} 
+      \]
+      We know that the above matrix is lower triangular, with progressive binomial coefficients on the lower off diagonals. This gives us that the characteristic polynomial is $(t^{k} - \lambda^{k})^{n}$. Let $d < n$. Then $(A^{k}-\lambda^{k}I)^{d}$ is given by the sum below:
+      \[ (A^{k} - \lambda^{k})^{d} =
+        k \begin{pmatrix}
+      \lambda^{dk-d} &  & 0 \\
+       & \ddots & \\
+       0 &  & \lambda^{dk-d} \end{pmatrix} N_{n}^{d} + ... 
+      \]
+      But here it is clear that all other terms will contain powers of $N_{n-1}$ greater than $d$, and so are sums of matrices with values in the entries strictly below the off diagonal associated to $N_{n-1}^{d}$, and so are linearly independent to it. Thus, $(A^{k} - \lambda^{k}I)^{d} = 0$ only when $d \geq n$, as all the terms contain powers of $N_{n}$ greater than or equal to $n$. Thus, the minimal and characteristic polynomials of $A^{k}$ are $t^{k} - \lambda^{k}$ and so it has Jordan form:
+      \[
+        \begin{pmatrix}
+      \lambda^{k}&  &  & 0 \\
+        1 & \ddots & \\
+         & \ddots & \ddots \\
+     0 & & 1 & \lambda^{k} \end{pmatrix}
+     \]
+\end{proof}
+
+\begin{exercise}
+  Let $a,b \in \bb{Q}$. Express $N_{\bb{Q}(\zeta)/\bb{Q}}(a + b\zeta_{5})$ and $Tr_{\bb{Q}(\zeta)/\bb{Q}}(a + b\zeta_{5})$ as sums of rational numbers.
+\end{exercise}
+\begin{proof}
+  We have $N_{\bb{Q}(\zeta)/\bb{Q}}(a + b\zeta_{5}) = (a + b\zeta_{5})(a + b\zeta_{5}^{2})(a + b\zeta_{5}^{3})(a + b\zeta_{5}^{4})$. Using the fact that $(1 + \zeta_{5} +\zeta_{5}^{2} + \zeta_{5}^{3} + \zeta_{5}^{4}) = 0$, an application of the additive Satz 90, we may apply the reduction:
+  \begin{align*}
+    &(a + b\zeta_{5})(a + b\zeta_{5}^{2})(a + b\zeta_{5}^{3})(a + b\zeta_{5}^{4})  =  (a^{2} + ab(\zeta_{5} + \zeta_{5}^{4}) +b^{2 })(a^{2} + ab(\zeta_{5}^{2} + \zeta_{5}^{3}) + b^{2}) \\
+    &= (a^{4} + (a^{3}b +ab^{3})(\zeta_{5}^{2} + \zeta_{5}^{3} + \zeta_{5} + \zeta_{5}^{4}) + a^{2}b^{2}(\zeta_{5}^{2} + \zeta_{5}^{3})(\zeta_{5} + \zeta_{5}^{4}) + 2a^{2}b^{2} + b^{4}) \\
+    &= (a^{4} + (a^{3}b +ab^{3})(\zeta_{5}^{2} + \zeta_{5}^{3} + \zeta_{5} + \zeta_{5}^{4}) + a^{2}b^{2}(\zeta_{5}^{2} + \zeta_{5}^{3})(\zeta_{5} + \zeta_{5}^{4}) + 2a^{2}b^{2} + b^{4}) \\
+    &= (a^{4} - (a^{3}b +ab^{3}) + a^{2}b^{2}(\zeta_{5}^{3} + \zeta_{5}^{4} + \zeta_{5} + \zeta_{5}^{2} + 1) + a^{2}b^{2} + b^{4}) \\
+    &= (a^{4} - a^{3}b + a^{2}b^{2} - ab^{3} + b^{4}) = \frac{(a^{5}+b^{5})}{a+b}
+  \end{align*}
+  And so $N_{\bb{Q}(\zeta)/\bb{Q}}(a + b\zeta_{5}) = \frac{(a^{5}+b^{5})}{a+b}$. Expanding the trace yields: $Tr_{\bb{Q}(\zeta)/\bb{Q}}(a + b\zeta_{5}) = (a + b\zeta_{5}) + (a + b\zeta_{5}^{2}) + (a + b\zeta_{5}^{3}) + (a + b\zeta_{5}^{4}) = 5a - b$. 
+\end{proof}
+
+\begin{exercise}
+  Let L/K be an extension of finite fields. Show that both N$_{L/K}:L^{\times} \to K^{\times}$ and Tr$_{L/K}:L \to K$ are surjective maps.
+\end{exercise}
+\begin{proof}
+  Hilbert's Theorem 90 tells us that the kernel of the norm map is of the form $\frac{\sigma(a)}{a}$ for some $\sigma \in G(L/K)$. As $\sigma(a) = a$ for any $a \in K$, we have that $N_{L/K}|_{K^{\times}}$ has trivial kernel, and any endomrophism of a finite field with trivial kernel must be surjective. An analogous argument applies for the norm map, except now on the additive group.
+\end{proof}
+
+\begin{exercise}
+  Let F be a field, $a \in F$. \\
+  a. For $n \geq 1$, find the discriminant of $x^{n}-a$. \\
+  b. For characteristic $p$, calculate the discriminant of $x^{p}-x-a$. 
+\end{exercise}
+\begin{proof}
+  a. We may assume the polynomial is separable, as if it were not then the discriminant would be 0. The discriminant may be computed as:
+  \begin{align*}
+    & (-1)^{\frac{n(n-1)}{2}}\prod_{i}(f'(\alpha_{i})) = (-1)^{\frac{n(n-1)}{2}}(n\sqrt[n]{a^{n-1}})...(n\sqrt[n]{a^{n-1}}\zeta_{5}^{(n-1)(n-1)}) \\
+    &= n^{n}a^{n-1}\prod_{i}(\zeta_{5}^{in-i}) = na^{n-1}  
+    \end{align*}
+    b. For the Artin-Schreier polynomial, we have that the roots are of the form $\{\alpha, \alpha + 1, ..., \alpha + p-1 \}$. Computing the discriminant for this yields:
+    \begin{align*}
+      & (-1)^{\frac{p(p-1)}{2}}\prod_{a \neq b \in \bb{Z}/p\bb{Z}}(\alpha + b - \alpha - a) = (-1)^{\frac{p(p-1)}{2}}\prod_{a \neq b \in \bb{Z}/p\bb{Z}}(b - a) \\
+      & = (-1)^{\frac{p(p-1)}{2}}\Bigg(\prod_{a \in (\bb{Z}/p\bb{Z})^{\times}}a \Bigg)^{p} = (-1)^{\frac{p(p-1)}{2}}(-1)^{p} = (-1)^{\frac{p(p+1)}{2}} 
+    \end{align*}
+    With the last step made by Wilson's Theorem. 
+  \end{proof}
+\end{document}

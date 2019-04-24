@@ -1,0 +1,150 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 3}
+\newcommand{\hmwkDueDate}{Feb 8th, 2019}
+\newcommand{\hmwkClass}{Math 210B Algebra}
+\newcommand{\hmwkClassInstructor}{Professor Sharifi}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{exercise}
+  Let G be a profinite group. \\
+  a. Show that if a subgroup of G is open, then every subgroup containing it is open, \\
+  b. Show that G is topologically isomorphic to $\hat G$ via the map to $\hat G$ as a limit if and only if every subgroup of $G$ is open. 
+\end{exercise}
+\begin{proof}
+  Let $G = \lim G_{i}$ be the profinite group in consideration for $G_{i}$ finite, discrete.
+  a. Let $H \subset G$ be an open subgroup. We have that for any $H \subset K \subset G$ subgroup, $K = \bigcup_{k \in K} kH$ cosets of $H \subset K$. However, as left multiplication is a homeomorphism, it is an open map, and thus $kH$ is open and $K$ is a union of open sets, and is thus open. \\
+  b. Suppose that $G \cong \hat G$ topologically via the limit map. We thus have continuous maps $\pi_{N}: G \mapsto G/N$ equipped with the discrete topology for any $N$ a normal subgroup of finite index. We have that $\pi_{N}^{-1}\{e\} = N$, and as the preimage of an open set is open for a continuous map, we have that $N$ must be open for any normal subgroup of finite index. Furthermore, given any arbitrary subgroup $H$ of finite index, we have that the Cayley Theorem map $\lambda: G \to \Sigma_{[G:H]}$ via left multiplication by $g$ must have a kernel of finite index properly contained in $H$, implying that $H$ has an open subgroup and is thus open by part a. \\
+  Conversely, suppose every subgroup of finite index in $G$ is open. In particular, we have that the surjection $G \to G/N$ must be a continuous surjection of topological groups for $N$ finite index, as the preimage of any $gN \in G/N$ open is $gN \in G$ which is an open coset of $G$ as $N$ is open. Thus, as we have topological homomorphisms $G \to G/N$ for any normal subgroup of finite index, we have an induced map $G \mapsto \hat G$ given by $g \mapsto \prod_{G/N} gN$. This map is injective as the kernel must be contained in $\bigcap_{N \text{normal}}N \subset \bigcap_{i \in I} \text{ker}\pi_{i} = \{e\}$ for $I$ indexing $G_{i}$, $\pi_{i}: G \to G_{i}$ projection onto the $i$th coordinate. We have that for cosets $xN \in G/N$, the preimage $\pi_{N}^{-1}\{xN\}$ for $\pi_{N}: \hat G \to G/N$ forms a basis for the topology of $\hat G$. Under the canonical map $G \to \hat G$ given above, we have that $xN \subset \pi_{N}^{-1}\{xN\}$ for $xN \in G$ identified with its image in $\hat G$. Thus, we have that any element of the basis of $\hat G$ must intersect $G$, implying that $G$ is a compact, dense subset of $\hat G \implies G \to \hat G$ surjective, and thus this is a bijective continuous homomorphism from a compact space to a Hausdorff space, yielding the claim. 
+\end{proof}
+
+\begin{exercise}
+  Show that $R[G]\otimes_{\mathbb{R}}R[H] \cong R[G\times H]$ as $R$ algebras for $G$ and $H$ groups. 
+\end{exercise}
+\begin{proof}
+  Consider the map $f: R[G]\times R[H] \to R[G \times H]$ via $f: (\sum_{I} r_{i}g_{i}, \sum_{J} r_{j}g_{j}) \mapsto \sum_{I,J} r_{i}r_{j} (g_{i},h_{j})$ for $I,J$ finite indexing sets. This map is clearly bilinear, (which also yields well-definedness) and is also surjective, and thus must factor through a surjective map $\overline f: R[G]\otimes_{\mathbb{R}}R[H] \to R[G \times H]$. As $R$-modules, we may exhibit an explicit inverse via the map $k: (g,h) \mapsto g \otimes h$. This map is well defined as $g'\otimes h' = g \otimes h$ for $g = g', h = h'$. As both algebras are free $R$-modules, it suffices to check the map is an inverse on the bases for both. Furthermore, we have that $k \overline f(g \otimes h) = g \otimes h$ and that $fk(g,h) = (g,h)$; thus, the map agrees on bases for both $R$-modules. Furthermore, we have that the map extends to multiplicative maps, as $\overline f((g,h)\cdot(g',h')) = gg'\otimes hh' = g \otimes h \cdot g' \otimes h' = \overline f(g,h) \cdot f(g',h')$. Similarly, $k(g \otimes h\cdot g'\otimes h') = (gg', hh') = (g,h)(g',h') = k(g \otimes h) \cdot k(g'\otimes h')$. Thus, we have inverse $R$ algebra homomorphisms given by $\overline f$ and $k$, yielding the result. 
+\end{proof}
+
+\begin{exercise}
+  a. Show that tensor products commute with colimits. \\
+  b. Give an example to show that tensor products in general do not commute with limits.
+\end{exercise}
+\begin{proof}
+  a. As the balanced tensor product functor $- \otimes_{R} N$ is a left adjoint (via the tensor-Hom adjunction), we have that left adjoint functors must preserve colimits and thus this functor must also preserve colimits. \\
+  b. Consider the following diagram:
+  \[
+    \begin{tikzcd}
+      \mathbb{Z} \arrow[r,shift left,"0"] \arrow[r, swap,shift right,"2"] & \mathbb{Z} \\ 
+    \end{tikzcd}
+  \]
+  The limit of the above diagram (which we will denote $N_{1}$) is the equalizer of $0$ and $2$, i.e. the kernel of this map, given by 0. However, applying the tensor product functor $- \otimes \mathbb{Z}/2$ under the observation that $\mathbb{Z}\otimes_{\mathbb{Z}}\mathbb{Z}/2 \cong \mathbb{Z}/2$ as left $\mathbb{Z}$ modules, we have the diagram:
+  \[
+    \begin{tikzcd}
+      \mathbb{Z}/2 \arrow[r,shift left,"0"] \arrow[r, swap,shift right,"2"] & \mathbb{Z}/2 \\ 
+    \end{tikzcd}
+  \]
+  The map given by multiplication by $2$ coincides with the $0$ map for $\mathbb{Z}/2$, and thus the equalizer (kernel) of the above 2-multiplication is the whole module $\mathbb{Z}/2$, which we will denote $N_{2}$. However, if this functor commuted with all limits, we have $N_{1} \cong N_{2}$, which is clearly not true. 
+\end{proof}
+
+\begin{exercise}[Problem 6]
+\end{exercise}
+
+\begin{proof}
+  Let $N^{\bot} = \{f \in M^{*} \ | \ f(N) = 0\}$. We have the natural pullback map $h^{*}: (M/N)^{*} \to M^{*}$ along the map $h: M \to M/N$ the canonical surjection (this is a map of right $R$-modules). Given $\phi \in (M/N)^{*}$ we have $h^{*}\phi(m) = \phi \circ h(m)$, which is a map that disappears on $N$ as $h(N) = 0$. Thus, $h^{*}:(M/N)^{*} \to N^{\bot}$. This map is injective, as if $h^{*}\varphi (m) = 0$ then $\varphi \circ h(m) = 0$ $\forall \ m \in M$, which is online possible if $\varphi \in (M/N)^{*}$ was itself 0. Similarly, it is surjective, as given a map $f \in N^{\bot}$, we have that $f:M \to R$ s.t. $f(N) = 0$, which, by the first isomorphism theorem, yields a distinct map $\overline f: M/N \to R$ s.t. $f = h^{*} \overline f$, and $f \in N^{\bot}$. Thus, $(M/N)^{*} \cong N^{\bot}$. \\
+  Now consider $M^{*}/N^{\bot}$. We have the natural map $res_{N}: M^{*}/N^{\bot} \to N^{*}$ given by $res_{N}f = f|_{N}$. This map is also clearly a right $R$-module homomorphism. Furthermore, we have that $res_{N}f = 0 \implies f|_{N} = 0$, or that $f(N) = 0 \implies f = 0 \in M^{*}/N^{\bot}$, so $res_{N}$ is an injection.   
+\end{proof}
+
+\begin{exercise}
+  Show that $\mathbb{Q} \otimes_{\mathbb{Z}}\mathbb{Z}[\alpha] \cong \mathbb{Q}(\alpha)$.
+\end{exercise}
+\begin{proof}
+  Consider $f: \mathbb{Z}[t] \times \mathbb{Q} \to \mathbb{Q}[t]$ given by $nt^{i} \times q \mapsto qnt^{i}$. The map is clearly $\mathbb{Z}$-bilinear, well-defined, and is surjective. We have that it must factor through a surjective map $\overline f: \mathbb{Z}[t] \otimes_{\mathbb{Z}} \mathbb{Q} \to \mathbb{Q}[t]$, in fact as a ring homomorphism. We may define an inverse map, given by $k: \mathbb{Q}(t) \to \mathbb{Z}[t]\otimes \mathbb{Q}$ via $k: \sum_{I }n_{i}t^{i} \mapsto \sum_{I} n_{i} \otimes t^{i}$. This map is well defined as if $\sum_{I} n_{i'}'t^{i'} = \sum_{I'}n_{i'}t^{i'}$ with $I$ indexing set of distinct $i$s and $n_{i}$ nonzero then $i = i', n = n'$, and $n \otimes t^{i} = n' \otimes t^{i'}$. It is clearly a ring homomorphism as it preserves multiplicativity and additivity, and is thus an inverse ring homomorphism to $\overline f$ as $k \overline f = id$, $\overline fk = id$. Thus, $\mathbb{Q} \otimes_{\mathbb{Z}}\mathbb{Z} \cong \mathbb{Q}[t]$. In particular, under this isomorphism, we have that the ideal $(f) \subset \mathbb{Q}[t]$ ($f = m_{\mathbb{Q}}(\alpha)$ viewed with coefficients in $\mathbb{Z}$) is the isomorphic image of the ideal $\mathbb{Q} \otimes (f_{\mathbb{Z}})$. We thus have that $\mathbb{Q}[t]/(f) \cong \mathbb{Q} \otimes \mathbb{Z}[t]/(f_{\mathbb{Z}}) \cong \mathbb{Q} \otimes_{\mathbb{Z}}\mathbb{Z}[\alpha]$.
+\end{proof}
+
+\begin{exercise}
+  Let K/F be a finite separable extension of fields, E an arbitrary extension of F. Show that $K \otimes_{F} E$.
+\end{exercise}
+
+\begin{proof}
+  By the primitive element theorem, $K = F(\alpha) = F[t]/(f)$ for $f$ an irreducible polynomial with coefficients in $F$. By similar logic as in the previous problem, we have that $K \otimes_{F} E = E[t]/(f)$. Decomposing $f$ into its coprime factors $h_{1},...,h_{n}$ in $E$, we have that by Chinese Remainder Theorem, $E[t]/(f) \cong E[t]/(h_{1})\times ... \times  E[t]/(h_{n})$. As $F$ is separable, we have that $h_{1},...,h_{n}$ are always irreducible, (as if $h_{i}$ were not irreducible then $h_{i} = gh$ for $g, h$ not coprime by assumption, which is only possible if they share a root.). Thus, $K\otimes_{F}E \cong E[t] \cong  E[t]/(h_{1})\times ... \times  E[t]/(h_{n})$ for $h_{1},...,h_{n}$ irreducible, yielding the result. 
+\end{proof}
+
+\end{document}

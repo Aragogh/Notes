@@ -1,0 +1,126 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\st}{\text \ \text{s.t.} \hspace{0.025in} }
+\newcommand{\Claim}[1]{\vspace{0.05in} \\ \underline{\textbf{Claim:}} #1 \vspace{0.05in} \\}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 5}
+\newcommand{\hmwkDueDate}{Feb 8th, 2019}
+\newcommand{\hmwkClass}{Math 225B Differential Geometry}
+\newcommand{\hmwkClassInstructor}{Professor Peter Petersen}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\begin{exercise}[Problem 6]
+\end{exercise}
+
+\begin{proof}
+  It suffices to show that the distribution $\Delta$ is an integrable distribution, as the integral manifold forms the graph of the solution for $\alpha$. Given arbitrary fields in the distribution, $\sum_{i=1}^{m}r^{i}\frac{\partial}{\partial t_{i}} + \sum_{k=1}^{m}(\sum_{l=1}^{m}r^{i}f^{k}_{l})\frac{\partial}{\partial x^{k}}$ and $\sum_{i=1}^{m}s^{i}\frac{\partial}{\partial t_{i}} + \sum_{k=1}^{m}(\sum_{l=1}^{m}s^{i}f^{k}_{l})\frac{\partial}{\partial x^{k}}$, we must show that their Lie Bracket lies in the distribution.
+  \[
+    \left[ \sum_{i=1}^{m}r^{i}\frac{\partial}{\partial t_{i}} + \sum_{k=1}^{m}(\sum_{l=1}^{m}r^{i}f^{k}_{l})\frac{\partial}{\partial x^{k}}, \sum_{i=1}^{m}s^{i}\frac{\partial}{\partial t_{i}} + \sum_{k=1}^{m}(\sum_{l=1}^{m}s^{i}f^{k}_{l})\frac{\partial}{\partial x^{k}} \right] \]
+
+  \[ = \left[ \sum_{i=1}^{m}r^{i}\frac{\partial}{\partial t_{i}}, \sum_{i=1}^{m}s^{i}\frac{\partial}{\partial t_{i}} \right] + \left[ \sum_{i=1}^{m}r^{i}\frac{\partial}{\partial t_{i}}, \sum_{k=1}^{m}(\sum_{l=1}^{m}s^{i}f^{k}_{l})\frac{\partial}{\partial x^{k}} \right] + \left[\sum_{k=1}^{m}(\sum_{l=1}^{m}r^{i}f^{k}_{l})\frac{\partial}{\partial x^{k}}, \sum_{i=1}^{m}s^{i}\frac{\partial}{\partial t_{i}} \right]     
+  \]
+
+  \[
+    + \left[\sum_{k=1}^{m}(\sum_{l=1}^{m}r^{i}f^{k}_{l})\frac{\partial}{\partial x^{k}}, \sum_{k=1}^{m}(\sum_{l=1}^{m}s^{i}f^{k}_{l})\frac{\partial}{\partial x^{k}} \right]
+  \]
+
+  The first and last terms disappear by moving $s^{i}$ and $r^{i}$ out of the Lie Brackets of each summand, leaving the sum:
+  \[
+    \left[ \sum_{i=1}^{m}r^{i}\frac{\partial}{\partial t_{i}}, \sum_{k=1}^{m}(\sum_{l=1}^{m}s^{i}f^{k}_{l})\frac{\partial}{\partial x^{k}} \right] + \left[\sum_{k=1}^{m}(\sum_{l=1}^{m}r^{i}f^{k}_{l})\frac{\partial}{\partial x^{k}}, \sum_{i=1}^{m}s^{i}\frac{\partial}{\partial t_{i}} \right] = 0
+  \]
+
+  Which also results from considering the Lie Brackets in each summand and moving the scalars out. This implies that the Lie Brackets of arbitrary elements in the distribution at any point also belong in the distribution, and thus $\Delta$ is integrable and has an integral solution.  
+\end{proof}
+
+\begin{exercise}[Problem 8]
+\end{exercise}
+
+\begin{proof}
+  Consider the function $f = u + iv$ as being a function of $\mathbb{R}^{2}\times \mathbb{R}^{2} \to \mathbb{R}^{2}$ via $u$ is a function to the first coordinate and $iv$ is a function to the second. Theorem 1 now applies and yields a function $\alpha: (0,0) \in U \to \mathbb{R}^{2}$ with the conditions of Theorem 1, given by:
+  \[
+    \frac{\partial\alpha^{1}}{\partial x_{1}}(x_{1},y_{1}) = u(x_{1},y_{1}, \alpha(x_{1},y_{1})) = \frac{\partial \alpha^{2}}{\partial y_{1}} 
+  \]
+  \[
+    \frac{\partial \alpha^{1}}{\partial y_{1}}(x_{1},y_{1}) = v(x_{1},y_{2}, \alpha(x_{1},y_{1})) = - \frac{\partial \alpha^{2}}{\partial x_{1}} 
+  \]
+  Thus, replacing $x_{1},y_{1}$ with $z$, being as the initial two are the coordinate functions, we have that $\alpha$ solves the Cauchy-Riemann equations and must be complex analytic. Thus, $\alpha'(z) = f(z, \alpha(z))$ is a solution by direct application of Theorem 1. 
+\end{proof}
+
+\end{document}

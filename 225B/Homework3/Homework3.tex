@@ -1,0 +1,128 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\st}{\text \ \text{s.t.} \hspace{0.025in} }
+\newcommand{\Claim}[1]{\vspace{0.05in} \\ \underline{\textbf{Claim:}} #1 \vspace{0.05in} \\}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 3}
+\newcommand{\hmwkDueDate}{Jan 25th, 2019}
+\newcommand{\hmwkClass}{Math 225B Differential Geometry}
+\newcommand{\hmwkClassInstructor}{Professor Peter Petersen}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\begin{exercise}[ACITDG Spivak, Chapter 4 Exercise 5]  
+\end{exercise}
+\begin{proof}
+  i) Suppose the quantity $\lambda^{i}\mu_{i}$ is an invariant, and let $\lambda^{i}$ by the component of any arbitrary covariant vector field. We have that:
+  \[
+    \lambda^{j}\mu_{j} = \lambda '^{i}\mu '_{i} \implies \lambda^{j}\mu_{j} = \lambda^{j} \frac{\partial x_{i}'}{\partial x_{j}'}\mu '_{i} \implies \lambda^{j}\left(\mu_{j} -  \frac{\partial x_{i}'}{\partial x_{j}}\mu '_{i} \right) = 0
+  \]
+  And as $\lambda^{j}$ was assumed to be the components of any arbitrary vector it is clear that $\mu_{j}$ satisfies the contravariant property symmetric logic applies for when $\mu_{i}$ is assumed to be the components of an arbitrary contravariant vector. \\
+  ii) We have that locally, $n$ independent vector fields yield a basis for the vector space at each trivialization and the result clearly holds in a neighborhood with coordinates $(x,U)$ by previous homework. It suffices to show that this expression is invariant of parametrization. Let $x'$ be a new system of coordinates for the neighborhood. We have:
+  \[
+    a^{\alpha}\lambda_{\alpha |}^{\prime i} = \frac{\partial x_{i}'}{\partial x_{j}}(a^{\alpha} \lambda^{i}_{\alpha |}) = \lambda '^{i}
+  \]
+  And thus $a^{\alpha}$ is an invariant. \\
+  iii) This is only true as a local condition: from earlier, we \\
+  iv) Suppose $a^{ij}=a^{ji}$ are the components of a vector field. For any other coordinate system, we have the associated equations:
+  \[
+    a'^{ij}T = a'^{ji}T 
+  \]
+  For $T$ an associated transformation for a vector field from one coordinate to another for $a^{ij}$ tensor field. Cancelling out the $T$'s yields the result. \\
+  v) Suppose $a^{ij}$ and $b^{ij}$ are tensor fields. Then both satisfy the same property $a^{\prime kl}T = a^{ij}$ for $T$associated transformation from old coordinates to new; furthermore, both have the same transformation matrix. Thus, $(a^{\prime kl}+b^{\prime kl})T = a^{\prime kl}T + b^{\prime kl}T = a^{ij} + b^{ij}$. \\
+  vi) Applying similar logic as in part $i)$ yields that $a^{ij}$ and $a^{ji}$ must be tensors, and part $v)$ yields the property that $a^{ij} + a^{ji}$ must be a tensor. We have that $b_{ij} = a_{ij}+a_{ji}$ is such that $b_{ij} = b_{ji}$. \\
+  viii) If $ba_{ss} + ca_{ss} = 0$ then either $b = -c$ in which case $a_{rs} = a_{sr}$ and $a$ is symmetric, or $a_{ss} = 0$ and $ba_{sr} = -ca_{rs} \implies - \frac{b}{c} = \frac{a_{rs}}{a_{sr}}$ which implies $- \frac{b}{c} = - \frac{c}{b}$ and thus $b = \pm c$, so $a$ is either symmetric or skew-symmetric. \\
+  ix) Under transformations of coordinates we have $A_{ij} = A_{kl}'T$ with $T$ being a scaling matrix, which preserves rank of $A = (a_{ij})$, and thus rank is invariant under all transformations of coordinates. \\
+  x) We have that the tensor $a_{i}b_{j}$ with components two vectors $a_{i}$ and $b_{j}$ has rank 1 as any column vector in the mamtrix $a_{i}b_{j}$ is proportional to the the first column vector by multiplying by $\frac{a_{1}}{a_{i}}$. For the symmetric tensor $a_{i}b_{j} + a_{j}b_{i}$ we have that for $a_{i} \neq xb_{j}$ for $x$ a constant there are at least two columns $k,l$ s.t. $a_{i}b_{k} + a_{k}b_{i} \neq x(a_{i}b_{l} + a_{l}b_{i})$ for some $i$ (as if this were not true then $b_{i}$ would necessarily have to be a multiple of $a_{i}$. Thus, there are at least two linearly independent columns, $A + A^{T}$ can only have a maximum rank equal to the sum of the ranks, i.e. the rank is 2. \\
+  xi) $a_{j}^{i}\lambda_{i} =  \alpha \lambda_{j} \implies a_{j}^{i}\lambda_{j}-\alpha\lambda_{j} = 0 \implies \lambda_{j} - \alpha \delta^{i}_{j}\lambda_{i} = 0$ and thus the result, as $d^{i}_{j}$ represents the change of basis matrix from $i$ to $j$ via $V^{*}\otimes V \cong End(V)$. If the result holds for arbitrary vectors we have that in particular it holds for each coordinate and thus $a_{j}^{i} = \alpha\delta_{j}^{i}$. \\
+  xii) Suppose $a^{i}_{j} = \alpha \delta^{i}_{j}$ for $\lambda_{i}$ s.t. $\mu^{i}\lambda_{i} = 0$; we may look at each vector $\lambda_{i}$ and decompose it into some sum $v + c_{0}y$ for $v \in ker\mu^{i}$. Thus, by linearity, $a^{i}_{j}$ is completely determined by the value it takes on the unit vector $\vec{u}$ not in the kernel of $\mu_{i}$, which can be given by some vector $\eta_{j} = a_{j}^{i}\vec{u}$. Writing $\sigma_{j} = a_{j}^{i}\vec{u} - \eta_{j}$, the result follows. \\
+  xiii) Consider the multilinear map given by $\det(\mu^{\prime i_{m}}(\lambda_{j_{n}}'))$ for the $m,n$ matrix with $m,n = 1,...,p$ for $\mu^{\prime i_{m}}$ any contravariant and $\lambda_{j_{n}}'$ any covariant vector. We know that under a coordinate transformation, we have that \[\det(\mu^{k_{m}}(\lambda_{l_{n}})) = \det\left(\frac{\partial x_{l_{m}}}{\partial x_{j_{n}}'} \frac{\partial x_{i}'}{\partial x_{k}} \mu^{\prime i_{m}}\lambda'_{j_{n}} \right) \]
+  Which, expanding out the determinant using the generalized Kronecker delta to keep track of the sign of each pattern, we have the following:
+  \[
+    \sum \delta_{j_{1},...,j_{p}}^{i_{1},...,i_{p}}(\mu^{i_{1}}(\lambda_{j_{1}}),..., \mu^{i_{p}}(\lambda_{j_{p}})) = \sum \delta_{l_{1},...,l_{p}}^{k_{1},...,k_{p}}(\mu^{i_{1}}(\lambda_{j_{1}}),..., \mu^{i_{p}}(\lambda_{j_{p}}) )\cdot \frac{\partial x_{l_{1}}}{\partial x_{j_{1}}'},...,\frac{\partial x_{l_{p}}}{\partial x_{j_{p}}'}\frac{\partial x_{i}'}{\partial x_{k}},...,\frac{\partial x_{p}'}{\partial x_{p}} 
+  \]
+
+  Which gives us the result.
+\end{proof}
+
+
+\begin{exercise}[Exercise 6 Chapter 1V Spivak]  
+\end{exercise}
+
+\end{document}

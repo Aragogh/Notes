@@ -1,0 +1,157 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 2}
+\newcommand{\hmwkDueDate}{April 24th, 2019}
+\newcommand{\hmwkClass}{Math 210C Algebra}
+\newcommand{\hmwkClassInstructor}{Professor Sharifi}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\begin{exercise}
+  Find a ring R of infinite Krull dimension such that every ascending chain of prime ideals in R is eventually constant.
+\end{exercise}
+\begin{proof}
+  Consider the polynomial ring $R = \bb{Q}[x_{\bb{N}}]$ in countably many variables. Let $\fk{p}_{1} = (x_{1}), \fk{p}_{2} = (x_{2},...$, i.e. $\fk{p}_{i} = (x_{\frac{i(i-1)}{2}},...,x_{\frac{i(i+1)}{1}})$. The set $S = R - \bigcup_{i \in \bb{N}}\fk{p}_{i}$ is multiplicatively closed, and we may consider the localization $S^{-1}R$. We have that every ideal must then be contained in one of the prime ideals above, as any ideal in $S^{-1}R$ may only be comprised of polynomials in one of the ideals above (as all other polynomials are invertible). As each ideal above has finite height (as polynomial rings in finitely many variables have finite dimension we have that every ascending chain of prime ideals is in particular an ascending chain of primes in an ideal of finite height and thus must eventually be constant.  
+\end{proof}
+
+\begin{exercise}
+  a. Show that no two proper closed sets in Spec R have union Spec R if and only if the nilradical of R is prime. \\
+  b. Show that the irreducible components of Spec R have the form $V(\fk{p})$ for $\fk{p}$ a minimal prime in R.
+\end{exercise}
+\begin{proof}
+  We have that:
+\[
+\begin{tikzcd}
+\text{\{radical ideals in $R$ \}} \arrow[r, "V", shift left] & \text{\{irreducible closed subsets of $R$ \}} \arrow[l, "I", shift left]
+\end{tikzcd}
+\]
+  a. Assume two proper closed sets in Spec $R$ have union Spec $R$. By the correspondence above, $V(\sqrt{0}) = X$. Furthermore, given two proper closed sets $K,L$ whose union is the whole space, we are given associated ideals $I,J$ s.t. $V(I) = K, V(J) = L, V(I \cap J) = K \cup L = X = V(\sqrt{(0)})$ Thus, if two proper closed sets in Spec $R$ have union the whole space we have two ideals $I,J$ properly containing the nilradical s.t. $I \cap J = \sqrt{(0)}$, and thus the nilradical is not prime. Now, supposing the nilradical is not prime, we have that there are two ideals $I, J$ properly containing the nilradical s.t. $I \cap J = \sqrt{(0)}$ and the correspondence above gives us the result. \\
+  b. Suppose $K$ is an irreducible closed subset of Spec $R$. We have that $K$ corresponds to $V(I)$ for some ideal $I$. Furthermore, as $K$ is irreducible, we have that no two ideals properly containing $I$ can intersect in $I$, for that would imply the reducibility of $K$. This is a sufficient condition for $I$ to be a prime ideal, and thus $K = V(\fk{p})$ for some prime. We furthermore have that $V(\fk{p})$ for any prime $\fk{p}$ is irreducible as there do not exist ideals $I,J$ properly containing $\fk{p}$ which intersect in $\fk{p}$. An irreducible component of $R$ is thus a maximal irreducible closed set, which corresponds to a minimal prime ideal. We thus have the result. 
+\end{proof}
+
+\begin{exercise}
+  Show that if R is noetherian and Spec R is a disjoint union of finitely many components $\{ V(\fk{p}_{i}) \ | \ 1 \leq i \leq n \}$ with $\fk{p}_{i}$ prime, then $R \cong \prod_{i=1}^{n} R/I_{i}$ where $I_{i}$ is an ideal of R with radical $\fk{p}_{i}$
+\end{exercise}
+\begin{proof}
+  If $R$ is noetherian and Spec $R$ is a disjoint union of finitely many components $V(\fk{p}_{i})$ then we have that all the primes $\fk{p}_{i}$ are comaximal (components are disjoint implies no ideal contains more than one of these primes). This in particular tells us that all primary ideals associated to these primes are also comaximal, as closed sets correspond to radical ideals. Consider the primary decomposition of $(0)$ in $R$: we know that the minimal primes in a primary decomposition of $(0)$ are the primes of the components listed above: the nilradical is the intersection of the minimal primes $\fk{p}_{i}$. Thus, we may write $(0) = \bigcap_{i=1}^{n} I_{i}$ for $I_{i}$ primary ideals with each $I_{i}$ associated to a distinct minimal prime above. We know that $R \cong R/ (0) \cong R/ \bigcap_{i} I_{i}$ and comaximality allows us to use Chinese Remainder Theorem: Thus, $R \cong \prod_{i=1}^{n}R/I_{i}$.  
+\end{proof}
+\newpage 
+\begin{exercise}
+  Let K be algebraically closed. Show that the dimension of an irreducible algebraic set V in $\bb{A}^{n}_{K}$ for n $\geq 1$ is equal to the transcendence degree of the quotient field of K[V] = R/I(V). 
+\end{exercise}
+\begin{proof}
+  By Noether's Normalization Lemma, we have that the algebra $R/I[V]$ is integral over some subring of the form $K[t_{1},...,t_{s-1}]$ for $t_{1},...,t_{s-1}$ a $K$ algebraically independent subset of $R/I[V]$. Furthermore, by the Going Up, Going Down and the Incomparability Theorems we have that the Krull Dimension of a ring is preserved under integral extension. As the Krull dimension of a polynomial ring is its transcendence degree, we have that the Krull dimension of $R/I[V]$ is the transcendence degree of $K[t_{1},...,t_{s-1}]$, which, as $R/I[V]$ is an integral extension, is the transcendence degree of $R/I[V]$.   
+\end{proof}
+
+\begin{exercise}
+  Let R be a noetherian domain of Krull dimension 1. Prove that every nonzero ideal $\fk{a}$ can be written uniquely as a product of primary ideals with distinct radicals.
+\end{exercise}
+\begin{proof}
+  Consider the integral closure of $R$ in $Q(R)$, which we denote $K$: this is integrally closed and thus a Dedekind domain. For any given ideal $\fk{B}$, we have that the associated ideal $\fk{B} K$ has a unique decomposition into $\fk{p}_{1}^{k_{1}}...\fk{p}_{n}^{k_{n}}$ with $k_{1},...,k_{n} > 0$. Consider the ideal $\fk{p}_{i}^{k_{i}} \cap R = \fk{a}_{i}$. By unique decomposition, we have that $\sqrt{\fk{p}_{i}^{k_{i}}} = \fk{p_{i}}$. By this virtue, $\fk{p}_{i}\cap R \subseteq \sqrt{\fk{a}_{i}}$, but also $\sqrt{\fk{a}_{i}} \subseteq \fk{p}_{i} \cap R$ and so $\sqrt{a}_{i} = \fk{p}_{i}\cap R$, which is a prime ideal by lying over; this implies that $\fk{a}_{i}$ is primary; thus the ideal $\fk{B} = $
+\end{proof}
+
+\begin{exercise}
+  Let R be a Dedekind domain, and let $\fk{a}$ be a nonzero ideal of R. \\
+  a. Show that every ideal of $R/\fk{a}$ is principal.  \\
+  b. Show that if $a \in \fk{a}$ is nonzero then there exists $b \in \fk{a}$ s.t. $(a,b) = \fk{a}$.
+\end{exercise}
+\begin{proof}
+  a. For $R$ a Dedekind domain, we have that $\fk{a} = \prod_{i+1}^{n} \fk{p}_{i}^{k_{i}}$ for distinct prime ideals, which are comaximal by Krull dimension 1. Thus, $R/ \fk{a} \cong \prod_{i=1}^{n} R/\fk{p_{i}}^{k_{i}}$. Any ideal in a product of rings is given by a product of ideals in each coordinate: thus, it suffices to find generators $(a_{i})$ generating the ideal in each coordinate, and thus $(a_{1},...,a_{n})$ generates the total ideal. We reduce then, to the case $R/\fk{p}_{i}^{k_{i}}$. We have that any ideal $\overline I \in R/\fk{p}_{i}^{k_{i}}$ has an associated preimage $\fk{p}_{i}^{k_{i}}\subset I$, which is only possible if $I = \fk{p}_{i}^{l_{i}}$ for some $l_{i} \leq k_{i}$. Thus, every ideal in $R/\fk{p}_{i}^{k_{i}}$ is of the form $\fk{p}_{i}^{l_{i}}/ \fk{p}_{i}^{k_{i}}$. In particular, for any $\pi \in \fk{p}_{i} / \fk{p}_{i}^{k_{i}} - \fk{p}_{i}^{2} / \fk{p}_{i}^{k_{i}}$, we have that $(\pi) = \fk{p}_{i}$ and so all successive ideals are generated by $(\pi^{k})$. Thus, every ideal in the first factor is principal and thus every ideal in every factor is principal.  \\
+  b. Now suppose $a \in \fk{a}$ is nonzero. Then the ideal $\fk{a}/(a)$ in $R/(a)$ is principally generated by some class $\overline b$. Consider some representative for this class $b \in R$: we have that the ideal $(b,a) = \fk{a}$. 
+\end{proof}
+
+\begin{exercise}
+  Let $K = \bb{R}(t)$ and $A = \bb{R}[t]$. Let $n \geq 1$, and set $L = \bb{C}(t^{1/n}), \ B = \bb{C}[t^{1/n}]$. For each nonzero prime ideal in $A$, find its prime factorization in $B$.
+\end{exercise}
+\begin{proof}
+  All prime ideals in $A$ are generated by some irreducible polynomial $f$ of degree $\leq 2$. Assume it is quadratic. We have that this polynomial must split as some product $(t - z)(t - \overline z) \in \bb{C}[t]$. Thus, it suffices to compute the factorization of $(t - z)$ for some $z \in \bb{C}$, as this contains additionally the case that $f = (t - a)$. For some $(t - z) \in \bb{C}[t]$, it must split as $\prod_{i=0}^{n-1}(t^{1/n} - \zeta_{n}^{i}z) \in \bb{C}[t^{1/n}]$ via the isomorphism $\bb{C}[t^{1/n}] \to \bb{C}[t], \ t^{1/n} \mapsto t$. Thus, the ideal generated by $(t-z)$ must split as the product of ideals generated by $(t^{1/n} - \zeta_{n}^{i}z)$. Thus, given any prime ideal in $A$, its corresponding prime factorization is either $\prod_{i=0}^{n-1} ((t^{1/n} - \zeta_{n}^{i}z)) \cdot \prod_{i=0}^{n-1} ((t^{1/n} - \zeta_{n}^{i}\overline z))$ for a quadratic with roots $z, \overline z$; or $\prod_{i=0}^{n-1} ((t^{1/n} - \zeta_{n}^{i}a))$ for a polynomial $t-a$.
+\end{proof}
+
+\newpage 
+
+\begin{exercise}
+  Prove that every finitely generated module over a Dedekind domain R is isomorphic to a direct sum $\bigoplus_{i=1}^{n}R/I_{i}$, where each $I_{i}$ is a nonzero ideal of $R$ and $I_{i} \subseteq I_{i+1}$  for $1 \leq i \leq n-1$.
+\end{exercise}
+\begin{proof} (Proof abridged from Professor Sharifi's Notes, Lemma 9.8.6)
+  Let $M$ be a torsion module. Then $ann_{R}M = \fk{a} = \prod \fk{p}_{i}^{k_{i}}$ for primes $\fk{p}_{i}$. We have that $M \cong M \otimes_{R} R \cong M \otimes_{R} R/\fk{a} \cong M/\fk{a}M = \bigoplus M/\fk{p}_{i}^{k_{i}}M$. Consider the case of $M/p_{i}^{k_{i}}M$ as an $R$-module. We have that this reduces to an action as an $R/p_{i}^{k_{i}}$-module, which is a local ring where every ideal is a power of the maximal ideal $\fk{p}_{i}/ \fk{p}_{i}^{k_{i}}$, which is principally generated by some $\pi$. Following the proof for the structure theorem over PIDs, we claim that any free $R/p_{i}^{l}$-submodule of the $R/\fk{p}_{i}^{k}$-module $M$ is a direct summand for any $l$. We work by induction. Assume that the theorem holds for $k-1 > 0$ (holds for 1 as then is a vector space over a field). Let $A$ be a maximal free $R/\fk{p}_{i}^{k}$ submodule. Consider the submodule $N$ consisting of elements of $M$ annihilated by $\fk{p}_{i}^{k-1}$. We have that $\pi A \subset N$ is a free $R/ \fk{p}_{i}^{k-1}$ submodule and is thus a direct summand by induction, i.e. $N = \pi A \oplus C$. We have that the map $A/ \pi A \to M/N$ is both injective and surjective: surjective as $M/N$ is $R/\fk{p}_{i}$-free and so any set of representatives must be $R/\fk{p}_{i}^{k}$-linearly independent (by Nakayama's Lemma) and containing $A$, and thus contained in $A$ by maximality. Thus, $A + N = M \implies A \oplus C = M$. It thus suffices to show that any free $R/\fk{p}_{i}^{k}$ submodule $F \subset A$ may be split off. Note that $F/\pi F \to A / \pi A$ is an injection. The basis of the complement of $F/ \pi F \subset A/ \pi A$ lifts to an $R/\fk{p}_{i}^{k}$-linearly independent basis of the complement of $F \subset A$, and so $F$ must be a direct summand of $A$, yielding the result for $k$. Thus, in the module $M/\fk{p}_{i}^{k_{i}}M$, we may successively split off free $R/\fk{p}_{i}^{l}$ modules for each $l$, and by finite generation we have that these must exhaust $M/\fk{p}_{i}^{k_{i}}M$:, i.e. $M/\fk{p}_{i}^{k_{i}}M \cong \bigoplus_{J} R/\fk{p}_{i}^{l_{j}}$ for $J$ indexing the rank. This further implies that $M \cong \bigoplus_{i} R/\fk{p}_{i}^{k_{i}}$ for $\fk{p}_{i}$ not necessarily distinct. An argument analogous to the proof of the elementary divisor form of the structure theorem for PIDs from the primary decomposition form yields the desired result: an explicit construction may be done by assigning distinct finitely many primes $p_{i}^{k_{i}} \in \bb{Z}$ to each $\fk{p}_{i}^{k_{i}}$, and extending over products, where the poset of divisibility in $\mathbb{Z}$ is contravariantly sent to the poset of containment in $R$: this is clearly fully faithful.
+\end{proof}
+\end{document}

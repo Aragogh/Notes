@@ -1,0 +1,148 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\st}{\text \ \text{s.t.} \hspace{0.025in} }
+\newcommand{\Claim}[1]{\vspace{0.05in} \\ \underline{\textbf{Claim:}} #1 \vspace{0.05in} \\}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 4}
+\newcommand{\hmwkDueDate}{Feb 1st, 2019}
+\newcommand{\hmwkClass}{Math 225B Differential Geometry}
+\newcommand{\hmwkClassInstructor}{Professor Peter Petersen}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\begin{exercise}[Problem 10]
+\end{exercise}
+\begin{proof}
+  \begin{flalign*} a.i) \ \ & \lim_{h \to 0} \frac{1}{h}[\Phi_{t}^{*}(f\cdot w |_{\Phi_{t}}) - f \cdot w)]  &=& \lim_{h \to 0} \frac{1}{h} \ [f(\Phi_{t}(p)) \cdot \Phi_{t}^{*}(w |_{\Phi_{t}}) - f(\Phi_{t}(p)) \cdot w (p)) - f(\Phi_{t}(p) \cdot w(p)) - f(p) \cdot w(p)] \\ & &=& \ (D_{X}f) \cdot w + (L_{x}w) \cdot f \end{flalign*}. 
+  \begin{flalign*} & a.ii)  \ \  (L_{X}(w))(Y) = \lim_{t \to 0} \frac{1}{t}[\Phi_{t}^{*}(w |_{\Phi_{t}})(Y) - w(Y)] =  \lim_{t \to 0} \frac{1}{t}[w |_{\Phi_{t}}(D\Phi^{t}Y) - w(Y)] & \\
+    & = \lim_{t\to 0} \frac{1}{t}[w |_{\Phi_{t}}(Y|_{\Phi^{t}}) - w(tD\Phi_{t}(L_{X}Y)) - w(Y)] = \lim_{t\to 0} \frac{1}{t}[w(Y)\circ \Phi^{t} - w(tD\Phi_{t}(L_{X}Y)) - w(Y)] & \\
+    & = \lim_{t\to 0} \frac{1}{h}[w(Y) + tD_{X}(w(Y)) - w(tD\Phi_{t}(L_{X}Y)) - w(Y)] = D_{X}w(Y) - w(L_{X}Y)& \\
+    & \implies D_{X}w(Y) = (L_{X}w)(Y) + w(L_{X}Y)
+  \end{flalign*}
+
+  b) The new definition would yield the following changes in sign:
+  \[
+    L_{X}(f \cdot W) = f \cdot L_{X}Y -Xf \cdot Y \\
+    L_{X}(w(Y)) = (L_{X}w)(Y) - w(L_{X}Y) 
+  \]
+  For parts 4) and 5). 
+\end{proof}
+
+\begin{exercise}[Problem 11]
+\end{exercise}
+
+\begin{proof}
+  a) $\phi^{*}(df)(Y) = (d(f \circ \phi))(Y) = Y(f \circ \phi )$ \\ \\
+  b) $[L_{X}df(p)](Y_{p}) = \lim_{t \to 0}\frac{1}{t}[\Phi_{t}^{*}(df|_{\Phi^{t}(p)}) - (df)(p)](Y_{p}) = \lim_{t \to 0}\frac{1}{t}[Y_{p}(f \circ \Phi_{t}) - Y(f)] = \\ \lim_{t \to 0}\frac{1}{t}[Y_{p}[(f \circ \Phi^{t} - f)] = Y_{p}(L_{X}f)$. Thus, $L_{X}df = Y_{p}(L_{X}f) = d(L_{X}f)$. \\ \\
+  c) $D_{1}\alpha(0,0) = \lim_{t \to 0}\frac{1}{t}[Y(f \circ \Phi_{-t}) - Y(f)] = - X_{p}(Yf)$ \\
+  $D_{2}\alpha(0,0) = \lim_{h \to 0}\frac{1}{h}[Y(f \circ \Phi_{h}) - Yf] = Y_{p}(Xf).$ \\
+  Thus, for $c(h) = \alpha(h,h)$ we have $L_{X}Y(p)(f) = -c'(0) = -\alpha'(h,h) = X_{p}(Yf) - Y_{p}(Xf) = [X,Y]f$.
+\end{proof}
+
+\begin{exercise}[Problem 13]
+\end{exercise}
+
+\begin{proof}
+  a) It suffices to show $X, Y, Z$ are linearly independent at any point $p$ as this must then yield a linear isomorphism. Suppose $X_{p} = aY_{p} + bZ_{p}$ for some $a,b \neq 0$. This implies:
+  \[
+    X_{p} = p_{z}\partial_{y} - p_{y}\partial_{z} = bp_{x}\partial_{y} - bp_{y}\partial_{x} + ap_{x}\partial_{z} - ap_{z}\partial_{x} 
+  \]
+  Which implies $p_{y} = ap_{x}$, so $p_{z}\partial_{y} = bp_{x}\partial_{y} - bap_{x}\partial_{x} + ap_{z}\partial_{x}$, which means $bp_{x} = p_{z}$ and $-bap_{z} = ap_{z}$, which is only possible if $p = (0,0,0)$ as $a,b \neq 0$. Similar logic shows that $Y_{p}$ and $Z_{p}$ are not linear combinations of the other two, implying they are linearly independent at every point except at $0$, yielding the isomorphism. We compute the Lie Bracket $[X, Y]$ as an illustrative example: we have that \[[X,Y] = (p_{z}\partial_{y} - p_{y}\partial_{z})(p_{x}\partial_{z} - p_{z}\partial_{x}) = p_{z}p_{x}\partial_{y}\partial_{z} - p_{z}p_{z}\partial_{y}\partial_{x} + p_{y}p_{x}\partial_{x}\partial_{z} - p_{y}p_{z}\partial_{z}\partial_{x} = -Z \]
+  This agrees with the cross product (1,0,0) $\times$ (0,1,0) = (0,0,-1). Similarly computing the Lie Brackets for other combinations yields the cross product relations, and linearity yields the result on general vector fields. \\ \\
+  
+  b) Let $\phi$ be the flow along $aX + bY + cZ$. Given an arbitrary point $p \in \mathbb{R}^{3}$, we have that the derivative with respect to the flow at point $p$ is the Lie Bracket for the vector field given by $\vec{p}: p \mapsto \vec{p}$, given by $L_{X}\vec{p} \ = [aX+bY+cZ, p] = (a,b,c) \times (p_{1},p_{2},p_{3})$, the cross product from part $a)$. Thus, the tangent vector of the flow at any point $p$ is always orthogonal to the direction vector $\vec{p}$, which is a rotation.
+\end{proof}
+
+\begin{exercise}[Problem 15]
+  (Solutions partially adapted from notes by Ian Coley posted on his website at http://www.math.ucla.edu/$\sim$iacoley/hw/diffhwwinter/HW 2.pdf)
+\end{exercise}
+
+\begin{proof}
+  a) Suppose $D(\partial_{i}) = \sum a_{ij}\partial_{j}$. We may extend $D$ to an operator taking $(k,l)$ tensor fields to themselves via defining $D(w) = \sum -a_{ij} dx^{j}$ for 1-forms, and extending to $(k,l)$-tensors by $D(A \otimes B) = DA \otimes B + A \otimes DB$, tensored over $\mathbb{R}$. In particular, by the tensor product, this is $\mathbb{R}$-linear. We have that $D(CA) = DC(dx^{i_{1}} \otimes ... \otimes dx^{i_{n}} \otimes \partial_{j_{1}} \otimes ... \otimes \partial_{j_{m}}) = \delta_{j_{1}...j_{n}}^{i_{1}...i_{n}}D(B)$ for $B$ some new tensor. Consider $CD(dx^{i_{1}} \otimes ... \otimes dx^{i_{n}} \otimes \partial_{j_{1}} \otimes ... \otimes \partial_{j_{m}}) = \delta_{j_{1}...j_{n}}^{i_{1}...i_{n}}D(B)$, as $C(\partial_{j} \otimes D(dx^{i})) = C(\partial_{j} \otimes \sum a_{im}dx^{m}) = a_{ij}$, but $C(D(\partial_{j}) \otimes dx^{i}) = -a_{ij}$ so application of the contraction cancels out all terms being contracted, yielding that $C(D(A)) = \delta_{j_{1}...j_{n}}^{i_{1}...i_{n}} = DC(A)$. Uniqueness follows as $D'(dx^{i}) = D(dx^{i})$ via using the contraction to match the coordinates. \\ \\
+
+  b) We have that $D_{A}f = 0$ so it is linear on both functions and on vector fields, and satifies Liebniz rule as:
+  \[
+    D_{A}(fX) =  A(fX) = fA(X) = fA(X) + 0 \cdot X = fA(X) + D_{A}(f) X 
+  \]
+  and thus satisfies the hypotheses of $a)$, yielding the result. \\ \\
+  c) From our construction in part $a)$ extending to 1-forms, we have that $(D_{A}dx^{i})(p) = - \sum a_{ij}dx^{j}(p) = -A^{*}(p)(dx^{i})$, \\
+  d) We have $(fL_{X} - L_{fX})(gY) = fL_{X}(gY) - L_{fX}(gY) = g.(fL_{X} - L_{fX}) - (fL_{X} - L_{fX})(Y)$ as it satifies Liebniz rule in each summand. We have that $(fL_{X}- L_{fX})(g) = 0$ as both summands evaluate to be equal. This has a unique extension to (1,1) tensors satisfying the properties above, and it this extension is equal to $D_{X \otimes df}$ as they are equal evaluated on $\partial_{k}$.
+\end{proof}
+
+\end{document}

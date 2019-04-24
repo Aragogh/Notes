@@ -1,0 +1,114 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\st}{\text \ \text{s.t.} \hspace{0.025in} }
+\newcommand{\Claim}[1]{\vspace{0.05in} \\ \underline{\textbf{Claim:}} #1 \vspace{0.05in} \\}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 3}
+\newcommand{\hmwkDueDate}{Jan 25th, 2019}
+\newcommand{\hmwkClass}{Math 225B Differential Geometry}
+\newcommand{\hmwkClassInstructor}{Professor Peter Petersen}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\begin{exercise}[ACITDG Spivak, Chapter 4 Exercise 5]  
+\end{exercise}
+\begin{proof}
+  i) Suppose the quantity $\lambda^{i}\mu_{i}$ is an invariant, and let $\lambda^{i}$ by the component of any arbitrary covariant vector field. We have that:
+  \[
+    \lambda^{j}\mu_{j} = \lambda '^{i}\mu '_{i} \implies \lambda^{j}\mu_{j} = \lambda^{j} \frac{\partial x_{i}'}{\partial x_{j}'}\mu '_{i} \implies \lambda^{j}\left(\mu_{j} -  \frac{\partial x_{i}'}{\partial x_{j}}\mu '_{i} \right) = 0
+  \]
+  And as $\lambda^{j}$ was assumed to be the components of any arbitrary vector it is clear that $\mu_{j}$ satisfies the contravariant property symmetric logic applies for when $\mu_{i}$ is assumed to be the components of an arbitrary contravariant vector. \\
+  ii) We have that locally, $n$ independent vector fields yield a basis for the vector space at each trivialization and the result clearly holds in a neighborhood with coordinates $(x,U)$ by previous homework. It suffices to show that this expression is invariant of parametrization. Let $x'$ be a new system of coordinates for the neighborhood. We have:
+  \[
+    a^{\alpha}\lambda_{\alpha |}^{\prime i} = \frac{\partial x_{i}'}{\partial x_{j}}(a^{\alpha} \lambda^{i}_{\alpha |}) = \lambda '^{i}
+  \]
+  And thus $a^{\alpha}$ is an invariant. \\
+  iii) This is only true as a local condition: from earlier, we \\
+  iv) Suppose $a^{ij}=a^{ji}$ are the components of a vector field. For any other coordinate system, we have the associated equations:
+  \[
+    a'^{ij}T = a'^{ji}T 
+  \]
+  For $T$ an associated transformation for a vector field from one coordinate to another for $a^{ij}$ tensor field. Cancelling out the $T$'s yields the result. \\
+  v) Suppose $a^{ij}$ and $b^{ij}$ are tensor fields. Then both satisfy the same property $a^{\prime kl}T = a^{ij}$ for $T$associated transformation from old coordinates to new; furthermore, both have the same transformation matrix. Thus, $(a^{\prime kl}+b^{\prime kl})T = a^{\prime kl}T + b^{\prime kl}T = a^{ij} + b^{ij}$. \\
+  vi) Applying similar logic as in part $i)$ yields that $a^{ij}$ and $a^{ji}$ must be tensors, and part $v)$ yields the property that $a^{ij} + a^{ji}$ must be a tensor. We have that $b_{ij} = a_{ij}+a_{ji}$ is such that $b_{ij} = b_{ji}$.
+  viii) If $ba_{ss} + ca_{ss} = 0$ then either $b = -c$ in which case $a_{rs} = a_{sr}$ and $a$ is symmetric, or $a_{ss} = 0$ and $ba_{sr} = -ca_{rs} \implies - \frac{b}{c} = \frac{a_{rs}}{a_{sr}}$ which implies $- \frac{b}{c} = - \frac{c}{b}$ and thus $b = \pm c$, so $a$ is either symmetric or skew-symmetric. \\
+  ix) Under transformations of coordinates we have $A_{ij} = A_{kl}'T$ with $T$ being a scaling matrix, which preserves rank of $A = (a_{ij})$, and thus rank is invariant under all transformations of coordinates. \\
+  x) 
+\end{proof}
+\end{document}

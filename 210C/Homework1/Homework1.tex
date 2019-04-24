@@ -1,0 +1,154 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 1}
+\newcommand{\hmwkDueDate}{April 12th, 2019}
+\newcommand{\hmwkClass}{Math 210C Algebra}
+\newcommand{\hmwkClassInstructor}{Professor Sharifi}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\begin{exercise}
+  For I,J ideals of R, show that $\sqrt{IJ} = \sqrt{I \cap J} = \sqrt{I} \cap \sqrt{J}$ and $\sqrt{I + J} = \sqrt{\sqrt{I} + \sqrt{J}}$.
+\end{exercise}
+\begin{proof}
+  i) We have automatically that $\sqrt{IJ} \subset \sqrt{I \cap J}$ as $IJ \subset I \cap J$. Suppose $a \in \sqrt{I \cap J}$. Then for some $n, \ a^{n} \in I \cap J \implies a^{n} \in I$ and $a^{n} \in J \implies a \in \sqrt{I}\cap \sqrt{J} \implies \sqrt{I \cap J} \subset \sqrt{I} \cap \sqrt{J}$. If $a \in \sqrt{I} \cap \sqrt{J}$ then for some $n, m$ w.h.t $a^{n} \in I, a^{m} \in J \implies a^{m+n} \in IJ \implies a \in \sqrt{IJ}$ and so $\sqrt{I}\cap\sqrt{J} \subset \sqrt{IJ}$, and we have the result. \\
+  ii) We have that $\sqrt{I + J}\subset \sqrt{\sqrt{I}+ \sqrt{J}}$ as $I + J \subset \sqrt{I} + \sqrt{J}$. Suppose $a \in \sqrt{\sqrt{I}+ \sqrt{J}}$. Then $\exists \ n$ s.t. $a^{n} \in \sqrt{I} + \sqrt{J}$. So $a^{n} = c + d$ for $c^{m} \in I, \ d^{k} \in J$. We have that in $(c+d)^{k+m+2}$ every term in the binomial expansion contains at least one multiplicand in $I$ or in $J$ so it belongs in $I + J \implies a^{n(m+k+2)} \in I + J \implies a \in \sqrt{I + J}$ and so we have the result.  
+\end{proof}
+\begin{exercise}
+  Let $\phi: R \to S$ be a ring homomorphism, where S is commutative. \\
+  a. Show that if $\phi$ is surjective and $\fk{q}$ is a $\fk{p}$-primary ideal of $R$ containing the kernel of $\phi$, then $\phi(\fk{q})$ is $\phi(\fk{p})$-primary. \\
+  b. Show that if $\fk{q}$ is a $\fk{p}$-primary ideal of $S$, then $\phi^{-1}(\fk{q})$ is $\phi^{-1}(\fk{p})$-primary.
+\end{exercise}
+\begin{proof}
+  a. Let $ab \in \phi(\fk{q})$. By surjectivity of $\phi$, we have associated members in the preimage classes of each $a'b' \in \fk{q} \implies$ either $a' \in \fk{q}$ or $b'^{n} \in \fk{q}$ and so either $a \in \phi(\fk{q})$ or $b^{n} \in \phi(\fk{q})$. So $\phi(\fk{q})$ is primary. The fact that it is $\fk{p}$-primary comes from if $b^{n} \in \phi(\fk{q})$ then some class $b'^{n} \in \fk{q} \implies b' \in \fk{p} \implies b \in \phi(\fk{p})$; the other containment of the radical is immediate and so $\phi(\fk{q})$ is $\phi(\fk{p})$-primary. \\
+  b. Let $ab \in \phi^{-1}(\fk{q})$. Then $\phi(a)\phi(b) \in \fk{q} \implies \phi(a) \in \fk{q}$ or $\phi(b)^{n} \in \\fk{q}$. We have that $\phi^{-1}(\fk{q})$ contains the kernel and so there is no element of the form $x - y$ in the kernel for $x \notin \fk{q}, \ y \in \phi^{-1}(fk{q})$. Thus, the above implies that either $a \in \phi^{-1}(\fk{q}), \ b^{n} \in \phi^{-1}(\fk{q})$, so it is primary. The fact that it is $\phi^{-1}(\fk{p})$ primary comes from the fact that $\phi(b)^{n} \in \fk{q} \implies \phi(b) \in \phi^{-1}(\fk{p}) \implies b \in \phi^{-1}(\fk{p})$, and $b \in \phi^{-1}(\fk{p}) \implies \phi(b)^{n} \in \fk{q} \implies b^{n} \in \phi^{-1}(\fk{q})$ and so $\phi^{-1}(\fk{p}) = \sqrt{\phi^{-1}(\fk{q})}$.
+\end{proof}
+
+\begin{exercise}
+  Let B/A be an extension of commutative rings. Let B' be the integral closure of A in B. For an ideal $\fk{a}$ of A, show that the set of elements of $b \in B$ for which there exists a monic polynomial $f = x^{n} + \sum_{i=0}^{n-1}a_{i}x^{i}$ with $\forall i \ a_{i} \in \fk{a}$ having b as a root is $\sqrt{\fk{a}B'} \subset B'$.
+\end{exercise}
+\begin{proof}
+  One containment is immediate: suppose $b \in B'$ with $b^{n} + a_{n-1}b^{n-1} + ... + a_{0} = 0$ some $a_{n-1},...,a_{0} \in \fk{a}$, we have firstly that $b \in B'$, and secondly that $b^{n} = (-1) (a_{n-1}b^{n-1} + ... + a_{0}) \implies b^{n}\in \fk{a}B'$ or $b \in \sqrt{\fk{a}B'}$ by definition. Now suppose that $b \in \sqrt{\fk{a}B'}$. We have in particular that $b \in B'$ as $b^{n}$ is integral over the base so $b$ is integral over the base. As $b^{n} \in \fk{a}B'$, we have that $b^{n} = a_{1}k_{1} + ... + a_{n}k_{n}$ for $k_{1},...,k_{n} \in B'$. Consider the module $M = A[b,k_{1},...,k_{n}]$, which is finitely generated over the base with generators all possible finite products in the set $\{1, b, ... , b^{m}, k_{1},...,k_{1}^{m_{1}},...,k_{n},...,k_{n}^{m_{n}}\}$ for $m$ the degree of $b$, $m_{i}$ the degree of $k_{i}$. Let $N$ be the cardinality of the generating set; we thus have a canonical surjection from a free module $\pi: A^{N} \to M$ sending each basis element to each generator. Consider the endomorphism $\lambda_{b^{n}}: M \to M$ via $a \mapsto b^{n}a$. Given any element $\gamma_{i}$ of the above generating set, we have that $b^{n}\gamma_{i} = a_{1}k_{1}\gamma_{i} + ... + a_{n}k_{n}\gamma_{i}$, and as each $a_{j}k_{j}\gamma_{i}$ is some finite sum of elements in the generating set with coefficients in $\fk{a}$, for each basis element we have $b^{n}\gamma_{i} = a_{1i}\gamma_{1} + ... + a_{Ni}\gamma_{N}$. Consider the $N \times N$ matrix with the coefficients given by the $a_{ij}$ above. This represents a free module endomorphism $T: A^{N}\to A^{N}$. We have that $\pi \circ T: A^{N} \to M$ factors through a map $\overline{\pi \circ T}: M \to M$, and by definition on the generators this map is $\lambda_{b^{n}}$. As $T$ is a matrix with entries in $\fk{a}$, we have that the characteristic polynomial $c_{T}$ is a monic polynomial with coefficients in $\fk{a}$ s.t. $c_{T}(T) = 0$. Thus the induced morphism $c_{T}(\lambda_{b^{n}}): M \to M$ is the zero morphism: as this corresponds to left multiplication by $c_{T}(b^{n})$, and integrality of $b$ implies there is a faithful $A[b]$-submodule of $M$, we have that $c_{T}(b^{n}) = 0$ and thus the result follows. 
+\end{proof}
+\newpage
+
+\begin{exercise}
+  Consider the ideal $I = (x^{2},xy,xz,yz) \subset F[x,y,z]$ for a field F. Find a primary decomposition of I. What are its associated and isolated primes?
+\end{exercise}
+\begin{proof}
+We have that $(x,y) \cap (x,z) = (x, yz)$. $(x, yz) \cap (x^{2}, y, z)  = (x^{2}, yz, xz, xy)$. It is clear that $(x,y),(x,z)$ are prime and $\sqrt{(x^{2},y,z)} = (x,y,z)$ prime and therefore it is primary. Thus, our primary decomposition is given by $(x^{2},xy,yz,xz) = (x,y) \cap (x,z) \cap (x^{2},y,z)$. 
+\end{proof}
+
+\begin{exercise}
+  Let R be Noetherian, let $\fk{p}_{1},...,\fk{p}_{n}$ be the associated prime ideals of (0). \\
+  a. Show that $\bigcap_{i=1}^{n}\fk{p}_{i}$ is the set of nilpotent elements of R. \\
+  b. Show that $\bigcup_{i=1}^{n}\fk{p}_{i}$ is the set of zero divisors of R.
+\end{exercise}
+\begin{proof}
+  a. As the set of associated primes is the set of primes in the decomposition that are minimal under inclusion, we have that the intersection of all prime ideal of the ring must be contained in the intersection $\bigcap_{i=1}^{n}\fk{p}_{i}$ and thus equal to it. As the intersection of all prime ideal is the nilradical, we have the result. \\
+  b. Suppose there is some prime ideal $\fk{p}_{i}$ with $a \in\fk{p}_{i}$ s.t. $a$ is not a zero divisor. We have that the set of zero divisors of any prime ideal is itself an ideal: it is closed under multiplication and addition, as for zero divisors $a,b$ with associated zero multiplicands $c,d$, we have that $(ab)(cd) = 0$ and $(a+b)(cd) = 0$. Furthermore, the ideal of zero divisors of a prime ideal is itself prime, as by assumption $\nexists \ a, b \notin \fk{p}_{i}$ with $ab \in \fk{p}_{i}$, and if $c,d \in \fk{p}_{i}$ are not zero divisors then $cd$ cannot be a zero divisor (as this would imply that either $c$ or $d$ was a zero divisor. Thus, the minimal elements in any primary decomposition of $0$ are prime ideals of zero divisors, and thus the union of associated prime ideals of $0$ must be contained in the set of all zero divisors. Furthermore, we have that every zero divisor must be contained in some prime ideal, so all minimal associated primes arise naturally from these prime ideals of zero divisors, yielding the reverse containment; hence, we have the result.
+\end{proof}
+
+\begin{exercise}
+  Let A be a finitely generated R-algebra (containing R as a subring) that is an integral domain. Show that $\exists \ r\in R, \ t_{1},...,t_{n} \in A$ Q(R)-algebraically independent s.t. $A_{r}/R[t_{1},...,t_{n}]_{r}$ is integral.  
+\end{exercise}
+\begin{proof}
+  We mimic the proof of Noether's Normalization Lemma, noting that by clearing denominators $Q(R)$-algebraic independence is equivalent to $R$-algebraic independence. Let $A$ have generators $x_{1},...,x_{n}$ for $n \geq 1$. We may prove the result by induction on $n$. Suppose there exists an $r'\in R$, $t_{1},...,t_{s} \in R[x_{1},...,x_{n-1}]$ satisfying the condition over the first $n-1$ generators. We may assume that $x_{n},t_{1},...,t_{s}$ are not $R$-algebraically independent as this would immediately imply the result, taking $x_{n}$ as the $s+1$st generator. So there is some polynomial $f \in R_{r}$ s.t. $f(t_{1},...,t_{s},x_{n}) = 0$. Using the same technique as in Noether's normalization theorem, we have $g = f(t_{1}+ x_{n}^{d+1}, ....,x_{n}^{d+s+1}) = cx^{D} +$ (lower degree terms), for some constant $c \in R_{r}$. Thus, localizing at powers of $r'c$ yields that both $r', c$ are units in $R_{r'c}$, so all the above results hold with the caveat that $c$ is now a unit so $g$ is a monic polynomial in $R[t_{1},...,t_{s}]_{r'c}$ for which $x_{n}$ is a solution, and so $R[x_{1},...,x_{n}]_{r'c} = A_{r'c}$ is integral over $R[t_{1},...,t_{s}]_{r'c}$ with $t_{1},...,t_{s} \ R$-algebraically independent.  
+\end{proof}
+\begin{exercise}
+  Let Z be an irreducible algebraic set, $U_{1}$, $U_{2}$ be open subsets in $\bb{A}^{n}_{K}$, for $K$ algebraically closed.
+  a. Show that if Z intersects both U$_{1}$ and U$_{2}$ then it intersects $U_{1}\cap U_{2}$. \\
+  b. Show that Z is connected in the Zariski topology.
+\end{exercise}
+\begin{proof}
+  a. Suppose Z intersects $U_{1}$ and $U_{2}$. If it does not intersect $U_{1}\cap U_{2}$ we can extend this to an open cover such that $Z$ is not properly contained in one of the open sets, a contradiction. 
+  
+  b. If Z were not connected then there would exist two disjoint open sets partitioning $Z$ in the Zariski topology: by definition, Z is irreducible so this cannot happen. 
+\end{proof}
+
+\begin{exercise}
+  Find the Zariski closure in $\bb{C}^{3}$ of $\{(z^{2},z^{3},z^{4}) | z \in \bb{C}\}$.
+\end{exercise}
+\begin{proof}
+  Consider the ideal $\fk{A} = (x^{3}-y^{2}, x^{2} - z) \subset \bb{C}[x,y,z]$. Suppose $(a,b,c) \in V(\fk{A})$. By algebraic closure $\exists \ w$ s.t. $w^{2} = a$. By the relations above, this implies that $y = w^{3}$ and that $z = w^{4}$. Thus, there exists a $w$ s.t. $(a,b,c) = (w^{2}, w^{3}, w^{4})$, and furthermore we have that all $(w^{2}, w^{3}, w^{4})$ with $w \in \bb{C}$ lie in $V(\fk{A})$. Thus, the set above is in fact the vanishing locus of an ideal and is itself closed. 
+\end{proof}
+\end{document}

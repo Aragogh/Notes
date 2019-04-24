@@ -1,0 +1,101 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\st}{\text \ \text{s.t.} \hspace{0.025in} }
+\newcommand{\Claim}[1]{\vspace{0.05in} \\ \underline{\textbf{Claim:}} #1 \vspace{0.05in} \\}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 7}
+\newcommand{\hmwkDueDate}{Feb 22nd, 2019}
+\newcommand{\hmwkClass}{Math 225B Differential Geometry}
+\newcommand{\hmwkClassInstructor}{Professor Peter Petersen}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\begin{exercise}[Problem 6]
+\end{exercise}
+\begin{proof}
+  a) Consider the case of an arbitrary 2-form, expressible in a basis as: $\omega_{1}e_{1}\wedge e_{2} + \omega_{2} e_{2}\wedge e_{3} + \omega_{3} e_{3} \wedge e_{1}$ Given a solution to the equations
+  \begin{align*}
+    \omega_{1} = a_{2}b_{3} - a_{3}b_{2} \\
+    \omega_{2} = a_{1}b_{3} - a_{3}b_{1} \\
+    \omega_{3} = a_{1}b_{2} - a_{2}b_{1} 
+  \end{align*}
+  We have that $(a_{1}e_{1} + a_{2}e_{2} + a_{3}e_{3}) \wedge (b_{1}e_{1} + b_{2}e_{2} + b_{3}e_{3}) = (a_{2}b_{3} - a_{3}b_{2})e_{1}\wedge e_{2} + (a_{1}b_{3} - a_{3}b_{1}) e_{2} \wedge e_{3} + (a_{1}b_{2} - a_{2}b_{1})e_{3}\wedge e_{1} = \omega_{1}e_{1}\wedge e_{2} + \omega_{2} e_{2}\wedge e_{3} + \omega_{3} e_{3} \wedge e_{1}$. As given any vector in $\mathbb{R}^{3}$ we may obtain two vectors that are orthogonal to it and thus that cross product to it, we have that the above system of equations has a solution, and thus any 2-form may be expressed as an indecomposable one. 
+\end{proof}
+
+\end{document}

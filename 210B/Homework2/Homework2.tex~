@@ -1,0 +1,137 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 2}
+\newcommand{\hmwkDueDate}{Jan 30th, 2019}
+\newcommand{\hmwkClass}{Math 210B Algebra}
+\newcommand{\hmwkClassInstructor}{Professor Sharifi}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{exercise}
+  Let p be an odd prime dividing $\Phi_{n}(a)$ for some $a \in \mathbb{Z}$. Show that either $p \ | \ n$ or $p \equiv 1 \hspace{-0.06in}\mod \hspace{-0.02in}n$.
+\end{exercise}
+
+\begin{proof}
+  We may assume $a \neq 0$. If $p \ | \ \Phi_{n}(a)$ then $p \ | \ (a^{n}-1)$. If $n < p$ then $n \ | \ (p-1)$, the latter being the order of $\overline a \in \mathbb{Z}/p\mathbb{Z}^{\times}$. Suppose the order of $\overline a \in \mathbb{Z}/p\mathbb{Z}^{\times}$ is $e \leq (p-1) <  n$. We have that $p \ | \ \Phi_{e}(a)$, which are relatively prime polynomials dividing $t^{n}-1 \in \mathbb{Z}[t]$. Consider the canonical surjection $\mathbb{Z}[t] \to \mathbb{Z}/p\mathbb{Z}[t]$, We have that the images of both of these polynomials must divide $t^{n}-1 + (p) \equiv t^{n}-1 \mod (p)$, and thus $t^{n}-1$ has multiple roots, which is only possible if $t^{n}-1$ and $nt^{n-1}$ are not relatively prime. Clearly, $t^{n}-1 - n^{-1}t(nt^{n-1}) = -1$, so $n$ cannot be invertible $\implies p \ | \ n$.
+\end{proof}
+
+\begin{exercise}[Problem 2] 
+\end{exercise}
+
+\begin{proof}
+  a) Suppose $\alpha$ is transcendental over $F(S)$. It is clear that $\alpha$ does not satisfy any polynomial in $F(S)[t]$: in particular, there does not exist a polynomial $f \in F[t_{1},...,t_{n}]$ for any arbitrary $n$ s.t. $f(\alpha,s_{1},...,s_{n-1}) = 0$ for any $s_{1},...,s_{n-1}\in S$ for if there did then we may view this as a polynomial in $F(S)[t]$ for which $\alpha$ is a root. The converse is also clear from this logic, as if $S \cup \alpha$ is $F$-algebraically independent then there is no polynomial in $F(S)[t]$ for which $\alpha$ is a root: else for some supposed $f$ we may view this as some polynomial $\overline f \in F[t_{1},...,t_{n}]$ for every $s_{1}$ that appears in $f$, which is zero under evaluation at each $s_{i}$ in $f$ and $\alpha$. \\
+  b) The forward direction applies from application of the previous result to each $s \in S$: if $S$ is algebraically independent then $S-s$ is a subset and therefore algebraically independent, and $S - \{s\} \cup \{s\}$ algebraically independent $\iff s$ is transcendental over $F(S-\{s\}$. Suppose now that $s$ is transcendental over $F(S-\{s\})$ for every $s \in S$. If $S$ was not algebraically independent, then there would exist some polynomial $f \in F[t_{1},...,t_{n}]$ s.t. $f(s_{1},...,s_{n}) = 0$ for some $s_{1},...,s_{n} \in S$. However, as $s_{n}$ is transcendental over $F(S)$ we have that $f(s_{1},...,s_{n-1})(t) \in F(S-\{s\})[t]$ cannot have $s_{n}$ as a root, which is a contradiction. Thus, there cannot exist such a polynomial, and $S$ must be $F$-algebraically indepedent. 
+\end{proof}
+
+\begin{exercise}[Problem 3]  
+\end{exercise}
+\begin{proof}
+  
+\end{proof}
+
+\begin{exercise}
+   Let K/F be a normal field extension and f $\in$ F[x] be irreducible.  Show that every two monic irreducible factors of f $\in$ K[x] are conjugate over F.
+\end{exercise}
+
+\begin{proof}
+  Suppose $f = h_{1}h_{2}...h_{n} \in K[t]$ irreducible. Let $\alpha_{i}, \alpha_{j}$ roots of $h_{i}, h_{j}$ for arbitrary $i,j$. In $\overline F$ there exists an $F$-embedding sending $\alpha_{j} \mapsto \alpha_{i}$. As $K$ is normal, this embedding into $\overline F$ restricts to an automorphism of $K$. Thus, there is an automorphism $\phi$ of $K$ such that $\phi(a_{k})\alpha_{i}^{k}+...+\phi(a_{0}) = 0$ for $a_{k},...,a_{0}$ the coefficients of $h_{j}$, which we can extend to an automorphism $\overline \phi$ of $K[t]$ by permuting the coefficients, i.e. having $\overline \phi(t) = t$. By assumption, $h_{1},...,h_{n}$ are irreducible, and as any automorphism of $K[t]$ must take irreducibles to irreducibles, $\overline\phi(h_{j})(\alpha) = 0 \implies \overline\phi(h_{j}) = m_{K}(\alpha_{i}) = h_{i}$, and thus $h_{i}$ and $h_{j}$ are conjugate.
+\end{proof}
+
+\begin{exercise}[Problem 5]
+\end{exercise}
+\begin{proof}
+  a) Consider the field $K(x)/K$ for $x$ transcendental, $K$ an algebraically closed field of characteristic $p$. We have that any finitely generated intermediate field for this extension $K(x)/E/K$ must be isomorphic to $K(p_{1},p_{2},...,p_{n})$ for $p_{1},..,p_{n}$ rational functions in $K(x)$. We may select $p_{1},...,p_{n}$ s.t. they are a maximally algebraically independent subset in $E$, and thus they form a transcendence basis for $E/K$ s.t. $E/K(S) \cong E/E$ is separable (being a trivial extension). However, we have that the extension $K(x)/K(x^{p})$ is inseparable as the minimal polynomial of $x$ is $t^{p}-x^{p} \in K(x^{p})[t]$ from rationale given in the previous homework for $F(t_{1},t_{2})/F(t_{1}^{p},t_{2}^{p})$ with $F$ arbitrary. Thus, this example holds. 
+ 
+\end{proof}
+
+\begin{exercise}[Problem 6]
+\end{exercise}
+\begin{proof}
+  We have that the extension $F(x)/F(x^{n}+x^{-n})$ is separable as characteristic 0. We have that $x$ is a solution to the polynomial $t^{2n}-1 - t^{n}(x^{n}+x^{-n})$. In addition, we have that $F$ is algebraically closed, and so in particular every $n$th root of unity $\zeta_{n}$ belongs in $F$; thus, $\zeta_{n}x$ is also a root of this polynomial for every $\zeta_{n}$. Finally. we have that $x^{-1}$ is also a root of this polynomial (clearly by evaluation), and thus $\zeta_{n}x^{-1}$ is also a root of this polynomial for every $n$th root of unity. Thus, we have $2n$ distinct roots in $F(x)$, implying that this polynomial splits in $F(x)$. Furthermore, any splitting field of this polynomial must contain a natural embedding from $F(x)$, as $x$ is a root of the polynomial. Thus, $F(x)$ must be the unique splitting field of the polynomial given above, implying this is a normal, separable, and in particular Galois extension. Thus, the Galois group has order $2n$. We have an $F(x)$ automorphism of order 2, given by sending $x \mapsto x^{-1}$ and acting trivially on the field by extending linearly: this fixes the subfield $F(x^{n}+x^{-n})$. Fixing a primitive $n$th root of unity $\zeta_{n}$, We have an $F(x)$ automorphism given by sending $\phi: x \mapsto \zeta_{n}x$ and acting trivially on the field, and extending linearly. This map is well defined, as given arbitrary $y \in F(x)$, we have that $y = ax^{i}$ for some $i \in \mathbb{Z}$. Thus, $\phi(ax^{i}) = a \phi(x^{i}) = a \zeta_{n}^{i}x^{i}$. It is a homomorphism by definition and is invertible and thus surjective, and thus is an automorphism: in particular, it fixes $x^{n}, x^{-n}$ and thus fixes the subfield $F(x^{n}+x^{-n})$. This is an order $n$ automorphism that we shall call $\sigma$, while we refer to the order $2$ automorphism as $\tau$. Collectively, $\sigma,\tau$ must generate the Galois group as $<\sigma><\tau>$ is a product of two disjoint groups of order $n$ and 2 respectively. We have that $\tau\sigma(x) = \zeta_{n}^{n-1}x \neq \zeta_{n}x^{-1} = \sigma\tau(x)$, so $\tau, \sigma$ do not commute with each other: furthermore, $<\sigma>$ must be a normal subgroup as it has index equal to the smallest prime dividing G. Thus, we may present it as a semidirect product $\mathbb{Z}_{n}\rtimes \mathbb{Z}_{2}$ with the only nontrivial map of $\mathbb{Z}_{2}$ into $Z_{n}^{\times}$ being the semidirect product of the dihedral group of order $n$. Thus, $G \cong D_{n}$.
+\end{proof}
+
+\begin{exercise}[Problem 7]
+\end{exercise}
+
+\begin{proof}
+Viewing $f = x^{6}$  
+\end{proof}
+
+\end{document}
