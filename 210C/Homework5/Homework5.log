@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.5.21)  24 MAY 2019 09:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2019.5.21)  24 MAY 2019 12:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -638,10 +638,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 147--148
 
 [3] [4] (./Homework5.aux) ) 
 Here is how much of TeX's memory you used:
- 15657 strings out of 492616
- 324873 string characters out of 6135177
- 387570 words of memory out of 5000000
- 19235 multiletter control sequences out of 15000+600000
+ 15565 strings out of 492616
+ 322561 string characters out of 6135177
+ 382951 words of memory out of 5000000
+ 19143 multiletter control sequences out of 15000+600000
  14293 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,17n,84p,1112b,1036s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -662,7 +662,7 @@ pe1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/ams
 fonts/euler/eufm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbo
 ls/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.
 pfb>
-Output written on Homework5.pdf (4 pages, 199019 bytes).
+Output written on Homework5.pdf (4 pages, 201384 bytes).
 PDF statistics:
  96 PDF objects out of 1000 (max. 8388607)
  70 compressed objects within 1 object stream

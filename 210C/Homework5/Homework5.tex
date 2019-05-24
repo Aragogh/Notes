@@ -177,7 +177,7 @@ Now applying $\Hom_{R}(- , F)$ to the above complexes, we have:
 \end{tikzcd}
 \]
 We have that any $\phi \in \Hom_{R}(R,F)$ is uniquely determined by the value of $\phi(1)$. Furthermore, it is an $R^{op}/(x^{op},y^{op},z^{op}) \cong F^{op} \cong F$ module of dimension on under the natural multiplication on maps.
-\newpage
+
 Thus, we end up with the complex:
   \[
   \begin{tikzcd}
@@ -232,20 +232,19 @@ Now it is clear that $kerI_{G} = \{a \in A \ | \ \sigma \cdot a - a = 0 \} = A^{
   Show $H^{1}(G, L^{\times}) = 0$ for $G = Gal(L/K)$ a Galois extension.
 \end{exercise}
 \begin{proof}
-  Consider the standard bar resolution of $\bb{Z}$:
-  \[
-    \begin{tikzcd}
-... \arrow[r, "\partial_4"] & {\bb{Z}[G^3]} \arrow[r, "\partial_3"] & {\bb{Z}[G^2]} \arrow[r, "\partial_2"] & {\bb{Z}[G]} \arrow[r, "\epsilon"] & \bb{Z}
-\end{tikzcd}
-\]
-
-Applying $\Hom_{\bb{Z}[G]}(-, L^{\times})$, we have the diagram:
-\[
-  \begin{tikzcd}
-... & \Hom_{\bb{Z}[G^3]}(\bb{Z}[G^3], L^\times) \arrow[l, "\delta_3"'] & \Hom_{\bb{Z}[G]}(\bb{Z}[G^2], L^\times) \arrow[l, "\delta_2"'] & L^{\times} \arrow[l, "\delta_1"'] & K \arrow[l, "\epsilon"']
-\end{tikzcd}
-\]
-
-Note that $\Hom_{\bb{Z}[G]}(\bb{Z}[G^2], L^\times)$ 
+  Consider the standard bar complex $C^{i}(G,L^{\times}$ with the standard coboundaries. Let $\phi \in C^{1}(G,L^{\times})$, and using the known condition for the value of $\delta^{1}$ on the bar complex, we have:
+ \[
+     \delta^{1}(\phi)((g_{1},g_{2})) = g_{1}\phi(g_{2}) - \phi(g_{1}g_{2}) + \phi(g_{1}) 
+   \]
+   Denoting $\phi(g_{2}) = x_{g_{2}} \in L^{\times}$ and switching to multiplicative notation for $L^{\times}$ we have that
+   \[
+     \phi \text{\ cocycle }\implies g_{1}(x_{g_{2}}).x_{g_{1}g_{2}}^{-1}x_{g_{1}} = 1 \implies x_{g_{1}}g_{1}(x_{g_{2}}) = x_{g_{1}g_{2}} \]
+   Suppose $\phi$ is a cocycle. Then for some $a \in L^{\times}$ we have that $x_{g_{1}}g_{1}(a) + ... + x_{g_{n}}g_{n}(a) = k \neq 0$ for some $a \in L^{\times}$ by the linear independence of characters (here $G(L/K)$ is a linearly set of characters $L^{\times} \to L^{\times}$). Now, note:
+   \begin{align*}
+     & g_{1}(k) = \sum_{g_{i} \in G}g_{1}(x_{g_{i}}) g_{1}g_{i}(a) \\
+     \implies & x_{g_{1}}g_{1}(k) = \sum_{g_{i} \in G}x_{g_{1}}g_{1}(x_{g_{i}}) g_{1}g_{i}(a) = \sum_{g_{i} \in G}x_{g_{1}g_{i}} g_{1}g_{i}(a) = x_{g_{1}}g_{1}(a) + ... + x_{g_{n}}g_{n}(a) = k \\
+     \implies & x_{g_{1}} = \frac{k}{g_{1}(k)}
+   \end{align*}
+   Noting that in the last step translating by $g_{1}$ still ranged over all elements in the group. Note that this method yields the same $k$ for all $g_{i}$. However, this implies that the morphism $\phi$ above must have been of the form $g_{1}\psi(e_{G}) - \psi(e_{G})$ for $\psi$ selecting an element of $L^{\times}$, which is precisely of the form $\delta^{0}(\psi)$ for $\psi \in C^{0}(G,L^{\times})$. Thus, any cocycle is a coboundary and the first cohomology group is trivial.
 \end{proof}
 \end{document}
