@@ -1,0 +1,251 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ext}{\text{Ext}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\iso}{\cong}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 5}
+\newcommand{\hmwkDueDate}{May 24th, 2019}
+\newcommand{\hmwkClass}{Math 210C Algebra}
+\newcommand{\hmwkClassInstructor}{Professor Sharifi}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{exercise}
+  
+\end{exercise}
+
+
+\begin{exercise}
+ Show that an R-module A is flat $\Leftrightarrow \text{\emph{Hom}}_{\bb{Z}}(A, \bb{Q}/\bb{Z})$ is an injective object in $R^{op}-mod$ with $(r \cdot f)(m) = f(mr)$.
+\end{exercise}
+
+\begin{proof}
+  Note that $R^{op}-mod \cong mod-R$ so we will carry out the proof in the latter category. Suppose $A$ is flat. Note that for any ideal $I \subset R$, $\Hom_{R}(I, \Hom_{\bb{Z}}(A,\bb{Q}/\bb{Z})) \cong \Hom_{\bb{Z}}(I \otimes_{R} A, \bb{Q/Z})$ naturally as abelian groups by the tensor-hom adjunction, where we may view $A$ as a bimodule $_{R}A_{\bb{Z}}$, so $ - \otimes_{R} A : mod-R \to \bb{Z}-mod = mod-\bb{Z}$. Regard the following diagram:
+  \[
+    \begin{tikzcd}
+\Hom_{R}(I, \Hom_{\bb{Z}}(A,\bb{Q/Z})) \arrow[r, "\cong"]                    &  \Hom_{\bb{Z}}(I \otimes_{\bb{Z}} A, \bb{Q/Z})                     \\
+\Hom_{R}(R, \Hom_{\bb{Z}}(R,\bb{Q/Z})) \arrow[u, "i^{*}_{1}"] \arrow[r, "\cong"] & \Hom_{\bb{Z}}(R \otimes_{\bb{Z}} A, \bb{Q/Z}) \arrow[u, "i^{*}_{2}"']
+\end{tikzcd}
+\]
+
+As $\bb{Z}$-modules, $I \otimes_{R} A \to R \otimes_{R} A$ is still an injection (as $A$ is flat) and $\bb{Q/Z}$ is an injective object, so $i^{*}_{2}$ must be an isomorphism as every morphism in $\Hom_{\bb{Z}}(I \otimes_{R} A,\bb{Q/Z})$ must be the restriction of some morphism in $\Hom_{\bb{Z}}(R \otimes_{R} A,\bb{Q/Z})$ by injectiveness of $\bb{Q/Z}$. The naturality of the tensor-hom isomorphism implies that $i^{*}_{1}$ must also be an isomorphism, implying that every morphism in $\Hom_{R}(I, \Hom_{\bb{Z}}(A,\bb{Q/Z})$ must arise from restriction in $R$, so every morphism from an ideal must lift $\implies \Hom_{\bb{Z}}(A,\bb{Q/Z})$ satisfies Baer's criterion and thus must be injective (Note that this is the same proof as for $R$). 
+
+\hspace{0.2in} Now suppose that $\Hom_{\bb{Z}}(A, \bb{Q/Z})$ is injective in $mod-R$. We have that the functor $\Hom_{R}(-, \Hom_{\bb{Z}}(A, \bb{Q/Z}))$ must be an exact functor, being both right exact and preserving injections. Via the tensor-hom adjunction, this is naturally isomorphic to $\Hom_{\bb{Z}}(- \otimes_{R} A, \bb{Q/Z})$, which is the composition of functors $h^{\bb{Q/Z}} \circ t_{A}$. We have that the composition $h^{\bb{Q/Z}} \circ t_{A}$ is exact via the natural isomorphism, and that $h^{\bb{Q/Z}}$ is both faithful and exact in $\bb{Z}-mod$ as the module is injective; from problem 1, we have the natural comparison map $h^{\bb{Q/Z}} \circ L_{i}t_{A} \cong L_{i}(h^{\bb{Q/Z}} \circ t_{A})$, implying that for any $R$-module $M, h^{\bb{Q/Z}} \circ L_{i}t_{A}(M) \cong 0 \implies L_{i}t_{A}(M) \cong 0$ as $h^{\bb{Q/Z}}$ is faithful and thus does not send nonzero objects to zero, which is the terminal object (as this would send the identity map to the zero map). Thus, as all the left derived functors are zero, $t_{A}$ must be exact and so $A$ is flat. 
+\end{proof}
+
+\begin{exercise}
+  Let R be commutative. Show that TFAE: \\
+  i) A is flat and t$_{A}$ is faithful. \\
+  ii) A is flat and $\fk{m}A \neq A$ for all maximal ideals $\fk{m}$ of R. \\
+  iii) A complex $0 \to B \to C \to D \to 0 $ is exact iff $0 \to A \otimes_{R} B \to A \otimes_{R} C \to A \otimes_{R} D \to 0$ is exact. 
+\end{exercise}
+\begin{proof}
+  ``i) $\implies$ iii)'' Suppose $A$ is flat. Then a complex $0 \to B \to C \to D \to 0 $ is exact implies the complex $0 \to A \otimes_{R} B \to A \otimes_{R} C \to A \otimes_{R} D \to 0$ is exact. If $t_{A}$ is faithful, then if $0 \to A \otimes_{R} B \to A \otimes_{R} C \to A \otimes_{R} D \to 0$ is exact, consider the following complexes:
+  \[
+    \begin{tikzcd}
+0 \arrow[r] & ker(B \to C) \arrow[r]    & B \arrow[r] & C                                    &   \\
+0 \arrow[r] & coker (B \to C) \arrow[r] & D \arrow[r] & coker(cokerB \to C) \to D) \arrow[r] & 0
+\end{tikzcd}
+\]
+
+We have that $A \otimes ker(B \to C) \cong 0 \implies ker (B \to C) \cong 0$. In similar fashion, $coker(cokerB \to C) \to D$ must also be zero, and thus $0 \to B \to C \to D \to 0$ must necessarily be exact. \\
+
+``iii) $\implies$ ii)'' Consider the complex $0 \to R/\fk{m} \to 0$. We must have that $0 \to A \otimes R/\fk{m} \to 0$ cannot be exact, and so $A/\fk{m}A \neq 0$. \newpage
+
+``ii) $implies$ i)'' As $t_{A}$ is additive, it suffices to show the induced map on $\Hom$ sets is an abelian group monomorphism to imply faithfulness. In particular, we must show that $A \otimes_{R} M \neq 0$ for any $M \neq 0$, as this implies $t_{A}$ cannot send a nonzero image to 0, i.e. cannot send a nonzero morphism to the $0$ morphism. However, for any module $M$, we may select some nonzero element $f: R \to M$ via $1 \mapsto m$. This extends into an exact sequence $0 \to R/\text{ann}(m) \to M$, and as $t_{A}$ preserves monomorphisms and $t_{A}(R/\text{ann}(m))$ is nonzero, this must be a nonzero morphism and thus $M$ is nonzero. Thus, $t_{A}$ must be faithful.     
+\end{proof}
+
+\begin{exercise}
+  Let $R \ F[x,y,z]$ with $F$ a field, and consider the $R$-module $F \cong R/(x,y,z)$. Find all Ext and Tor groups of F with coefficients in F.
+\end{exercise}
+\begin{proof}
+  Consider the following projective resolution:
+  \[
+    \begin{tikzcd}
+0 \arrow[r] & R^2 \arrow[r, "A"] & R^3 \arrow[r, "{(x, y, z)}"] & R \arrow[d, "\pi "] \\
+            &                                                                         &                              & F                  
+          \end{tikzcd}
+\]
+
+Where $ A = \begin{pmatrix} y  & z \\ - x & 0 \\ 0 & -x \end{pmatrix}$, and $\pi: R \to F$ is the canonical projection. \\
+
+\vspace{0.1in}
+
+This complex is clearly exact, as the kernel of $(x,y,z)$ is generated by $(xe_{2} - ye_{1}, xe_{3} - ze_{1}, ye_{3} - ze_{2})$ and taking determinants shows that only two out of three are linearly independent, and thus $A$ is monic.
+
+We first compute $\Tor_{i}^{R}(F,F)$. Tensoring the above complex with $F$, we get:
+\[
+  \begin{tikzcd}
+0 \arrow[r] & F^2 \arrow[r, "0"] & F^3 \arrow[r, "0"] & F \arrow[d, "Id"] \\
+            &                    &                    & F                
+\end{tikzcd}
+\]
+
+Where all maps disappear as their images lie in $(x,y,z)P_{i}$ for the corresponding projective $P_{i}$. Thus, the resultant $\Tor$ values are
+\[
+  \Tor_{i}^{R}(F,F) \cong
+  \begin{cases}
+    F & i = 0\\
+    F^{3} & i = 1 \\
+    F^{2} & i = 2 \\
+    0 & i \geq 3 
+  \end{cases}
+\]
+
+Now applying $\Hom_{R}(- , F)$ to the above complexes, we have:
+\[
+\begin{tikzcd}
+0 & {\Hom_R(R,F)^2} \arrow[l] & {\Hom_R(R, F)^3} \arrow[l, "A^T"'] & {\Hom_R(R,F)} \arrow[l, "\begin{pmatrix} x \\ y \\ z \end{pmatrix}"'] \\
+  &                           &                                    & F \arrow[u, "\pi^*"']                                                
+\end{tikzcd}
+\]
+We have that any $\phi \in \Hom_{R}(R,F)$ is uniquely determined by the value of $\phi(1)$. Furthermore, it is an $R^{op}/(x^{op},y^{op},z^{op}) \cong F^{op} \cong F$ module of dimension on under the natural multiplication on maps.
+\newpage
+Thus, we end up with the complex:
+  \[
+  \begin{tikzcd}
+0 & F^2 \arrow[l, swap, "0"] & F^3 \arrow[l, swap, "0"] & F  \arrow[l, swap, "0"]\\
+            &                    &                    & F \arrow[u, swap, "\pi^{*}"]                
+\end{tikzcd}
+\]
+
+And so we have:
+
+  \[
+  \Ext_{i}^{R}(F,F) \cong
+  \begin{cases}
+    F & i = 0\\
+    F^{3} & i = 1 \\
+    F^{2} & i = 2 \\
+    0 & i \geq 3 
+  \end{cases}
+\]
+
+And furthermore, in particular, that $\Ext_{i}^{R}(F,F)$ and $\Tor_{i}^{R}(F,F)$ are dual vector spaces over $F$ (resp. $F^{op}$) actions for each $i$.
+\end{proof}
+
+\begin{exercise}
+  Let $G$ be a finite group and A be a finite $\bb{Z}[G]$ module. Show that
+  \[
+    H^{i}(G, A) =
+    \begin{cases}
+      A^{G}/N_{G}A & i = 2n \\
+      (ker N_{G})/I_{G}A & i = 2n-1
+    \end{cases}
+  \]
+\end{exercise}
+\begin{proof}
+  Consider the following resolution of $\bb{Z}$:
+  \[
+    \begin{tikzcd}
+... \arrow[r, "I_G"] & {\bb{Z}[G]} \arrow[r, "N_G"] & {\bb{Z}[G]} \arrow[r, "I_G"] & {\bb{Z}[G]} \arrow[r, "N_G"] & \bb{Z}
+\end{tikzcd}
+\]
+
+Where $N_{G}$ is multiplication by the norm elements and $I_{G}$ is multiplication by $\sigma - 1$ for $G = < \sigma >$. This is clearly exact by inspection, and periodic as $kerI_{G}$ is generated by the norm element while $kerN_{G}$ is generated by $I_{G}$. Applying $\Hom_{\bb{Z}[G]}(-,A)$ we have:
+\[
+  \begin{tikzcd}
+... & A \arrow[l, "I_G"'] & A \arrow[l, "N_G"'] & A \arrow[l, "I_G"'] & A^G \arrow[l, "N_G"']
+\end{tikzcd}
+\]
+Now it is clear that $kerI_{G} = \{a \in A \ | \ \sigma \cdot a - a = 0 \} = A^{G}$. Thus, at even indices we have that $H^{i}(G, A) = kerI_{G}/N_{G}A = A^{G}/N_{G}A$. At the odd spots, by definition, we have $H^{i}(G,A) = (kerN_{G})/I_{G}A$.
+\end{proof}
+
+\begin{exercise}
+  Show $H^{1}(G, L^{\times}) = 0$ for $G = Gal(L/K)$ a Galois extension.
+\end{exercise}
+\begin{proof}
+  Consider the standard bar resolution of $\bb{Z}$:
+  \[
+    \begin{tikzcd}
+... \arrow[r, "\partial_4"] & {\bb{Z}[G^3]} \arrow[r, "\partial_3"] & {\bb{Z}[G^2]} \arrow[r, "\partial_2"] & {\bb{Z}[G]} \arrow[r, "\epsilon"] & \bb{Z}
+\end{tikzcd}
+\]
+
+Applying $\Hom_{\bb{Z}[G]}(-, L^{\times})$, we have the diagram:
+\[
+  \begin{tikzcd}
+... & \Hom_{\bb{Z}[G^3]}(\bb{Z}[G^3], L^\times) \arrow[l, "\delta_3"'] & \Hom_{\bb{Z}[G]}(\bb{Z}[G^2], L^\times) \arrow[l, "\delta_2"'] & L^{\times} \arrow[l, "\delta_1"'] & K \arrow[l, "\epsilon"']
+\end{tikzcd}
+\]
+
+Note that $\Hom_{\bb{Z}[G]}(\bb{Z}[G^2], L^\times)$ 
+\end{proof}
+\end{document}

@@ -1,0 +1,213 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\iso}{\cong}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 4}
+\newcommand{\hmwkDueDate}{May 17th, 2019}
+\newcommand{\hmwkClass}{Math 210C Algebra}
+\newcommand{\hmwkClassInstructor}{Professor Sharifi}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+\maketitle
+
+\newpage
+
+\begin{exercise}
+  For $f:A. \to B.$ morphism of chain complexes if $H_{i}(kerf) = H_{i}(cokerf) = 0$ then $f$ is a quasi-isomorphism. 
+\end{exercise}
+
+\begin{proof}
+  We know $\partial f_{i-1} = f_{i}|_{B_{i}}$. Regard the following LE sequences restricted to the kernel (which works by naturality of chain maps, exact by assumptions of the problem):
+
+  \[
+    \begin{tikzcd}
+      ... \arrow[r] & kerf_{i-1} \arrow[r, "\partial"] & kerf_{i} \arrow[r, "\partial"] & kerf_{i+1} \arrow[r] & ... \\
+... \arrow[r] & cokerf_{i-1} \arrow[r, "\partial"] & cokerf_{i} \arrow[r, "\partial"] & cokerf_{i+1} \arrow[r] & ...
+\end{tikzcd}
+\]
+
+In particular, the exactness of the above sequence implies that $ker (\partial |_{ker f}) = \partial(ker f)$, or the the inclusion of the boundary $B_{i}(A) \to Z_{i}(A)$ induces an isomorphism $\delta(kerf_{i-1}) = ker f_{i} \cap Z_{i}(A)$, and likewise for the case of the $coker f$ sequence.
+\[
+  \begin{tikzcd}
+                                          & \partial (ker f_{i-1}) \arrow[r, "\cong"] \arrow[d] \arrow[r] \arrow[r] \arrow[r] \arrow[r, "i"'] & kerf_{i} \cap{Z_{i}(A)} \arrow[r] \arrow[d]     & ker \overline f \arrow[d] \arrow[r, "\delta", hook] & coker \ \partial f_{i} \\
+0 \arrow[r] \arrow[ru]                    & B_{i}(A) \arrow[r, "i"] \arrow[d, "f_{i}|B_{i}"]                                                  & Z_{i}(A) \arrow[r] \arrow[d, "f"]            & H_{i}(A) \arrow[r] \arrow[d, "\overline f"]         & 0                      \\
+0 \arrow[r]                               & B_{i}(B) \arrow[r, "i"] \arrow[d]                                                                 & Z_{i}(B) \arrow[r] \arrow[d]                 & H_{i}(A) \arrow[r] \arrow[d]                        & 0                      \\
+ker \overline f \arrow[r, "\delta", hook] & \partial (coker f_{i-1}) \arrow[r, "\cong"] \arrow[r, "i"']                                       & coker f_{i}\cap {Z_{i}(A)} \arrow[r, two heads] & coker \overline f \arrow[ru]                        &                       
+\end{tikzcd}
+\]
+
+Chasing through the fact that this diagram is exact, we see that $ker \overline f = 0 = coker \overline f$ and thus the induced map on homology $\overline f$ is an isomorphism. 
+\end{proof}
+\begin{exercise}
+\end{exercise}
+\begin{proof}
+  We know the claim about $0\to B. \to C. \to A[-1]. \to 0$ as a result of problem 8 on Homework 3, where the short exact sequence obtained there had the projection onto $A.$ as opposed to the negative projection, which is obtained here due to the sign change in the definition of $C.$; however, the argument is exactly analogous. Regard the following diagram:
+
+  \[
+    \begin{tikzcd}
+0 \arrow[r] & B_{i+1} \arrow[r, "\iota_B"] \arrow[d, "d_i^B"] & B_{i+1} \oplus A_i \arrow[r, "-\pi_A"] \arrow[d, "{(d_i^B -f_i , -d_i^A)}"] & A_i  \arrow[d, "Id"] \arrow[r] & 0 \\
+0 \arrow[r] & B_{i}  \arrow[r, "\iota_B"]                     & B_{i} \oplus A_{i-1} \arrow[r, "-\pi_A"]                                    & A_{i-1} \arrow[r]              & 0
+\end{tikzcd}
+\]
+
+We construct the connecting homomorphism $\delta$ by taking a cohomology class $[a] \in H_{i}(A[-1]) = H_{i+1}(A)$ and lift it to a class in $H_{i}(A)$: as this is levelwise split, we have that the lift is given by a splitting of $-\pi_{A}$ at each grade, which is $-\iota_{A}$ levelwise. We then applying the differential in $C_{.}$ and then pull back to a class in $H_{i}(B)$. This is given by the map induced on homology by $\pi_{B} \circ (d_{i}^{B} - f_{i}, -d_{i}^{A}) \circ (-\iota_{A})$, which passing to homology is equivalent to the map induced by $\pi_{B} \circ (- f_{i}, 0) \circ (-\iota_{A})$ as differentials induce trivial maps on homology (by definition). Clearly, the map above must be the map inducedby $f_{i}$, and thus we have the result.   
+\end{proof}
+
+\newpage
+
+\begin{exercise}
+  Let D be a divisible group, R a ring. Show that $\text{\emph{Hom}}_{\bb{Z}}(R, D)$ is an injective object in $R-mod$ with $(r \cdot f)(m) = f(mr)$.
+\end{exercise}
+
+\begin{proof}
+  Note that for any ideal $I \subset R$, $\Hom_{R}(I, \Hom_{\bb{Z}}(R,D)) \cong \Hom_{\bb{Z}}(R \otimes_{R} I, D)$ naturally as abelian groups by the tensor-hom adjunction, where we view $R$ as a bimodule $_{\bb{Z}}R_{R}$, so $ R \otimes_{R} - : R-mod \to \bb{Z}-mod$. Regard the following diagram:
+z  \[
+    \begin{tikzcd}
+\Hom_{R}(I, \Hom_{\bb{Z}}(R,D)) \arrow[r, "\cong"]                    &  \Hom_{\bb{Z}}(R \otimes_{\bb{Z}} I, D)                     \\
+\Hom_{R}(R, \Hom_{\bb{Z}}(R,D)) \arrow[u, "i^{*}_{1}"] \arrow[r, "\cong"] & \Hom_{\bb{Z}}(R \otimes_{\bb{Z}} R, D) \arrow[u, "i^{*}_{2}"']
+\end{tikzcd}
+\]
+
+As $\bb{Z}$-modules, $R \otimes_{R} I \to R$ is still an injection (as tensoring with a free module is flat) and $D$ is an injective object, so $i^{*}_{2}$ must be an isomorphism as every morphism in $\Hom_{\bb{Z}}(R \otimes_{R} I,D)$ must be the restriction of some morphism in $\Hom_{\bb{Z}}(R \otimes_{R} R,D)$ by injectiveness of $D$. The naturality of the tensor-hom isomorphism implies that $i^{*}_{1}$ must also be an isomorphism, implying that every morphism in $\Hom_{R}(I, \Hom_{\bb{Z}}(R,D)$ must arise from restriction in $R$, so every morphism from an ideal must lift $\implies \Hom_{\bb{Z}}(R,D)$ satisfies Baer's criterion and thus must be injective.     
+\end{proof}
+
+\begin{exercise}
+  Show that a fractional ideal is projective iff it is invertible
+\end{exercise}
+
+\begin{exercise}
+  Show that the projective objects in $Ch^{\geq 0}(\mathcal{C})$ are split exact sequences of projective objects in $\mathcal{C}$. 
+\end{exercise}
+\begin{proof}
+  Regard the following commutative diagram: 
+\end{proof}
+
+\begin{exercise}
+  Show that $C.$ is contractible if it is split exact.
+\end{exercise}
+\begin{proof}
+  Regard the following commutative diagram:
+  \[
+    \begin{tikzcd}
+... \arrow[r] & B_{i-1} \oplus B_{i} \arrow[r] \arrow[d, "Id"] \arrow[ld, "h"] & B_{i} \oplus B_{i+1} \arrow[r] \arrow[d, "Id"'] \arrow[ld, "h"] & B_{i+1} \oplus B_{i+2}  \arrow[d, "Id"] \arrow[ld, "h"] \arrow[r] & ... \arrow[ld, "h"] \\
+... \arrow[r] & B_{i-1} \oplus B_{i}  \arrow[r]                                & B_{i} \oplus B_{i+1} \arrow[r]                                  & B_{i+1} \oplus B_{i+2} \arrow[r]                                  & ...                
+\end{tikzcd}
+\]
+
+For the above split exact sequence we have that each differential is given by $\iota_{B_{i+1}}\pi_{B_{i+1}}$. Define $h: B_{i} \oplus B_{i+1} \to B_{i-1} \oplus B_{i}$ by $h = \iota_{B_{i}}\pi_{B_{i}}$ at every level, i.e. projecting onto $B_{i}$ and including into $B_{i-1} \oplus B_{i}$. We thus have that $\iota_{B_{i}}\pi_{B_{i}} \circ h + h \circ \iota_{B_{i+1}}\pi_{B_{i+1}} = \iota_{B_{i}}\pi_{B_{i}} + \iota_{B_{i+1}}\pi_{B_{i+1}} = Id - 0$. Thus, the identity map is homotopic to 0 implying $C.$ is contractible and thus chain homotopy equivalent to its homology complex, which is the zero complex by exactness of the sequence. 
+\end{proof}
+
+\begin{exercise}
+  $R$ a PID means all resolutions of f.g. module by f.g. projectives may be truncated at the second grade to yield another projective resolution 
+\end{exercise}
+\begin{proof}
+  Immediate consequence of the structure theorem for PIDs: for ${P_{0}}$ f.g. projective $P_{0}$ is free and so $ker(d: P_{0} \to M)$ for $M$ f.g. is also f.g. free, implying $0 \to ker \ d \to P_{0} \to M$ is a projective resolution.
+\end{proof}
+\begin{exercise}
+  For $F: R-mod \to R/I - mod$ via $M \mapsto M[I]$ show that: \\
+  a. F is left exact
+\end{exercise}
+\begin{proof}
+  a. Consider the following short exact sequence in $R-mod$:
+  \[
+    \begin{tikzcd}
+0 \arrow[r] & A \arrow[r, "i", hook] & B \arrow[r, "j", two heads] & C \arrow[r] & 0
+\end{tikzcd}
+\]
+
+We have that the monic $i$ is still monic when restricted to $A[I] \subset A$, and that $B[I] \cap ker(j) = B[I] \cap A = A[I]$ (viewing $i$ as inclusion) and so $ker F(j) \cong ker j \cap B[I] = A[I]$ so exact at the left and in the middle $\implies$ left exact. \\
+
+b. Consider the following short exact sequence of complexes:
+\[
+  \begin{tikzcd}
+            & 0 \arrow[d]                     & 0 \arrow[d]                     & 0 \arrow[d]                &   \\
+0 \arrow[r] & A \arrow[r, "i"] \arrow[d, "a"] & B \arrow[r, "j"] \arrow[d, "a"] & C \arrow[r] \arrow[d, "a"] & 0 \\
+0 \arrow[r] & A \arrow[r, "i"] \arrow[d]      & B \arrow[r, "j"] \arrow[d]      & C \arrow[r] \arrow[d]      & 0 \\
+            & 0                               & 0                               & 0                          &  
+\end{tikzcd}
+\]
+Where $(a) = I$ and $a$ represents the multiplication by $a$ map. By the long exact sequence in homology, we have the sequence:
+\[
+  \begin{tikzcd}
+    0 \arrow[r] & {ker_A a = A[I]} \arrow[r] & {ker_B a = B[I]} \arrow[r] & {ker_C a = C[I]} \arrow[r] & ... \\
+    ... \arrow[r] & A/aA = A/IA \arrow[r] & A/aA = A/IA \arrow[r] & A/aA = A/IA \arrow[r] & 0
+\end{tikzcd}
+\]
+
+Which is precisely the desired result. 
+\end{proof}
+\end{document}
