@@ -1,0 +1,99 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ext}{\text{Ext}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\iso}{\cong}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 6}
+\newcommand{\hmwkDueDate}{June 5th, 2019}
+\newcommand{\hmwkClass}{Math 210C Algebra}
+\newcommand{\hmwkClassInstructor}{Professor Sharifi}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{exercise}
+  Let D be a division algebra with center K. Let L be a maximal subfield of D with \emph{[$L:K$]} = n, show that $D \otimes_{K}L \iso M_{n}(L)$.  
+\end{exercise}
+\begin{proof}
+  Repeating the argument from above, we have that $D \otimes_{K} L$ is simple, and being a finite dimensional algebra over $K$ yields that it is left artinian. Thus, by the Artin-Wedderburn Theorem, we have that $D \otimes_{K} L \iso M_{m}(D_{L})$ for some $m \in \bb{N}$ and $D_{L}$ a division algebra over $L$. Suppose that 
+  \textbf{Lemma} L is a separable extension. \\
+  Proof of lemma: Let  
+\end{proof}
+
+\end{document}

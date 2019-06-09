@@ -88,10 +88,45 @@
 \newpage
 
 \begin{exercise}
-  
+  Show that $G \circ L_{i}F \cong L_{i}(G \circ F)$ as $\delta$ functors for $F: \mathcal(C) \to \mathcal(D)$ right exact and $G: \mathcal(D) \to \mathcal(E)$ exact.
 \end{exercise}
-
-
+\begin{proof}
+  Consider the following diagram of projective resolutions of some short exact sequence (each is truncated noting that this yields a quasi iso to the original short exact sequence embedded in chain complexes concentrated at degree 0):
+  \[
+    \begin{tikzcd}
+            &  \arrow[d]                              &  \arrow[d]                              &  \arrow[d]                              &   \\
+0 \arrow[r] & P_2 \arrow[d, "\partial_2^P"] \arrow[r] & Q_2 \arrow[d, "\partial_2^Q"] \arrow[r] & R_2 \arrow[d, "\partial_2^R"] \arrow[r] & 0 \\
+0 \arrow[r] & P_1 \arrow[d, "\partial_1^P"] \arrow[r] & Q_1 \arrow[d, "\partial_1^Q"] \arrow[r] & R_1 \arrow[d, "\partial_1^R"] \arrow[r] & 0 \\
+0 \arrow[r] & P_0 \arrow[r]                           & Q_0 \arrow[r]                           & R_0 \arrow[r]                           & 0
+\end{tikzcd}
+\]
+Applying $F$, we get a long exact sequence of the form:
+\[
+  \begin{tikzcd}
+... \arrow[r] & H_1(F(P)) \arrow[r] & H_1(F(Q)) \arrow[r] & H_1(F(R)) \arrow[r, "\delta"] & H_0(F(P)) \arrow[r] & H_0(F(Q)) \arrow[r] & ...
+\end{tikzcd}
+\]
+Now consider the sequence:
+\[
+  \begin{tikzcd}
+    ... \arrow[r] & H_1(GF(P)) \arrow[r] & H_1(GF(Q)) \arrow[r] & H_1(GF(R)) \arrow[r, "\delta_{G}"] & ... \\
+   ... \arrow[r, "\delta_{G}"] & H_0(GF(P)) \arrow[r] & H_0(GF(Q)) \arrow[r] & H_0(GF(R)) \arrow[r] & 0
+\end{tikzcd}
+\]
+Now all we need is the fact that exact functors naturally commute with the homology functor: this is clearly by considering the following diagram:
+\[
+  \begin{tikzcd}
+0 \arrow[r] & im \ \partial_i^C \arrow[r] & ker \ \partial_{i-1}^C \arrow[r] & H_{i-1}(C) \arrow[r] & 0
+\end{tikzcd}
+\]
+Applying $G$ to the above diagram yields the easy result that $H_{i-1}(GC) = GH_{i-1}(C)$ by exactness of $G$ on the above diagram, and noting that $im \ G\partial^{GC}_{i} = G(im \partial^{C}_{i})$, and likewise for kernel; naturality follows immediately by taking two separate diagrams of the above form.. Seeing this, we have that both connecting homomorphisms fit into the following exact sequence:
+\[
+  \begin{tikzcd}
+    H_1(GF(Q)) \arrow[r, "Q \to R"] & H_1(GF(R)) \arrow[r, "A"] & H_0(GF(P)) \arrow[r, "P \to Q"] & H_{0}(GF(Q))
+  \end{tikzcd}
+\]
+With $A = G(\delta), \delta_{G}$. Thus, as both maps have naturally isomorphic kernels (from the inclusions $Q \to R$ and images (as the kernel of the map induced by $P \to Q$), they must be the same map, and thus $G$ must commute with application of the connecting homomorphism on homology as well. As this computation did not depend on the indices used, we may apply this for arbitrary $i, i-1$. This yields the result.
+\end{proof}
 \begin{exercise}
  Show that an R-module A is flat $\Leftrightarrow \text{\emph{Hom}}_{\bb{Z}}(A, \bb{Q}/\bb{Z})$ is an injective object in $R^{op}-mod$ with $(r \cdot f)(m) = f(mr)$.
 \end{exercise}
@@ -127,7 +162,7 @@ As $\bb{Z}$-modules, $I \otimes_{R} A \to R \otimes_{R} A$ is still an injection
 
 We have that $A \otimes ker(B \to C) \cong 0 \implies ker (B \to C) \cong 0$. In similar fashion, $coker(cokerB \to C) \to D$ must also be zero, and thus $0 \to B \to C \to D \to 0$ must necessarily be exact. \\
 
-``iii) $\implies$ ii)'' Consider the complex $0 \to R/\fk{m} \to 0$. We must have that $0 \to A \otimes R/\fk{m} \to 0$ cannot be exact, and so $A/\fk{m}A \neq 0$. \newpage
+``iii) $\implies$ ii)'' Consider the complex $0 \to R/\fk{m} \to 0$. We must have that $0 \to A \otimes R/\fk{m} \to 0$ cannot be exact, and so $A/\fk{m}A \neq 0$. 
 
 ``ii) $implies$ i)'' As $t_{A}$ is additive, it suffices to show the induced map on $\Hom$ sets is an abelian group monomorphism to imply faithfulness. In particular, we must show that $A \otimes_{R} M \neq 0$ for any $M \neq 0$, as this implies $t_{A}$ cannot send a nonzero image to 0, i.e. cannot send a nonzero morphism to the $0$ morphism. However, for any module $M$, we may select some nonzero element $f: R \to M$ via $1 \mapsto m$. This extends into an exact sequence $0 \to R/\text{ann}(m) \to M$, and as $t_{A}$ preserves monomorphisms and $t_{A}(R/\text{ann}(m))$ is nonzero, this must be a nonzero morphism and thus $M$ is nonzero. Thus, $t_{A}$ must be faithful.     
 \end{proof}

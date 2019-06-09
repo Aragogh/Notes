@@ -1,0 +1,141 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ext}{\text{Ext}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\iso}{\cong}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Final}
+\newcommand{\hmwkDueDate}{June 12th, 2019}
+\newcommand{\hmwkClass}{Math 210C Algebra}
+\newcommand{\hmwkClassInstructor}{Professor Sharifi}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\section*{Problem 2}
+
+Consider the following diagram where the two longest rows are exact: 
+\[
+\begin{tikzcd}
+                                   &                                          &                                                      & ker \ \overline h \arrow[d, hook]                     &                                 &   \\
+                                   &                                          & ker \ \beta \arrow[r, "\overline g"] \arrow[d, hook] & ker \ \gamma \arrow[d, hook] \arrow[r, "\overline h"] & ker \ \delta \arrow[d, hook]    &   \\
+0 \arrow[r]                        & A \arrow[r, "f"] \arrow[d, "\alpha"]     & B \arrow[r, "g"] \arrow[d, "\beta"]                  & C \arrow[r, "h"] \arrow[d, "\gamma"]                  & D \arrow[r] \arrow[d, "\delta"] & 0 \\
+0 \arrow[r]                        & A' \arrow[r, "f'"] \arrow[d, "\pi_{\alpha}"]             & B' \arrow[r, "g'"] \arrow[d, "\pi_{\beta}"]                         & C' \arrow[r, "h'"]                                    & D' \arrow[r]                    & 0 \\
+ker \ \overline f' \arrow[r, hook] & coker \ \alpha \arrow[r, "\overline f'"] & coker \ \beta                                        &                                                       &                                 &  
+\end{tikzcd}
+\]
+
+\vspace{0.1in}
+\textbf{\underline{WTS}} $\exists$ an exact sequence of the form:
+\[
+  \begin{tikzcd}
+0 \arrow[r] & im \ \overline g \arrow[r] & ker \ \overline h \arrow[r] & ker \ \overline f \arrow[r] & 0
+\end{tikzcd}
+\]
+
+\begin{proof}
+  Note that $h \circ g = 0$ by exactness, and thus $h \circ g|_{ker \ \beta}:ker \ \beta \to D = 0$, implying that $\overline h \circ \overline g: ker \ \beta \to \ker \ \delta$ is the zero map, i.e. that $im \ \overline g \subset ker \ \overline h$. Thus, we have an exact sequence of the form $0 \to im \ \overline g \to ker \ \overline h$ via the first isomorphism theorem. Now, we define a map $\delta: ker \ \overline h \to ker \ \overline f'$ in the following manner: \\
+  We note firstly that $ker \ \overline h \hookrightarrow ker \ h \subset C$ by definition. Let $a \in ker \ \overline h \implies a \in im \ g$ by exactness. Thus, we may select a representative in the $g$-preimage of $a$, $\widetilde a \in B$ (Note: from here onwards the tilde is used as notation for selecting a representative in the $g$-preimage of some element). Applying $\beta$, we have that $\beta(\widetilde a) \in ker \ g'$ as $g' \circ \beta(\widetilde a) = \gamma \circ g (\widetilde a) = \gamma(a) = 0$. By exactness and the fact that $f'$ is monic, we have a unique representative $f'^{-1}(\beta(\widetilde a)) \in A'$. From here, we may apply $\pi_{\alpha}$, and clearly $\pi(f'^{-1}(\beta(\widetilde a))) \in A' \in ker \ \overline f'$ as $\overline f(\pi(f'^{-1}(\beta(\widetilde a)))) = \pi_{\beta}(\beta(\widetilde a)) = 0$.  \\
+
+  We must now show that this is a well-defined process. Let $a = b \in ker \ \overline h$. Let $\widetilde a, \widetilde b \in B$ be lifts in the $g$-preimage of $a, b$. We have that $g(\widetilde a - \widetilde b) = a - b = 0 \implies  \widetilde a - \widetilde b \in ker \ g = im \ f$. Let $k = f^{-1}(\widetilde a - \widetilde b)$, which is well-defined as $f$ monic. W.h.t. $\beta \circ f(k) = f' \circ \alpha(k)$ so $f'^{-1}(\beta (f(k))) = \alpha(k)$. As $\pi_{\alpha}(f'^{-1}(\beta (f(k)))) = \pi_{\alpha}(\alpha(k)) = 0 \implies \pi_{\alpha}(f'^{-1}(\beta (\widetilde a - \widetilde b))) \implies \pi_{\alpha}(f'^{-1}(\beta (\widetilde a))) - \pi_{\alpha}(f'^{-1}(\beta (\widetilde b))) = 0$ and thus that $a=b \implies \pi_{\alpha}(f'^{-1}(\beta (\widetilde a))) = \pi_{\alpha}(f'^{-1}(\beta (\widetilde b)))$ for arbitrary choices of representatives. Note that this map respects the module structure on $ker \ \overline h$ as for any $ra + sb \in ker \ \overline h$, $a,b \in ker \ \overline h, \ r,s \in R$, we may select a representative $r \widetilde a + s \widetilde b \in B$ in its preimage, and the rest of the maps are compositions of homomorphisms and so respect the module structure on $B$. Thus, we have a well defined homomorphism $\delta: ker \ \overline h \to ker \ \overline f'$ via $a \mapsto \pi_{\alpha}(f'^{-1}(\beta (\widetilde a)))$. \\
+
+  Now we claim that the following sequence is exact, where as above the left inclusion is induced by the first isomorphism theorem.
+  \[
+  \begin{tikzcd}
+0 \arrow[r] & im \ \overline g \arrow[r, dotted, hook]                   & ker \ \overline h \arrow[r, "\delta"] & ker \ \overline f \arrow[r] & 0 \\
+            & ker \ \beta \arrow[ru, "\overline g"] \arrow[u, two heads] &                                       &                             &     
+          \end{tikzcd}
+        \]
+Let $\xi \in im \ \overline g$. We may choose a lift $\widetilde \xi \in ker \ \beta \subset B$ in the preimage $g^{-1}(ker \ \gamma)$, which we earlier showed can be used in the map without altering well-definedness of $\delta$. We have that $\pi_{\alpha}(f'^{-1}(\beta (\widetilde \xi))) = \pi_{\alpha}(f'^{-1}(0)) = 0$ and so $\xi \in ker \ \delta$.    
+
+\newpage
+
+Now conversely let $\zeta \in ker \ \delta$. We have that $\pi_{\alpha}(f'^{-1}(\beta (\widetilde \zeta))) = 0 \implies f'^{-1}(\beta(\widetilde \zeta)) \in im \ \alpha$. This implies, in particular, that $\beta(\widetilde \zeta) \in f'(im \ \alpha) = \beta(im \ f) \implies \widetilde \zeta \in im \ f + ker \ \beta \implies \zeta = g(\widetilde \zeta) \in g(ker \ \beta + im \ f) = im \ \overline g$ and so we have exactness in the middle. \\
+
+The last order is to show that $\delta$ is surjective. Suppose $u \in ker \ \overline f'$. Let $\mu \in A'$ be a representative in the $\pi_{\alpha}$-preimage of $u$. We have that $f'(\mu) \in \beta(B)$ as $\overline f'\circ \pi_{\alpha}(\mu) = 0 = \pi_{\beta} \circ f'(\mu)$. Let $\widetilde \mu_{\beta} \in B$ be a representative in the $\beta$-preimage of $f'(\mu)$. We have that $\gamma \circ g(\widetilde \mu_{b}) = g'\circ \beta(\widetilde \mu_{\beta}) = g' \circ f(\mu) = 0 \implies g(\widetilde \mu_{\beta}) \in ker \ \gamma$. Thus, $u = \pi_{\alpha}(f'^{-1}(\beta (\widetilde \mu_{\beta}))) = \delta(g(\mu_{\beta}))$ by definition $\implies \delta$ is surjective. Thus,
+\[
+  \begin{tikzcd}
+0 \arrow[r] & im \ \overline g \arrow[r, hook] & ker \ \overline h \arrow[r, "\delta"] & ker \ \overline f \arrow[r] & 0
+\end{tikzcd}
+\]
+
+is exact, yielding the result. 
+\end{proof}
+
+
+\end{document}
