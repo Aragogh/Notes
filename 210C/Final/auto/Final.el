@@ -19,7 +19,8 @@
     "nameref"
     "cite"
     "tikz-cd"
-    "mathrsfs")
+    "mathrsfs"
+    "graphicx")
    (TeX-add-symbols
     '("fk" 1)
     '("bb" 1)
@@ -29,12 +30,16 @@
     "Tor"
     "Ext"
     "iso"
+    "into"
+    "hooklongleftarrow"
+    "onto"
+    "actson"
     "hmwkTitle"
     "hmwkDueDate"
     "hmwkClass"
     "hmwkClassInstructor"
     "hmwkAuthorName")
-   (LaTeX-add-environments
+   (LaTeX-add-amsthm-newtheorems
     "lemma"
     "exercise"))
  :latex)
