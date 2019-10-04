@@ -1,0 +1,116 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ext}{\text{Ext}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\iso}{\cong}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 0}
+\newcommand{\hmwkDueDate}{Oct 4th, 2019}
+\newcommand{\hmwkClass}{Math 246A Complex Analysis}
+\newcommand{\hmwkClassInstructor}{Professor Rowan Killip}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+\begin{exercise}
+  a) Fix $\lambda \in \bb{R}$ and $a,b \in \bb{C}$ with $\lambda > 0, \ \lambda \neq 1, \ a \neq b$. Use algebraic manipulations to identify \[ \left\{ z \in \bb{C} : \left| \frac{z-a}{z-b} \right| = \lambda\right\} \] as a circle.\\
+  b) Show that every circle can be realized in this manner. \\
+  c) Give analogues of a) and b) when $\lambda = 1$.
+\end{exercise}
+\begin{proof}
+ a) Consider $\frac{z-a}{z-b}$ in the set given above. We have that $|\frac{z-a}{z-b}| = \lambda \implies |z-a| = \lambda |z-b|$. Set $z = x + iy, \ a = a_{1} + ia_{2}, \ b = b_{1} + ib_{2}$. We have from the formula above the following derivation:
+  \begin{align*}
+    & |z-a| = \lambda |z-b | \implies (x-a_{1})^{2} + (x-a_{2})^{2} = \lambda^{2}(x-b_{1})^{2} + \lambda^{2}(x-b_{2})^{2} \\
+    \rightarrow \ & (x-a_{1})^{2} - \lambda^{2}(x-b_{1})^{2} - x^{2}(1-\lambda^{2}) - 2x(a_{1} - \lambda^{2}b_{1}) + a_{1}^{2} - \lambda^{2}b_{1} = 0 \text{ \ --- \ } \circled{1} \\
+    \rightarrow \ &  x^{2} - \frac{2x(a_{1} - \lambda^{2}b_{1})}{(1-\lambda^{2})} +  \frac{(a_{1}^{2} - \lambda^{2}b_{1})}{(1-\lambda^{2})} \\
+    = \ & x^{2} - \frac{2x(a_{1} - \lambda^{2}b_{1})}{(1-\lambda^{2})} +  \frac{a_{1}^{2} - \lambda^{2}(a_{1} + b_{1}) +\lambda^{4}b_{1}^{2} - 2\lambda^{2}a_{1}b_{1} + 2\lambda^{2}a_{1}b_{1}}{(1-\lambda^{2})^{2}} \\
+    = \ & x^{2} - \frac{2x(a_{1} - \lambda^{2}b_{1})}{(1-\lambda^{2})} +  \frac{(a_{1}-\lambda^{2}b_{1})^{2}}{(1-\lambda^{2})^{2}} - \frac{\lambda^{2}(a_{1} + b_{1})^{2}}{(1-\lambda^{2})^{2}} = \left(x - \frac{a_{1} + \lambda^{2}b_{1}}{1-\lambda^{2}}\right) ^{2} - \ \left(\frac{\lambda(a_{1} + b_{1})}{1-\lambda^{2}}\right)^{2}
+\end{align*}
+Similarly simplifying for the parts of the equation involving $y$, we have by rewriting \circled{1} that :
+\begin{align*}
+  \rightarrow \ &\left(x + \frac{a_{1} - \lambda^{2}b_{1}}{1-\lambda^{2}}\right) ^{2} - \ \left(\frac{\lambda(a_{1} + b_{1})}{1-\lambda^{2}}\right)^{2} + \ \left(y - \frac{a_{2} + \lambda^{2}b_{2}}{1-\lambda^{2}}\right) ^{2} - \  \left(\frac{\lambda(a_{2} + b_{2})}{1-\lambda^{2}}\right)^{2} = 0 \\
+  \implies \ & \left(x - \frac{a_{1} + \lambda^{2}b_{1}}{1-\lambda^{2}}\right) ^{2} + \ \left(y - \frac{a_{2} + \lambda^{2}b_{2}}{1-\lambda^{2}}\right) ^{2} =  \left(\frac{\lambda(a_{2} + b_{2})}{1-\lambda^{2}}\right)^{2} + \ \left(\frac{\lambda(a_{2} + b_{2})}{1-\lambda^{2}}\right)^{2}  
+\end{align*}
+Which is of the form a circle centered at the point \[\left(\frac{a_{1}+\lambda^{2}b_{1}}{1-\lambda^{2}}, \frac{a_{1}+\lambda^{2}b_{1}}{1-\lambda^{2}}\right)\] with radius \[ \left(\frac{\lambda(a_{2} + b_{2})}{1-\lambda^{2}}\right)^{2} + \ \left(\frac{\lambda(a_{2} + b_{2})}{1-\lambda^{2}}\right)^{2} \] 
+\\ 
+b) Suppose we are given a circle of radius $r$ centered at a point $(a, b)$. 
+\end{proof}
+
+\end{document}
