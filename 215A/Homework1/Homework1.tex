@@ -1,0 +1,157 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ext}{\text{Ext}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\iso}{\cong}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 1}
+\newcommand{\hmwkDueDate}{Oct 7th, 2019}
+\newcommand{\hmwkClass}{Math 215A Commutative Algebra}
+\newcommand{\hmwkClassInstructor}{Professor James Cameron}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{exercise}
+  Find the radical of the ideal $I = (x^{2}+y^{2}-1,x-1)$ in $k[x,y]$ where $k$ is a field.
+\end{exercise}
+\begin{proof}
+  We have the following string of manipulations:
+  \begin{align*}
+    & x^{2} + y^{2} - 1 - (x-1)^{2} =  y^{2} + 2x - 2 \\
+    \rightarrow \ & y^{2} + 2x - 2 - 2(x-1) = y^{2} \\
+    \implies \ & y^{2} \in I
+  \end{align*}
+  And thus the ideal $I = (y^{2},x-1)$. We know thus that the radical of this ideal must contain the ideal $(y,x-1)$, which is maximal as $k[x,y]/(y,x-1) = k$, and thus $\sqrt{I} = (y,x-1)$. This is illustrated in the diagram below (which was perhaps not worth the effort to TeX but oh well): \\
+  
+  \begin{center}
+  \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Axis 2D [id:dp24645257327059933] 
+\draw  (122.5,143.43) -- (543.5,143.43)(332.01,5) -- (332.01,294) (536.5,138.43) -- (543.5,143.43) -- (536.5,148.43) (327.01,12) -- (332.01,5) -- (337.01,12)  ;
+%Shape: Circle [id:dp4102184628309913] 
+\draw   (269.73,143.43) .. controls (269.73,109.03) and (297.62,81.14) .. (332.01,81.14) .. controls (366.41,81.14) and (394.3,109.03) .. (394.3,143.43) .. controls (394.3,177.83) and (366.41,205.71) .. (332.01,205.71) .. controls (297.62,205.71) and (269.73,177.83) .. (269.73,143.43) -- cycle ;
+%Straight Lines [id:da20119473899387463] 
+\draw    (394.5,3) -- (394.5,295) ;
+
+
+
+% Text Node
+\draw (241,93) node  [align=left] {$x^{2} + y^{2} - 1$};
+% Text Node
+\draw (417,70) node  [align=left] {$x-1$};
+
+
+\end{tikzpicture}
+\end{center}
+\end{proof}
+
+\begin{exercise}
+  a) Show that $Spec: Ring \to Top$  sends finite products to finite coproducts, i.e. that \[Spec(A\times B) = Spec(A) \cup Spec(B)\]
+  b) Show that if $R$ is a Ring and $Spec(R)$ is disconnected then $R$ contains an idempotent $x$ that is not zero or one.
+\end{exercise}
+\begin{proof}
+  a) Let $\fk{p}$ be a prime ideal in the ring $A \times B$. Let $(a,b) \in \fk{p}$. Then the product $(a,1) \cdot (b,1) \in \fk{p} \implies \text{ w.l.o.g. }(a,1) \in \fk{p}$ which clearly implies $\{a\} \times B \in \fk{p}$. Thus, $\fk{p}$ is of the form $I \times R$ for some ideal $I$ (ideal as must be closed under multiplication by $A\times \{1\}$. Furthermore, $I$ must be prime as by assumption no product $(a_{1},1) \times (a_{2},1) \in \fk{p}$. We claim that for any prime $\fk{p}_{A} \subset A$ that the ideal $\fk{p}_{A} \times B$ is a prime ideal. This is clear as it is clearly closed under addition and left multiplication, and furthermore if any product $(a_{1}a_{2},b_{1}b_{2})$ lies in the ideal for $(a_{1},b_{1}), (a_{2},b_{2}) \notin \fk{p}_{A} \times B$ then $a_{1}a_{2} \in \fk{p}_{A}$ for $a_{1},a_{2} \notin \fk{p}_{A}$, a contradiction. Thus, we have shown that all prime ideals in the product must be of the form above, implying that $Spec(A \times B) \ Spec(A) \cup Spec(B)$ as sets. Note that for any ideal $I_{A} \times I_{B} \subset A\times B$, that the primes containing this ideal must necessarily be of the form $\fk{p}_{A} \times B$ for $I_{A} \subset \fk{p}_{A}$ and vice versa, i.e. that $V(I_{A} \times I_{B}) = V(I_{A}) \cup V(I_{B})$. Thus, the topology on $Spec(A \times B)$ is the coproduct topology, and we have the claim. \\
+
+  b) Suppose $Spec(R)$ is disconnected, i.e. there exists $I, J$ with $V(I) \cup V(J) = Spec(R)$ with $V(I) \cap V(J) = \emptyset$. We have that $V(I) \cup V(J) = V(I \cap J) = Spec(R)$ and thus $I \cap J \subset \sqrt{0}$ as $I\cap J \subset \bigcap \fk{p}$. On the other hand, $V(I) \cap V(J) = V(I + J) = \emptyset$. Thus, $I+J = R$, as it is contained in no maximal ideal. Thus, $\exists \ a \in I, b \in J$ s.t. $a + b = 1$. Note that $ab$ must be nilpotent, lying in the product $IJ$. \\
+  
+  \underline{Lemma} For $x$ nilpotent, $1-x$ is a unit. Suppose $x^{n} = 0$. Then $(1-x)(1+x+x^{2}+...+x^{n-1}) = 1 - x^{n} = 1$. \\
+
+  Note now that $(a + b)^{2} = 1 \implies a^{2}+b^{2} = 1 - 2ab$ is a unit as $2ab$ is nilpotent. Using the lemma above, we have that $u - x$ for $u$ a unit, $x$ nilpotent is also a unit as $u^{-1}u - u^{-1}x$ is of the form in the lemma. Thus, for $x + y = u$ a unit, we have that $x^{2} + y^{2} = u - xy$ is a unit for $xy$ nilpotent. We may use this to raise $a$ and $b$ to arbitrarily high powers of $2$ s.t. $a^{2n} + b^{2n} = u$ a unit, implying that the ideals $(a)^{2n}, (b)^{2n}$ are comaximal. Suppose $a^{m}b^{m} = 0$. Then the ideal $(a)^{2m}\cdot(b)^{2m}$ is also zero. Thus $R \iso R/(0) \iso R/(a)^{2m}\cdot (b)^{2m} \iso R/(a)^{2m} \times R/(b)^{2m}$ by the Chinese Remainder Theorem and the elements $(1,0), (0,1)$ represent nontrivial idempotents.  
+\end{proof}
+
+\begin{exercise}
+  Find representations for the following covariant functors: \\
+  a) $F(R) = \{*\}$ \\
+  b) $F(R) = \emptyset$ for every nonzero ring and $F(0) = \{*\}$ \\
+  c) $F(R) = R$ \\
+  d) $F(R) = R^{\times}$
+\end{exercise}
+\begin{proof}
+  a) As $\bb{Z}$ is the initial object in the category of rings we have that $\Hom(\bb{Z},R) = \{*\}$ for the unique map yielding the characteristic of $R$. \\
+  b) We have that $\Hom(0, R) = \emptyset$ for nonzero rings as $\bb{Z} \to 0 \to R \neq bb{Z} \to R$ as $1\mapsto 1$ for $\bb{Z} \to R$. However, $\Hom(0,0) = \{*\}$ as it is terminal.  \\
+  c) $F(R) = R$ can be represented by maps $\Hom(\bb{Z}[x], R)$ as sets as any map is determined by the image of $x$, which can map to any element in $R$, and the multiplication map $R \otimes R \mapsto R$ induces a product on $\Hom(\bb{Z}[x], R)$ multiplying two maps coinciding with the product on $R$, by picking two elements out and sending the product of the maps doing so to the product of the elements. Furthermore, we can compatibly equip the map with an additive structure by adding the images of two maps, which again coincides with the additive structure on $R$.  \\
+  d) $F(R) = R^{\times}$ can be represented by $\Hom(\bb{Z}[x,x^{-1}], R)$ by similar logic: these maps are determined by the image of $x$, and as $x$ is invertible it can only land in the unit group. Thus, $\Hom(\bb{Z}[x,x^{-1}], R) = R^{\times}$ as sets. Using the multiplication on $R$ similar to the logic above, we have that it must equal $R^{\times}$ as groups. We cannot however equip this set with the additive structure on $R$, as the unit group is not closed under $R$-addition.
+\end{proof}
+\end{document}

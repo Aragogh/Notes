@@ -97,20 +97,28 @@
 \begin{proof}
  a) Consider $\frac{z-a}{z-b}$ in the set given above. We have that $|\frac{z-a}{z-b}| = \lambda \implies |z-a| = \lambda |z-b|$. Set $z = x + iy, \ a = a_{1} + ia_{2}, \ b = b_{1} + ib_{2}$. We have from the formula above the following derivation:
   \begin{align*}
-    & |z-a| = \lambda |z-b | \implies (x-a_{1})^{2} + (x-a_{2})^{2} = \lambda^{2}(x-b_{1})^{2} + \lambda^{2}(x-b_{2})^{2} \\
+    & |z-a| = \lambda |z-b | \implies (x-a_{1})^{2} + (y-a_{2})^{2} = \lambda^{2}(x-b_{1})^{2} + \lambda^{2}(y-b_{2})^{2} \\
     \rightarrow \ & (x-a_{1})^{2} - \lambda^{2}(x-b_{1})^{2} - x^{2}(1-\lambda^{2}) - 2x(a_{1} - \lambda^{2}b_{1}) + a_{1}^{2} - \lambda^{2}b_{1} = 0 \text{ \ --- \ } \circled{1} \\
     \rightarrow \ &  x^{2} - \frac{2x(a_{1} - \lambda^{2}b_{1})}{(1-\lambda^{2})} +  \frac{(a_{1}^{2} - \lambda^{2}b_{1})}{(1-\lambda^{2})} \\
     = \ & x^{2} - \frac{2x(a_{1} - \lambda^{2}b_{1})}{(1-\lambda^{2})} +  \frac{a_{1}^{2} - \lambda^{2}(a_{1} + b_{1}) +\lambda^{4}b_{1}^{2} - 2\lambda^{2}a_{1}b_{1} + 2\lambda^{2}a_{1}b_{1}}{(1-\lambda^{2})^{2}} \\
-    = \ & x^{2} - \frac{2x(a_{1} - \lambda^{2}b_{1})}{(1-\lambda^{2})} +  \frac{(a_{1}-\lambda^{2}b_{1})^{2}}{(1-\lambda^{2})^{2}} - \frac{\lambda^{2}(a_{1} + b_{1})^{2}}{(1-\lambda^{2})^{2}} = \left(x - \frac{a_{1} + \lambda^{2}b_{1}}{1-\lambda^{2}}\right) ^{2} - \ \left(\frac{\lambda(a_{1} + b_{1})}{1-\lambda^{2}}\right)^{2}
+    = \ & x^{2} - \frac{2x(a_{1} - \lambda^{2}b_{1})}{(1-\lambda^{2})} +  \frac{(a_{1}-\lambda^{2}b_{1})^{2}}{(1-\lambda^{2})^{2}} - \frac{\lambda^{2}(a_{1} - b_{1})^{2}}{(1-\lambda^{2})^{2}} = \left(x - \frac{a_{1} + \lambda^{2}b_{1}}{1-\lambda^{2}}\right) ^{2} - \ \left(\frac{\lambda(a_{1} - b_{1})}{1-\lambda^{2}}\right)^{2}
 \end{align*}
 Similarly simplifying for the parts of the equation involving $y$, we have by rewriting \circled{1} that :
 \begin{align*}
-  \rightarrow \ &\left(x + \frac{a_{1} - \lambda^{2}b_{1}}{1-\lambda^{2}}\right) ^{2} - \ \left(\frac{\lambda(a_{1} + b_{1})}{1-\lambda^{2}}\right)^{2} + \ \left(y - \frac{a_{2} + \lambda^{2}b_{2}}{1-\lambda^{2}}\right) ^{2} - \  \left(\frac{\lambda(a_{2} + b_{2})}{1-\lambda^{2}}\right)^{2} = 0 \\
-  \implies \ & \left(x - \frac{a_{1} + \lambda^{2}b_{1}}{1-\lambda^{2}}\right) ^{2} + \ \left(y - \frac{a_{2} + \lambda^{2}b_{2}}{1-\lambda^{2}}\right) ^{2} =  \left(\frac{\lambda(a_{1} + b_{1})}{1-\lambda^{2}}\right)^{2} + \ \left(\frac{\lambda(a_{2} + b_{2})}{1-\lambda^{2}}\right)^{2}  
+  \rightarrow \ &\left(x + \frac{a_{1} + \lambda^{2}b_{1}}{1-\lambda^{2}}\right) ^{2} - \ \left(\frac{\lambda(a_{1} - b_{1})}{1-\lambda^{2}}\right)^{2} + \ \left(y - \frac{a_{2} + \lambda^{2}b_{2}}{1-\lambda^{2}}\right) ^{2} - \  \left(\frac{\lambda(a_{2} - b_{2})}{1-\lambda^{2}}\right)^{2} = 0 \\
+  \implies \ & \left(x - \frac{a_{1} + \lambda^{2}b_{1}}{1-\lambda^{2}}\right) ^{2} + \ \left(y - \frac{a_{2} + \lambda^{2}b_{2}}{1-\lambda^{2}}\right) ^{2} =  \left(\frac{\lambda(a_{1} - b_{1})}{1-\lambda^{2}}\right)^{2} + \ \left(\frac{\lambda(a_{2} - b_{2})}{1-\lambda^{2}}\right)^{2}  
 \end{align*}
-Which is of the form a circle centered at the point \[\left(\frac{a_{1}+\lambda^{2}b_{1}}{1-\lambda^{2}}, \frac{a_{1}+\lambda^{2}b_{1}}{1-\lambda^{2}}\right)\] with radius \[ \left(\frac{\lambda(a_{1} + b_{1})}{1-\lambda^{2}}\right)^{2} + \ \left(\frac{\lambda(a_{2} + b_{2})}{1-\lambda^{2}}\right)^{2} \] 
+Which is of the form a circle centered at the point \[\left(\frac{a_{1}+\lambda^{2}b_{1}}{1-\lambda^{2}}, \frac{a_{1}+\lambda^{2}b_{1}}{1-\lambda^{2}}\right)\] with radius \[ \left(\frac{\lambda(a_{1} - b_{1})}{1-\lambda^{2}}\right)^{2} + \ \left(\frac{\lambda(a_{2} - b_{2})}{1-\lambda^{2}}\right)^{2} \] 
 \\ 
-b) Suppose we are given a circle of radius $r$ centered at a point $(a, b)$. 
+b) Given any circle $C$ in the plane, we may translate, rotate, and scale the plane to make the circle above in $a)$ coincide with the circle $C$: as these are all isometries except for scaling, which does not affect ratios of distance the image of the points above yield points such that $C$ can be realized as the set above for some complex numbers $a',b'$ which are the image of the points $a,b$ under this transformation.
+\\
+c) When $\lambda = 1$ we may repeat the derivation above to yield: 
+\begin{align*}
+  |z-a| = |z-b| \implies \ &(x-a_{1})^{2} + (y -a_{2})^{2} = (x-b_{1})^{2} + (y-b_{2})^{2} \\
+  \implies \ &2x(a_{1}+b_{1}) + a_{1}^{2}+b_{1}^{2} + 2y(a_{2}+b_{2}) +a_{2}^{2}+b_{2}^{2} = 0 \\
+  \implies \ & y = \frac{2x(a_{1}+b_{1}) + |a|^{2} + |b|^{2}}{2(a_{2}+b_{2})}
+\end{align*}
+Which is a linear relation between $x$ and $y$, implying that $z$ lies along a line. For the line $y = 0$ we may select the points $i, -i$ in the complex plane. Given any line $y = mx+c$ we may thus rotate and translate the entire plane to make $y = 0$ coincide with the line, yielding points which satisfy the condition that every line may be realized as such. 
 \end{proof}
 
 \begin{exercise}
@@ -168,19 +176,171 @@ Our objective is to show that $2\psi = \phi$. Note that $\psi$ is the argument o
   \]
 And thus $2 \psi = \phi$.
 \end{proof}
-
+\newpage
 \begin{exercise}
   Give a proof of the Intersecting Cord Theorem of Jakob Steiner.
 \end{exercise}
 \begin{proof}
-  
+To any diagram of chord passing through an external point we may draw a diagram of the following nature:
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+\begin{center}
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Axis 2D [id:dp42482294485703864] 
+\draw  (141,145) -- (520.5,145)(330.5,19) -- (330.5,274) (513.5,140) -- (520.5,145) -- (513.5,150) (325.5,26) -- (330.5,19) -- (335.5,26)  ;
+%Shape: Circle [id:dp916538879807131] 
+\draw   (248,145) .. controls (248,99.44) and (284.94,62.5) .. (330.5,62.5) .. controls (376.06,62.5) and (413,99.44) .. (413,145) .. controls (413,190.56) and (376.06,227.5) .. (330.5,227.5) .. controls (284.94,227.5) and (248,190.56) .. (248,145) -- cycle ;
+%Straight Lines [id:da08173707883253756] 
+\draw    (269.5,202) -- (497.5,202) ;
+
+
+%Straight Lines [id:da42376490042868986] 
+\draw    (330.5,145) -- (497.5,202) ;
+
+
+%Straight Lines [id:da873699807249479] 
+\draw    (330.5,145) -- (389.5,202) ;
+
+
+%Straight Lines [id:da9806681934012778] 
+\draw    (269.5,202) -- (330.5,145) ;
+
+
+
+% Text Node
+\draw (511,201) node  [align=left] {a};
+% Text Node
+\draw (398,213) node  [align=left] {b};
+% Text Node
+\draw (260,209) node  [align=left] {c};
+
+
+\end{tikzpicture}
+\end{center}
+
+The power of the complex number $a$ with respect to this circle may be written as $|b-a|\cdot|c-b|$. Note that the complex numbers $a,b,c$ all share an imaginart part. From basic geometry we have $Re(b) = -Re(c)$. Therefore, we may compute the product above strictly in terms of $|a|$ and $r$ where $r = |b| = |c|$ the radius. We have that $b-c = Re(a) - Re(b) = Re(a) - \sqrt{|b|^{2} - Im(a)^{2}}$ by the Pythagoras Theorem. Similarly, $c-b = Re(a) + \sqrt{|b|^{2} - Im(a)^{2}}$.Furthermore, both $(c-b)$ and $(b-c)$ are real, so the product of their norms is the norm of their product. The product $|b-a|\cdot|c-b|$ is thus explicitly given by:
+\[
+  |(Re(a) - \sqrt{|b| - Im(a)^{2}})\cdot (Re(a) + \sqrt{|b| - Im(a)^{2}}| = |Re(a)^{2} - |b|^{2} + Im(a)^{2}| = ||a|^{2}-|b|^{2}|
+\]
+Which is entirely independent of the chosen intersecting chord. Thus, the power of a point is independent of the chord chosen to compute it.
 \end{proof}
 
 \begin{exercise}
   Any mapping that can be represented in the form \[z \mapsto \frac{az + b}{cz + d}\] with $ad -bc \neq 0$ is called a Mobius transformation. \\
-a) Show that every such mapping can be realised by coefficients satisfying $ad-bc = 1$ and determine the number of such representations.
+  a) Show that every such mapping can be realised by coefficients satisfying $ad-bc = 1$ and determine the number of such representations. \\
+  b) Show that every such map is a bijection of the Riemann sphere. \\
+  c) Show that $SL_{2}(\bb{C})$ maps into the complex numbers. \\
+  d) Show that Mobius transformations map every circle and every line into another circle or line. 
 \end{exercise}
 \begin{proof}
-  a) Given a transformation of the above form, note that $ad-bc = k \neq 0$. As the complex numbers are algebraically closed, we may select $w$ s.t. $w^{2} = \frac{1}{k}$. Multiplying both the numerator and the denominator by $w$ yields the same transformation with coefficients $a', b', c', d'$ s.t. $a'd' - b'c' = \frac{1}{k^{2}}(ad-bc) = 1$. Now suppose there exists another set of coefficients $a'',b'', c'', d''$ representing the transformation s.t. $a''d'' - b''c'' = 1$. Note that for $z = \frac{-b'}{a'}$, we have that both transformations must send $z$ to 0, which is only possible if the numerator is sent to $0$ and thus $a''z + b'' = 0 \implies z = \frac{-b''}{a''}$ and similarly for $z = \frac{-d'}{c'}$ yielding a pole at $z$.    
-  \end{proof}
+  a) Given a transformation of the above form, note that $ad-bc = k \neq 0$. As the complex numbers are algebraically closed, we may select $w$ s.t. $w^{2} = \frac{1}{k}$. Multiplying both the numerator and the denominator by $w$ yields the same transformation with coefficients $a', b', c', d'$ s.t. $a'd' - b'c' = \frac{1}{k^{2}}(ad-bc) = 1$. Now suppose there exists another set of coefficients $a'',b'', c'', d''$ representing the transformation s.t. $a''d'' - b''c'' = 1$. Note that for $z = \frac{-b'}{a'}$, we have that both transformations must send $z$ to 0, which is only possible if the numerator is sent to $0$ and thus $a''z + b'' = 0 \implies z = \frac{-b''}{a''}$ and similarly for $z = \frac{-d'}{c'}$ yielding a pole at $z$. Thus, the coefficients of the latter transformation must be some linear multiple of the coefficients of the initial transformation by some factor $\lambda$. We thus have that $a'd' - b'c' = \lambda^{2}(a''d'' - b''c'')$. However, as both quantities are $1$, $\lambda = 1$ and both transformations must have the same coefficient. Thus, there is a unqiue way to represent each Mobius transformation as stated. \\
+  
+  b) Let $f = \frac{az + b}{cz+d}$. We will first prove that the function is injective. Suppose $f(z) = f(wz)$ some $w \in \bb{C}$. Then we have:
+  \begin{align*}
+    \frac{az + b}{cz + d} = \frac{waz + b}{wcz + d} & \implies (az + b)(wcz + d) = (waz + b)(cz + d) \\
+                                                    & \implies bwcz + daz = dwaz + bcz \\
+                                                    &  \implies w(bcz - daz) = bcz - daz \\
+                                                    & \implies w = 1
+  \end{align*}
+  Now consider the Mobius function given by $g = \frac{dz - b}{- cz + a}$. The function $g \circ f$ is given by:
+  \[
+    \frac{d\left(\frac{az+b}{cz+d}\right) - b}{-c\left(\frac{az+b}{cz+d}\right) + a} = \frac{daz + db - bcz -bd}{-caz-cb+caz+ad} = \frac{z(ad-bc)}{(ad-bc)} = z
+  \]
+  Thus $g$ being a Mobius transformation is a well-defined one-to-one inverse to a one-to-one function, implying that both $f$ and $g$ must have been onto. \\
+
+  c) The above result immediately yields that the set of Mobius transformations with the identity is a group under functional composition, given that functional composition is associative and that each function has an inverse. Note that given two Mobius transformations $f_{1}$ and $f_{2}$ with coefficients indexed as below, their composite may be represented by:
+  \[
+    \frac{a_{2}\left(\frac{a_{1}z+b_{1}}{c_{1}z+d_{1}}\right) + b_{2}}{c_{2}\left(\frac{a_{1}z+b_{1}}{c_{1}z+d_{1}}\right) + d_{2}} = \frac{a_{2}a_{1}z + a_{2}b_{1} + b_{2}c_{1}z + b_{2}d_{1}}{c_{2}a_{1}z +c_{2}b_{1} + d_{2}c_{1}z + d_{2}d_{1}} = \frac{(a_{2}a_{1} +b_{2}c_{1})z + (a_{2}b_{1} + b_{2}d_{1})}{(c_{2}a_{1} +d_{2}c_{1})z + (c_{2}b_{1}+d_{2}d_{1})} \text{ \ --- \ }  \circled{1}
+  \]
+  Given two matrices $A, B \in SL_{2}(\bb{C})$ we may form their composite by:
+  \[
+    \begin{pmatrix}
+      a_{1} & b_{1} \\
+      c_{1} & d_{1}
+    \end{pmatrix}
+        \begin{pmatrix}
+      a_{2} & b_{2} \\
+      c_{2} & d_{2}
+    \end{pmatrix}
+    =
+        \begin{pmatrix}
+      a_{1}a_{2} + b_{1}c_{2} & a_{2}b_{1} + b_{2}d_{1} \\
+      c_{2}a_{1} +d_{2}c_{1} & c_{2}b_{1} + d_{2}d_{1}
+    \end{pmatrix}
+    \text{ \ --- \ }  \circled{2}
+  \]
+  Define a map $\phi: SL_{2}(\bb{C}) \to M$ where $M$ is the group of Mobius transformations via:
+  \[
+    \phi :    \begin{pmatrix}
+      a & b \\
+      c & d
+    \end{pmatrix}
+    \mapsto \frac{az + b}{cz + d}
+  \]
+  We have that the map is clearly well defined given coefficients $a,b,c,d$. Furthermore, we have that the map is a group homomorphism as the composite of two matrices $A, B$ maps to the functional composite $\phi(A) \circ \phi(B)$, which we see by comparing $\circled{1}$ and $\circled{2}$ . \\
+
+  d) Given $k_{1},k_{2} \in \bb{C}$ and $\lambda \in \bb{R}^{+}$ s.t $|\frac{z-k_{1}}{z-k_{2}}| = \lambda$ and $f$ a Mobius transformation, consider the following derivation:
+  \begin{align*}
+    & \frac{az + b}{cz + d} - \frac{ak_{1}+b}{cz+d} = \frac{daz + bck_{1} + bd -ak_{1}cz - dak_{1} -bcz - bd}{(ck_{1}+d)(cz+d)} = \frac{da(z-k_{1}) - bc(z-k_{1})}{(ck_{1}+d)(cz+d)} \\
+      \implies \ & \frac{f(z) - f(k_{1})}{f(z) - f(k_{2})} = \frac{(ad-bc)(z-k_{1})}{(ad-bc)(z-k_{2})} \cdot \frac{ck_{2}+d}{ck_{1} + d} \implies \left| \frac{f(z)-f(k_{1})}{f(z) - f(k_{2})}\right| = \lambda \left|\frac{ck_{2}+d}{ck_{1}+d}\right|
+  \end{align*}
+  And thus \[ f: \left\{ z \in \bb{C} : \left| \frac{z-a}{z-b} \right| = \lambda\right\} \mapsto \left\{ z \in \bb{C} : \left| \frac{z-f(k_{1})}{z-f(k_{2})} \right| = \lambda\left|\frac{ck_{2}+d}{ck_{1}+d}\right| \right \} \]
+  Implying that every circle or line is mapped to another circle or line.
+\end{proof}
+
+\begin{exercise}
+  a) Show that the usual cross product is not associative, while quaternion multiplication is.
+  b) Show that quaternion multiplication is not commutative.
+  c) Show that $(1,0,0,0)$ is a two-sided identity and that every quaternion has a two-sided inverse.
+  d) Given a quaternion, find its matrix under the left regular representation along with its characterisitc polynomial and minimal polynomial.
+\end{exercise}
+\begin{proof}
+  a) The usual cross product is nonassociative as evidence clearly by the example
+  \[
+    ((1,0,0) \times (0,1,0)) \times (0,1,0) = (-1,0,0) \text{ but } (1,0,0) \times ((0,1,0) \times (0,1,0)) = 0
+  \]
+  I'm not verifying that this is associative. \\
+
+  b) Consider the product $(0,1,0,0) \cdot (0,0,1,0) = (0,0,0,1)$, however the product $(0,0,1,) \cdot (0,1,0,0) = (0,0,0,-1)$ coming from the noncommutativity of the cross product, and thus the multiplication is noncommutative. \\
+
+  c) Note that $(1,0,0,0) \cdot (a,b,c,d) = (a - 0, (b,c,d) + 0 - 0)$ and that $(a,b,c,d) \cdot (1,0,0,0) = (a, 0 + (b,c,d) - 0)$ and so $(1,0,0,0)$ acts as a two sided identity. We may express every element as a sum of elements in the standard basis for $\bb{R}^{4}$, which we will suggestively write as $1,i,j,k$ for $e_{1},e_{2},e_{3},e_{4}$. Note then the relations $i^{2}=j^{2}=k^{2}=ijk = -1$. For any quaternion $a + bi +cj +dk$ consider the product:
+  \begin{align*}
+    (a +bi +cj+dk)(a-bi-cj-dk) = \ & a^{2} - abi -acj -adk + abi + b^{2} - bcij - bdik \\
+    +\  & acj + bcij + c^{2} - cdjk +adk +bdik + cdjk + d^{2} \\
+    = \ & a^{2}+b^{2}+c^{2}+d^{2}
+  \end{align*}
+  And thus $\frac{1}{a^{2}+b^{2}+c^{2}+d^{2}}(a - bi -cj -dk)$ is the right inverse to the quaternion above. It is however clear that this is a two sided inverse as $(a+bi+cj+dk)$ is the right inverse to  $\frac{1}{a^{2}+b^{2}+c^{2}+d^{2}}(a - bi -cj -dk)$.\\
+  
+  d) Consider the quaternion $w = a + bi + cj + dk$. We may compute its entries by looking at its action on the basis vectors in the standard basis: we have that $w(1 + 0i+ 0j+ 0k) = w$, $w\cdot i  = ai - b -ck + dj$, $w \cdot j = aj + bk - c -di$ and $w \cdot k = ak -bj +ci -d$. This gives us that the left multiplication by $w$ map $\lambda_{w}$ is:
+  \[
+    \lambda_{w} :=
+    \begin{pmatrix}
+      a & -b & -c & -d \\
+      b & a & -d & c \\
+      c & d & a & -b \\
+      d & -c & b & a
+    \end{pmatrix}
+  \]
+  The determinant of the above matrix is $(a^{2}+b^{2}+c^{2}+d^{2})^{2}$. Thus, its characteristic polynomial is \[((\lambda - a)^{2} + b^{2} + c^{2}+d^{2})^{2} = (\lambda^{2} - 2a\lambda + a^{2}+b^{2}+c^{2}+d^{2})^{2}\]
+  Which has no real roots, and thus it suffices to check whether or not the minimal polynomial divides the square root of the above polynomial. Applying $\lambda^{2} - 2a\lambda + a^{2}+b^{2}+c^{2}+d^{2}$, we have:
+  \begin{align*}
+    \begin{pmatrix}
+      a^{2}-b^{2}-c^{2}-d^{2} & -2ab & -2ac & -2ad \\
+      2ab & a^{2} - b^{2} - c^{2} -d ^{2} & -2ad & 2ac \\
+      2ac & 2ad & a^{2} - b^{2} - c^{2} -d^{2} & -2ab \\
+      2ad & -2ac & 2ab & a^{2}-b^{2}-c^{2}-d^{2}
+    \end{pmatrix}
+     -     \begin{pmatrix}
+      2a^{2} & -2ab & -2ac & -2ad \\
+      2ab & 2a^{2} & -2ad & 2ac \\
+      2ac & 2ad & 2a^{2} & -2ab \\
+      2ad & -2ac & 2ab & 2a^{2}
+    \end{pmatrix} \\
+    + (a^{2}+b^{2}+c^{2}+d^{2})I
+  \end{align*}
+  = 0, 
+  And thus the minimal polynomial is $\lambda^{2} - 2a\lambda + a^{2}+b^{2}+c^{2}+d^{2}$. 
+\end{proof}
 \end{document}
