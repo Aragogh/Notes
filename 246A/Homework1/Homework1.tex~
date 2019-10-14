@@ -1,0 +1,223 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ext}{\text{Ext}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\iso}{\cong}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 1}
+\newcommand{\hmwkDueDate}{Oct 11th, 2019}
+\newcommand{\hmwkClass}{Math 246A Complex Analysis}
+\newcommand{\hmwkClassInstructor}{Professor Rowan Killip}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+\begin{exercise}
+  Let A be $N\times N$ matrix of real numbers. Show that:
+  \[
+    e^{A} = \lim_{n \to \infty }(1 + \frac{1}{n}A)^{n}
+    \]
+  \end{exercise}
+  \begin{proof}
+    Consider the norm:
+    \[
+      || e^{\frac{A}{n}} - (1+\frac{1}{n}A)|| = || 1 + \sum_{i=1}^{\infty}\frac{A^{k}}{n^{k} \cdot k!} - 1 + \frac{A}{n}|| = || \sum_{k=2}^{\infty}\frac{A^{k}}{n^{k}\cdot k!} || \leq \sum_{k=2}^{\infty}\frac{||A||^{k}}{n^{k}\cdot k!} \leq = \sum_{k=2}^{\infty} \frac{||A||^{k}}{n^{k}} = \frac{||A||^{2}}{n^{2}(1- \frac{||A||}{n})}
+    \]
+    As $n \to \infty$, we see that the leftmost sum must necessarily converge to zero, implying that as $n \to \infty$ we have that $|| e^{\frac{A}{n}} - (1+\frac{1}{n}A)|| < \epsilon$ for any $\epsilon > 0$. Inspecting the limit on the left, we have thusly that $||e^{\frac{A}{n}}- (1+\frac{1}{n}A)|| = O(n^{-2})$ as $n \to \infty$. We have clearly that $e^{A}$ commutes with $A$ as it commute termwise. Consider then following sequence of manipulations:
+    \begin{align*}
+      & ||e^{A} - (1+\frac{1}{n}A)^{n}|| \leq ||e^{\frac{A}{n}} - (1+\frac{1}{n}A)|| \cdot ||e^{\frac{(n-1)A}{n}} + ... + (1 + \frac{1}{n}A)^{n-1}||  \\
+     \leq \ & O(n^{-2}) \cdot \left(e^{\frac{(n-1)||A||}{n}} + ... + \left(1 + \frac{||A||}{n}\right)^{n-1}\right) \leq O(n^{-2}) \cdot (n-1)\left(e^{||A||}\left(1 + \frac{||A||}{n}\right)^{n}\right)   
+    \end{align*}
+    Note that $lim_{n \to \infty}(1 + \frac{x}{n})^{n} = e^{x}$, and so we have on the right that for large $n$ the limit $1+ \frac{||A||}{n}$ approaches a fixed nonzero limit and so must be $O(1)$. Thus, we have the result:
+    \[
+      ||e^{A} - (1+\frac{1}{n}A)^{n}|| \leq O(n^{-2}) \cdot (n-1) \cdot O(1) \leq O(n^{-2}) \cdot O(n) = O(n^{-1})
+    \]
+    And thus must approach 0 for large $n$. 
+  \end{proof}
+  \begin{exercise}
+    Let $\gamma: [0.1] \to \bb{C}$ be a rectifiable curve. Show that \[\phi(t) = length(\gamma|_{[0,1]}) \] is a continuous function.
+  \end{exercise}
+  \begin{proof}
+     Set $\epsilon>0$. We know immediately from the definition of length that it is additive and as such that $\phi(a) \leq \phi(t) \leq \phi(b)$ for $a < t < b \in [0,1]$, given that $\phi(t) - \phi(a) \geq 0$ and similarly with b. Select a partition $P= \{0 = x_{0} < x_{1} < ... < x_{n} = 1\}$ of $[0,1]$ s.t. $\sum_{k=0}^{n}|\gamma(x_{k+1}) - \gamma(x_{k})| > \phi(1) - \epsilon$. Once again, by additivity of length and the triangle inequality we may restrict this inequality to an individual summand s.t $|\gamma(x_{k+1}) - \gamma(x_{k})| > length(\gamma|_{[x_{k+1},x_{k}]}) - \frac{\epsilon}{2}$. W.lo.g. we may even select this partition s.t. the quantity on the left is less than $\frac{\epsilon}{2}$, owing to the continuity of $\gamma$. Note then that $length(\gamma|_{[x_{k+1},x_{k}]}) < \epsilon \implies \phi(x_{k+1}) - \phi(x_{k}) < \epsilon$ by additivity, with $\phi(x_{k+1}) > \phi(x_{k})$. Furthermore, for any $<x_{k}<t<x_{k+1}$ we have that $\phi(x_{k+1}) - \phi(t) < \epsilon$ by the order preserving property above. Symmetric logic using $x_{k+2},x_{k+1}$ yields the same property on the right. Set $\delta = \min(|x_{k+1}-x_{k}|, |x_{k+2}-x_{k+1}|$ we thusly have that $\exists \ \delta$ s.t. $\forall \ t$ with $|x_{k+1} - t| < \delta$, $|\phi(x_{k+1}) - \phi(t)| < \epsilon$. As $k$ and the partition $P$ were arbitrarily selected to satisfy properties preserved under refinement, for any arbitrary point $t \in [0,1]$ we may choose the refinement $P \cup \{t\}$ to yield the same property at $t$. As choice of $\epsilon$ was arbitrary, this must hold for all $\epsilon > 0$ and so $\phi$ must be continuous at $t \in [0,1]$ for any arbitrary choice of $t$. 
+   \end{proof}
+
+   \begin{exercise}
+     Show that the $\phi: [0,1] \to [0,L]$ of the previous exercise is a homeomorphism for an rectifiable curve of length $L$ that is nonconstant on any interval.
+   \end{exercise}
+   \begin{proof}
+     Clearly for $\gamma$ as above we must have that $\phi$ is injective, as it is clearly monotonic (by additivity of length) and thus $\phi$ is only not injective if it is stationary on an interval, which is not possible in the present conditions. We have that $\phi$ is an injective monotonic map from $[0,1]\to [0,L]$ with $0\mapsto 0$ and $1 \mapsto L$. By the intermediate value property it must also be bijectively continuous and thus a homeomorphism, being a bijective continuous map from a compact space to a Hausdorff space.   
+   \end{proof}
+
+   \begin{exercise} Let $\bb{H}$ denote the upper half plane in $\bb{C}$, with $a,b,c,d$ real numbers obeying $(ad-bc)=1$. \\
+     a) Show that $\phi:z \mapsto \frac{az + b}{cz + d}$ is a homeomorphism of $\bb{H}$ to itself. \\
+     b) Show that hyperbolic area is invariant under $\phi$. \\
+     c) Show that hyperbolic length is invariant under $\phi$.  \\
+     d) Compute the hyperbolic length of a line segment from $i$ to $iy$ and show that no other path has less length. \\
+     e) Show that the shortest hyperbolic path between two points not in a vertical line is an arc of a circle with center on the $x-axis$. 
+   \end{exercise}
+   \begin{proof}
+     a) Note that for $z = x+iy$ for $y > 0$ the transformation above yields:
+     \[
+       \frac{az +b}{cz + d} = \frac{az +b}{cz + d}\cdot \frac{c\bar{z} +b}{c\bar{z} + d} = \frac{ac|z|^{2}+ adz + bc\bar{z} + bd}{|cz + d|^{2}} = \frac{ac|z|^{2} +b + (ad+bc)x + (ad-bc)iy}{|cz + d|^{2}}
+     \]
+     The above reduces to $\frac{ac|z|^{2} +b + (ad +bc)x + iy}{|cz + d|^{2}} = \frac{ac|z|^{2} +b + (ad +bc)x}{|cz + d|^{2}} + \frac{iy}{|cz + d|^{2}}$ -- $(*)$ which has positive imaginary part and is thus a point in the upper half plane. From last homework we have that $\frac{1}{(ad - bc)}\frac{dz - b}{-cz + a}$ is an inverse with real coefficients satisfying the specified conditions and thus also restricts to an automorphism of $\bb{H}$. Thus, both functions are continuous bijective inverses and map the upper half plane to itself and so are homeomorphisms. \\
+     b) Consider the hyperbolic area of a function $f \in C^{\infty}_{c}(\bb{H})$ precomposed with $\phi^{-1}$: i.e. we prove the claim for the inverse first, which is equivalent. Note that the Jacobian matrix is the determinant of the matrix corresponding to a complex derivative, which must be the norm squared. Thus, for the complex derivative of $\phi$ we have $\frac{ad - bc}{|cz+d|^{2}} = \frac{1}{|cz+d|^{2}}$.
+     \begin{align*}
+       & \iint_{\bb{H}} f \circ \phi^{-1}(x + iy) \frac{dx \ dy}{y^{2}} = \iint_{\bb{H}} f \circ \phi^{-1}(\phi(u + iv)) \frac{du \ dv}{\frac{v^{2}}{|cz + a|^{4}}} \cdot
+\frac{1}{|cz + d|^{4}} \\
+       = \ & \iint_{\bb{H}} f(u + iv) \frac{du \ dv}{v^{2}}   
+     \end{align*}
+     Which is the usual expression for hyperbolic area over the upper half plane.\\
+     c) Consider the integral for hyperbolic length composed with $\phi$:
+     \begin{align*}
+       & \int_{[0,1]}|\phi'\circ \gamma(t) \cdot \gamma'(t)| \frac{dt}{\text{Im }\phi\circ \gamma(t)} = \int_{I}\left
+\frac{1}{|cz + d|^{4}}\cdot |\gamma'(t)| \frac{dt}{\text{Im }\phi\circ \gamma(t)} \\
+       = \ & \int_{I}\frac{|\gamma'(t)|}{|cz + a|^{2}} \frac{dt}{\frac{\text{Im }\gamma(t)}{|cz+a|^{2}}} = \int_{I} |\gamma'(t)|\frac{dt}{\text{Im } \gamma(t)}
+     \end{align*}
+     Which is the usual expression for hyperbolic length. \\
+     d) Consider the following integral for a line segment of constant speed $1$(we can reparametrize to achieve this by length):
+     \begin{align*}
+       \int\limits_{0}^{1} |(1,0)| \frac{dt}{\text{Im } \gamma(t)} = \int\limits_{0}^{1} |(1,0)| \frac{dt}{\text{Im } \gamma(t)}  = \int\limits_{0}^{1} \frac{dt}{\text{Im } \gamma(t)} = \log(y).
+     \end{align*}
+     Suppose now we are given a different path $\xi$, which we reparametrize once again with constant speed $1$. We know that $\text{Im} (\xi(t)) < 1 + ct$ at any given point. This yields:
+     \begin{align*}
+       \int\limits_{0}^{1}| \xi'(t) | \cdot \frac{dt}{\text{Im} (\xi(t))} \geq \int\limits_{0}^{1}\frac{dt}{\text1+ t} = \log(y)  
+     \end{align*} \newpage
+     e) W.l.o.g. we may assume one of the points is imaginary, as all translations along the $x$-axis are mobius transformations with real coefficients, and it is clear that the hyperbolic length between any two points under translation along the $x-axis$ is the hyperbolic length between their corresponding preimages. Suppose then that we are given points $z, z_{0}$ where $z$ is imaginary. We must compute a Mobius transformation fixing $z$ and sending $z_{0}$ to the imaginary axis. We compute:
+     \begin{align*}
+       & \frac{az + b}{cz+d} = z \implies \frac{ac|z|^{2}+ z +b }{|cz + d|^{2}} = z \implies ac|z|^{2} + b + z = z(d^{2}-c^{2}z^{2}) 
+     \end{align*}
+     Which has real solutions in $a,b,c,d$ that send any complex number with nontrivial real part to a complex number with trivial real part. We know from $d)$ that the shortest path between two points on the imaginary line is a line segment along the imaginary axis. Under any Mobius tranformation, this must be sent either to a line segment or to the arc of a circle. Note now that any Mobius transformation of the form above with real coefficients and $ad-bc =1$ must be symmetric about the x-axis: we see this by the fact that $\text{Im}(\phi(x + iy) = \frac{y}{|cz + d|^{2}}$, and that the real part does not depend on $y$ (using $(*)$)and so for the conjugate $x - iy$ we would have the same value with negative imaginary part. Thus, any circle that the imaginary axis is sent to must be symmetric about the Real axis, which is only possible for a circle with center on the $x$. Thus, a line segment along the imaginary axis is sent to an arc of a circle with center on the real axis, yielding the claim.
+   \end{proof}
+
+   \begin{exercise}
+     a) Find all conformal linear transformations of the plane. \\
+     b) Show that the inverse stereographic projection is a conformal map. \\
+     c) Find a smooth bijection $\phi: \bb{R} \to (0, \pi)$ such that the inverse of the Mercator projection is conformal.
+   \end{exercise}
+   \begin{proof}
+     a) Any linear transformation can be decomposed into a product $O \cdot A$ where $O$ is an orthogonal matrix and $A$ is a diagonal matrix. Given two vectors $v,w$ we have that the inner product $v^{T}A^{T}O^{T}OAw = v^{T}A^{T}Aw$. We need that angles must be preserved, and so we may test the values of $A^{T}A$ by checking the orthogonality of the basis elements $(1,0), (0,1)$. This yields that $A^{T}A$ can only be a linear multiple of the identity: however, as $A$ was diagonal, this implies that $A$ can itself only be a diagonal matrix where all diagonal elements have equal norm. Thus, all conformal mappings are of the form:
+     \[
+       O \cdot
+       \begin{pmatrix}
+         \pm \lambda & 0 \\
+         0 & \pm \lambda
+       \end{pmatrix}
+     \]
+     For $O$ orthogonal and $\lambda \in \bb{R}$. \\
+     b) Consider the inverse stereographic projection represented as a transformation from polar coordinates to spherical coordinates. We have that the map is given by $(r, \theta) \mapsto (\frac{2r}{1 +r^{2}}, \theta, \frac{r^{2}-1}{1 +r^{2}})$. The derivative is given by the matrix:
+     \[
+       \begin{pmatrix}
+         \frac{(2r) - 2(1+r^{2})}{1+r^{2}} & 0 \\
+         0 & 1 \\
+         \frac{\partial}{\partial r} \left(\frac{r^{2}-1}{1 +r^{2}}\right) & 0 
+       \end{pmatrix}
+     \]
+     Note that at every point the derivative sends the tangent vector $(r,\theta)$ to the tangent vector $(p, \theta,q)$ for some terms $p$ and $q$, which preserves the angle $\theta$. Thus, this map is a conformal linear transformation, implying the map is conformal. \\
+     c) Consider the map $\arctan + \frac{\pi}{2}: \bb{R} \to (0,\pi)$. Consider now the inverse of the Mercator projection under this reparametrization of $y$:
+     \[
+       F: (x,y) \mapsto
+       \begin{pmatrix}
+         \cos(x)\sin(\text{arctan}(y)) \\
+         \sin(x)\sin(\text{arctan}(y)) \\
+         \cos(\text{arctan}(y))
+       \end{pmatrix}
+     \]
+     This map has derivative given by:
+     \[
+       \begin{pmatrix}
+         -\sin(x)\sin(\text{arctan}(y)) & -\cos(x)\cos(\text{arctan}(y) + \frac{\pi}{2})\frac{1}{1+y^{2}} \\
+         \cos(x)\sin(\text{arctan}(y) + \frac{\pi}{2}) & -\sin(x)\cos(\text{arctan}(y) + \frac{\pi}{2})\frac{1}{1+y^{2}}\\
+         0 & -\sin(\text{arctan}(y) + \frac{\pi}{2})\frac{1}{1+y^{2}}
+       \end{pmatrix}
+     \]
+     Multiplying this matrix by its transpose, we obtain the $2 \times 2$ matrix:
+     \[
+       \begin{pmatrix}
+         \sin^{2}(x)\sin^{2}(\text{arctan}(y) + \frac{\pi}{2}) + \cos^{2}(x)\sin^{2}(\text{arctan}(y) + \frac{\pi}{2}) & 0 \\
+         0 & \cos^{2}(\text{arctan}(y) + \frac{\pi}{2})\frac{1}{(1+y^{2})^{2}} + \sin^{2}(\text{arctan}(y) + \frac{\pi}{2})\frac{1}{(1+y^{2})^{2}}  
+         \end{pmatrix}
+       \]
+       We have that the top left may be reduced down by the following string of manipulations:
+       \begin{align*}
+         \sin^{2}(\text{arctan}(y) + \frac{\pi}{2}) = \frac{1}{\text{sec}^{2}(\text{arctan}(y))} = \frac{1}{1 + \tan^{2}(\text{arctan}(y))} = \frac{1}{1 + y^{2}}
+       \end{align*}
+   \end{proof}
+\end{document}
