@@ -1,0 +1,107 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ext}{\text{Ext}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\iso}{\cong}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 2}
+\newcommand{\hmwkDueDate}{Oct 16th, 2019}
+\newcommand{\hmwkClass}{Math 215A Commutative Algebra}
+\newcommand{\hmwkClassInstructor}{Professor James Cameron}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{exercise}
+  Show that if $M \cong R^{n}$ then any set of $n$ elements that generate $M$ form a free basis.
+\end{exercise}
+\begin{proof}
+  For $x_{1},...,x_{n}$ a set of generators, we have a short exact sequence $0 \to \text{ker}f \to R^{n} \to R^{n} \to 0$ for $f; R^{n} \to R^{n}$ given by sending each element $e_{i}$ of the standard basis to $x_{i}$. This map is surjective as the $x_{i}$ generate. Now note that for each maximal ideal $\fk{m}$ we have the sequence $0 \to \text{ker}f_{\fk{m}} \to R_{\fk{m}}^{n} \to R_{{\fk{m}}}^{n} \to 0$. Note that $\frac{x_{i}}{1}$ generate $R_{\fk{m}}^{n}$ and are a basis as it is a vector space, and so must be linearly independent and thus a basis for $R_{{\fk{m}}}^{n}$ as well. Thus, $\text{ker}f_{\fk{m}}$ must be $0$, and as $\fk{m}$ was an arbitrary maximal ideal, it must be zero at every maximal ideal.\\
+  $\implies \text{ker}f = 0$ and thus $0 \to R^{n} \to R^{n} \to 0$ is an isomorphism by projection to the generators, implying they are a basis. 
+\end{proof}
+
+\begin{exercise}
+  a) For S any multiplicatively closed subset of R show that the map $R \to S^{-1}R$ induces a homeomorphism Spec $S^{-1}R \to \{x \in Spec \ R: \fk{p}_{x} \cap S = \emptyset \}$ where the right hand side has the subspace topology.
+\end{exercise}
+\begin{proof}
+  a) We claim that the map $f: R \to S^{-1}R$ to the localization induces a map $f_{\#}: Spec \ S^{-1}R \to \{x \in Spec \ R: \fk{p}_{x} \cap S = \emptyset \} \subset Spec \ R$. It is clear to see this as no ideals in the localization contain a unit, i.e. no element of $S$, and the thus the pullback of any prime ideal cannot contain an element of $S$ as then it would have contained a unit in the localization. Thus, the image of $f_{\#} \subset \{x \in Spec \ R: \fk{p}_{x} \cap S = \emptyset \}$ and the map is continuous in the subspace topology. Now consider a prime in the set above. We have that ker$f$ is $r \in R$ s.t. $rs = 0$ for some $s \in S$, and as $rs \in \fk{p}$ we have that $r \in \fk{p}$. Thus, all primes above must contain ker $f$. This tells us that $f^{-1}(f(\fk{p})) = \fk{p}$. Thus, distinct prime ideals in the localization $S^{-1}R$ must have distinct preimages, as any two prime ideals $\fk{p}_{1}, \ \fk{p}_{2}$ are equal in $S^{-1}R$ if $\fk{p}_{1} \cap R/\text{ker}f = \fk{p}_{2} \cap R/\text{ker}f$, which is true if and only if their $R$-preimages are equal as both their $R$ preimages contain ker$f$. Now consider any prime ideal $\fk{p} \in \{x \in Spec \ R: \fk{p}_{x} \cap S = \emptyset \}$. We have that $S^{-1}\fk{p}$ is a prime ideal in $S^{-1}R$: localization preserves primality and the fact that it is an ideal as it contains no units: (clearing denominators of any linear combinations checks this). Thus, $f^{-1}(S^{-1}\fk{p}) = \fk{p}$ and this yields surjectivity. It now suffices to show this is a closed map in the subspace topology. Let $V(I)$ be a neighborhood in $Spec \ S^{-1}R$. It is clear that $f^{-1}(I) \subset f^{-1} (S^{-1}\fk{p}) = \fk{p}$ and so we have that $f_{\#}(V(I)) \subset V(f^{-1}I) \cap\{x \in Spec \ R: \fk{p}_{x} \cap S = \emptyset \}$. Now let $V(J)$ a neighborhood in $Spec \ R$. Suppose $x \in V(J) \cap \{x \in Spec \ R: \fk{p}_{x} \cap S = \emptyset \}$. We have corresponding ideals $\fk{p}_{x} \in Spec \ S^{-1}R$
+\end{proof}
+\end{document}

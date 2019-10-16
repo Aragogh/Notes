@@ -1,0 +1,123 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ext}{\text{Ext}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\iso}{\cong}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 2}
+\newcommand{\hmwkDueDate}{Oct 16th, 2019}
+\newcommand{\hmwkClass}{Math 215A Commutative Algebra}
+\newcommand{\hmwkClassInstructor}{Professor James Cameron}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{exercise}
+  Show that if $M \cong R^{n}$ then any set of $n$ elements that generate $M$ form a free basis.
+\end{exercise}
+\begin{proof}
+  For $x_{1},...,x_{n}$ a set of generators, we have a short exact sequence $0 \to \text{ker}f \to R^{n} \to R^{n} \to 0$ for $f; R^{n} \to R^{n}$ given by sending each element $e_{i}$ of the standard basis to $x_{i}$. This map is surjective as the $x_{i}$ generate. Now note that for each maximal ideal $\fk{m}$ we have the sequence $0 \to \text{ker}f_{\fk{m}} \to R_{\fk{m}}^{n} \to R_{{\fk{m}}}^{n} \to 0$. Note that $\frac{x_{i}}{1}$ generate $R_{\fk{m}}^{n}$ and are a basis as it is a vector space, and so must be linearly independent and thus a basis for $R_{{\fk{m}}}^{n}$ as well. Thus, $\text{ker}f_{\fk{m}}$ must be $0$, and as $\fk{m}$ was an arbitrary maximal ideal, it must be zero at every maximal ideal.\\
+  $\implies \text{ker}f = 0$ and thus $0 \to R^{n} \to R^{n} \to 0$ is an isomorphism by projection to the generators, implying they are a basis. 
+\end{proof}
+
+\begin{exercise}
+  a) For S any multiplicatively closed subset of R show that the map $R \to S^{-1}R$ induces a homeomorphism Spec $S^{-1}R \to \{x \in Spec \ R: \fk{p}_{x} \cap S = \emptyset \}$ where the right hand side has the subspace topology. \\
+  b) Given $f \in R$ let $D(f) = \{ \fk{p} \in Spec \ R: f \notin \fk{p}\}$. Show that $R \to R_{f}$ inducs an open embedding $Spec \ R_{f} \to Spec \ R$ with image $D(f)$.\\
+  c) Show that the D(f) form a basis for $Spec \ R$
+\end{exercise}
+\begin{proof}
+  a) We claim that the map $f: R \to S^{-1}R$ to the localization induces a map $f_{\#}: Spec \ S^{-1}R \to \{x \in Spec \ R: \fk{p}_{x} \cap S = \emptyset \} \subset Spec \ R$. It is clear to see this as no ideals in the localization contain a unit, i.e. no element of $S$, and the thus the pullback of any prime ideal cannot contain an element of $S$ as then it would have contained a unit in the localization. Thus, the image of $f_{\#} \subset \{x \in Spec \ R: \fk{p}_{x} \cap S = \emptyset \}$ and the map is continuous in the subspace topology. Now consider a prime in the set above. We have that ker$f$ is $r \in R$ s.t. $rs = 0$ for some $s \in S$, and as $rs \in \fk{p}$ we have that $r \in \fk{p}$. Thus, all primes above must contain ker $f$. This tells us that $f^{-1}(f(\fk{p})) = \fk{p}$. Thus, distinct prime ideals in the localization $S^{-1}R$ must have distinct preimages, as any two prime ideals $\fk{p}_{1}, \ \fk{p}_{2}$ are equal in $S^{-1}R$ if $\fk{p}_{1} \cap R/\text{ker}f = \fk{p}_{2} \cap R/\text{ker}f$, which is true if and only if their $R$-preimages are equal as both their $R$ preimages contain ker$f$. Now consider any prime ideal $\fk{p} \in \{x \in Spec \ R: \fk{p}_{x} \cap S = \emptyset \}$. We have that $S^{-1}\fk{p}$ is a prime ideal in $S^{-1}R$: localization preserves primality and the fact that it is an ideal as it contains no units: (clearing denominators of any linear combinations checks this). Thus, $f^{-1}(S^{-1}\fk{p}) = \fk{p}$ and this yields surjectivity. It now suffices to show this is a closed map in the subspace topology. Let $V(I)$ be a neighborhood in $Spec \ S^{-1}R$. It is clear that $f^{-1}(I) \subset f^{-1} (S^{-1}\fk{p}) = \fk{p}$ and so we have that $f_{\#}(V(I)) \subset V(f^{-1}I) \cap\{x \in Spec \ R: \fk{p}_{x} \cap S = \emptyset \}$. Now let $y \in V(f^{-1}I) \cap \{x \in Spec \ R: \fk{p}_{x} \cap S = \emptyset \}$. We have a corresponding prime ideal $I \subset S^{-1}\fk{p}_{y} \in Spec \ S^{-1}R$ and by the bijectivity of $f_{\#}$ we know that $f_{\#}(S^{-1}\fk{p}_{y}) = \fk{p}_{y} \implies y \in f(V(I))$ yielding that $f_{\#}(V(I))$ is closed in the subspace topology, yielding the homeomorphism. \\
+  
+  b) Using part a) we have that $Spec \ R_{f}$ embeds into $Spec \ R$ with image $D(f)$ exactly as above. Given that $D(f) = Spec \ R \setminus V(f)$ we have that this is a open embedding. \\
+
+  c) We know that all closed sets in $Spec \ R$ are of the form $V(I)$ for some $I$ ideal of $R$. Thus, all open sets in $Spec \ R$ are of the form $Spec \ R \setminus V(I) = \{\fk{p} \in Spec \ R : \exists \ f \in I \setminus \fk{p}\}$, i.e. all prime ideals that exclude some element of $I$. This is exactly of the form $\bigcup_{f \in I}D(f)$ for $D(f)$ as above, yielding that the $D(f)$ must be a basis for the topology. \\
+
+  d) We may show this using the finite intersection property. Suppose $\cap_{\alpha} V(I_{\alpha}) = \emptyset$. Then we have that $\sum_{\alpha} I_{\alpha} = R$, as it is not contained in any maximal ideal. Thus, $\exists a_{\alpha_{1}},...,a_{\alpha_{n}}$ with $a_{\alpha_{i}} \in I_{\alpha_{i}}$ such that $a_{\alpha_{1}}+ ... + a_{\alpha_{n}} \in R^{\times}$. Thus, there is a finite subfamily of closed sets $\{V(I_{\alpha_{i}})\}_{i=1,...,n}$in the above family with trivial intersection, yielding the claim.
+\end{proof}
+\newpage 
+\begin{exercise}
+  Given a finitely generated module $M$ show that supp$M$ is a closed subset of $Spec \ R$. Give an example to show that it is not always closed for arbitrary modules.
+\end{exercise}
+\begin{proof}
+  Consider the closed set $V(ann(M))$. We have that for any nontrivial prime $\fk{p}$ s.t. $\fk{p} \in$ supp$M$, $\fk{p} \in V(ann(M))$ as the complement of $\fk{p}$ cannot intersect any element in the annihilator (else elements of the annihilator act invertibly, implying the module is $0$). Now let $\fk{p} \in V(ann(M))$. We claim that $M_{\fk{p}}$ is nontrivial. Suppose it is trivial, and $m_{1},...,m_{n}$ are a generating set for $M$. Then $M = Rm_{1} + ... + Rm_{n}$ and $M_{\fk{p}} = R_{\fk{p}}m_{1} + ... + R_{\fk{p}}m_{n}$, which is 0 iff every summand is 0. If every summand is zero we have that $\exists s_{i} \notin \fk{p}$ s.t. $s_{i}m_{i} = 0$ for every $m_{i}$. This in particular implies that $s_{1}s_{2}...s_{n}$ must annihilate every $m_{i}$, implying it annihilates $M$ and so $s_{1}s_{2}...s_{n} \in ann(M)$. However by assumption $\forall \i, \ s_{i} \notin \fk{p}$ so $s_{1}s_{2}...s_{n} \notin \fk{p}$. Contradiction! Thus, supp$M = V(ann(M))$ closed. \\
+  Now consider for example the $\bb{Z}$-module $\bigoplus_{p_{i} \neq p}\bb{Z}/p_{i}\bb{Z}$ for some fixed prime $p$. This is clearly not finitely generated, and has support supp$M = \{p_{i} : p_{i} \neq p \}$. Supposing this were a closed set, then there is some ideal $I \subset \bigcap_{i}(p_{i})$ with $V(I)$ the set above. However, it is clear that $\bigcap (p_{i}) = 0$ as no element $a \in \bb{Z}$ with finite prime factorization lies in the above intersection, implying that no $a \in \bb{Z}$ lies in the above intersection. As $V(0) = Spec \ R$, we have a contradiction. Thus, this set is not closed.
+\end{proof}
+\end{document}
