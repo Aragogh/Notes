@@ -1,0 +1,212 @@
+ \documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ext}{\text{Ext}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\iso}{\cong}
+\newcommand{\del}{\partial}
+\newcommand{\conj}{\overline}
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 3}
+\newcommand{\hmwkDueDate}{Oct 25th, 2019}
+\newcommand{\hmwkClass}{Math 246A Complex Analysis}
+\newcommand{\hmwkClassInstructor}{Professor Rowan Killip}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}\\ Collaborators: Nicholas Liskij}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+\begin{exercise}
+  a) Deduce the Fundamental Theorem of Algebra from Liouville's Theorem. \\
+  b) Let $P \in \bb{R}[x]$ be moniv and non-constant with real coefficients. Show that $P$ can be written uniquely as a product of linear and irreducible quadratic monic polynomials with real coefficients.
+\end{exercise}
+a) The claim holds immediately for polynomials of degree 1: namely, polynomials of the form $(x-z)$. Let the claim hold for all polynomials of degree $n-1$. Let $p(x) \in \bb{C}[x]$ be a polynomial of degree $n$: Supposing it does not have a root in $\bb{C}$, we have that $|p(x)| > \epsilon$ some $\epsilon>0$ in $\bb{C}$, and polynomials are always entire functions. Inverting the polynomial, we have that $\frac{1}{p(x)}$ is also entire as it contains no singularities: it has no poles, and limits and derivatives are defined and continuous at every point as they are for $p(x)$. We have that $|\frac{1}{p(x)}| < \frac{1}{\epsilon} < \infty$, and by Liouville's Theorem this must imply that $\frac{1}{p(x)}$ is constant and thus $p(x)$ is constant, contradicting the claim. We thus have that $p(x)$ has a root $z_{0}$ in $\bb{C}$, yielding that $p(x) = (x - z_{0})h(x)$ for $h$ of degree $n-1$: by the inductive hypothesis, $h$ factors completely in $\bb{C}$ and we have the claim. \\
+b) Consider $P  \in \bb{R}[x] \subset \bb{C}[x]$. We have that $P$ factors completely in $\bb{C}$ into linear polynomials. Let $z_{0} \in \bb{C}$ be a root of $P = x^{n} + a_{n-1}x^{n-1} + ... + a_{0}$. We have that $P(\conj{z_{0}}) = \conj{z}_{0}^{n} + a_{n-1}\conj{z}_{0}^{n-1} + ...  + a_{0} = \overline{P(z_{0})} = 0$ as all the coefficients are real: thus $\conj{z_{0}}$ is a root for $z_{0}$ a root. Thus, the polynomial breaks up into a product $(x-x_{1})...(x-x_{k})$ with $x_{k}$ real and $(x-z_{1})(x-\conj{z_{1}})...(x-z_{\frac{n-k}{2}})(x-\conj{z_{\frac{n-k}{2}}})$. We have that $(x-z)(x-\conj{z}) = x^{2} - (z + \conj{z})x + z\conj{z}$ is a quadratic polynomial with real coefficients: furthermore, this polynomial is irreducible in $\bb{R}[x]$ as if it were reducible then it would factor into two linear polynomials, but it does not have any roots in $\bb{R}$.
+
+\begin{exercise}
+  Prove the Casorati-Weierstrass Theorem.
+\end{exercise}
+\begin{proof}
+  Let $z_{0}$ be the singularity of $f$ that is neither removable nor a pole, defined and holomorphic in a neighborhood $\Omega \setminus \{z_{0}\}$. Consider the function $g = f(z + z_{0})$ satisfying the same properties at $0$: thus, proving the claim for $g$ proves the claim for $f$. Relabel $f \equiv g$.  Let $\delta>0$ arbitrary s.t. $B(\delta,0)\subset \Omega$ where $B(\delta,0)$. Suppose there's some $w$ in the image of $f$ such that $B(w,\epsilon) \cap f(B(\delta, 0) = \emptyset$ for $\epsilon > 0$. We have that the function $\frac{1}{f(z) - w}$ must also be holomorphic and defined in $B(\delta,0) \setminus \{0\}$ as by assumption, $|f(z) - w)| > \epsilon$ for all $z \in B(\delta, 0)$, i.e. is never $0$. In particular, $|\frac{1}{f(z) - w}| < \frac{1}{\epsilon}$ for all $z \in B(\delta, 0)$. By the Riemann removable singularity theorem, we have a holomorphic extension $h$ of $\frac{1}{f(z) - w}$ to $0$: suppose $h(0) = 0$, then for any sequence $z_{n} \to 0$ we have that $\lim_{n \to \infty}\frac{1}{f(z_{n}) - w} = 0 \implies \lim_{n \to \infty} f(z_{n}) - w \to \infty$ and so $f(z_{n}) \to \infty$ for any sequence converging to $0$, implying $0$ is a pole of $f$, which is a contradiction. Instead suppose that $h(0) = v$. Then $\lim_{n \to \infty}\frac{1}{f(z_{n}) - w} = v \implies \lim_{n \to \infty} f(z_{n}) - w = \frac{1}{v} \implies f(z_{n}) \to \frac{1}{v} - w$ for any $z_{n} \to 0$, implying a continuous extension of $f$ to $0$: we know from the last homework that if $h$ continuous in a region and holomorphic outside a point in that region that it must be holomorphic at that point. In particular, this implies there is a holomorphic extension of $f$ to $0$, i.e. that $0$ is a removable singularity, which is again a contradiction. Thus, there does not exist a $w$ as above, implying $f(B(\delta,0)) \cap B(w,\epsilon) \neq \empty$ $\forall w \in \bb{C}, \epsilon > 0$. As $\delta> 0$ was an arbitrary neighborhood in which $f$ was holomorphic, this must hold for all neighborhoods of $0$. This yields the claim. 
+\end{proof}
+\begin{exercise}
+  For $z \in \bb{C}$ with Re$(z) > 0$, define
+  \[
+    \Gamma(z) = \int\limits_{0}^{\infty} e^{-t}t^{z-1}dt
+  \]
+  a) Prove that $\Gamma$ is holomorphic on this region. \\
+  b) Show that $z\Gamma(z) = \Gamma(z+1)$ when $Re(z)>0$. \\
+  c) Deduce that $\Gamma(n+1) = n!$ when $n\geq 0$ is an integer. \\
+  d) Argue that there is an extension of $\Gamma$ to a holomorphic function on $\bb{C} \setminus \{0,-1,-2, ...\}$ that obeys $z\Gamma(z) = \Gamma(z+1)$. Show that the omitted points are poles and determine the principal part.
+\end{exercise}
+\begin{proof}
+  a) We have that the integral above is absolutely convergent. Note that $|t^{Im(z)i}| = |e^{ilog(t)Im(z)}| = 1$ for $t \in \bb{R}>$ and so we have the following:
+  \begin{align*}
+   & \int\limits_{0}^{\infty}|e^{-t}t^{z-1}| dt  \leq \int\limits_{0}^{\infty}|e^{-t}t^{Re(z) -1}| dt = \int\limits_{0}^{\infty}e^{-t}t^{Re(z) -1} dt = \frac{1}{Re(z)}\int\limits_{0}^{\infty}e^{-t}t^{Re(z)}dt\\
+    & \rightarrow \int\limits_{n}^{n+1}|e^{-t}t^{Re(z)}|dt \leq \max(|e^{-t}t^{Re(z)}|)|_{[n,n+1]} \implies \int\limits_{0}^{\infty}|e^{-t}t^{Re(z)}|dt \leq \sum_{n=0}^{\infty}\max(|e^{-t}t^{Re(z)}|)|_{[n,n+1]}
+  \end{align*}
+  Where the last step on the top row is the result of integrating by parts. The sum on the bottom row converges in $Re(z) > 0$ as $t^{n} = o(e^{t})$ for $n$ arbitrarily large. Thus, given the integral $\int\limits_{\gamma}\Gamma(z)dz$ for some arbitrary curve $\gamma$ in the region above, we have that the absolute value must yield a finite answer, being bounded by $\max(|\Gamma|)|_{\gamma} \cdot \text{length}(\gamma)$. Using Fubini's theorem, we may commute the integrals as:
+  \[
+    \int\limits_{\gamma}\Gamma(z)dz = \int\limits_{0}^{\infty}e^{-t}\int\limits_{\gamma}t^{z-1}dz \ dt = 0
+  \]
+  As $t^{z-1}$ is holomorphic in $Re(z) > 0$. Thus, $\Gamma(z)$ must also be holomorphic. \\
+
+  b) Consider the function $t^{z} = t^{Re(z)}\cdot t^{Im(z)i}$. We have that $\frac{d}{dt}t^{Re(z)} \cdot t^{Im(z)i} = Re(z)t^{Re(z) + Im(z)i - 1} + Im(z)it^{Re(z) + Im(z) - 1} = z(t^{z-1})$ and so power rule works. Thus, we may apply integration by parts on the formula for $\Gamma$ to yield:
+  \[
+    \Gamma(z) = \int\limits_{0}^{\infty}e^{-t}t^{z-1} dt = \frac{1}{z}e^{-t}t^{z}|_{0}^{\infty} + \frac{1}{z}\int\limits_{0}^{\infty}e^{-t}t^{z}dt = \frac{1}{z}\int\limits_{0}^{\infty}e^{-t}t^{z} dt = \frac{1}{z}\Gamma(z+1)
+  \]
+  Where the second to last equivalence is due to $Re(z) > 0$. \\
+  c) We have that $\Gamma(1) = \int\limits_{0}^{\infty}e^{-t}dt = 1$. Suppose $\Gamma(n-1) = (n-2)!$. We have that $(n-1)\Gamma(n-1) = \Gamma(n) = (n-1)!$. Thus, by induction, we have the claim. \\
+  d) We have that $\Gamma$ is defined and holomorphic on $Re(z) > 0$. Using the formula $z\Gamma(z) = \Gamma(z+1)$, we may extend the function over the region $-1<Re(z)<0$ via the definition $\Gamma(z) = \Gamma(z+1)\frac{1}{z}$. Denote this extension by $\widetilde{\Gamma}$. We have that this is continous and holomorphic in this region, being a product of functions that are. It now suffices to check that this is continuous and holomorphic along the imaginary axis, excluding $0$. For that, we check the following limit for $y \in \bb{R}\setminus \{0\}$:
+  \[
+    \lim_{\epsilon \to 0}\frac{\widetilde \Gamma(\epsilon + iy+ 1)}{\epsilon + iy} = \widetilde \Gamma(iy+1)\frac{1}{iy} = \Gamma(iy +1) \frac{1}{iy}
+  \]
+  And the limit on the right exists for all $y \neq 0$, yielding that $\widetilde \Gamma$ may be continously extended to the imaginary axis excluding the origin. It now suffices to check that $\widetilde \Gamma$ is holomorphic in $\{Re(z) > -1\} \setminus \{0\}$. To show this, consider an arbitrary triangle $T$ in this region intersecting the imaginary axis (but not the origin). This triangle may be triangulated into at most three distinct triangles as follows:
+  \begin{center}
+    \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.5,xscale=0.5]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Axis 2D [id:dp3603610918462292] 
+\draw  (50,200) -- (491.5,200)(269.5,1) -- (269.5,296) (484.5,195) -- (491.5,200) -- (484.5,205) (264.5,8) -- (269.5,1) -- (274.5,8)  ;
+%Shape: Triangle [id:dp5528902596364964] 
+\draw   (171.48,72.42) -- (405.18,74.05) -- (302.16,148.41) -- cycle ;
+%Shape: Triangle [id:dp5672525680697251] 
+\draw   (270.15,131.16) -- (270.67,73.09) -- (302.16,148.41) -- cycle ;
+
+% Text Node
+\draw (199,110) node  [align=left] {$\displaystyle T_{1}$};
+% Text Node
+\draw (308,109) node  [align=left] {$\displaystyle T_{2}$};
+% Text Node
+\draw (382,120) node  [align=left] {$\displaystyle T_{3}$};
+
+
+\end{tikzpicture}
+\end{center}
+The side with two vertices may be triangulated at into two triangles while the side with one vertex may be triangulated with the imaginary axis as a base: if one vertex lies on the imaginary axis itself then it may be broken up into two triangles. Consider the case of $T_{1}$.
+\begin{center}
+  
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Axis 2D [id:dp3603610918462292] 
+\draw  (205.5,204.21) -- (476.5,204.21)(452.56,6) -- (452.56,225) (469.5,199.21) -- (476.5,204.21) -- (469.5,209.21) (447.56,13) -- (452.56,6) -- (457.56,13)  ;
+%Shape: Right Triangle [id:dp5677328900191918] 
+\draw   (395.5,146) -- (253.77,66.6) -- (395.71,66.98) -- cycle ;
+%Straight Lines [id:da3860553780147069] 
+\draw    (253.77,66.6) -- (453.5,178) ;
+
+
+%Straight Lines [id:da6792801021975678] 
+\draw    (253.77,66.6) -- (452.5,67) ;
+
+
+%Straight Lines [id:da004886178987481005] 
+\draw    (421.25,94.2) -- (440.5,94.02) ;
+\draw [shift={(442.5,94)}, rotate = 539.46] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+%Straight Lines [id:da7368177956778508] 
+\draw    (431.88,94.1) -- (407.37,93.55) ;
+\draw [shift={(405.38,93.5)}, rotate = 361.3] [color={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.75]    (10.93,-3.29) .. controls (6.95,-1.4) and (3.31,-0.3) .. (0,0) .. controls (3.31,0.3) and (6.95,1.4) .. (10.93,3.29)   ;
+
+
+% Text Node
+\draw (488,69) node  [align=left] {$\displaystyle T_{1}$};
+% Text Node
+\draw (424,117) node [scale=0.7] [align=left] {$\displaystyle \frac{1}{n}$};
+% Text Node
+\draw (298,113) node  [align=left] {$\displaystyle T^{n}_{1}$};
+% Text Node
+\draw (385,100) node  [align=left] {$\displaystyle h_{n}$};
+% Text Node
+\draw (465,101) node  [align=left] {$\displaystyle h$};
+% Text Node
+\draw (428,51) node  [align=left] {$\displaystyle a_{n}$};
+% Text Node
+\draw (427,176) node  [align=left] {$\displaystyle b_{n}$};
+
+
+\end{tikzpicture}
+\end{center}
+  \end{proof}
+\end{document}

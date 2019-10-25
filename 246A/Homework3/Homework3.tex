@@ -1,0 +1,291 @@
+ \documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ext}{\text{Ext}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\iso}{\cong}
+\newcommand{\del}{\partial}
+\newcommand{\conj}{\overline}
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 3}
+\newcommand{\hmwkDueDate}{Oct 25th, 2019}
+\newcommand{\hmwkClass}{Math 246A Complex Analysis}
+\newcommand{\hmwkClassInstructor}{Professor Rowan Killip}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}\\ Collaborators: Nicholas Liskij}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+\begin{exercise}
+  a) Deduce the Fundamental Theorem of Algebra from Liouville's Theorem. \\
+  b) Let $P \in \bb{R}[x]$ be moniv and non-constant with real coefficients. Show that $P$ can be written uniquely as a product of linear and irreducible quadratic monic polynomials with real coefficients.
+\end{exercise}
+a) The claim holds immediately for polynomials of degree 1: namely, polynomials of the form $(x-z)$. Let the claim hold for all polynomials of degree $n-1$. Let $p(x) \in \bb{C}[x]$ be a polynomial of degree $n$: Supposing it does not have a root in $\bb{C}$, we have that $|p(x)| > \epsilon$ some $\epsilon>0$ in $\bb{C}$, and polynomials are always entire functions. Inverting the polynomial, we have that $\frac{1}{p(x)}$ is also entire as it contains no singularities: it has no poles, and limits and derivatives are defined and continuous at every point as they are for $p(x)$. We have that $|\frac{1}{p(x)}| < \frac{1}{\epsilon} < \infty$, and by Liouville's Theorem this must imply that $\frac{1}{p(x)}$ is constant and thus $p(x)$ is constant, contradicting the claim. We thus have that $p(x)$ has a root $z_{0}$ in $\bb{C}$, yielding that $p(x) = (x - z_{0})h(x)$ for $h$ of degree $n-1$: by the inductive hypothesis, $h$ factors completely in $\bb{C}$ and we have the claim. \\
+b) Consider $P  \in \bb{R}[x] \subset \bb{C}[x]$. We have that $P$ factors completely in $\bb{C}$ into linear polynomials. Let $z_{0} \in \bb{C}$ be a root of $P = x^{n} + a_{n-1}x^{n-1} + ... + a_{0}$. We have that $P(\conj{z_{0}}) = \conj{z}_{0}^{n} + a_{n-1}\conj{z}_{0}^{n-1} + ...  + a_{0} = \overline{P(z_{0})} = 0$ as all the coefficients are real: thus $\conj{z_{0}}$ is a root for $z_{0}$ a root. Thus, the polynomial breaks up into a product $(x-x_{1})...(x-x_{k})$ with $x_{k}$ real and $(x-z_{1})(x-\conj{z_{1}})...(x-z_{\frac{n-k}{2}})(x-\conj{z_{\frac{n-k}{2}}})$. We have that $(x-z)(x-\conj{z}) = x^{2} - (z + \conj{z})x + z\conj{z}$ is a quadratic polynomial with real coefficients: furthermore, this polynomial is irreducible in $\bb{R}[x]$ as if it were reducible then it would factor into two linear polynomials, but it does not have any roots in $\bb{R}$. Thus, the polynomial breaks up into a product of $(x-x_{1})...(x-x_{k})$ linear irreducibles in $\bb{R}$ and $(x^{2} - (z_{1} + \conj{z_{1}})x + z_{1}\conj{z_{1}})...(x^{2} - (z_{\frac{n-k}{2}} + \conj{z_{\frac{n-k}{2}}})x + z_{\frac{n-k}{2}}\conj{z_{\frac{n-k}{2}}})$ quadratic irreducibles. It remains to show uniqueness: suppose $h$ is a linear polynomial that divides $P$ in $\bb{R}[x]$, then $h$ corresponds to a root of $P$ in $\bb{R}$ and so must be one of the linear factors above. Suppose $h$ is an irreducible quadratic dividing $P$. Then $h$ divides $P$ in $\bb{C}$, and $h$ in $\bb{C}$ is of the form $(x-a)(x-b)$ as it factors completely in $\bb{C}$. The fact that it divides $P$ implies that $a, b$ are both roots of $P$, and the fact that it is irreducible in $\bb{R}$ implies $a, b$ are complex. However, $(x-a)(x-b)$ is only a polynomial with real coefficients when $b = \conj(a)$: in particular, $h$ must be of the form $(x-z_{i})(x-\conj{z_{i}})$ for $z_{i}$ a root of $P$ in $\bb{C}$. However, this is a factor in the decomposition above: thus, the only irreducible polynomials diving $P$ in $\bb{R}$ are linear irreducibles in this decomposition or quadratic irreducibles in this decomposition. Thus, any decomposition of $P$ into linear and quadratic irreducibles is a rearrangement of the one above. 
+\begin{exercise}
+  Prove the Casorati-Weierstrass Theorem.
+\end{exercise}
+\begin{proof}
+  Let $z_{0}$ be the singularity of $f$ that is neither removable nor a pole, defined and holomorphic in a neighborhood $\Omega \setminus \{z_{0}\}$. Consider the function $g = f(z + z_{0})$ satisfying the same properties at $0$: thus, proving the claim for $g$ proves the claim for $f$. Relabel $f \equiv g$.  Let $\delta>0$ arbitrary s.t. $B(\delta,0)\subset \Omega$ where $B(\delta,0)$. Suppose there's some $w$ in the image of $f$ such that $B(w,\epsilon) \cap f(B(\delta, 0) = \emptyset$ for $\epsilon > 0$. We have that the function $\frac{1}{f(z) - w}$ must also be holomorphic and defined in $B(\delta,0) \setminus \{0\}$ as by assumption, $|f(z) - w)| > \epsilon$ for all $z \in B(\delta, 0)$, i.e. is never $0$. In particular, $|\frac{1}{f(z) - w}| < \frac{1}{\epsilon}$ for all $z \in B(\delta, 0)$. By the Riemann removable singularity theorem, we have a holomorphic extension $h$ of $\frac{1}{f(z) - w}$ to $0$: suppose $h(0) = 0$, then for any sequence $z_{n} \to 0$ we have that $\lim_{n \to \infty}\frac{1}{f(z_{n}) - w} = 0 \implies \lim_{n \to \infty} f(z_{n}) - w \to \infty$ and so $f(z_{n}) \to \infty$ for any sequence converging to $0$, implying $0$ is a pole of $f$, which is a contradiction. Instead suppose that $h(0) = v$. Then $\lim_{n \to \infty}\frac{1}{f(z_{n}) - w} = v \implies \lim_{n \to \infty} f(z_{n}) - w = \frac{1}{v} \implies f(z_{n}) \to \frac{1}{v} - w$ for any $z_{n} \to 0$, implying a continuous extension of $f$ to $0$: we know from the last homework that if $h$ continuous in a region and holomorphic outside a point in that region that it must be holomorphic at that point. In particular, this implies there is a holomorphic extension of $f$ to $0$, i.e. that $0$ is a removable singularity, which is again a contradiction. Thus, there does not exist a $w$ as above, implying $f(B(\delta,0)) \cap B(w,\epsilon) \neq \empty$ $\forall w \in \bb{C}, \epsilon > 0$. As $\delta> 0$ was an arbitrary neighborhood in which $f$ was holomorphic, this must hold for all neighborhoods of $0$. This yields the claim. 
+\end{proof}
+\newpage
+\begin{exercise}
+  Let $\Omega$ be open and connected. Suppose $f$ and $g$ are meromorphic on $\Omega$ and $g$ is not equivalently 0. Show that $\frac{f}{g}$ is meromorphic (after removing removable singularities). 
+\end{exercise}
+\begin{proof}
+  We have that for $g$ a meromorphic function that is not equivalently $0$, that $\frac{1}{g}$ is a meromorphic function that is not equivalently $0$ (as it is not zero, all of $g$'s zeroes are discrete, and so all of $\frac{1}{g}$'s poles are discrete and $\frac{1}{g}$'s zeroes are discrete as $g$'s poles are discrete.) Thus, it suffices to show that meromorphic functions are closed under multiplication. Let $f$, $h$ be meromorphic functions on $\Omega$. Then poles$(f\cdot h) \subset$ poles$(h) \ \cup$ poles$(f)$. Suppose poles$(h)$ contained a sequence of points converging to an accumulation point in poles$f$. Then by the continuity of $h$, the limit of the points must also be a pole of $h$, implying that $h$ is not discrete. Thus, poles$(f) \ \cup$ poles$(h)$ is also discrete, as it contains no accumulation points. Similar logic applies to the zeroes of $f$ and $h$, yielding that $f \cdot h$ must also have discrete zeroes and is thus not identically zero. The only issue left to be resolved is when $h$ has a zero that is a pole of $f$ and vice versa. We may use the removable singularity theorem wherever possible to eliminate the overlaps whenever they are not a pole of $f \cdot h$, and all other cases imply the overlap is a pole. Thus, we have that $f \cdot h$ is holomorphic everywhere except for a discrete set of points, which are poles either for $f$ or for $h$. Therefore, $f \cdot h$ is meromorphic in $\Omega$.  
+\end{proof}
+\begin{exercise}
+  For $z \in \bb{C}$ with Re$(z) > 0$, define
+  \[
+    \Gamma(z) = \int\limits_{0}^{\infty} e^{-t}t^{z-1}dt
+  \]
+  a) Prove that $\Gamma$ is holomorphic on this region. \\
+  b) Show that $z\Gamma(z) = \Gamma(z+1)$ when $Re(z)>0$. \\
+  c) Deduce that $\Gamma(n+1) = n!$ when $n\geq 0$ is an integer. \\
+  d) Argue that there is an extension of $\Gamma$ to a holomorphic function on $\bb{C} \setminus \{0,-1,-2, ...\}$ that obeys $z\Gamma(z) = \Gamma(z+1)$. Show that the omitted points are poles and determine the principal part.
+\end{exercise}
+\begin{proof}
+  a) We have that the integral above is absolutely convergent. Note that $|t^{Im(z)i}| = |e^{ilog(t)Im(z)}| = 1$ for $t \in \bb{R}>$ and so we have the following:
+  \begin{align*}
+   & \int\limits_{0}^{\infty}|e^{-t}t^{z-1}| dt  \leq \int\limits_{0}^{\infty}|e^{-t}t^{Re(z) -1}| dt = \int\limits_{0}^{\infty}e^{-t}t^{Re(z) -1} dt = \frac{1}{Re(z)}\int\limits_{0}^{\infty}e^{-t}t^{Re(z)}dt\\
+    & \rightarrow \int\limits_{n}^{n+1}|e^{-t}t^{Re(z)}|dt \leq \max(|e^{-t}t^{Re(z)}|)|_{[n,n+1]} \implies \int\limits_{0}^{\infty}|e^{-t}t^{Re(z)}|dt \leq \sum_{n=0}^{\infty}\max(|e^{-t}t^{Re(z)}|)|_{[n,n+1]}
+  \end{align*}
+  Where the last step on the top row is the result of integrating by parts. The sum on the bottom row converges in $Re(z) > 0$ as $t^{n} = o(e^{t})$ for $n$ arbitrarily large. We must show that $\Gamma$ is continuous. Fix $w\in \bb{C}$. Let $1> \epsilon > 0$ arbitrary. Let $0<|a|<\frac{|w|}{2}$ some $a \in \bb{C}$. From the convergence of the series above, we may select $M$ large such that
+  \[
+  \left| \ \int\limits_{M}^{\infty}e^{-t}t^{w}(1-t^{a}) \ dt \ \right|\leq \sum_{n=M}^{\infty}\max(|e^{-t}t^{Re(w)}|)|_{[n,n+1]} + \sum_{n=M}^{\infty}\max(|e^{-t}t^{Re(a)}|)|_{[n,n+1]} \leq \frac{\epsilon}{3} 
+\]
+Furthermore, using the fact that $Re(w) > 0$, we may select $m < (Re(w)e \frac{1}{3})^{2/Re(w)}$ smaller than $1$ such that:
+\begin{align*}
+  & \left|\ \int\limits_{0}^{m}e^{-t}t^{w}(1-t^{a})dt \ \right| \leq \int\limits_{0}^{m}e^{-t}t^{Re(w)-1} + e^{-t}t^{Re(w) + Re(a)-1} dt \leq \int\limits_{0}^{m}t^{Re(w)-1} + t^{Re(w)/2 -1} \ dt \\ = \ &\frac{m^{Re(w)}}{Re(w)} + \frac{2m^{Re(w)/2}}{Re(w)}
+  \leq \  \frac{m^{Re(w)/2}}{Re(w)} + \frac{2m^{Re(w)/2}}{Re(w)} \leq \frac{\epsilon}{3}
+\end{align*}
+Finally, we have that in the compact set $[m,M]$ that the functions $t^{a_{n}}$ uniformly converge to $t^{a}$ for sequences $a_{n} \to a$. Thus, we may select $\delta > 0$ such that $|a| < \delta \implies |1-t^{a}| \leq \frac{\epsilon}{3(M-m)\cdot\max_{[m,M]}(e^{-t}t^{w})}$ in the neighborhood $[m,M]$. We have:
+\[
+  \left| \ \int\limits_{m}^{M}e^{-t}t^{w}(1-t^{a}) dt \ \right| \leq \int\limits_{m}^{M}|e^{-t}t^{w}||1-t^{a}| dt \leq (M-m)\cdot\max_{[m,M]}(e^{-t}t^{w})|1-t^{a}| \leq \frac{\epsilon}{3} 
+  \]
+  Thus, for $|a| \leq \delta$ sufficiently small, we have that:
+  \begin{align*}
+    & |\Gamma(w+a) - \Gamma(w)| = \left| \ \int\limits_{0}^{\infty}e^{-t}t^{w+a} - e^{-t}t^{w} \ \right|  \\
+    \leq \ & \left|\ \int\limits_{0}^{m}e^{-t}t^{w}(1-t^{a})dt \ \right| + \left| \ \int\limits_{m}^{M}e^{-t}t^{w}(1-t^{a}) dt \ \right| + \left| \ \int\limits_{M}^{\infty}e^{-t}t^{w}(1-t^{a}) \ dt \ \right| \leq \epsilon
+  \end{align*}
+  And thus $\Gamma$ is continuous. We now show that it is holomorphic. 
+  Given the integral $\int\limits_{\gamma}\Gamma(z)dz$ for some arbitrary curve $\gamma$ in the region above, we have that the integral of the norm must yield a finite answer, being bounded by $\max(|\Gamma|)|_{\gamma} \cdot \text{length}(\gamma)$. Using Fubini's theorem, we may commute the integrals as:
+  \[
+    \int\limits_{\gamma}\Gamma(z)dz = \int\limits_{0}^{\infty}e^{-t}\int\limits_{\gamma}t^{z-1}dz \ dt = 0
+  \]
+  As $t^{z-1}$ is holomorphic in $Re(z) > 0$. Thus, $\Gamma(z)$ must also be holomorphic, as the integral around any arbitrary curve in the region is $0$. \\
+
+  b) Consider the function $t^{z} = t^{Re(z)}\cdot t^{Im(z)i}$. We have that $\frac{d}{dt}t^{Re(z)} \cdot t^{Im(z)i} = Re(z)t^{Re(z) + Im(z)i - 1} + Im(z)it^{Re(z) + Im(z) - 1} = z(t^{z-1})$ and so power rule works. Thus, we may apply integration by parts on the formula for $\Gamma$ to yield:
+  \[
+    \Gamma(z) = \int\limits_{0}^{\infty}e^{-t}t^{z-1} dt = \frac{1}{z}e^{-t}t^{z}|_{0}^{\infty} + \frac{1}{z}\int\limits_{0}^{\infty}e^{-t}t^{z}dt = \frac{1}{z}\int\limits_{0}^{\infty}e^{-t}t^{z} dt = \frac{1}{z}\Gamma(z+1)
+  \]
+  Where the second to last equivalence is due to $Re(z) > 0$. \\
+  c) We have that $\Gamma(1) = \int\limits_{0}^{\infty}e^{-t}dt = 1$. Suppose $\Gamma(n-1) = (n-2)!$. We have that $(n-1)\Gamma(n-1) = \Gamma(n) = (n-1)!$. Thus, by induction, we have the claim. \\
+  d) We have that $\Gamma$ is defined and holomorphic on $Re(z) > 0$.  Iterating the functional equation $z\Gamma(z) = \Gamma(z+1)$ we have that $(z+1)z\Gamma(z) = \Gamma(z+2)$. We define a function $\phi$ over the region $\{-1<Re(z)<1\} \setminus \{0\}$ via the definition $\Gamma(z) = \Gamma(z+2)\frac{1}{z(z+1)}$. . We have that this is continous and holomorphic in this region, being a product of functions that are. Furthermore we have that $\phi = \Gamma$ in the region $0 < Re(z) < 1$, directly coinciding with the value given by the functional equation for $\Gamma$. Thus, we may holomorphically extend $\Gamma$ to $\{Re(z) > -1\} \setminus \bb{C}$ using $\phi$. Iterating this construction to go from $\{-n < Re(z) < -(n-2)\} \setminus \{n-1\}$ to $\{-(n+1) < Re(z) < -(n-1)\} \setminus \{n\}$ yields the claim. We now must show that the omitted points $\{0.-1.-2...\}$ are poles. Suppose $-(n-1)$ is a pole. We have that for any sequence $z_{k} \to -n$ that $\Gamma(z_{n}) = (z_{n}-1)\Gamma(z_{n}-1) \to \infty$ as $z_{n}-1 \to -(n-1)$ and $\Gamma$ has a pole at $-(n-1)$. Thus, $n$ must be a pole, and as $0$ is a pole under the above extension og $\Gamma$, we have that $-n$ is a pole $\forall \ n \in \bb{N}$. Finally, we determine the principal part. Consider the pole $-n$. We have that in a neighborhood of $-n$, $\Gamma(z) = \frac{\Gamma(z+n+1)}{z(z+1)...(z+n)}$. Consider any sequence $z_{k} \to -n$. We have that:
+  \begin{align*}
+    &(z_{k}+n)\Gamma(z_{k}) = (z_{k}+n)\frac{\Gamma(z_{k}+n+1)}{z_{k}(z_{k}+1)...(z_{k}+n)} = \frac{\Gamma(z_{k}+n+1)}{z_{k}(z_{k}+1)...(z_{k}+n-1)} \to \frac{\Gamma(1)}{-n \cdot -(n-1) \cdot ... \cdot -1} \\
+    & = \frac{(-1)^{n}}{n!}
+  \end{align*}
+  And so $(z+n)\Gamma(z)$ has a removable singularity at $-n$ with holomorphic extension given by $\frac{-1^{n}}{n!}$. Thus, the coefficient of the principal part is the constant term of the analytic expansion at $-n$, which is simply the value at $-n$: i.e. the principal part is $\frac{-1^{n}}{n!}(z+n)^{-1}$. 
+\end{proof}
+\begin{exercise}
+  a) Show that
+  \[
+    \zeta(s) = \sum_{n=1}^{\infty}n^{-s}
+  \]
+  defines a holomorphic function $\{s \in \bb{C} : Re(s) > 1 \}$. \\
+  b) Show that
+  \[
+    \zeta(s) = \prod_{p \text{ prime}}\frac{1}{1-p^{-s}}
+  \] \\
+  c) Identify a function $g: [-\frac{1}{2}, \frac{1}{2}] \to \bb{R}$ such that
+  \[
+    f(n) = \int\limits_{-1/2}^{1/2}f(n+x)dx + \int\limits_{-1/2}^{1/2}f''(n+x)g(x)dx
+  \]
+  for $f$ a $C^{\infty}$ function defined in a neighborhood of $[-\frac{1}{2}, \frac{1}{2}]$.
+  \end{exercise}
+  \begin{proof}
+    a) We have that $|\sum_{n=1}^{\infty} n^{-s}| \leq \sum_{n=1}^{\infty}|n^{-s}| = \sum_{n=1}^{\infty}|n^{-Re(s)}|$ which converges in $Re(z) > 1$.  Thus, the function $\zeta(s)$ is defined in $Re(s)>1$. We also have that it may be written as the limit of holomorphic functions $f_{k} = \sum_{n=1}^{k}n^{-s}$. In any arbitrary compact neighborhood $K$ in $Re(z)>1$, we may select $z_{0} \in K$ such that $Re(z_{0})$ is minimal in $K$. Fix $\epsilon>0$. We may select a $k$ such that $|\sum_{n=1}^{\infty}n^{-z_{0}} - \sum_{n=1}^{k}n^{-z_{0}}| \leq \sum_{n=k}^{\infty}|n|^{-Re(z_{0})} \leq \epsilon$, by convergence of the sum. We have that for any $z \in K$, |$\zeta(z) - f_{k}(z)| \leq \sum_{n=k}^{\infty}|n|^{-Re(z)} \leq \sum_{n=k}^{\infty}|n|^{-z_{0}} \leq \epsilon$ by minimality of $Re(z_{0})$ in $K$, and so the $f_{k}$ uniformly converge in $K$ implying that $\zeta(s)$ is holomorphic, being the limit of holomorphic functions that uniformly converge in compact neighborhoods. \\    b) Let $1 > \epsilon > 0$, $s$ such that $Re(s) > 1$. Select $k$ large such that $|\zeta(s) - \sum_{n=1}^{k}n^{-s}| < \frac{\epsilon}{2}$. Consider $\fk{p}$ any finite set of primes which contain a subset of primes which divide every number less than or equal to $k$, i.e. containing all primes less than or equal to $k$. Let $n$ be the largest exponent of any prime in $\fk{p}$ that appears in a prime factorization of a number less than or equal to $k$. Now select $N > n$ so large such that for every $p \in \fk{p}$, we have:
+    \[
+      \left|\frac{1}{1-p^{-s}} - (1 + p^{-s} + ... + p^{-Ns})\right| \leq \frac{\epsilon}{2 \cdot 2^{|\fk{p}|}\cdot \max_{\fk{p}}(|1 + p^{-s} ... + p^{-Ns}|)^{|\fk{p}|}}
+    \]
+    Let $S_{p} = (1 + p^{-s} + ... + p^{-Ns})$. For $E_{p}$ some error term with $|E_{p}| \leq \frac{\epsilon}{2^{\fk|p|} \cdot \max_{\fk{p}}(|1 + p^{-s} ... + p^{-Ns}|)^{|\fk{p}|}}$, we have that:
+    \[
+      \prod_{p \in \fk{p}} \frac{1}{1 - p^{-s}} = \prod_{p \in \fk{p}}(S_{p} + E_{p}) \\
+    \]
+    We introduce a little notation here. Index the primes in $\fk{p}$ from $1...|\fk{p}|$. Let $A$ be the set of all functions $f: \fk{p} \to [0,1]$ excluding the map that is identically $0$. Let $K^{f}$ be the product $\prod_{p_{i} \in f^{-1}(0)}S_{p} \cdot \prod_{p'_{j} \in f^{-1}(1)}E_{p'_{j}}$. This is the expression for the product of binomials above excluding the $|\prod_{\fk{p}}S_{p}|$ part. We note that by the $\epsilon < 1$ condition we have that $|S_{p}| > |E_{p}|$ as $|S_{p}| > 1$. Therefore, $|K^{f}| = |\prod_{p_{i} \in f^{-1}(0)}S_{p} \cdot \prod_{p'_{j} \in f^{-1}(1)}E_{p'_{j}}| \leq \max_{\fk{p}}(|S_{p}|^{|\fk{p}|}) \cdot \max_{\fk{p}}(|E_{p'}|)$. This yields:
+    \begin{align*}
+      \left| \ \prod_{p \in \fk{p}} \frac{1}{1 - p^{-s}} - \prod_{p \in \fk{p}}S_{p} \ \right| =  \left| \ \sum_{f \in A}K^{f} \ \right| \leq \left| \sum_{f \in A} S_{p}^{|p|} \right| \frac{\epsilon}{2 \cdot 2^{|p|} \cdot \max_{\fk{p}}(|S_{p}|)^{|\fk{p}|}} \\      \leq \sum_{f\in A}\max(|S_{p}|^{|\fk{p}|}) \cdot \frac{\epsilon}{2 \cdot 2^{|\fk{p}|} \cdot \max_{\fk{p}}(|S_{p}|)^{|\fk{p}|}}  \leq 2^{|p|} \cdot \frac{\epsilon}{2 \cdot 2^{|\fk{p}|}} \leq \frac{\epsilon}{2} 
+    \end{align*}
+    Note that that $\prod_{p \in \fk{p}}S_{p} = \prod_{p \in \fk{p}}(1+p^{-s}+...+p^{-Ns})$ is a sum of the form:
+    \[
+      \sum_{a \in [N]^{|\fk{p}|}} \left(\prod_{p_{i} \in \fk{p}}p_{i}^{a_{i}}\right)^{-s}
+    \]
+    Which is a sum of distinct natural numbers (by the fundamental theorem of arithmetic) raised to the $-s$th power (and so a summand of $\zeta$) such that $\sum_{n=1}^{k}n^{-s}$ is a summand of the above, by the assumption that $\fk{p}$ contained all primes which appear in a prime factorization of numbers less than $k$, and $N$ is greater than the largest exponent in any such prime factorization. Thus, $|\zeta(s) - \prod_{p \in \fk{p}}S_{p}| \leq |\zeta(s) - \sum_{n=1}^{k}n^{-s}| \leq \frac{\epsilon}{2}$, and combined with the above result this yields that $|\zeta(s) - \prod_{p \in \fk{p}}\frac{1}{1-p^{-s}}| \leq |\zeta(s) - \prod_{\fk{p}}S_{p}| + |\prod_{\fk{p}}S_{p} - \prod_{\fk{p}}\frac{1}{1-p^{-s}}| \leq \epsilon$. As $\fk{p}$ was an arbitrary finite set of primes containing all primes less than or equal to $k$ we have that for any finite set of primes there is a larger finite set of primes containing it such that the infinite product above is within $\epsilon$ distance of $\zeta(s)$ for $\epsilon$ arbitrary, the infinite product must necessarily converge to $\zeta(s)$, which also takes care of unconditional convergence. \\
+    c) Consider the integral below:
+    \[
+      \int\limits_{-1/2}^{1/2}\int\limits_{0}^{x}\int\limits_{0}^{t}f''(n+s) \ ds \ dt \ dx
+    \]
+    Evaluating this from $0$ to $\frac{1}{2}$ we have:
+    \begin{align*}
+      \int\limits_{0}^{1/2}\int\limits_{0}^{x}\int\limits_{0}^{t}f''(n+s) \ ds \ dt \ dx = \int\limits_{0}^{1/2}\int\limits_{0}^{x}f'(n+t) - f'(n) \ dt \ dx = \int\limits_{0}^{1/2} f(n+x) - f(n) - f'(n)x \ dx \\
+   = \int\limits_{0}^{1/2}f(n+x) \ dx - \frac{f(n)}{2} - \frac{f'(n)}{4} 
+    \end{align*}
+    On the other hand, we have that evaluating from $-\frac{1}{2}$ to $0$ yields:
+    \begin{align*}
+      \int\limits_{-1/2}^{0}\int\limits_{0}^{x}\int\limits_{0}^{t}f''(s) \ ds \ dt \ dx = \int\limits_{-1/2}^{0} f(n+x) - f(n) - f'(n)x \ dx = \int\limits_{-1/2}^{0}f(n+x) \ dx - \frac{f(n)}{2} + \frac{f'(n)}{4}
+    \end{align*}
+    And so summing both sides we have:
+    \[
+      \int\limits_{-1/2}^{1/2}\int\limits_{0}^{x}\int\limits_{0}^{t}f''(s) \ ds \ dt \ dx = \int\limits_{-1/2}^{1/2}f(n+x)\ dx - f(n)
+    \]
+    Thus, commuting the integrals backwards and adjusting limits, we have:
+    \[
+      \int\limits_{0}^{1/2}f''(s) \left(-\int\limits_{s}^{1/2}\int\limits_{t}^{1/2}dx\ dt \right)  \ ds + \int\limits_{-1/2}^{0}f''(s) \left(-\int\limits_{-1/2}^{s}\int\limits_{-1/2}^{t}dx\ dt \right) \ ds = f(n) - \int\limits_{-1/2}^{1/2}f(n+x) \ dx
+    \]
+    Solving the above integrals, we get:
+    \[
+      \int\limits_{s}^{1/2}\int\limits_{t}^{1/2}-1 \ dx \ dt = -\frac{(s-\frac{1}{2})^{2}}{2},  \ \int\limits_{-1/2}^{s}\int\limits_{-1/2}^{t}-1 \ dx \ dt = - \frac{(s+ \frac{1}{2})^{2}}{2} 
+    \]
+    And so the function that we want is given by:
+    \[
+      g(x) :=
+      \begin{cases}
+        - \frac{(s+ 1/2)^{2}}{2}, \ s \in [-\frac{1}{2}, 0]\\
+      - \frac{(s- 1/2)^{2}}{2}, \ s \in [0, \frac{1}{2}]
+      \end{cases}
+    \]
+    d) We have that the function $n^{-s}$ is $C^{\infty}$ function defined in a neighborhood of $[n-\frac{1}{2}, n+ \frac{1}{2}]$. Using the logic above and reparametrizing everything, we may write this as:
+    \[
+      n^{-s} = \int\limits_{n-1/2}^{n + 1/2}x^{-s} + s(s-1)x^{-s-2}g(x-n)dx
+    \]
+    Define $\widetilde g : \bb{R} \to \bb{R}$ to be $g(x-n)$ on the neighborhood $[n-\frac{1}{2}, n+\frac{1}{2}]$. We have then that $\zeta(s) = \sum_{n=1}^{\infty}n^{-s}$ for $Re(s) > 1$ may be written as:
+    \begin{align*}
+      \zeta(s) = \sum_{n=1}^{\infty}\int\limits_{n-1/2}^{n+1/2}x^{-s}+ s(s-1)\widetilde g(x) x^{-s-2} \ dx = \int\limits_{1/2}^{\infty}x^{-s}(1 + s(s-1)\widetilde g(x)x^{-2}) \ dx \\
+      =  \frac{(1/2)^{1-s}}{1-s} + \int\limits_{1/2}^{\infty}-s(s-1)\widetilde g(x) x^{-s-2}\ dx
+    \end{align*}
+    We define the meromorphic extension of $\zeta(s)$ to $Re(s) > -1$ by defining $\widetilde \zeta(s)$ as
+    \[
+      \widetilde \zeta(s) = \frac{(1/2)^{1-s}}{1-s} + \int\limits_{1/2}^{\infty}-s(s-1)\widetilde g(x) x^{-s-2}\ dx
+    \]
+    Which agrees with $\zeta$ on $Re(s)> 0$, and is defined for $Re(s) > -1$, as then the integral on the right converges absolutely via
+    \[
+       \left| \ \int\limits_{1/2}^{\infty}-s(s-1)\widetilde g(x) x^{-s-2}\ dx \ \right| \leq   C \int\limits_{1/2}^{\infty}|s(s-1)x^{-s-2}|\ dx \leq C|s(s-1)|\int\limits_{1/2}^{\infty}|x^{-Re(s) - 2}|\ dx  
+     \]
+     And $- Re(s) - 2 > -1$ (noting that $\widetilde g(x)$ is bounded above by some constant $C$). All that remains to show is that the integral in the definition of $\widetilde\zeta$ is meromorphic in the prescribed region, and we are done, as $\frac{(1/2)^{1-s}}{1-s}$ is holomorphic everywhere outside of $1$, where it has a pole. To show the integral is meromorphic it suffices to show that
+     \[
+        \int\limits_{1/2}^{\infty}\widetilde g(x) x^{-s-2}\ dx
+      \]
+      Is meromorphic in the region as $s(s-1)$ is meromorphic everywhere. However, we have just shown that this integral is absolutely convergent in the region $Re(z) > -1$, and appealing to the same process as in 4 a) where the $\Gamma$ function was shown to be holomorphic in the region yields the same result here: i.e. that this integral is holomorphic in $Re(z) > -1$ and thus the extension $\widetilde \zeta$, given by:
+      \[
+          \widetilde \zeta =  \frac{(1/2)^{1-s}}{1-s} + \int\limits_{1/2}^{\infty}-s(s-1)\widetilde g(x) x^{-s-2}\ dx
+        \]
+        Is meromorphic in $Re(z) > -1$ with a pole at $1$. 
+  \end{proof}
+
+  \begin{exercise}
+    Show the following:
+    a) Holomorphic doubly periodic functions are constant. \\
+    b) Nonconstant doubly periodic functions are onto $\bb{C} \cup \{\infty\}$.
+  \end{exercise}
+  \begin{proof}
+    a) We have that doubly periodic functions with periods $\tau, 1$ have values determined entirely inside of the compact set below:
+    \begin{center}
+      \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.5,xscale=0.5]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Axis 2D [id:dp5105458923825565] 
+\draw  (50,263.6) -- (480.5,263.6)(93.05,17) -- (93.05,291) (473.5,258.6) -- (480.5,263.6) -- (473.5,268.6) (88.05,24) -- (93.05,17) -- (98.05,24)  ;
+%Shape: Parallelogram [id:dp8240593094759892] 
+\draw   (234.5,77) -- (408.5,77) -- (267.05,263.6) -- (93.05,263.6) -- cycle ;
+
+% Text Node
+\draw (270,283) node  [align=left] {$\displaystyle 1$};
+% Text Node
+\draw (223,66) node  [align=left] {$\displaystyle \tau $};
+
+
+\end{tikzpicture}
+    \end{center}
+    As any complex number $w$ may be decomposed into $a\tau + b$ for $a, b \in \bb{R}$, by the fact that $\bb{C}$ is a two dimensional vector space over $\bb{R}$. Thus, we have that any complex number $w$ is of the form $(n + x)\tau + m + y$ for $m,n \in \bb{Z}$, $x, y \in [0,1]$. Thus, $f(w) = f((n + x)\tau + m + y) = f(x\tau + y)$, implying that the value of any complex number is determined on the set $\{z \in \bb{C} | z = x\tau + y, \ x,y \in [0,1] \}$. As a continuous function on a compact set attains a maximum and a minimum, the entire function must be bounded, the values being determined on the compact set above. In particular, if the function is holomorphic, then it is entire and bounded and thus must be constant. \\
+    b) Given $f(z)$ doubly periodic, nonconstant, we have from part $a)$ that it must have a pole. It is clear that $f(z) - z_{0}$ is doubly periodic for some fixed $z_{0} \in \bb{C}$. Thus suffices to show that every nonconstant doubly periodic function has a $0$, as then $f(z) - w$ has zeroes for every $w \in \bb{C}$. Thus, assume $g(z)$ is an arbitrary nonconstant doubly periodic function with no zeroes. Then certainly $\frac{1}{g(z)}$ is also doubly periodic and holomorphic as $g(z)$ had no zeroes and was holomorphic everywhere except a discrete set of poles, at which $\frac{1}{g(z)}$ is 0. Then $\frac{1}{g(z)}$ satisfies the conditions of $a)$ and thus must be constant, a contradiction. Therefore, there does not exist such a function $g(z)$, and thus every doubly periodic function has a zero, yielding the claim. 
+  \end{proof}
+\end{document}
