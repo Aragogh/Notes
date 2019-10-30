@@ -1,0 +1,185 @@
+ \documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ext}{\text{Ext}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\iso}{\cong}
+\newcommand{\del}{\partial}
+\newcommand{\conj}{\overline}
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author\text{Tor}
+%
+
+\newcommand{\hmwkTitle}{Homework 3}
+\newcommand{\hmwkDueDate}{Oct 30th, 2019}
+\newcommand{\hmwkClass}{Math 215A Commutative Algebra}
+\newcommand{\hmwkClassInstructor}{Professor james Cameron}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+\begin{exercise}
+  Suppose that $0 \to L \to M \to N  \to 0$ is an exact sequence of $R$-modules. Show that if $L$ and $N$ are flat, or if $M$ and $N$ are flat, then so is the third.
+\end{exercise}
+\begin{proof}
+  Let $0 \to L \to M \to N \to 0$ be an exact sequence. Let $A$ be an arbitrary $R$-module: then we have a long exact sequence given by:
+  \[
+  \begin{tikzcd}
+    \text{Tor}_{R}^{1}(L,A) \arrow[r] & \text{Tor}_{R}^{1}(M,A) \arrow[r] & \text{Tor}_{R}^{1}(N,A) \arrow[r] & L \otimes_{R} A \arrow[r] & M \otimes_{R} A \arrow[r] & N \otimes_{R} A \arrow[r] & 0   
+  \end{tikzcd}
+\]
+
+Now suppose $L$ and $N$ are flat. We have then that $\text{Tor}_{R}^{1}(L, -) = 0 = \text{Tor}_{R}^{1}(N,-)$. Thus, by the exactness of the sequence above, $\text{Tor}_{R}^{1}(M, -) = 0$ as it is $0$ for $A$ any arbitrary $R$-module. Thus, given any short exact sequence $0 \to A \ to B \to C \to 0$, we have the following sequence:
+\[
+    \begin{tikzcd}
+    \text{Tor}_{R}^{1}(M,C) \iso 0 \arrow[r] & M \otimes_{R} A \arrow[r] & M \otimes_{R} B \arrow[r] & M \otimes_{R} C \arrow[r] & 0   
+  \end{tikzcd}
+\]
+And so tensoring with $M$ preserves short exact sequences, yielding that $M$ is flat.  Now suppose $M$ and $N$ are flat. Given any monomorphism $f: A \to B$, we have the following diagram where rows and columns are exact:
+\[
+  \begin{tikzcd}
+                       & 0 \arrow[d]                       & 0 \arrow[d]            \\
+\text{ker} (A \otimes f) \arrow[r] & A \otimes_R L \arrow[r, "A \otimes f"] \arrow[d] & B\otimes_R L \arrow[d] \\
+0 \arrow[r]            & A \otimes_R M \arrow[r]           & B \otimes_R M         
+\end{tikzcd}
+\]
+where the exactness of the second row uses the flatness of $M$ and the exactness of the columns comes from ker$(A\otimes_{R} L \to A \otimes_{R} M) \iso \text{Tor}_{R}^{1}(N, A) = 0$ and similarly for $B$. Thus, we have that the composite map ker$(A\otimes f) \to A \otimes_{R} L \to A \otimes_{R} M \to B \otimes_{R} M$ is equal to the composite map ker$(A \otimes f) \to B \otimes_{R} L \to B \otimes_{R} M$ which is the $0$ map by definition. As the first map is a composition of monomorphisms, we have that the $0$ map on ker$(A \otimes f)$ is a monomorphism, implying that is is $0$. Thus, $- \otimes_{R} L$ must preserve monomorphisms, implying that $L$ is flat.   
+\end{proof}
+
+\begin{exercise}
+  1) Show that an $R$-module X is flat if and only if any map from a finitely presented $R$-module to $X$ factors through a free module. Conclude that finitely presented free modules are projective. \\
+  2) Show that for $M$ a finitely presented module over a local ring, TFAE: a) M is free, b) M is projective, c) M is flat. \\
+  3) Show that a finitely presented $R$-module is projective if and only if it is locally free.
+\end{exercise}
+\begin{proof}
+  1) Let $M$ be a module with finite presentation $R^{m} \to R^{n} \to M \to 0$. We have that any map from $M \to X$ may be written as a map $f:R^{n} \to X$  such that the composite $R^{m} \to R^{n} \to X$ is the zero map. Now, we have that Im$(R^{m}\to R^{n})$ is finitely generated, say by elements $q_{1},...,q_{m}$ the image of basis elements. For any given $q_{1}$, we have that $q_{1} \in \text{ker}f$. By the equational criterion for flatness, we have that we may factor the map $f: R^{n} \to X$ as a map $g_{1}:R^{n} \to R^{k_{1}}$ followed by a map $h_{1}:R^{k_{1}} \to X$ such that $f = h_{1}g_{1}$ and $q_{1} \in \text{ker}g_{1}$. We may repeat this process in $R^{k_{1}}$ by noting that $f = h_{1}g_{1} \implies g_{1}(q_{1}) \in \text{ker}h_{1}$, and so we may factor the map $h_{1}: R^{k_{1}} \to X$ into maps $g_{2}:R^{k_{1}}\to R^{_{k_{2}}}$ and $h_{2}:R^{k_{2}} \to X$ such that $h_{1} = h_{2}g_{2}$ and $g_{1}(q_{1}) \in \text{ker}g_{2}$, yielding a map $g_{2}g_{1}:R^{n} \to R^{k_{2}}$, $h_{2}:R^{k_{2}}\to X$ such that $h_{2}g_{2}g_{1} = f$ and $q_{1},q_{2} \in \text{ker}g_{2}g_{1}$. Iterating this process for all $m$ we have the following diagram:
+  \[
+    \begin{tikzcd}
+R^m \arrow[r] & R^n \arrow[d, "g_1"] \arrow[rr, "f"]        &  & X \\
+              & R^{k_1} \arrow[d, "g_2"] \arrow[rru, "h_1"] &  &   \\
+              & \vdots \arrow[d, "g_m"]                     &  &   \\
+              & R^{k_m} \arrow[rruuu, "h_m"]                &  &  
+\end{tikzcd}
+\]
+Such that $h_{m}g_{m}...g_{1} = f$ and $q_{1},...,q_{m} \in \text{ker}g_{m}...g_{1}$. Denote the composite $g_{m}...g_{1} : = g$. We have the following diagram:
+\[
+  \begin{tikzcd}
+R^m \arrow[r] & R^n \arrow[d, "g"] \arrow[r] \arrow[dd, "f", swap, bend right=49] & M \arrow[ld, "g' ", dotted, shift right] \arrow[ldd, "f'", bend left] \\
+              & R^{k_2} \arrow[d, "h_m"]                                    &                                                                       \\
+              & X                                                           &                                                                      
+\end{tikzcd}
+\]
+Where any map $f': M \to X$ corresponds to a map $f: R^{n} \to X$ such that the composite is 0, which factors as a map $h_{m}g: R^{n} \to X$ such that $R^{m} \to R^{n} \to R^{k_{2}}$ is $0$, which induces a map $g':M \to R^{k_{2}}$ such that the diagram above commutes. Thus, any map from a finitely presented module to a flat module factors through a free module. Now, suppose any map from a finitely presented module to a module $X$ factors through a free module. Given any relation $\sum_{i=1}^{n}r_{i}x_{i} = 0$ in $X$, we have a map $g: R^{n} \to X$ via $g: e_{i} \mapsto x_{i}$, $f:R \to R^{n}$ via $1 \mapsto \sum_{i=1}^{n}r_{i}e_{i}$ such that the composite $gf = 0$. By the property above, the map $f$ factors through maps $\alpha:R^{j} \to X$, $\beta:R^{n} \to R^{j}$ such that $g = \alpha \beta$, and $\beta g = 0$: i.e. for $l_{1},..,l_{k}$ a basis for $R^{k}$, $\exists \{a_{ij}\}_{i=1...n;j=1...k}$ such that $\beta: e_{i} \mapsto \sum_{j=1}^{k}a_{ij}l_{j}$ such that $\sum_{i=1}^{n} r_{i}(\sum_{j=1}^{k}a_{ij}l_{j}) = 0 \iff \forall \ j, \sum_{i=1}^{n}r_{i}a_{ij} = 0$ by the fact that $l_{j}$ is a basis: i.e. in $X$, there exist $y_{1},...,y_{j}$ such that $x_{i} = sum_{j=1}^{k}a_{ij}y_{j}$ and $\sum_{i=1}^{n}r_{i}a_{ij} = 0$, which is exactly the equational criterion for flatness, yielding that $X$ is flat. \\
+In particular, suppose $X$ is finitely presented, flat. We have that the identity map $Id: X \to X$ must factor through maps $h: X \to R^{j}$ monic, $g:R^{j} \to X$ epic such that $gh = Id$: this implies that $X$ is a summand of $R^{j}$ and is thus projective. \\
+
+2) We have that $b) \iff c)$ for $M$ finitely presented by the result above. We also have that $a) \implies b)$ as free modules are projective. It thus suffices to show that finitely presented projective modules over a local ring are free. Let $M$ be a finitely presented projective module: In particular, $M$ is a summand of some free module $R^{k}$. We may pick some set of generators $m_{1},...,m_{j}$ of $M$ such that $m_{1}+\fk{m}M,..,m_{j}+\fk{m}M$ is a basis of $M/\fk{m}M\subset (R/\fk{m})^{k}$ over $R/\fk{m}$: we may select this to be a basis as by a corollary of Nakayama's lemma we have that any set of element that generate the vector space $M/\fk{m}$ over the residue field must generate $M$. We have that this set of elements is linearly independent in $(R/\fk{m})^{k}$. It thus suffices to show that this finite set of elements that is linearly independent in $(R/\fk{m})^{k}$ over the residue field must be linearly independent over $R$. Let $a_{i} \in R$ not all $0$ for $i = 1,...,j$. Let $l$ minimal such that $a_{i} \in \fk{m}^{l}$. We have that the map induced by the $R$-action below is an isomorphism (as it is an isomorphism for $R$ and tensor products commute with direct sums):
+\[
+  \fk{m}^{l}/\fk{m}^{l+1} \otimes_{R} R^{k} \to (\fk{m}^{l}/\fk{m}^{l+1})^{k}
+\]
+We have that the left hand side is isomorphic to $\fk{m}^{l}/\fk{m}^{l+1} \otimes_{R/\fk{m}}(R/\fk{m})^{k}$. We have that the sum $\sum _{i=1}^{j}a_{i} \otimes m_{i} \neq 0$ as $m_{i}$ are linearly independent in $(R/\fk{m})^{k}$. Thus, the sum is nonzero in $(\fk{m}^{l}/\fk{m}^{l+1})^{k}$, implying it is nonzero in $R^{k}$. Given that the $a_{i}$ were chosen arbitrarily, this must be true for all collections $a_{i}$ with all $a_{i}$ nonzero, and thus $m_{i}$ must be linearly independent in $R^{k} \implies $ they are a linearly independent generating set for $M$ and so $M$ is free. \\
+
+3) We have that if $X$ is a finitely presented projective $R$-module, then $X$ is a direct summand of some free module $R^{k}$. We have thus that $S^{-1}X$ is a direct summand of $(S^{-1}R)^{k}$ as localization commutes with direct products, and thus $S^{-1}X$ is projective and finitely presented, implying that it is free. Now suppose $X$ is locally free. This yields in particular that $X$ is locally flat. Now, given any short exact sequence $0 \to A \to B \to C \to 0$, we have the following exact sequence:
+\[
+    \begin{tikzcd}
+    \text{Tor}_{R}^{1}(X,A) \arrow[r] & X \otimes_{R} A \arrow[r] & X \otimes_{R} B \arrow[r] & X \otimes_{R} C \arrow[r] & 0   
+  \end{tikzcd}
+\]
+As localization is flat, we have the following sequence is also exact:
+\[
+      \begin{tikzcd}
+    S^{-1}R \otimes_{R} \text{Tor}_{R}^{1}(X,C) \arrow[r] & S^{-1}R \otimes_{R }X \otimes_{R} A \arrow[r] & S^{-1}R \otimes_{R} X \otimes_{R} B \arrow[r] & S^{-1}R \otimes_{R} X \otimes_{R} C \arrow[r] & 0   
+  \end{tikzcd}
+\]
+
+And the above sequence is isomorphic to the following one:
+\[
+      \begin{tikzcd}
+    S^{-1}\text{Tor}_{R}^{1}(X,C) \arrow[r] & S^{-1}X \otimes_{S^{-1}R} S^{-1}A \arrow[r] & S^{-1}X \otimes_{S^{-1}R} S^{-1}B \arrow[r] & S^{-1}X \otimes_{S^{-1}R} S^{-1}C \arrow[r] & 0   
+  \end{tikzcd}
+\]
+
+But we know by flatness of localization that $0 \to S^{-1}A \to S^{-1}B \to S^{-1}C \to 0$ is exact, and by assumption the flatness of $S^{-1}X$ yields that the image of $S^{-1}Tor_{R}^{1}(X,C)$ in $S^{-1}X \otimes S^{-1}A$ must be $0$. As this holds at every localization, we have that the image of $Tor_{R}^{1}(X,A) \to X \otimes_{R} A$ must be zero as it is zero at every localization $\implies 0 \to X \otimes_{R} A \to X \otimes_{R} B \to X \otimes_{R} C \to 0$ must be exact and so $X$ is flat. As it is finitely presented, it is projective.  
+\end{proof}
+
+\begin{exercise}
+  Show that for $X$ a flat $R$-module TFAE: \\
+  1) X is faithfully flat. \\
+  2) $L \to M \to N$ is exact $\iff L \otimes_{R} X \to M \otimes_{R} X \to N \otimes_{R}X$ is exact. \\
+  3) $N \otimes_{R} X = 0 \iff N = 0$. \\
+  4) For every ideal $I$ of $R$, $IX \neq X$. \\
+  5) For every maximal ideal $\fk{m}$ of $R$, $\fk{m}X \neq X$.
+\end{exercise}
+\end{document}
