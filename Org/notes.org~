@@ -1,0 +1,68 @@
+
+
+* Open Threads (Math)
+** Getting started with infty-categories                              :ALTOP:
+*** Categorical Homotopy Riehl                                        :ALTOP: 
+    :PROPERTIES:
+    :Created:  [2020-07-06 Mon 14:45]
+    :Linked:   [[file:~/Notes/MyNotes/riehlCategoricalHomotopyTheory2014.org::*Notes][Riehl Notes]]
+    :END: 
+ Brief description:
+ Covers Kan extensions, enriched homotopy theory, homotopy limits and colimits, model categories (including reedy structure) and an introduction to quasi-categories.
+*** Higher Topos Theory                                               :ALTOP:
+ [[https://ncatlab.org/spahn/show/a+reading+guide+to+HTT][- A Reading Guide to HTT]] A guide to reading Higher Topos Theory by Lurie
+
+** Formal Geometry                                                    :ALTOP:
+[[file:~/Downloads/main.pdf][- Eric Peterson Formal Geometry Course]] Course on formal geometry and bordism operations
+- Also need to finish reading paper on the nilpotence theorem
+- Lurie 252x notes + reread of the orange book at some point is probably in order
+
+** Model Categories of Spectra                                        :ALTOP:
+- Left off at chapter 1 Symmetric Spectra by Schwede
+- A read of Mandell-May-Shipley-Schwede is in order at some point
+
+** Adversarial Pedagogy of Mathematics                             :PEDAGOGY:
+I've often found that arguing things out with Gur made me understand a lot more, because I was required to formulate a position, defend it, have someone point out to me what exactly was wrong, and then work backwards to figure out the inconsistencies in my own argumentation. It's a useful model for collaboration when you're both new to a subject, because off the bat expecting full rigor is a little much for people who approach it with the slightly lazier eye that I tend to work with. Maybe this could find its way into a classroom via a buddy-buddy system? It's something worth looking into.
+
+** Discrete Differential Geometry                                       :TDA: 
+:PROPERTIES:
+:Created: [2020-08-13 Thu 12:45]
+:Linked: [[http://www.cs.cmu.edu/~kmcrane/Projects/DGPDEC/][Keenan Crane]]
+:END: 
+
+Brief description:
+
+
+* Open Threads (Elsewhere)
+** Dogra rule in Kashmir
+- A.G. Noorani Article "It was the tendency of Kashmiri Pundits, when in trouble in Kashmir, to look to India for the preservation of religiously conceptualized interests that earned them the honor of being secular nationalists... by contrast, Kashmiri Muslims' demand for a similar protection of rights, denied to them by both a Hindu Dogra and a 'secular' Indian state, has been all too easily misread as engaging in the politics of religious fundamentalism.
+ - 1947 Jammu Massacre
+** Paulo Freire Critical Pedagogy
+** Emma Goldman, My Disillusionment with Russia
+** Stephen Kotkin, Stalin Biographies and Magnetic Mountain
+
+** Useful Noise
+ Entered on [2020-07-05 Sun 15:34]
+*** Poor Economics, Esther Duflo and Abhijit Banerjee
+*** Siddharth Mukherjee
+ - Gene
+ - Podcasts
+      
+** Paul Graham Roots of Lisp                                        :COMPSCI:
+:PROPERTIES:
+:Created: [2020-08-11 Tue 11:53]
+:Linked: [[http://paulgraham.com/rootsoflisp.html][Website]]
+:END: 
+
+Brief description:
+
+** Ask Celine about being nonbinary
+   What does gender identity mean, is it being uniquely enby or is it lack of a gender identity, reexplanation of distinction between gender and sex and how are those things shaped in your head
+
+   
+* Closed Threads :ARCHIVE:
+
+
+bibliography:~/Notes/references/references.bib
+bibliographystyle:acm
+

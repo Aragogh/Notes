@@ -1,0 +1,148 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ext}{\text{Ext}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\iso}{\cong}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 1}
+\newcommand{\hmwkDueDate}{Sep 10th, 2020}
+\newcommand{\hmwkClass}{Math 549}
+\newcommand{\hmwkClassInstructor}{Professor Julius Ross}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\begin{exercise}
+  Let $M$ be a smooth manifold of dimension $n \geq 1$. Show that $M$ has uncountably many distinct smooth structures on it.
+\end{exercise}
+\begin{proof}
+  We will assume the fact that there exists a locally finite cover of $M$ by compatible charts due to second countability. \\
+  \underline{Claim:} There exists a smooth atlas on $M$ such that $\exists \ x\in M$ with $x$ contained in only one chart in the cover. Assume not, then let $n>1$ be minimal such that any $x \in M$ is contained in at least $n$ charts in the cover (can do this by locally finite). Let $x \in M$ such that $x$ is contained in only $n$ charts in the cover. We may remove one of the charts in which $x$ is contained, and this still yields a cover of $M$ by compatible charts as now every point in $M$ is contained in at least $n-1 \geq 1$ charts, and $x \in M$ is contained in only $n-1$ charts, violating the minimality of $n$. Thus, the claim holds. \\
+  Now given a smooth atlas $\mathcal{A}$ on $M$ such that the claim holds, let $x \in M$ such that $x$ contained in only one chart $(U,\phi)$ in the atlas. Let $r$ such that $B_{r}(\phi(x)) \subset \phi(U) \subset \bb{R}^{n}$ ($B_{r}$ meaning ball of radius $r$). Define the charts $V_{1}, V_{2} \subset M$ by:
+  \[
+    V_{1} = \phi\left(B_{r}(\phi(x))\right), \ V_{1} = \phi\left(\phi(U) - \overline{B_{r/2}(\phi(x))}\right)
+    \]
+    And $\phi_{1},\phi_{2}$ by restriction of $\phi$. Denote the atlas $\mathcal{A}'$ by replacing $(U,\phi)$ in $\mathcal{A}$ with the charts $(V_{1},\phi_{1}), (V_{2},\phi_{2})$.\\
+
+    \centerline{\textbf{Fill the rest of this godforsaken problem in.}}
+\end{proof}
+
+
+
+\begin{exercise}
+  Show that $M = \overline{\bb{B}^{n}} \subset \bb{R}^{n}$ is a manifold-with-boundary in a natural way such that $\partial M = \bb{S}^{n-1}$. Show that the induced smooth structure on Int$(M)$ agrees with the usual smooth structure thought as a subset of $\bb{R}^{n}$, and the induced smooth structure on $\partial M$ agrees with the usual one on $\bb{S}^{n-1}$.  
+\end{exercise}
+\begin{proof}
+  We define two charts on $M$. Define $(U,\phi)$ by the open set $\bb{B}^{n} \subset M \subset \bb{R}^{n}$ embedding via the identity map $\phi = id$, which is open in $\bb{R}^{n}$ and thus in the subspace topology on $M$. Define $V_{1}$ by:
+  \[
+    V_{1} := \left\{x \in M \ \Big| \ \frac{1}{2} < |x|\right\} \setminus \left\{(0,...,0,x_{n}) \ \Big| \ \frac{1}{2} < x_{n} \leq 1\right\}
+  \]
+  Let $X = \bb{R}^{n-1} \times [0,1/2)$. Note that $[0,1/2) \iso [0, \infty)$ is a diffeomorphism, so $X \iso \bb{H}^{n}$. Thus, it suffices to define charts going into $X$, as composing with the diffeomorphism to $\bb{H}^{n}$ yields the standard definition of manifoldiwth-boundary. We define $\varphi_{1}: V_{1} \to X$ via:
+  \[
+    \varphi_{1}: \vec{x} \mapsto \left(\frac{x_{1}}{|\vec{x}| - x_{n}},... \ , \frac{x_{n-1} \cdot |x_{n}|}{|\vec{x}| - x_{n}}, 1 - |\vec{x}| \right)
+  \]
+  We may may write $V_{1} = \bigcup_{\frac{1}{2} < r \leq 1} \{\bb{S}^{n-1}_{r} \setminus (0,...,0,r)\}$ where $\bb{S}^{n-1}_{r}$ is the $n-1$-sphere of radius $r$. We have that $\varphi_{1}|_{\bb{S}^{n-1}_{r}\setminus (0,...,r)} = \pi(\frac{\vec{x}}{r}) + (0,...,0,1-r)$ where $\pi$ is ordinary stereographic projection. Thus, this map is well-defined (as it is well-defined on each set in the union) bijective onto $X$ (as $\varphi_{1}|_{\bb{S}^{n-1}_{r}\setminus (0,...,r) }: \bb{S}^{n-1}_{r}\setminus (0,...,r) \to \bb{R}^{n-1} \times \{1-r\}$ is bijective) and the transition function $\varphi_{1}|_{\bb{B}^{n} \cap V_{1}} \circ id : \{1/2 < |x| < 1\}$ is smooth as it the composition of functions that are smooth in each coordinate. We have that the inverse of $\varphi_{1}$ is given by:
+  \[
+    \varphi_{1}^{-1}: (u_{1},...,u_{n-1}) \times r \mapsto \frac{1}{1-r}\cdot\frac{1}{|u|^{2}+1} \cdot(2u_{1},....,2u_{n-1}, |u|^{2}-1)
+  \]
+  And $id \circ \varphi_{1}^{-1}|_{\bb{R}^{n-1}\times(0,\frac{1}{2})}$ is a smooth map, being the composition of smooth functions in each coordinate. Thus, $(U, id), (V_{1}, \varphi_{1})$ are compatible charts. Analagously to $V_{1}$ we may define $(V_{2}, \varphi_{2})$. Let $\chi_{n}$ be the reflection of $\bb{R}^{n}$ in the $n$th coordinate. Let $V_{2} = \chi_{n}(V_{1})$ and $\varphi_{2} = \varphi_{1} \circ \chi_{n}$. By the same logic as above, $V_{2}$ and $U$ are compatible, and $V_{1}$ and $V_{2}$ are compatible as $\varphi_{2} \circ \varphi_{1}^{-1} = \varphi_{2} \circ id \circ id \circ \varphi_{1}^{-1}$ which is smooth, as it is the composition of smooth functions, and the same logic applies symmetrically. Thus, $(U, id), (V_{1}, \varphi_{1}), (V_{2}, \varphi_{2})$ are compatible and covers $M$, and thus defines a smooth structure on $M$. \\
+
+  We have that the induced smooth structure on Int$(M)$ is given by $(U, id)$, which is by definition the induced smooth structure on $\bb{B}^{n}$ from $\bb{R}^{n}$. Furthermore, the image of all points in $\bb{R}^{n-1}\times \{0\}$ is all points in $\bb{S}^{n-1}_{1} = \bb{S}^{n-1}$, yielding the first claim. Finally, the induced smooth structure on $\partial M$ is given by $(V_{1}\cap \bb{S}^{n-1}, \varphi_{1}|_{\bb{S}^{n-1}}), (V_{2}\cap \bb{S}^{n-1}, \varphi_{2}|_{\bb{S}^{n-1}})$, which agrees with the structure on $\bb{S}^{n-1}$ from problem 1. 
+\end{proof}
+\begin{exercise}
+  Let $P: \bb{R}^{n+1}\setminus \{0\} \to \bb{R}^{k+1}\setminus \{0\}$ be a smooth function and $\exists \ d \in \bb{Z}$  such that $\forall \lambda \in \bb{R}, \ x \in \bb{R}^{n+1}$ w.h.t. $P(\lambda x) = \lambda^{d}P(x)$. Show that $P$ induces a smooth map $\widetilde{P}: \bb{RP}^{n} \to \bb{RP}^{k}$.
+\end{exercise}
+\begin{proof}
+  Consider the following diagram:
+  \[
+    \begin{tikzcd}
+\mathbb{R}^{n+1}\setminus \{0\} \arrow[r, "P"] \arrow[d, "\pi_1"'] \arrow[rd, "\pi_2 \circ P" description] & \mathbb{R}^{k+1}\setminus \{0\} \arrow[d, "\pi_2"] \\
+\mathbb{RP}^{n} \arrow[r, "\widetilde{P}"', dotted]                                         & \mathbb{RP}^{k}                    
+\end{tikzcd}
+\]
+Where $\pi_{1}, \pi_{2}$ are the canonical quotient maps from Euclidean space to projective space. Note that we have that for any $\lambda \in \bb{R} \setminus \{0\}$, $\pi_{2} \circ P(\lambda x) = \pi_{2}(\lambda^{d}P(x)) = \pi_{2}(P(x))$. In particular, we have that $\pi_{2} \circ P$ factors through the quotient $\bb{R}^{n+1}\setminus \{0\}/\langle x \sim \lambda x, \ \forall \lambda \in \bb{R}\setminus \{0\}\rangle$, in particular it factors through the quotient map $\pi_{1}: \bb{R}^{n+1} \to \bb{RP}^{n}$. The induced map $\widetilde{P}$ is given by $\widetilde{P}([x]) = [P(x)]$ (by definition, as $\pi_{2}\circ P = \widetilde{P} \circ \pi_{1}$). It is well-defined by the rationale above. 
+
+Now to show smoothness. Let $x  \in \bb{R}^{n+1}\setminus \{0\}$. Let $j$ such that $x_{j} \neq 0$ and $i$ arbitrary such that $P_{i}(x) \neq 0$ the $i$th coordinate of $P(x)$. Consider $[x] = [\frac{x_{0}}{x_{j}}:...:1:...:\frac{x_{n}}{x_{j}}] \in \bb{RP}^{n}$. We have that $\widetilde{P}([x]) = [\frac{P_{0}(\overline{x})}{P_{i}(\overline{x})}:...:\frac{P_{k}(\overline{x})}{P_{i}(\overline{x})}] \in \bb{RP}^{k}$ for $\overline{x} = (\frac{x_{0}}{x_{j}},...,1,...,\frac{x_{n}}{x_{j}}) \in \bb{R}^{n}\setminus \{0\}$. We may select $r > 0$ such that for the open cube of side $r$ with $x$ as the center (i.e. the midpoint of every interval) given by $C_{r}(\overline{x}) \subset \bb{R}^{n+1} \setminus \{0\}$ we have that $\forall y \in C_{r}(\overline{x}), \ y_{j} \neq 0$ for some $j$ and $P_{i}(y)$ is nonzero. Now under the standard smooth structure on $\bb{RP}^{n}$, we have that the set of lines such that $\{x_{j} \neq 0\}$ is an open chart homeomorphic to $\bb{R}^{n}$ via the structure map $\phi_{j}: (x_{1},...,x_{n}) \mapsto [x_{1}:...:1:....:x_{n}]$ with $1$ in the $x_{j}$ place. Consider the open cube of side $r$ centered on $\widetilde{x} = (\frac{x_{0}}{x_{j}},...,\hat{\frac{x_{j}}{x_{j}}},...,\frac{x_{n}}{x_{j}}) \in \bb{R}^{n}\setminus \{0\}$ (i.e. $x_{j}$ coordinate omitted). We have that for any $y \in C_{r}(\widetilde{x})$ that $\widetilde{P}(\phi_{j}(y))$ has nonvanishing $i$th coordinate by the fact that $\phi_{j}^{-1}(\widetilde{x}) = [x]$. Let $\phi'_{i}:\bb{R}^{k} \to \{x_{i} \neq 0\} \subset \bb{RP}^{k}$ be the structure map associated to that chart. Then $(\phi'_{i}^{-1} \circ \widetilde{P} \circ \phi_{j})(y)$ for $y \in C_{r}(\widetilde{x}) \subset \bb{R}^{n} \setminus \{0\}$ is given by:
+\[
+ (y_{0},...,y_{n}) \mapsto \left(\frac{P_{0}(y_{0},...,1,...,y_{n})}{P_{i}(y_{0},...,1,...,y_{n})},...,\frac{P_{n}(y_{0},...,1,...,y_{n})}{P_{i}(y_{0},...,1,...,y_{n})} \right) \text{ with the entry corresponding to $P_{i}$ omitted}.
+\]
+This is a smooth map from $C_{r}(\widetilde{x}) \to \bb{R}^{n} \setminus \{0\}$, yielding that $\phi'_{i}^{-1} \circ \widetilde{P} \circ \phi_{j}$ is smooth at $[x]$ for any arbitrary point $x \in \bb{R}^{n+1} \setminus \{0\}$ and $j$ such that $x_{j} \neq 0$ and $i$ arbitrary such that $P_{i}(x) \neq 0$. However the set of $j$ such that $x_{j} \neq 0$ and the set of $i$ such that $P_{i}(x) \neq 0$ is precisely the collection of $i,j$ such that $x$ is in the image of the chart $\phi_{j}$ and $P_{i}(x)$ is in the image of $\phi_{i}'$. In particular, we have shown that $\phi'_{i}^{-1} \circ \widetilde{P} \circ \phi_{j}$ is smooth at $[x]$ for all $j$ such that $[x] \in Im(\phi_{j})$, $\widetilde{P}([x]) \in Im(\phi_{i}')$, which is precisely the definition for $\widetilde{P}$ being smooth at $[x]$. This yields the claim. 
+\end{proof}
+\end{document}

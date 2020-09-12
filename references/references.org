@@ -1,0 +1,28 @@
+
+** TODO 1994 - Introduction {{To Commutative Algebra}}
+ :PROPERTIES:
+  :Custom_ID: atiyahIntroductionCommutativeAlgebra1994
+  :AUTHOR: Atiyah
+  :JOURNAL: 
+  :YEAR: 1994
+  :VOLUME: 
+  :PAGES: 
+  :DOI: 
+  :URL: 
+ :END:
+
+cite:atiyahIntroductionCommutativeAlgebra1994
+
+** TODO 2014 - Categorical Homotopy Theory
+ :PROPERTIES:
+  :Custom_ID: riehlCategoricalHomotopyTheory2014
+  :AUTHOR: Riehl
+  :JOURNAL: 
+  :YEAR: 2014
+  :VOLUME: 
+  :PAGES: 
+  :DOI: 
+  :URL: 
+ :END:
+
+cite:riehlCategoricalHomotopyTheory2014

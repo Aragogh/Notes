@@ -1,0 +1,198 @@
+#+TITLE: Notes on: Lurie, J. (): Spectral algebraic geometry (version: February 2018)
+* lurieSpectralAlgebraicGeometry
+:PROPERTIES:
+:NOTER_DOCUMENT: /storage/Zotero/storage/Q897D2S5/SAG-rootfile.pdf
+:END:
+** Skeleton
+*** Introduction
+:PROPERTIES:
+:NOTER_PAGE: (5 . 0.153731)
+:END:
+*** I Fundamentals of Spectral Algebraic Geometry
+:PROPERTIES:
+:NOTER_PAGE: (63 . 0.35576)
+:END:
+**** Schemes and Deligne-Mumford Stacks
+:PROPERTIES:
+:NOTER_PAGE: (66 . 0.153731)
+:END:
+**** Quasi-Coherent Sheaves
+:PROPERTIES:
+:NOTER_PAGE: (186 . 0.153731)
+:END:
+**** Spectral Algebraic Spaces
+:PROPERTIES:
+:NOTER_PAGE: (287 . 0.153731)
+:END:
+*** II Proper Morphisms
+:PROPERTIES:
+:NOTER_PAGE: (354 . 0.369597)
+:END:
+**** Morphisms of Finite Presentation
+:PROPERTIES:
+:NOTER_PAGE: (358 . 0.153731)
+:END:
+**** Proper Morphisms in Spectral Algebraic Geometry
+:PROPERTIES:
+:NOTER_PAGE: (410 . 0.153731)
+:END:
+**** Grothendieck Duality
+:PROPERTIES:
+:NOTER_PAGE: (466 . 0.153731)
+:END:
+**** Nilpotent, Local, and Complete Modules
+:PROPERTIES:
+:NOTER_PAGE: (558 . 0.153731)
+:END:
+**** Formal Spectral Algebraic Geometry
+:PROPERTIES:
+:NOTER_PAGE: (615 . 0.153731)
+:END:
+*** III Tannaka Reconstruction and Quasi-Coherent Stacks
+:PROPERTIES:
+:NOTER_PAGE: (719 . 0.35576)
+:END:
+**** Tannaka Duality
+:PROPERTIES:
+:NOTER_PAGE: (723 . 0.153731)
+:END:
+**** Quasi-Coherent Stacks
+:PROPERTIES:
+:NOTER_PAGE: (842 . 0.153731)
+:END:
+**** Smooth and Proper Linear -Categories
+:PROPERTIES:
+:NOTER_PAGE: (955 . 0.153731)
+:END:
+*** IV Formal Moduli Problems
+:PROPERTIES:
+:NOTER_PAGE: (1052 . 0.371625)
+:END:
+**** Deformation Theories: Axiomatic Approach
+:PROPERTIES:
+:NOTER_PAGE: (1061 . 0.153731)
+:END:
+**** Moduli Problems for Commutative Algebras
+:PROPERTIES:
+:NOTER_PAGE: (1095 . 0.153731)
+:END:
+**** Moduli Problems for Associative Algebras
+:PROPERTIES:
+:NOTER_PAGE: (1135 . 0.153731)
+:END:
+**** Moduli Problems for En-Algebras
+:PROPERTIES:
+:NOTER_PAGE: (1185 . 0.153731)
+:END:
+**** Examples of Formal Moduli Problems
+:PROPERTIES:
+:NOTER_PAGE: (1219 . 0.153731)
+:END:
+*** V Representability Theorems
+:PROPERTIES:
+:NOTER_PAGE: (1289 . 0.369597)
+:END:
+**** Deformation Theory and the Cotangent Complex
+:PROPERTIES:
+:NOTER_PAGE: (1294 . 0.153731)
+:END:
+**** Artin's Representability Theorem
+:PROPERTIES:
+:NOTER_PAGE: (1385 . 0.153731)
+:END:
+**** Applications of Artin Representability
+:PROPERTIES:
+:NOTER_PAGE: (1433 . 0.153731)
+:END:
+*** VI Structured Spaces
+:PROPERTIES:
+:NOTER_PAGE: (1497 . 0.369597)
+:END:
+**** Fractured -Topoi
+:PROPERTIES:
+:NOTER_PAGE: (1498 . 0.153731)
+:END:
+**** Structure Sheaves
+:PROPERTIES:
+:NOTER_PAGE: (1577 . 0.153731)
+:END:
+**** Scheme Theory
+:PROPERTIES:
+:NOTER_PAGE: (1677 . 0.153731)
+:END:
+*** VII Variants of Spectral Algebraic Geometry
+:PROPERTIES:
+:NOTER_PAGE: (1678 . 0.35576)
+:END:
+**** Derived Differential Topology
+:PROPERTIES:
+:NOTER_PAGE: (1679 . 0.153731)
+:END:
+**** Derived Complex Analytic Geometry
+:PROPERTIES:
+:NOTER_PAGE: (1680 . 0.153731)
+:END:
+**** Derived Algebraic Geometry
+:PROPERTIES:
+:NOTER_PAGE: (1681 . 0.153731)
+:END:
+*** VIII Higher Algebraic Stacks
+:PROPERTIES:
+:NOTER_PAGE: (1724 . 0.369597)
+:END:
+**** Algebraic Stacks in Derived Algebraic Geometry
+:PROPERTIES:
+:NOTER_PAGE: (1725 . 0.153731)
+:END:
+**** Artin Representability
+:PROPERTIES:
+:NOTER_PAGE: (1726 . 0.153731)
+:END:
+**** Coaffine Stacks
+:PROPERTIES:
+:NOTER_PAGE: (1727 . 0.153731)
+:END:
+**** Generalized Algebraic Gerbes
+:PROPERTIES:
+:NOTER_PAGE: (1728 . 0.153731)
+:END:
+*** IX Rational and p-adic Homotopy Theory
+:PROPERTIES:
+:NOTER_PAGE: (1729 . 0.35576)
+:END:
+**** Rational Homotopy Theory
+:PROPERTIES:
+:NOTER_PAGE: (1730 . 0.153731)
+:END:
+**** p-adic Homotopy Theory
+:PROPERTIES:
+:NOTER_PAGE: (1731 . 0.153731)
+:END:
+**** Unstable Riemann-Hilbert Correspondence
+:PROPERTIES:
+:NOTER_PAGE: (1732 . 0.153731)
+:END:
+*** X Appendix
+:PROPERTIES:
+:NOTER_PAGE: (1733 . 0.369597)
+:END:
+**** Coherent -Topoi
+:PROPERTIES:
+:NOTER_PAGE: (1734 . 0.153731)
+:END:
+**** Grothendieck Topologies in Commutative Algebra
+:PROPERTIES:
+:NOTER_PAGE: (1863 . 0.153731)
+:END:
+**** Prestable -Categories
+:PROPERTIES:
+:NOTER_PAGE: (1940 . 0.153731)
+:END:
+**** Descent for Modules and Linear -Categories
+:PROPERTIES:
+:NOTER_PAGE: (2096 . 0.153731)
+:END:
+**** Profinite Homotopy Theory
+:PROPERTIES:
+:NOTER_PAGE: (2202 . 0.153731)
+:END:

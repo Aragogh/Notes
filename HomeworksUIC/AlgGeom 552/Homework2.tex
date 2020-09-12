@@ -1,0 +1,246 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{nameref}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+
+\usetikzlibrary{automata,positioning}
+
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\chead{\hmwkTitle}
+\lhead{\hmwkAuthorName}
+\rhead{\hmwkClass}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\newcommand{\sur}[1]{\ensuremath{^{\textrm{#1}}}}
+\newcommand{\sous}[1]{\ensuremath{_{\textrm{#1}}}}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Tor}{\text{Tor}}
+\newcommand{\Ext}{\text{Ext}}
+\newcommand{\bb}[1]{\mathbb{#1}}
+\newcommand{\fk}[1]{\mathfrak{#1}}
+\newcommand{\iso}{\cong}
+
+\setlength\parindent{0pt}
+
+%c
+% Create Problem Sections
+%
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Homework 2}
+\newcommand{\hmwkDueDate}{Sep 9th, 2020}
+\newcommand{\hmwkClass}{Math 552}
+\newcommand{\hmwkClassInstructor}{Professor Kevin Tucker}
+\newcommand{\hmwkAuthorName}{\textbf{Anish Chedalavada}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}
+    \textmd{\hmwkDueDate} \\
+    \vspace{0.2in}\large{\textit{\hmwkClassInstructor\  }}
+    \vspace{2in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\begin{exercise}
+  Prove the following: \\
+  a) (Cayley-Hamilton Trick) Suppose that $M$ is a finitely generated module over a commutative ring $R$. If $\phi$ is any endomorphism, then $\phi$ satisfies a monic relation. \\
+  b) (Zariski's Lemma) if $R \subseteq S$ is a finite extension of domains, then $R$ is a field iff $S$ is a field.
+\end{exercise}
+\begin{proof}
+  a) Suppose $M$ is finitely generated over $R$. In particular, we have an epimorphism from the free module $\pi: R^{m} \twoheadrightarrow M$ given by selection of the generators of $M$. Given an endomorphism $\phi: M \to M$, consider the following diagram:\\
+\[  
+\begin{tikzcd}
+                                                                        &                     & R^m \arrow[d, "\pi", two heads] \arrow[r, "\widetilde{\phi}", dotted] & ... \arrow[r, "\widetilde{\phi}", dotted] & R^m \arrow[d, "\pi", two heads] \\
+R^m \arrow[r, "\pi", two heads] \arrow[rru, "\widetilde{\phi}", dotted] & M \arrow[r, "\phi"] & M \arrow[r, "\phi"]                                                   & ... \arrow[r, "\phi"]                     & M                              
+\end{tikzcd}
+\]
+
+We have the lift $\widetilde{\phi}$ via the universal property of projective modules ($\pi$ is surjective), and as this is a free module homomorphism we may represent it by an $m \times m$ matrix $A$. By the Cayley-Hamilton theorem, we have that $p(x) = det(xI - A)$ for $I$ the identity matrix is a vanishing polynomial for $\widetilde{\phi}$. In particular, this is a monic polynomial in $R$. Note that by the diagram above, $\pi \circ \widetilde\phi = \phi \circ \pi$, and iterating $\widetilde\phi$ as in the diagram above yields $\pi \circ \widetilde\phi^{n} = \phi^{n} \circ \pi$. Thus, we have that $p(\phi) \circ \pi = \pi \circ p(\widetilde\phi) = 0$ by the logic above, and as $\pi$ is a surjective we have that $p(\phi) \circ \pi = 0 \implies p(\phi) = 0$, yielding the claim. \\
+
+b) Assume $R$ is a field. Given an arbitrary nonzero element $s \in S$, we have that $s$ satisfies some minimal monic polynomial $p$ over $R$ by finiteness, and thus we have a morphism $R[x]/(p) \hookrightarrow S$ given by $x \mapsto s$ (inclusion as $p$ assumed minimal, i.e. that $(p)$ is the kernel). However, as $S$ is assumed to be a domain we have that $(p)$ must be a prime ideal and thus maximal as $R[x]$ is a PID ($R$ assumed to be a field). Thus, $R[s] \subset S$ is a field, implying that $s$ has a multiplicative inverse in $S$. As $s \in S$ was arbitrary nonzero, this is true of all $s \in S \setminus \{0\}$ and thus $S$ is a field. \\
+Assume now that $S$ is a field. Suppose $R$ is not a field, i.e. that there exists some proper maximal ideal $(0) \neq \fk{m} \subset R$. Then for any $0 \neq m \in \fk{m}$, we have that $m^{-1} \in S$ satisfies a monic relation in $R$ (by finiteness) given by:
+\[
+  m^{-n} + a_{n-1}m^{-(n-1)} + ....+ a_{0} = 0
+\]
+Multiplying the entire above equation by $m^{n}$ yields:
+\[
+  1 + a_{n-1}m + ... + a_{0}m^{n} = 0 \implies 1 = a_{n-1}m + ... + a_{0}m^{n} \implies 1 \in \fk{m}
+\]
+
+Yielding a contradiction, as $\fk{m}$ assumed to be a proper maximal ideal. Thus, we cannot select $0 \neq m \in \fk{m}$, implying that $\fk{m}$ must be zero and thus the only maximal ideal in $R$ is $(0)$, implying that $R$ is a field.
+\end{proof}
+
+\begin{exercise}
+  Let $k = \overline{k}$ be a field of characteristic not 2. Let $V_{c}$ be the intersection of the circle $x^{2}+y^{2} = 1$ in $\bb{A}^{2}$ with the line $x=c$, for $c \in k$. \\
+  a) Find $I(V_{c})$. \\
+  b) Consider the projection $\bb{A}^{2} \to \bb{A}^{1}$ sending $(x,y) \mapsto x$, restricted to circle $x^{2} + y^{2} =1$. Draw a picture to describe this map, and interpret the variety $V_{c}$ geometrically in terms of this map. \\
+  c) What happens in characteristic 2?
+\end{exercise}
+\begin{proof}
+  a) In a field of characteristic $2$, we have that $\sqrt{(x^{2}+y^{2}-1)} = (x^{2}+y^{2}-1)$, as there does not exist $p \in k[x,y]$ such that $p^{n} | x^{2}+y^{2}-1$ for $n \neq 1$ (required in a UFD). Thus, $I(x^{2}+y^{2} = 1) = (x^{2}+y^{2}-1)$ by the Nullstellensatz. Thus, we have that $I(\{x^{2}+y^{2} = 1\} \cap \{x=c\}) = (x^{2}+y^{2} -1, x-c) = (y^{2}+(c^{2}-1), x-c)$. For $c \neq \pm 1$, we have that $y^{2} = c^{2}-1$ has two solutions $a_{1}, a_{2}$ for $y$ in $k[y]$, and we have two irreducible components of $\{x^{2}+y^{2} = 1\} \cap \{x=c\}$ corresponding to the points $(c, a_{1}), \ (c,a_{2})$ for the prime ideals $(y-a_{1}, x-c), \ (y-a_{2}, x-c)$ which contain and intersect in our ideal. For $c = \pm 1$ we have that $c^{2} - 1 = 0$ and $y^{2} = c^{2} - 1$ has only one solution with multiplicity at $0$; i.e. that $\{x^{2}+y^{2} = 1\} \cap \{x=c\} = (\pm 1, 0)$ corresponding to $\sqrt{(y^{2}, x-c)} = (y, x-c)$. \\
+  
+  b) Consider the following diagram:
+
+    \begin{center}
+
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
+
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+%uncomment if require: \path (0,300); %set diagram left start at 0, and has height of 300
+
+%Shape: Axis 2D [id:dp22133796006929618] 
+\draw  (50,163) -- (575.5,163)(311.5,12) -- (311.5,295) (568.5,158) -- (575.5,163) -- (568.5,168) (306.5,19) -- (311.5,12) -- (316.5,19)  ;
+%Shape: Circle [id:dp49991287310435073] 
+\draw   (254,163) .. controls (254,131.24) and (279.74,105.5) .. (311.5,105.5) .. controls (343.26,105.5) and (369,131.24) .. (369,163) .. controls (369,194.76) and (343.26,220.5) .. (311.5,220.5) .. controls (279.74,220.5) and (254,194.76) .. (254,163) -- cycle ;
+%Curve Lines [id:da2511415979135525] 
+\draw    (70.5,76) .. controls (178.5,76) and (257.5,112) .. (254,163) ;
+%Curve Lines [id:da2902835516520641] 
+\draw    (57.5,240) .. controls (165.5,240) and (253.5,220) .. (254,163) ;
+%Curve Lines [id:da5335746431920938] 
+\draw    (571.5,65) .. controls (468.5,73) and (366.5,106) .. (369,163) ;
+%Curve Lines [id:da15086780431121083] 
+\draw    (566.5,248) .. controls (496.5,241) and (368.5,220) .. (369,163) ;
+%Straight Lines [id:da9366872715796133] 
+\draw    (369.5,10) -- (368.7,239) -- (368.5,295) ;
+%Straight Lines [id:da14992796044749146] 
+\draw    (254.5,8) -- (253.7,237) -- (253.5,293) ;
+
+% Text Node
+\draw (187,15.4) node [anchor=north west][inner sep=0.75pt]    {$x\ =\ -1$};
+% Text Node
+\draw (378,14.4) node [anchor=north west][inner sep=0.75pt]    {$x\ =\ 1$};
+
+
+\end{tikzpicture}
+
+\end{center}
+
+Above is the graph of our algebraic set $x^{2}+y^{2} = 1$, and at $x =1, -1$ we have that there is only one solution with a double point singularity, i.e. only one point in the fiber over $x = 0, y = 0$ under the projection. \\
+
+c) If the characteristic of $k$ is 2, then the ideal $I(V_{c})$ contains $(x^{2}+y^{2} + 1, x + c) = (y^{2} + c^{2}+1, x+c) = ((y+c+1)^{2}, x + c)$, the radical of which is $(y+c+1, x + c)$, corresponding to the single irreducible component $(c, c + 1)$.  Thus, each point in the $x$-axis has only one point in its fiber under the projection map from the curve.
+\end{proof}
+\begin{exercise}
+Consider the map $\bb{A}^{1} \to \bb{A}^{3}$ given by $t \mapsto (t,t^{2},t^{3})$. Show that the image of this map is an affine algebraic set that can be defined by two equations in $k[x,y,z]$.  
+\end{exercise}
+\begin{proof}
+  Consider the equations $x^{2} - y, \ x^{3} - z \in k[x,y,z]$. We have that the vanishing set of these equations is all points $(a,b,c)$ such that $b = a^{2}, \  c = a^{3}$; i.e. the points $(a,a^{2},a^{3}) \in \bb{A}^{3}$ for $a \in k$. Thus, we have that the image of the map in the question is exactly an algebraic set, the vanishing of which is given by the equations above. 
+\end{proof}
+
+\begin{exercise}
+  Describe the image of the map $f: \bb{A}^{2} \to \bb{A}^{2}$ given by $f: (x,y) \mapsto (x, xy)$. Is it open, closed, and/or dense?
+\end{exercise}
+\begin{proof}
+  The image of $f$ is given by $\bb{A}^{2} \setminus \{(0,y) \ | \ y \neq 0\}$, as for any $(x,y) \in \bb{A}^{2}$ s.t. $x$ is a unit, w.h.t. $f(x,y/x) = (x,y)$. For $x = 0, w.h.t. f(x,y) = (0,0)$. Consider the map $g_{z}: \bb{A}^{1} \to \bb{A}^{2}$ via $g: t \mapsto (t,n)$ (given by the map on coordinate rings given by $k[x,y] \to k[x]$ by $y \mapsto n \in k$); we have that $g_{3}^{-1}(Im(f)) = \bb{A}^{2} \setminus \{0\}$ which is open in the Zariski topology, being the complement of the set $\{t = 0\}$, thus  $Im(f)$ is not a closed set. We also have the map $h:\bb{A}^{1} \to \bb{A}^{2}$ by $h: t \mapsto (0,t)$, and $h^{-1}(Im(f)) = \{0\}$, which is closed in the Zariski topology; thus, $Im(f)$ is neither open nor closed in the Zariski topology. Finally, we have that for $g: X \to Y$ a continuous map and $A \subset X$, $\overline{g^{-1}(A)} \subseteq g^{-1}(\overline{A})$. Thus for any $n \neq 0$ in $k$, w.h.t. $\overline{g_{n}^{-1}(A)} \subseteq g_{n}^{-1}(\overline{Im(f)})$, and for $n = 0$ w.h.t. $g^{-1}(Im(f)) = \bb{A}^{2} \setminus \{0\}$, and thus $\overline{g^{-1}(\bb{A}^{2})} = \bb{A}^{2} \subset g^{-1}(\overline{Im(f)})$, implying $\forall \ t \in k, \ (0,t) \in \overline{Im(f)}$, and thus $Im(f) = \bb{A}^{2}$, so the set is dense. 
+\end{proof}
+\newpage
+\begin{exercise}
+  For the morphisms in 2 b), 3, and 4, describe the induced map of coordinate rings.
+\end{exercise}
+\begin{proof}
+  The morphism in 2 b) is the projection of the curve $C = x^{2}+y^{2}=1$ onto the $x$-axis. We have that the coordinate ring of this curve is given by $k[x,y]/(x^{2}+y^{2}=1)$. We have that the projection factors as $C \hookrightarrow \bb{A}^{2} \twoheadrightarrow \bb{A}^{1}$, inducing a map on coordinate rings by $k[x] \hookrightarrow k[x,y] \twoheadrightarrow k[x,y]?(x^{2}+y^{2} = 1)$. Thus, the map of coordinate rings is given by $k[x] \to k[x,y]/(x^{2}+y^{2} = 1)$ via $x \mapsto [x]$. \\
+
+  For the morphism in 3, we have that the coordinate ring of the image of $\bb{A}^{1}$ is given by $k[x,y,z]/(x^{2}-y, x^{3}-z) \iso k[x]$. We have that the functions $y,z$ pull back to the functions $x^{2}, x^{3}$ via this map, and so the map on coordinate rings is explicitly given by the quotient map $k[x,y,z] \to k[x,y,z]/(x - y^{2}, x - z^{3}) \iso k[x] = k[\bb{A}^{1}]$.\\
+
+  For the morphism in 4, we have that the function $x$ pulls back along the first coordinate to the function $x$, and the function $y$ pulls back along $(x,xy)$ to be the function $xy$. This is clear as $y(a,b) = b$, and so for $f$ the map of $4$, $y(f(x,y)) = y(x,xy) = xy$. Thus, the induced map on coordinate rings is given by $k[x,y] \to k[x,y]$ via $x \mapsto x, \ y\mapsto xy$.
+\end{proof}
+\begin{exercise}
+  Assume $k = \overline{k}$. \\
+  a) What is the coordinate ring of a point? What is the $k$-algebra homomorphism corresponding to the inclusion of a point into another affine set? \\
+  b) When is the coordinate ring of an affine algebraic set a finite-dimensional $k$-vector space, and what is the geometric interpretation of the same?
+\end{exercise}
+\begin{proof}
+  a) Given a point $(a_{1},...,a_{n}) \in \bb{A}^{n}$, we have that $(x_{1}-a_{1},...,x_{n}-a_{n}) \subset I((a_{1},...,a_{n})) \subset k[x_{1},...,x_{n}]$, and as $k$ is algebraically closed we have by the Nullstellensatz that $(x_{1}-a,...,x_{n}-a_{n})$ is maximal: thus, $k[x_{1},...,x_{n}]/I((x_{1}-a_{1},...,x_{n}-a_{n})) \iso k$ is the coordinate ring of a point. The $k$-algebra homomorphism corresponding to the inclusion of the point into $\bb{A}^{n}$ is given by the quotient homomorphism $k[x_{1},...,x_{n}] \to k$ via the quotient map. \\
+
+  b) If the coordinate ring $R$ of an affine algebraic set $X$ is a finite dimensional $k$-vector space then $R$ is Artinian. In particular, $R$ has finitely many prime ideals $\fk{m}_{1},...,\fk{m}_{n}$ and all the primes are maximal. Thus, $\sqrt{I(X)} \subset k[x_{1},...,x_{n}]$ is the intersection of finitely many maximal ideals $\fk{m}_{i}$ (which are the primes containing $I(X)$), and by the Nullstellensatz we have that $X = V(\sqrt{I(X)}) = V(\bigcap_{i=1}^{n} \fk{m}_{i}) = \bigcup_{i=1}^{n}V(\fk{m}_{i})$. By the Nullstellensatz again we have that all maximal ideals are of the form $(x_{1}-a_{1},...,x_{n}-a_{n})$ corresponding to points $(a_{1},...,a_{n}) \in \bb{A}^{n}$. Thus, $X$ is the union of finitely many points in $\bb{A}^{n}$. Furthermore, $\sqrt{I(X)} = I(X)$, \emph{again} by the Nullstellensatz, and so $I(X) = \bigcap_{i=1}^{n}\fk{m}_{i}$ and so $k[x_{1},...,x_{n}]/\bigcap_{i=1}^{n}\fk{m}_{i} = \prod_{i=1}^{n}k[x_{1},...,x_{n}]/\fk{m}_{i} = \prod_{i=1}^{n}k$; thus, the dimension of the coordinate ring is the same as the number of maximal ideals, which is the same as the number of points in $X$. 
+\end{proof}
+
+\begin{exercise}
+  Show that any nonempty open subset of an irreducible topological space is dense and irreducible, and that the closure of an subset irreducible in the subspace topology is also irreducible.
+\end{exercise}
+\begin{proof}
+  Given any two distinct proper open sets $U_{1}, U_{2} \subset X$ for $X$ an irreducible topological space, we have that $X \setminus (U_{1} \cup U_{2}) = (X \setminus U_{1}) \cup (X \setminus U_{2}) \neq X$ by irreducibility ($X$ not the union of two closed subsets), we thus have that $U_{1} \cup U_{2} \neq \emptyset$ and so any open set $U_{1}$ is dense in $X$. Now suppose there exist two distinct closed sets $V_{1}, V_{2} \subset U_{1}$ in the subspace topology s.t. $V_{1} \cup V_{2} = U_{1}$. Then there exist $\widetilde{V_{1}}, \widetilde{V_{2}} \subset X$ closed subsets such that $\widetilde{V}_{i}\cup U_{1} = V_{1}$, and $\widetilde{V_{1}} \cup \widetilde{V_{2}} \cup (X \setminus U_{1}) = X$, all of which are distinct, which would contradict the irreducibility of $X$. Thus, $U_{1}$ could not have been reducible. \\
+
+  Now suppose $Y \subset X$ is irreducible in the subspace topology. Suppose $\overline{Y}$ is reducible, i.e. that there exist closed sets $W_{1}, W_{2} \subset X$ distinct such that $(W_{1} \cup W_{2}) \cap \overline{Y} = \overline{Y}$, then either $Y \subset W_{1}$ or $Y \subset W_{2}$ by the irreducibility of $Y$, implying that either $\overline{Y} \subset W_{1}$ or $\overline{Y} \subset W_{2}$ and thus $\overline{Y}$ is irreducible (cannot be the union of two proper closed subsets in the subspace topology.
+\end{proof}
+\begin{exercise}
+  Let $k$ be an arbitrary field. \\
+  a) If $V$ and $W$ are affine algebraic sets over $k$, show that $k[V \times W] =  k[V] \otimes_{k} k[W]$.\\
+  b) Suppose that $V$ and $W$ are disjoint algebraic sets in $\bb{A}^{n}$. Show that $k[V \cup W] = k[V] \times k[W]$.
+\end{exercise}
+\begin{proof}
+  a) Given two affine algebraic sets $V \subset \bb{A}^{n}$, $W \subset \bb{A}^{m}$, in order to know $k[V \times W] \subset k[x_{1},...,x_{n},y_{1},...,y_{m}]$ (which we'll abbreviate $k[\bb{A}^{n}\times \bb{A}^{m}]$) it suffices to understand the structure as a $k[x_{1},...,x_{m},y_{1},...,y_{m}]$-module, which is the same as a $k[\bb{A}^{n}]\otimes_{k} k[\bb{A}^{m}]$ module. Now note that we can represent $V \times W \subset \bb{A}^{n} \times \bb{A}^{m}$ as the intersection $V \times \bb{A}^{n} \cap \bb{A}^{m} \times W$. Thus, $I(V \times W)$ is given by ideal generated by $(p_{1}\otimes 1,...,p_{n}\otimes 1, 1 \otimes q_{1},...,1\otimes q_{m}) \subset k[\bb{A}^{n} \times \bb{A}^{m}]$ for $p_{1},...,p_{n}$ generating $I(V) \subset k[\bb{A}^{n}]$ and $q_{1},...,q_{m}$ generating $I(V) \subset k[\bb{A}^{m}]$. We have that that $(p_{1}\otimes 1,...,p_{n} \otimes 1)$ as a $k[\bb{A}^{n}\times \bb{A}^{m}]$ module is given by $I(V) \otimes_{k[\bb{A}^{n}]} k[\bb{A}^{n}] \otimes_{k} k[\bb{A}^{m}]$. We have that $k[\bb{A}^{n}]\otimes_{k} k[\bb{A}^{m}]$ is a free left $k[A^{n}]$ module and is thus flat, so from the following $k[\bb{A}^{n}]$ resolution,
+  \[
+    \begin{tikzcd}
+0 \arrow[r] & I(V) \arrow[r] & {k[\bb{A}^{n}]} \arrow[r] & {k[V]} \arrow[r, "\pi_{V}"] & 0
+\end{tikzcd}
+    \]
+
+  using the functor $- \otimes_{k[A^{n}]} k[\bb{A}^{n}] \otimes_{k} k[\bb{A}^{m}]: k[\bb{A}^{n}]-Mod \to k[\bb{A}^{n}]\otimes_{k}k[\bb{A}^{m}] - Mod$, we have the following diagram:
+  \[
+    \begin{tikzcd}
+{I(V) \otimes_{k[\bb{A}^{n}]} k[\bb{A}^{n}] \otimes_{k} k[\bb{A}^{m}]} \arrow[r, hook] &  {k[\bb{A}^{n}] \otimes_{k} k[\bb{A}^{m}]} \arrow[rr, two heads, "\pi_{V} \otimes id"] & &  {k[V] \otimes_{k} k[\bb{A}^{m}]}
+\end{tikzcd}
+\]
+
+i.e. that $k[\bb{A}^{n}\times \bb{A}^{m}]/(p_{1}\otimes 1,...,p_{n} \otimes 1) \iso k[V] \otimes_{k}k[\bb{A}^{m}]$. Now we have that $k[V \times W] = k[V] \otimes_{k} k[\bb{A}^{m}]/([1 \otimes q_{1}],...,[1\otimes q_{m}])$ for $[1 \otimes q_{i}] = (\pi_{V}\otimes id)(1 \otimes q_{i})$. We have that $([1 \otimes q_{1}],...,[1\otimes q_{m}]) \iso k[V]\otimes_{k}k[\bb{A}^{m}] \otimes_{k[\bb{A}^{m}]}(q_{1},...,q_{m})$, again by the same rationale as above: $k[\bb{A}^{n}] \otimes_{k} k[\bb{A}^{m}] \otimes_{k[\bb{A}^{m}]}(q_{1},...,q_{m})$ is a free left $k[\bb{A}^{n}]$ module indexed over a $k$-basis for $(q_{1},...,q_{m})$, and we have the following diagram of $k[\bb{A}^{n}] \otimes k[\bb{A}^{m}]$ modules:
+\[
+\begin{tikzcd}
+{I(V) \otimes_{k[\bb{A}^{n}]} k[\bb{A}^{n}] \otimes_{k} k[\bb{A}^{m}] \otimes_{k[\bb{A}^{m}]}(q_{1},...,q_{m})} \arrow[d, hook] \arrow[rr, "id \otimes \iota", hook] &  & {I(V) \otimes_{k[\bb{A}^{n}]} k[\bb{A}^{n}] \otimes_{k} k[\bb{A}^{m}]} \arrow[d, hook]                                     \\
+k[\bb{A}^{n}] \otimes_{k} k[\bb{A}^{m}] \otimes_{k[\bb{A}^{m}]}(q_{1},...,q_{m}) \arrow[d, "\pi_{V} \otimes id", two heads] \arrow[rr, "id \otimes \iota", hook]   &  & k[\bb{A}^{n}] \otimes_{k} k[\bb{A}^{m}] \arrow[d, "\pi_{V} \otimes id", two heads] \\
+{k[V] \otimes_{k} k[\bb{A}^{m}] \otimes_{k[\bb{A}^{m}]}(q_{1},...,q_{m})} \arrow[rr, "id \otimes \iota"]                                                       &  & {k[V] \otimes_{k} k[\bb{A}^{m}]}                                                                                          
+\end{tikzcd}
+\]
+
+Where $\iota: k[\bb{A}^{m}] \otimes_{k[\bb{A}^{m}]} (q_{1},...,q_{m}) \hookrightarrow k[\bb{A}^{m}]$ is the inclusion as an ideal; we see the middle map corresponds exactly to the inclusion of $(1 \otimes q_{1},...,1 \otimes q_{m})$ as an ideal. Note that $k[V] \otimes_{k} k[\bb{A}^{m}]$ is a free right $k[\bb{A}^{m}]$ module indexed over a $k$-basis of $k[V]$ and is thus flat, so running the same argument as above with the sequence $0 \to I(W) \to k[\bb{A}^{m}] \to k[W] \to 0$ and the functor $k[V] \otimes_{k} k[\bb{A}^{m}] \otimes_{k[\bb{A}^{m}]} - : k[\bb{A}^{n}]-Mod \to k[\bb{A}^{n}]\otimes_{k}k[\bb{A}^{m}] - Mod$ yields that $k[V \times W] = k[V] \otimes_{k} k[\bb{A}^{m}]/([1 \otimes q_{1}],...,[1\otimes q_{m}]) = k[V] \otimes_{k} k[W]$, proving the claim.  
+  \\
+  
+  b) Assuming $k$ algebraically closed, if $V$ and $W$ are disjoint algebraic sets, we have that $I(V) + I(W) =  I(V \cap W) =  I(\emptyset) = k[x_{1},...,x_{n}]$, and we have that $I(V \cup W) = I(V) \cup I(W)$. We have that by Chinese Remainder Theorem (as $I(V), I(W)$ are comaximal), $k[V \cup W] = k[x_{1},...,x_{n}]/I(V)\cap I(W) = k[x_{1},...,x_{n}]/I(V) \times k[x_{1},...,x_{n}]/I(W) = k[V] \times k[W]$.
+\end{proof}
+\end{document}

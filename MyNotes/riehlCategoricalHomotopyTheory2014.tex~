@@ -1,0 +1,134 @@
+% Created 2020-07-23 Thu 18:00
+% Intended LaTeX compiler: pdflatex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{tikz-cd}
+\usepackage{tikz-cd}
+\date{\today}
+\title{Notes on: Riehl, E. (2014): Categorical Homotopy Theory}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={Notes on: Riehl, E. (2014): Categorical Homotopy Theory},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.3 (Org mode 9.1.1)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{RiehlNotes}
+\label{sec:orge8ff365}
+\subsection{Part I. Derived Functors and Homotopy Colimits}
+\label{sec:orgac79b58}
+\subsubsection{Chapter 1}
+\label{sec:org93d23d1}
+\begin{enumerate}
+\item Left Kan extension formula in locally small case
+\label{sec:org61aedd0}
+In the case where \(\mathcal{E}\) is locally small we can deduce the left Kan extension formula via the following sequence of manipulations 
+
+\[
+\mathcal{E}\left(\int\limits^{c \in \mathcal{C}} \mathcal{D}(Kc,-)\cdot Fc, G(-)\right) = \int\limits_{c \in \mathcal{C}} Set^{\mathcal{D}}(\mathcal{D}(Kc, -), \mathcal{E}(F(c),G(-))) = \int\limits_{c \in \mathcal{C}}\mathcal{E}(Fc,GKc) = \text{Nat}(F,GK)  
+\]
+
+You've got a sort of generalization of realization-nerve here, where if you consider for \(h^{A}: \mathcal{C} \to Set\) the Yoneda embedding and \(F:\mathcal{C} \to \mathcal{D}\) some functor, the expression: 
+
+\[
+\text{Lan}_{h^{A}}F(G) = \int\limits^{c\in \mathcal{C}} Set^{\mathcal{C}}(h^{A}(c),G) \cdot Fc = \int\limits^{c\in\mathcal{C}} Gc \cdot Fc 
+\]
+
+Which you'll notice reduces straight down to the case of realization of some simplicial object in \(\mathcal{E}\) against the cosimplicial object given by \(F\) for \(\mathcal{C} = \Delta\), which is by definition of the Kan extension supposed to be an adjoint to the singular complex.
+\end{enumerate}
+\subsubsection{Chapter 3}
+\label{sec:org90c14cc}
+\begin{enumerate}
+\item Exercise 3.4.13
+\label{sec:org6647d13}
+Confused about why this isn't redundant? I went about this by just considering the obvious natural transform \[\mathcal{D}_{0}(x, -) \to \mathcal{V}(\ast,\underline{\mathcal{D}}(x,-))\]
+
+Given by the identity element \(id: \ast \to \underline{\mathcal{D}}(x,x)\)
+But I keep running into the implicit assumption that all morphisms from \(\ast\) to your hom object are in correspondence with actual arrows, and I don't know where in the assumptions themselves this is supposed to lie. 
+
+Oh this is basically exactly by definition: the morphisms of the underlying category are exactly given by these maps it's all good. How dumb. We have access to all the possible maps so it's good.
+
+\item Exercise 3.7.18
+\label{sec:orga936a8d}
+Just do the simplicial enrichment the same way it works for sSet, except the copower becomes the internal hom: i.e. the tensor is exactly what she says, and the internal hom is \[\mathcal{M}^{\Delta^{op}}(F\cdot\Delta[\cdot], G)\] as an sSet: if you think about it, the map from any tensor with an sSet into another object is just picking out maps indexed over the n-simplices into maps from F tensored with one n-simplex. Just think about it it's not hard. For cosimplicial objects just dualise everything, i.e. double-op.
+\end{enumerate}
+
+\subsubsection{Chapter 4}
+\label{sec:orgb7f3352}
+\begin{enumerate}
+\item Exercise 4.1.8
+\label{sec:org60b6a1b}
+We unpack the functor tensor product to be
+
+\[
+\text{coeq}\left(\coprod_{f:[n] \to [m]} \Delta [n] \times X_{[m]}\right) \xrightarrow[f^{\star}]{f_{\star}} \text{coeq}\left(\coprod_{n} \Delta [n] \times X_{[n]}\right)
+\]
+
+
+We arrive at the following diagram:
+
+\begin{tikzcd}
+\Delta(-,n) \times X^{[m]} \arrow[d, "id \times f^{\ast}"] \arrow[r, "f_{\ast} \times id"] &  \Delta(-,m) \times X^{[m]} \\
+\Delta(-,n) \times X^{[n]}                                                                 &                              
+\end{tikzcd} 
+
+Okay so it turns out this is supposed to be the diagonal? goerssSimplicialHomotopyTheory Exercise 4.1.6 apparently. 
+
+The exercise itself appends \(\gamma: \coprod \Delta[n] \times X_{[n]} \to d(X)\) on r-simplices via:
+
+\[
+\gamma_{n}(\tau:[r] \to [n], \ x) = \tau^{*}(x)
+\]
+
+And asks to show that the whole thing is a coequalizer. Okay so if you write it out pointwise \emph{super} explicitly, you end up pairwise getting:
+
+\[
+\frac{(\Delta[m] \times X_{[m]} \coprod \Delta[n] \times X_{[n]})([n])}{\langle f_{\ast}([m] \xrightarrow{\tau} [n]) \times x \sim [m] \xrightarrow{\tau} [n] \times f^{\ast}(x) \rangle}
+\]
+
+Now notice any time I need to pick out an n-simplex from this huge coend, any n-simplex in some associated \(\Delta[m] \times X_{[m]}\) it is of the form \([m] \xrightarrow{\tau}[n] \times x = \tau_{\ast}([m] \xrightarrow{id} [m])\) and so you can hop the \(\tau\) over to pull back to some simplex of the form \(id \times \text{some guy in }X_{[n]}\). So it's the diagonal, and life makes sense; the morphisms work fairly obviously, just write it out. 
+\item Colimit of two sided bar construction is functor tensor
+\label{sec:org75f2f11}
+Note that in the coequalizer below all n-simplices collapse:
+
+\begin{tikzcd}
+{\coprod_{f:[n]^{op} \to [m]^{op}} \left(\coprod_{\vec{d}: [n] \to \mathcal{D}} Gd_{n} \otimes Fd_{0}\right)} \arrow[rr, "f", shift left] \arrow[rr, "fold"', shift right] &  & {{\coprod_{n} \left(\coprod_{\vec{d}: [n] \to \mathcal{D}} Gd_{n} \otimes Fd_{0}\right)}}
+\end{tikzcd}
+
+And so you're only left with tensors indexed over total composites \(f: d_{n} \to d_{0}\). Now note that your quotient looks something like
+
+\[
+\frac{\coprod_{f:d_{0} \to d_{n}} Gd_{n} \otimes Fd_{0}}{\langle x \sim (Gf \otimes Id)(x) \sim (Id \otimes Ff)(x) \mid x \in Gd_{n}\otimes Fd_{0}\rangle}
+\]
+
+Note that this accounts for everything, because all the other identifications that result from diagrams like 
+
+\begin{tikzcd}
+Gd_{n} \otimes Fd_{0} \arrow[rr, "Gf \otimes Id"] \arrow[d, "Id"] &  & Gd_{n-1} \otimes Fd_0 \\
+Gd_n \otimes Fd_0                                                 &  &                      
+\end{tikzcd}
+
+For some \(f:d_{n} \to d_{n-1}\) resulting from an inner horn composition just give you back \(Gd_{n-1}\otimes Fd_{0}\); ultimately you only really run into weird things at the degenerate 1-simplex level, which are the identifications accounted for above. Hopefully this convinces you that this is not, in fact, bullshit.
+
+The interesting thing about this is that just taking a big colimit isn't exactly what you want here, because you've got a functor tensor product but it isn't accounting for all the big zigzaggy weirdness? So you fatten it up with these simplices to remember stuff? This'll probably get touched on in a bit.
+
+\end{enumerate}
+\end{document}
+

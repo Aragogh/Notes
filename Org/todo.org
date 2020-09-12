@@ -1,0 +1,278 @@
+
+* Life
+:PROPERTIES:
+:CATEGORY: Life
+:END:
+** TODO Go grocery shopping
+SCHEDULED: <2020-09-13 Sun +2w>
+:PROPERTIES:
+:LAST_REPEAT: [2020-09-05 Sat 08:23]
+:END:
+- State "DONE"       from "TODO"       [2020-08-30 Sun 08:23]
+- State "DONE"       from "TODO"       [2020-08-15 Sat 15:58]
+- State "DONE"       from "TODO"       [2020-08-02 Sun 18:56]
+- State "DONE"       from "TODO"       [2020-07-23 Thu 09:58]
+- State "DONE"       from "WAITING"    [2020-07-08 Wed 14:37]
+*** Shopping wishlist
+- Dutch Oven
+- Paprika, Cinnamon, Aniseed, Basil
+- Colander
+- Oven Mitts
+- Cleaning rags
+
+** TODO Figure out bank stuff with mum
+SCHEDULED: <2020-07-29 Wed>
+Find a viable secure option for doing this
+*** DONE Call bank of America 
+CLOSED: [2020-08-02 Sun 18:58] SCHEDULED: <2020-07-28 Tue>
+
+
+- State "DONE"       from "TODO"       [2020-08-02 Sun 18:58]
+*** TODO Talk to nearest BofA branch in Chicago about sponsored checks and about applying for credit card 
+** TODO Dental appointment
+SCHEDULED: <2020-09-25 Fri 13:30>
+Room 361, 801 S. Paulina, bring a copy of your offer letter
+
+
+* Work
+:PROPERTIES:
+:CATEGORY: Work
+:END:
+** Seminars
+*** MIT Topology Seminar
+<2020-08-18 Tue 11:00 +1w>
+[[https://math.mit.edu/topology/index.html][Seminar List]]
+*** Graduate NT Seminar
+<2020-08-24 Mon 16:00 +1w>
+**** Meet Jacob to talk about Rational Points
+<2020-09-14 Mon 17:30>
+
+*** Graduate AG Seminar
+<2020-08-26 Wed 20:00>
+*** Gepner Reading Courses
+<2020-09-01 Tue 20:00 +1w> <2020-09-03 Thu 20:00 +1w>
+**** Catch up on SAG
+<2020-09-12 Sat>--<2020-09-13 Sun>
+**** Catch up on Nikolaus-Scholze
+<2020-09-13 Sun>--<2020-09-19 Sat>
+** Classwork for the day
+*** 181 Office Hours
+<2020-08-25 Tue 14:00 +1w> <2020-08-26 Wed 9:00 +1w> 
+*** 181 TA Meeting
+<2020-08-23 Sun 20:00 +1w>
+*** 181 Discussion Section (TA)
+<2020-08-25 Tue 08:00-10:50 +1w> <2020-08-27 Thu 08:00-10:50 +1w>
+[[https://uofi.app.box.com/folder/0][Box]] also remember to grab your binder.
+*** 552 Algebraic Geometry
+<2020-08-24 Mon 12:00 +1w> <2020-08-26 Wed 12:00 +1w> <2020-08-28 Fri 12:00 +1w>
+*** 549 Differentiable Manifolds
+<2020-08-24 Mon 14:00 +1w> <2020-08-26 Wed 14:00 +1> <2020-08-28 Fri 14:00 +1w>
+[[https://uic.zoom.us/j/99416696175?pwd=dzFGZDNMVk1ZWnJjdk5YQjRyNktOdz09][Zoom Class]]
+*** 502 Logic
+<2020-08-24 Mon 13:00 +1w> <2020-08-26 Wed 13:00 +1w> <2020-08-28 Fri 13:00 +1w>
+[[https://mail.google.com/mail/u/2/#search/filippo/FMfcgxwJXVRGsqnQnlJQBgGNTflGZVKn][Filippo Webex Mail]]
+*** 589 Teaching Seminar
+<2020-08-24 Mon 15:00 +1w> <2020-08-26 Wed 15:00 +1w>
+** Social Events
+*** Department Tea
+<2020-08-28 Fri 16:00 +1w>
+*** GEO Fall Social
+<2020-09-02 Wed 17:00>
+*** SUBgroups meeting
+** TODO Send transcript in to UIC
+DEADLINE: <2020-10-31 Sat>
+** Assignments
+*** TODO 552 Alg Geom Homework
+DEADLINE: <2020-09-16 Wed>
+- State "DONE"       from "TODO"       [2020-09-09 Wed 10:04]
+[[file:~/Notes/HomeworksUIC/AlgGeom%20552/Homework2.tex][Homework]]
+*** TODO 502 Logic Homework
+DEADLINE: <2020-09-16 Wed>
+*** TODO 549 DiffTop Homework
+DEADLINE: <2020-09-17 Thu 20:00>
+*** TODO TA observation signup
+SCHEDULED: <2020-09-11 Fri>
+
+
+* Self
+:PROPERTIES:
+:CATEGORY: Self
+:END:
+** Go for a walk/run 
+<2020-08-15 Sat+1d>
+** Do a self-productive thing before you sleep
+<2020-08-14 Fri 20:00+1d>
+[[file:notes.org][Notes]]
+** SUBGroup Meeting
+<2020-09-12 Sat 19:00 +1w>
+
+
+* Ideas For Stuff to Do
+** TODO [#B] Celeste 1B Golden Berry, 9
+** TODO [#B] Check out Detention
+** TODO [#B] Book List [0/14]
+- [ ] Weapons of Math Destruction
+- [ ] Impro
+- [ ] P. Sainath Everybody Loves a Good Drought
+- [ ] Pedagogy of the Oppressed, Paulo Freire
+- [ ] After Amnesia, G.N. Devy
+- [ ] Annihilation of Caste
+- [ ] The Silk Roads, Peter Frankopan
+- [ ] On Writing, Stephen King
+- [ ] Bad Science, Ben Goldacre
+- [ ] Lajja
+- [ ] Shadow of the Crescent Moon
+- [ ] Emma Goldman, My Disillusionment with Russia
+- [ ] Stephen Kotkin, Stalin Biographies and Magnetic Mountain
+** TODO [#B] Movie List [0/8] 
+- [ ] Hello Destroyer (2016): Some Canadian film about violent hocke players
+- [ ] Color Out of Space (2019): Nick Cage SpectreVision Horror
+- [ ] Daniel Isn't Real (2019): More SpectreVision Horror
+- [ ] A Girl Walks Home Alone At Night (2014): Iranian SpectreVision Horro
+- [ ] I Don't Feel At Home In This World Anymore (2017): Comedy
+- [ ] It's Only The End of The World (2016): Marion Cotillard, Canadian horror film
+- [ ] Love, Sex, Aur Dhoka
+- [ ] The Death of Stalin
+
+  
+* Completed Tasks                                               :ARCHIVE:
+
+** DONE Organise your reading list in org mode
+CLOSED: [2020-07-06 Mon 17:52] SCHEDULED: <2020-07-11 Sat>
+
+** DONE Clean stove + oven 
+CLOSED: [2020-07-07 Tue 12:13] SCHEDULED: <2020-07-06 Mon 18:00>
+
+
+
+- State "DONE"       from "ON HOLD"    [2020-07-07 Tue 12:13]
+** DONE [#B] Check Out Civilisation VI
+CLOSED: [2020-07-07 Tue 18:59]
+- State "DONE"       from "TODO"       [2020-07-07 Tue 18:59]
+** DONE Read lecture slides for Poli Sci 40
+CLOSED: [2020-07-08 Wed 11:35] SCHEDULED: <2020-07-06 Mon>
+- State "DONE"       from "TODO"       [2020-07-08 Wed 11:35]
+  
+** DONE Book your flight tickets to Chicago
+CLOSED: [2020-07-07 Tue 18:57] DEADLINE: <2020-07-10 Fri>
+- State "DONE"       from "ON HOLD"    [2020-07-07 Tue 18:57]
+Itinerary and receipt on gmail 
+** DONE Do Celine's dishes
+CLOSED: [2020-07-12 Sun 23:46] SCHEDULED: <2020-07-12 Sun>
+- State "DONE"       from "TODO"       [2020-07-12 Sun 23:46]
+You owe it because you are a drunk bitch
+
+
+** DONE Figure out a book to start reading for de-screening time 
+CLOSED: [2020-07-18 Sat 15:54] DEADLINE: <2020-07-18 Sat>
+- State "DONE"       from "TODO"       [2020-07-18 Sat 15:54]
+[[*Book%20List%20%5B03/p%5D][Book List]]
+
+
+** DONE Okonomiyaki with Olga (ask for two separate bags, carry sanitizer)
+CLOSED: [2020-07-18 Sat 15:54] SCHEDULED: <2020-07-18 Sat>
+
+
+- State "DONE"       from "TODO"       [2020-07-18 Sat 15:54]
+** CANCELLED Order furniture to your new apartment
+CLOSED: [2020-07-18 Sat 15:55] SCHEDULED: <2020-07-24 Fri>
+- State "CANCELLED"  from "WAITING"    [2020-07-18 Sat 15:55]
+- State "WAITING"    from "TODO"       [2020-07-14 Tue 13:55] \\
+  Waiting on Shiva to confirm
+** DONE Figure out your refund business with UCLA
+CLOSED: [2020-07-18 Sat 15:56]
+- State "DONE"       from "TODO"       [2020-07-18 Sat 15:56]
+** DONE Water your plants
+CLOSED: [2020-07-18 Sat 15:57] SCHEDULED: <2020-07-15 Wed>
+:PROPERTIES:
+:LAST_REPEAT: [2020-07-14 Tue 18:42]
+:END:
+- State "DONE"       from "DONE"       [2020-07-18 Sat 15:57]
+- State "DONE"       from "DONE"       [2020-07-18 Sat 15:57]
+- State "DONE"       from "TODO"       [2020-07-18 Sat 15:57]
+- State "DONE"       from "TODO"       [2020-07-14 Tue 18:42]
+
+
+** DONE Narrow down your graduation pictures
+CLOSED: [2020-07-21 Tue 20:47] SCHEDULED: <2020-07-22 Wed>
+
+
+- State "DONE"       from "TODO"       [2020-07-21 Tue 20:47]
+** DONE Figure out degree conferral with UIC and UCLA
+CLOSED: [2020-07-25 Sat 10:14] DEADLINE: <2020-07-25 Sat>
+- State "DONE"       from "WAITING"    [2020-07-25 Sat 10:14]
+- State "WAITING"    from "ON HOLD"    [2020-07-21 Tue 15:54] \\
+  Email with form sent to degree auditor
+- State "ON HOLD"    from "DONE"       [2020-07-08 Wed 12:16] \\
+  Need to submit transcript before Spring 2021 registration opens, so by October should be fine.
+- Victoria Franco Rubio De La Torre vfranco@registrar.ucla.edu degree auditor has been emailed, waiting for certificate.
+- Email Julius about the question as well, just to make sure. UCLA also does early degree posting if required.
+  
+
+** CANCELLED Email Professor Gepner about reading
+CLOSED: [2020-07-18 Sat 15:54] DEADLINE: <2020-07-17 Fri>
+- State "CANCELLED"  from "TODO"       [2020-07-18 Sat 15:54]
+** DONE Flight to Chicago
+CLOSED: [2020-08-02 Sun 18:56] DEADLINE: <2020-08-01 Sat>
+
+
+- State "DONE"       from "TODO"       [2020-08-02 Sun 18:56]
+** DONE Reconcile your ledger
+CLOSED: [2020-08-02 Sun 18:56] SCHEDULED: [2020-07-21 Tue]
+- State "DONE"       from "TODO"       [2020-08-02 Sun 18:56]
+[[file:~/Notes/Ledger/accounts.ledger][Ledger]]
+
+** DONE Pack your shit
+CLOSED: [2020-08-02 Sun 18:56]
+- State "DONE"       from "WAITING"    [2020-08-02 Sun 18:56]
+*** DONE Figure out USPS shipping for your stuff
+CLOSED: [2020-07-15 Wed 15:56] SCHEDULED: <2020-07-08 Wed 12:00>
+- State "DONE"       from "ONGOING"    [2020-07-15 Wed 15:56]
+- USPS Tracking Numbers: 9505515040610211360239, 9534615040610211360245, 9534615040610211360016, 9505515040620213258106
+*** DONE Bicycle
+CLOSED: [2020-07-26 Sun 07:31] SCHEDULED: <2020-07-19 Sun>
+- State "DONE"       from "ONGOING"    [2020-07-26 Sun 07:31]
+
+** DONE Talk to Kevin Zhou, UIC Student
+CLOSED: [2020-08-03 Mon 19:13] SCHEDULED: <2020-08-03 Mon 16:00>
+- State "DONE"       from "TODO"       [2020-08-03 Mon 19:13]
+** DONE Finish video recording of TA explanation
+CLOSED: [2020-08-03 Mon 19:13] DEADLINE: <2020-08-04 Tue>
+
+
+- State "DONE"       from "TODO"       [2020-08-03 Mon 19:13]
+** DONE Cleaning lady
+CLOSED: [2020-08-04 Tue 12:54] SCHEDULED: <2020-08-04 Tue 09:00>
+
+
+- State "DONE"       from "TODO"       [2020-08-04 Tue 12:54]
+** DONE Follow up with Francoise and Connie about requirements and honors [1/2]
+CLOSED: [2020-08-04 Tue 13:58] SCHEDULED: <2020-08-04 Tue 13:00>
+- State "DONE"       from "WAITING"    [2020-08-04 Tue 13:58]
+- State "WAITING"    from "ON HOLD"    [2020-08-04 Tue 13:57]
+- State "ON HOLD"    from "CANCELLED"  [2020-07-25 Sat 10:15]
+- State "CANCELLED"  from "WAITING"    [2020-07-21 Tue 15:54]
+- State "WAITING"    from "ONGOING"    [2020-07-07 Tue 11:48] \\
+  Connie yet to respond
+- [X] Francoise
+- [ ] Connie
+** DONE Prepare for the Master's Exam
+CLOSED: [2020-08-18 Tue 15:36] DEADLINE: <2020-08-18 Tue 13:00>
+- State "DONE"       from "TODO"       [2020-08-18 Tue 15:36]
+** CANCELLED Read until Chapter 6 of Riehl
+CLOSED: [2020-08-24 Mon 08:15] DEADLINE: <2020-08-22 Sat>
+- State "CANCELLED"  from "ONGOING"    [2020-08-24 Mon 08:15]
+[[file:~/Notes/MyNotes/riehlCategoricalHomotopyTheory2014.org::*RiehlNotes][RiehlNotes]]
+** DONE Figure out your Office Hours
+CLOSED: [2020-08-25 Tue 14:31] DEADLINE: <2020-08-26 Wed>
+- State "DONE"       from "TODO"       [2020-08-25 Tue 14:31]
+tuesday wednesday 2-3 pm
+** DONE Doctor's appointment
+CLOSED: [2020-09-05 Sat 08:22] SCHEDULED: <2020-09-04 Fri 10:20>
+- State "DONE"       from "TODO"       [2020-09-05 Sat 08:22]
+720 or 722 Maxwell Street 2nd floor, 8666002273
+
+
+** DONE Receive dpayment for cleaning
+CLOSED: [2020-09-05 Sat 08:23] DEADLINE: <2020-08-07 Fri>
+- State "DONE"       from "TODO"       [2020-09-05 Sat 08:23]
