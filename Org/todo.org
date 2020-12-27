@@ -4,94 +4,72 @@
 :CATEGORY: Life
 :END:
 ** TODO Go grocery shopping
-SCHEDULED: <2020-09-13 Sun +2w>
+SCHEDULED: <2021-01-03 Sun +2w>
 :PROPERTIES:
-:LAST_REPEAT: [2020-09-05 Sat 08:23]
+:LAST_REPEAT: [2020-12-11 Fri 10:16 CST]
 :END:
+- State "CANCELLED"  from "TODO"       [2020-12-11 Fri 10:16 CST]
+- State "CANCELLED"  from "TODO"       [2020-12-11 Fri 10:16 CST]
+- State "CANCELLED"  from "TODO"       [2020-11-09 Mon 10:27 CST]
+- State "CANCELLED"  from "TODO"       [2020-11-09 Mon 10:27 CST]
+- State "DONE"       from "TODO"       [2020-11-02 Mon 08:01]
+- State "DONE"       from "TODO"       [2020-10-26 Mon 09:32]
+- State "DONE"       from "TODO"       [2020-10-04 Sun 09:46]
+- State "DONE"       from "TODO"       [2020-09-19 Sat 11:27]
 - State "DONE"       from "TODO"       [2020-08-30 Sun 08:23]
 - State "DONE"       from "TODO"       [2020-08-15 Sat 15:58]
 - State "DONE"       from "TODO"       [2020-08-02 Sun 18:56]
 - State "DONE"       from "TODO"       [2020-07-23 Thu 09:58]
 - State "DONE"       from "WAITING"    [2020-07-08 Wed 14:37]
-*** Shopping wishlist
-- Dutch Oven
-- Paprika, Cinnamon, Aniseed, Basil
-- Colander
-- Oven Mitts
-- Cleaning rags
-
-** TODO Figure out bank stuff with mum
-SCHEDULED: <2020-07-29 Wed>
-Find a viable secure option for doing this
-*** DONE Call bank of America 
-CLOSED: [2020-08-02 Sun 18:58] SCHEDULED: <2020-07-28 Tue>
-
-
-- State "DONE"       from "TODO"       [2020-08-02 Sun 18:58]
-*** TODO Talk to nearest BofA branch in Chicago about sponsored checks and about applying for credit card 
 ** TODO Dental appointment
-SCHEDULED: <2020-09-25 Fri 13:30>
+SCHEDULED: <2021-03-23 Tue 09:00 CDT>
+- State "DONE"       from "TODO"       [2020-09-25 Fri 16:08]
 Room 361, 801 S. Paulina, bring a copy of your offer letter
+** DONE GI Appointment
+CLOSED: [2020-11-30 Mon 15:25 CST] SCHEDULED: <2020-11-30 Mon>
+- State "DONE"       from "TODO"       [2020-11-30 Mon 15:25 CST]
+** TODO Change server picture to hotdog (Nick's Birthday)
+SCHEDULED: <2021-02-02 Tue>
 
 
 * Work
 :PROPERTIES:
 :CATEGORY: Work
 :END:
-** Seminars
-*** MIT Topology Seminar
-<2020-08-18 Tue 11:00 +1w>
-[[https://math.mit.edu/topology/index.html][Seminar List]]
-*** Graduate NT Seminar
-<2020-08-24 Mon 16:00 +1w>
-**** Meet Jacob to talk about Rational Points
-<2020-09-14 Mon 17:30>
+** Seminars and Workshops
+*** Regular
+**** OATS Seminar
+<2020-09-28 Mon 09:00 CDT +1w>
+**** UChicago-Northwestern Altop Seminar
+<2020-10-06 Tue 16:00 CDT-17:00 +1w>
+**** Graduate NT Seminar
+<2020-12-28 Mon 16:30 CST +1w> <2020-12-23 Wed 16:30 + 1w> <2020-12-18 Fri 16:30>
+**** Graduate AG Seminar
+<2020-08-26 Wed 11:00 CDT>
+**** Gepner Reading Courses
+***** Nikolaus-Scholze Reading Course
+<2020-09-01 Tue 19:00 CDT +1w>
+****** DONE Present II.4 of TC
+CLOSED: [2020-11-11 Wed 15:07 CST] DEADLINE: <2020-11-10 Tue>
 
-*** Graduate AG Seminar
-<2020-08-26 Wed 20:00>
-*** Gepner Reading Courses
-<2020-09-01 Tue 20:00 +1w> <2020-09-03 Thu 20:00 +1w>
-**** Catch up on SAG
-<2020-09-12 Sat>--<2020-09-13 Sun>
-**** Catch up on Nikolaus-Scholze
-<2020-09-13 Sun>--<2020-09-19 Sat>
+- State "DONE"       from "TODO"       [2020-11-11 Wed 15:07 CST]
+***** SAG Reading Course
+<2020-09-03 Thu 19:00 CDT +1w>
+*** Events
+**** TDA Workshop at IMSI
+SCHEDULED: <2021-04-26 Mon>-<2021-04-30 Fri>
+*** Watchlist
+** Teaching
 ** Classwork for the day
-*** 181 Office Hours
-<2020-08-25 Tue 14:00 +1w> <2020-08-26 Wed 9:00 +1w> 
-*** 181 TA Meeting
-<2020-08-23 Sun 20:00 +1w>
-*** 181 Discussion Section (TA)
-<2020-08-25 Tue 08:00-10:50 +1w> <2020-08-27 Thu 08:00-10:50 +1w>
-[[https://uofi.app.box.com/folder/0][Box]] also remember to grab your binder.
-*** 552 Algebraic Geometry
-<2020-08-24 Mon 12:00 +1w> <2020-08-26 Wed 12:00 +1w> <2020-08-28 Fri 12:00 +1w>
-*** 549 Differentiable Manifolds
-<2020-08-24 Mon 14:00 +1w> <2020-08-26 Wed 14:00 +1> <2020-08-28 Fri 14:00 +1w>
-[[https://uic.zoom.us/j/99416696175?pwd=dzFGZDNMVk1ZWnJjdk5YQjRyNktOdz09][Zoom Class]]
-*** 502 Logic
-<2020-08-24 Mon 13:00 +1w> <2020-08-26 Wed 13:00 +1w> <2020-08-28 Fri 13:00 +1w>
-[[https://mail.google.com/mail/u/2/#search/filippo/FMfcgxwJXVRGsqnQnlJQBgGNTflGZVKn][Filippo Webex Mail]]
-*** 589 Teaching Seminar
-<2020-08-24 Mon 15:00 +1w> <2020-08-26 Wed 15:00 +1w>
 ** Social Events
 *** Department Tea
-<2020-08-28 Fri 16:00 +1w>
-*** GEO Fall Social
-<2020-09-02 Wed 17:00>
-*** SUBgroups meeting
-** TODO Send transcript in to UIC
-DEADLINE: <2020-10-31 Sat>
+<2020-08-28 Fri 16:00 CDT +1w>
+*** SUBGroup Meeting
+<2020-11-22 Sun 11:00 CST +2w>
+
 ** Assignments
-*** TODO 552 Alg Geom Homework
-DEADLINE: <2020-09-16 Wed>
-- State "DONE"       from "TODO"       [2020-09-09 Wed 10:04]
-[[file:~/Notes/HomeworksUIC/AlgGeom%20552/Homework2.tex][Homework]]
-*** TODO 502 Logic Homework
-DEADLINE: <2020-09-16 Wed>
-*** TODO 549 DiffTop Homework
-DEADLINE: <2020-09-17 Thu 20:00>
-*** TODO TA observation signup
-SCHEDULED: <2020-09-11 Fri>
+** TODO NW, email about transcripts + GRE
+DEADLINE: <2020-12-18 Fri>
 
 
 * Self
@@ -100,15 +78,9 @@ SCHEDULED: <2020-09-11 Fri>
 :END:
 ** Go for a walk/run 
 <2020-08-15 Sat+1d>
-** Do a self-productive thing before you sleep
-<2020-08-14 Fri 20:00+1d>
-[[file:notes.org][Notes]]
-** SUBGroup Meeting
-<2020-09-12 Sat 19:00 +1w>
 
 
 * Ideas For Stuff to Do
-** TODO [#B] Celeste 1B Golden Berry, 9
 ** TODO [#B] Check out Detention
 ** TODO [#B] Book List [0/14]
 - [ ] Weapons of Math Destruction
@@ -124,17 +96,21 @@ SCHEDULED: <2020-09-11 Fri>
 - [ ] Shadow of the Crescent Moon
 - [ ] Emma Goldman, My Disillusionment with Russia
 - [ ] Stephen Kotkin, Stalin Biographies and Magnetic Mountain
-** TODO [#B] Movie List [0/8] 
-- [ ] Hello Destroyer (2016): Some Canadian film about violent hocke players
+** TODO [#B] Movie List [0/9] 
+- [ ] Hello Destroyer (2016): Some Canadian film about violent hockey players
 - [ ] Color Out of Space (2019): Nick Cage SpectreVision Horror
 - [ ] Daniel Isn't Real (2019): More SpectreVision Horror
-- [ ] A Girl Walks Home Alone At Night (2014): Iranian SpectreVision Horro
+- [ ] A Girl Walks Home Alone At Night (2014): Iranian SpectreVision Horror
 - [ ] I Don't Feel At Home In This World Anymore (2017): Comedy
 - [ ] It's Only The End of The World (2016): Marion Cotillard, Canadian horror film
 - [ ] Love, Sex, Aur Dhoka
 - [ ] The Death of Stalin
+- [ ] Dearest Sister (2016) Lao Horror Film
+** TODO Other content
+- [ ] Satoshi Kon World Apartment Horror
+- 
 
-  
+
 * Completed Tasks                                               :ARCHIVE:
 
 ** DONE Organise your reading list in org mode
@@ -276,3 +252,116 @@ CLOSED: [2020-09-05 Sat 08:22] SCHEDULED: <2020-09-04 Fri 10:20>
 ** DONE Receive dpayment for cleaning
 CLOSED: [2020-09-05 Sat 08:23] DEADLINE: <2020-08-07 Fri>
 - State "DONE"       from "TODO"       [2020-09-05 Sat 08:23]
+** DONE 181 MQ2 Grading
+CLOSED: [2020-09-27 Sun 14:35] DEADLINE: <2020-09-27 Sun 20:00>
+- State "DONE"       from "TODO"       [2020-09-27 Sun 14:35]
+** Observation Meeting
+<2020-09-23 Wed 10:40>
+        
+** DONE Send transcript in to UIC
+CLOSED: [2020-11-02 Mon 08:01] DEADLINE: <2020-10-31 Sat>
+- State "DONE"       from "TODO"       [2020-11-02 Mon 08:01]
+** DONE 589 Make a worksheet on TeX
+CLOSED: [2020-11-18 Wed 11:04 CST] DEADLINE: <2020-11-18 Wed>
+
+
+- State "DONE"       from "TODO"       [2020-11-18 Wed 11:04 CST]
+** DONE 589 Make a website
+CLOSED: [2020-11-17 Tue 07:22 CST] DEADLINE: <2020-11-30 Mon>
+- State "DONE"       from "TODO"       [2020-11-17 Tue 07:22 CST]
+** DONE 589 CV Creation
+CLOSED: [2020-11-17 Tue 07:57 CST] DEADLINE: <2020-11-18 Wed>
+- State "DONE"       from "TODO"       [2020-11-17 Tue 07:57 CST]
+** Thanksgiving 2020 (Shoot an email to Hill and Elman)
+<2020-11-26 Thu>
+** 181 Discussion Section (TA)
+<2020-08-25 Tue 08:00-10:50 CDT +1w> <2020-08-27 Thu 08:00-10:50 CDT +1w>
+[[https://uofi.app.box.com/folder/0][Box]] also remember to grab your binder.
+*** 181 Office Hours
+<2020-08-25 Tue 14:00 CDT +1w> <2020-08-26 Wed 09:00 CDT +1w> 
+*** 181 TA Meeting
+<2020-08-23 Sun 20:00 CDT +1w>
+*** Assign problems for tomorrow, write down an agenda
+<2020-09-30 Wed 19:00 CDT +1w> <2020-09-28 Mon 19:00 CDT +1w>
+*** DONE MQ5 Grading
+CLOSED: [2020-11-09 Mon 10:25 CST] DEADLINE: <2020-11-08 Sun 20:00>
+- State "DONE"       from              [2020-11-09 Mon 10:25 CST]
+** 552 Algebraic Geometry
+<2020-08-24 Mon 12:00 CDT +1w> <2020-08-26 Wed 12:00 CDT +1w> <2020-08-28 Fri 12:00 CDT +1w>
+** 549 Differentiable Manifolds
+<2020-08-24 Mon 14:00 CDT +1w> <2020-08-26 Wed 14:00 CDT +1w> <2020-08-28 Fri 14:00 CDT +1w>
+[[https://uic.zoom.us/j/99416696175?pwd=dzFGZDNMVk1ZWnJjdk5YQjRyNktOdz09][Zoom Class]]
+** 502 Logic
+<2020-08-24 Mon 13:00 CDT +1w> <2020-08-26 Wed 13:00 CDT +1w> <2020-08-28 Fri 13:00 CDT +1w>
+[[https://mail.google.com/mail/u/2/#search/filippo/FMfcgxwJXVRGsqnQnlJQBgGNTflGZVKn][Filippo Webex Mail]]
+** 589 Teaching Seminar
+<2020-08-24 Mon 15:00 CDT +1w> <2020-08-26 Wed 15:00 CDT +1w>
+** TODO 552 Alg Geom Homework
+:PROPERTIES:
+:LAST_REPEAT: [2020-11-28 Sat 18:00 CST]
+:END:
+- State "DONE"       from "TODO"       [2020-11-28 Sat 18:00 CST]
+- State "DONE"       from "TODO"       [2020-11-18 Wed 11:04 CST]
+- State "DONE"       from "TODO"       [2020-11-13 Fri 12:38 CST]
+- State "DONE"       from "TODO"       [2020-11-06 Fri 13:46]
+- State "DONE"       from "TODO"       [2020-11-02 Mon 08:00]
+- State "CANCELLED"  from "TODO"       [2020-10-25 Sun 12:04]
+- State "DONE"       from "TODO"       [2020-10-14 Wed 12:44]
+- State "DONE"       from "TODO"       [2020-10-09 Fri 11:59]
+- State "DONE"       from "TODO"       [2020-10-03 Sat 16:49]
+- State "DONE"       from "TODO"       [2020-09-23 Wed 08:53]
+- State "DONE"       from "TODO"       [2020-09-16 Wed 13:49]
+- State "DONE"       from "TODO"       [2020-09-09 Wed 10:04]
+[[file:~/Notes/HomeworksUIC/AlgGeom%20552/Homework2.tex][Homework]]
+** TODO 502 Logic Homework
+:PROPERTIES:
+:LAST_REPEAT: [2020-11-30 Mon 15:25 CST]
+:END:
+- State "CANCELLED"  from "TODO"       [2020-11-30 Mon 15:25 CST]
+- State "DONE"       from "TODO"       [2020-11-30 Mon 15:25 CST]
+- State "DONE"       from "TODO"       [2020-11-17 Tue 07:22 CST]
+- State "CANCELLED"  from "TODO"       [2020-11-04 Wed 14:14]
+- State "DONE"       from "TODO"       [2020-11-04 Wed 14:14]
+- State "DONE"       from "TODO"       [2020-10-28 Wed 16:17]
+- State "DONE"       from "TODO"       [2020-10-13 Tue 11:01]
+- State "DONE"       from "TODO"       [2020-10-13 Tue 11:01]
+- State "DONE"       from "TODO"       [2020-10-08 Thu 00:07]
+- State "DONE"       from "TODO"       [2020-10-01 Thu 00:21]
+- State "DONE"       from "TODO"       [2020-09-23 Wed 08:53]
+- State "DONE"       from "TODO"       [2020-09-16 Wed 13:49]
+** TODO 549 DiffTop Homework
+DEADLINE: <2020-12-06 Sun 20:00 CST +1w>
+:PROPERTIES:
+:LAST_REPEAT: [2020-11-23 Mon 11:13 CST]
+:END:
+- State "CANCELLED"  from "TODO"       [2020-11-23 Mon 11:13 CST]
+- State "DONE"       from "TODO"       [2020-11-23 Mon 11:13 CST]
+- State "DONE"       from "TODO"       [2020-11-15 Sun 12:20 CST]
+- State "CANCELLED"  from "TODO"       [2020-11-02 Mon 08:02]
+- State "DONE"       from "TODO"       [2020-11-02 Mon 08:00]
+- State "DONE"       from "TODO"       [2020-10-25 Sun 12:05]
+- State "DONE"       from "TODO"       [2020-10-13 Tue 11:01]
+- State "DONE"       from "TODO"       [2020-10-06 Tue 23:33]
+- State "DONE"       from "TODO"       [2020-10-01 Thu 00:21]
+- State "DONE"       from "TODO"       [2020-09-24 Thu 20:47]
+
+
+** TODO Buy Srikar Beard Wax
+DEADLINE: <2020-11-30 Mon>
+
+
+** TODO UIUC, Johns Hopkins, Minnesota
+DEADLINE: <2020-12-15 Tue>
+
+
+** TODO 589 Reflection
+DEADLINE: <2020-12-14 Mon>
+** TODO Figure out bank stuff with mum
+SCHEDULED: <2020-07-29 Wed>
+Find a viable secure option for doing this
+*** DONE Call bank of America 
+CLOSED: [2020-08-02 Sun 18:58] SCHEDULED: <2020-07-28 Tue>
+
+
+- State "DONE"       from "TODO"       [2020-08-02 Sun 18:58]
+*** TODO Talk to nearest BofA branch in Chicago about sponsored checks and about applying for credit card 

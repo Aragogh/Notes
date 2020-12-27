@@ -1,6 +1,6 @@
 
-
 * Open Threads (Math)
+** Fucking read More Concise Altop
 ** Getting started with infty-categories                              :ALTOP:
 *** Categorical Homotopy Riehl                                        :ALTOP: 
     :PROPERTIES:
@@ -12,7 +12,6 @@
 - [2020-09-11 Fri] Left off at chapter 5, we have yet to see examples of this bar construction version of things in practice. 
 *** Higher Topos Theory                                               :ALTOP:
  [[https://ncatlab.org/spahn/show/a+reading+guide+to+HTT][- A Reading Guide to HTT]] A guide to reading Higher Topos Theory by Lurie
-
 ** Formal Geometry                                                    :ALTOP:
 [[file:~/Downloads/main.pdf][- Eric Peterson Formal Geometry Course]] Course on formal geometry and bordism operations
 - Also need to finish reading paper on the nilpotence theorem
@@ -21,24 +20,25 @@
 ** Model Categories of Spectra                                        :ALTOP:
 - Left off at chapter 1 Symmetric Spectra by Schwede
 - A read of Mandell-May-Shipley-Schwede is in order at some point
-  
-** Discrete Differential Geometry                                       :TDA: 
-:PROPERTIES:
-:Created: [2020-08-13 Thu 12:45]
-:Linked: [[http://www.cs.cmu.edu/~kmcrane/Projects/DGPDEC/][Keenan Crane]]
-:END: 
 
-Brief description:
-
-** Adversarial Pedagogy of Mathematics                             :PEDAGOGY:
-I've often found that arguing things out with Gur made me understand a lot more, because I was required to formulate a position, defend it, have someone point out to me what exactly was wrong, and then work backwards to figure out the inconsistencies in my own argumentation. It's a useful model for collaboration when you're both new to a subject, because off the bat expecting full rigor is a little much for people who approach it with the slightly lazier eye that I tend to work with. Maybe this could find its way into a classroom via a buddy-buddy system? It's something worth looking into.
+** Descending shit                                                    :ALTOP:
+*** Computation of the homotopy of the spectrum tmf, Tilman Bauer
+*** The Galois Group of a Stable Homotopy Theory, Akhil Mathew
 
 
+* Ideas to mess around with 
+** What is a residue field for Balmer Spectra?
+- Want some maybe Verdier localisation K \to k_p such that the pushout along any map K \to L gives you the preimage of p \in Spc(K) in Spc(L). Doing this infinity categorically with some weird Grothendieck construction might get you fibers? Seems like what you're asking for here would be a homotopy limit and so what you could get is the fiber in some fibrant replacement of your infinity category. Things to read up on:
+  * Joyal model structure (might just be worthwhile to go bloody read HTT)
+  * Infinity categorical Verdier and Bousfield localisation (Nikolaus-Scholze will point to references, Blumberg-Gepner-Tabuada)
+
+    
 * Open Threads (Elsewhere)
 ** Dogra rule in Kashmir
 - A.G. Noorani Article "It was the tendency of Kashmiri Pundits, when in trouble in Kashmir, to look to India for the preservation of religiously conceptualized interests that earned them the honor of being secular nationalists... by contrast, Kashmiri Muslims' demand for a similar protection of rights, denied to them by both a Hindu Dogra and a 'secular' Indian state, has been all too easily misread as engaging in the politics of religious fundamentalism.
- - 1947 Jammu Massacre
+  - 1947 Jammu Massacre
 ** Paulo Freire Critical Pedagogy
+** Find a book on partition of India with focus on Punjab 
 ** Emma Goldman, My Disillusionment with Russia
 ** Stephen Kotkin, Stalin Biographies and Magnetic Mountain
 ** Paul Graham Roots of Lisp                                        :COMPSCI:
@@ -51,8 +51,38 @@ Brief description:
 
 ** Ask Celine about being nonbinary
    What does gender identity mean, is it being uniquely enby or is it lack of a gender identity, reexplanation of distinction between gender and sex and how are those things shaped in your head
-
    
+** Discrete Differential Geometry                                       :TDA: 
+:PROPERTIES:
+:Created: [2020-08-13 Thu 12:45]
+:Linked: [[http://www.cs.cmu.edu/~kmcrane/Projects/DGPDEC/][Keenan Crane]]
+:END: 
+
+Brief description:
+
+
+* References for everything! 
+** Bousfield Localization
+*** Henning Krause, Localization theory for Triangulated Categories
+https://arxiv.org/abs/0806.1324
+*** Blumberg-Gepner-Tabuada for infinity categorical version
+** Structured spaces and points in Grothendieck Sites
+*** Points in Algebraic Geometry, Gabber and Kelly
+https://arxiv.org/abs/1407.5782
+*** DAG V
+** N_\infty Operads
+*** Rubin, Combinatorial N_\infty Operads
+*** Blumberg Hill, Multiplicative Norm systems and the rest of the title whatever
+*** Gutierrez-White
+** Schwede-Shipley type results for the stable module category
+- Mathew, Keller
+** Galois Stuff for Ring Spectra
+- Rognes Galois extensions
+- Mathew-Stojanoska for galois descent
+** Adams Spectral Sequence
+*** http://www.ms.uky.edu/~guillou/Aramian_ASS.pdf
+
+
 * Closed Threads :ARCHIVE:
 
 

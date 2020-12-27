@@ -1,0 +1,1043 @@
+#+TITLE: Notes on: Lurie, J. (): Higher Algebra
+
+* Notes
+:PROPERTIES:
+:NOTER_DOCUMENT: /storage/Zotero/storage/3774E4LL/Lurie_Higher Algebra.pdf
+:END:
+
+** Skeleton
+
+*** Stable -Categories
+:PROPERTIES:
+:NOTER_PAGE: (15 . 0.176458)
+:END:
+
+**** Foundations
+:PROPERTIES:
+:NOTER_PAGE: (16 . 0.446564)
+:END:
+
+***** Stability
+:PROPERTIES:
+:NOTER_PAGE: (17 . 0.546236)
+:END:
+
+***** The Homotopy Category of a Stable -Category
+:PROPERTIES:
+:NOTER_PAGE: (20 . 0.699465)
+:END:
+
+***** Closure Properties of Stable -Categories
+:PROPERTIES:
+:NOTER_PAGE: (30 . 0.569047)
+:END:
+
+***** Exact Functors
+:PROPERTIES:
+:NOTER_PAGE: (33 . 0.690918)
+:END:
+
+**** Stable -Categories and Homological Algebra
+:PROPERTIES:
+:NOTER_PAGE: (36 . 0.501991)
+:END:
+
+***** t-Structures on Stable -Categories
+:PROPERTIES:
+:NOTER_PAGE: (37 . 0.457874)
+:END:
+
+***** Filtered Objects and Spectral Sequences
+:PROPERTIES:
+:NOTER_PAGE: (47 . 0.176458)
+:END:
+
+***** The Dold-Kan Correspondence
+:PROPERTIES:
+:NOTER_PAGE: (54 . 0.176458)
+:END:
+
+***** The -Categorical Dold-Kan Correspondence
+:PROPERTIES:
+:NOTER_PAGE: (66 . 0.289063)
+:END:
+
+**** Homological Algebra and Derived Categories
+:PROPERTIES:
+:NOTER_PAGE: (78 . 0.176458)
+:END:
+
+***** Nerves of Differential Graded Categories
+:PROPERTIES:
+:NOTER_PAGE: (78 . 0.833961)
+:END:
+
+***** Derived -Categories
+:PROPERTIES:
+:NOTER_PAGE: (87 . 0.657364)
+:END:
+
+***** The Universal Property of `39`42`"613A``45`47`"603AD-(`39`42`"613A``45`47`"603AA)
+:PROPERTIES:
+:NOTER_PAGE: (97 . 0.450102)
+:END:
+
+***** Inverting Quasi-Isomorphisms
+:PROPERTIES:
+:NOTER_PAGE: (108 . 0.176458)
+:END:
+
+***** Grothendieck Abelian Categories
+:PROPERTIES:
+:NOTER_PAGE: (121 . 0.176458)
+:END:
+
+**** Spectra and Stabilization
+:PROPERTIES:
+:NOTER_PAGE: (131 . 0.176458)
+:END:
+
+***** The Brown Representability Theorem
+:PROPERTIES:
+:NOTER_PAGE: (134 . 0.344083)
+:END:
+
+***** Spectrum Objects
+:PROPERTIES:
+:NOTER_PAGE: (140 . 0.268971)
+:END:
+
+***** The -Category of Spectra
+:PROPERTIES:
+:NOTER_PAGE: (150 . 0.351477)
+:END:
+
+***** Presentable Stable -Categories
+:PROPERTIES:
+:NOTER_PAGE: (154 . 0.176458)
+:END:
+
+*** -Operads
+:PROPERTIES:
+:NOTER_PAGE: (164 . 0.176458)
+:END:
+
+**** Foundations
+:PROPERTIES:
+:NOTER_PAGE: (170 . 0.429766)
+:END:
+
+***** From Colored Operads to -Operads
+:PROPERTIES:
+:NOTER_PAGE: (171 . 0.176458)
+:END:
+
+***** Maps of -Operads
+:PROPERTIES:
+:NOTER_PAGE: (178 . 0.176458)
+:END:
+
+***** Algebra Objects
+:PROPERTIES:
+:NOTER_PAGE: (184 . 0.411905)
+:END:
+
+***** -Preoperads
+:PROPERTIES:
+:NOTER_PAGE: (188 . 0.429996)
+:END:
+
+**** Constructions of -Operads
+:PROPERTIES:
+:NOTER_PAGE: (192 . 0.176458)
+:END:
+
+***** Subcategories of `39`42`"613A``45`47`"603AO-Monoidal -Categories
+:PROPERTIES:
+:NOTER_PAGE: (193 . 0.543928)
+:END:
+
+***** Slicing -Operads
+:PROPERTIES:
+:NOTER_PAGE: (200 . 0.58659)
+:END:
+
+***** Coproducts of -Operads
+:PROPERTIES:
+:NOTER_PAGE: (206 . 0.822451)
+:END:
+
+***** Monoidal Envelopes
+:PROPERTIES:
+:NOTER_PAGE: (211 . 0.523086)
+:END:
+
+***** Tensor Products of -Operads
+:PROPERTIES:
+:NOTER_PAGE: (219 . 0.55185)
+:END:
+
+***** Day Convolution
+:PROPERTIES:
+:NOTER_PAGE: (225 . 0.358869)
+:END:
+
+**** Disintegration and Assembly
+:PROPERTIES:
+:NOTER_PAGE: (243 . 0.176458)
+:END:
+
+***** Unital -Operads
+:PROPERTIES:
+:NOTER_PAGE: (243 . 0.840505)
+:END:
+
+***** Generalized -Operads
+:PROPERTIES:
+:NOTER_PAGE: (249 . 0.632585)
+:END:
+
+***** Approximations to -Operads
+:PROPERTIES:
+:NOTER_PAGE: (258 . 0.822451)
+:END:
+
+***** Disintegration of -Operads
+:PROPERTIES:
+:NOTER_PAGE: (274 . 0.507946)
+:END:
+
+**** Products and Coproducts
+:PROPERTIES:
+:NOTER_PAGE: (281 . 0.669504)
+:END:
+
+***** Cartesian Symmetric Monoidal Structures
+:PROPERTIES:
+:NOTER_PAGE: (283 . 0.420525)
+:END:
+
+***** Monoid Objects
+:PROPERTIES:
+:NOTER_PAGE: (292 . 0.472062)
+:END:
+
+***** CoCartesian Symmetric Monoidal Structures
+:PROPERTIES:
+:NOTER_PAGE: (297 . 0.278001)
+:END:
+
+***** Wreath Products
+:PROPERTIES:
+:NOTER_PAGE: (304 . 0.388287)
+:END:
+
+*** Algebras and Modules over -Operads
+:PROPERTIES:
+:NOTER_PAGE: (315 . 0.176458)
+:END:
+
+**** Free Algebras
+:PROPERTIES:
+:NOTER_PAGE: (316 . 0.290729)
+:END:
+
+***** Operadic Colimit Diagrams
+:PROPERTIES:
+:NOTER_PAGE: (317 . 0.306207)
+:END:
+
+***** Operadic Left Kan Extensions
+:PROPERTIES:
+:NOTER_PAGE: (329 . 0.492761)
+:END:
+
+***** Construction of Free Algebras
+:PROPERTIES:
+:NOTER_PAGE: (342 . 0.209418)
+:END:
+
+***** Transitivity of Operadic Left Kan Extensions
+:PROPERTIES:
+:NOTER_PAGE: (349 . 0.250592)
+:END:
+
+**** Limits and Colimits of Algebras
+:PROPERTIES:
+:NOTER_PAGE: (353 . 0.547948)
+:END:
+
+***** Unit Objects and Trivial Algebras
+:PROPERTIES:
+:NOTER_PAGE: (354 . 0.345833)
+:END:
+
+***** Limits of Algebras
+:PROPERTIES:
+:NOTER_PAGE: (356 . 0.814614)
+:END:
+
+***** Colimits of Algebras
+:PROPERTIES:
+:NOTER_PAGE: (364 . 0.822314)
+:END:
+
+***** Tensor Products of Commutative Algebras
+:PROPERTIES:
+:NOTER_PAGE: (369 . 0.409508)
+:END:
+
+**** Modules over -Operads
+:PROPERTIES:
+:NOTER_PAGE: (373 . 0.564518)
+:END:
+
+***** Coherent -Operads
+:PROPERTIES:
+:NOTER_PAGE: (375 . 0.176458)
+:END:
+
+***** A Coherence Criterion
+:PROPERTIES:
+:NOTER_PAGE: (380 . 0.457817)
+:END:
+
+***** Module Objects
+:PROPERTIES:
+:NOTER_PAGE: (388 . 0.784814)
+:END:
+
+**** General Features of Module -Categories
+:PROPERTIES:
+:NOTER_PAGE: (399 . 0.176458)
+:END:
+
+***** Algebra Objects of -Categories of Modules
+:PROPERTIES:
+:NOTER_PAGE: (400 . 0.176458)
+:END:
+
+***** Modules over Trivial Algebras
+:PROPERTIES:
+:NOTER_PAGE: (416 . 0.706097)
+:END:
+
+***** Limits of Modules
+:PROPERTIES:
+:NOTER_PAGE: (421 . 0.176458)
+:END:
+
+***** Colimits of Modules
+:PROPERTIES:
+:NOTER_PAGE: (435 . 0.176458)
+:END:
+
+*** Associative Algebras and Their Modules
+:PROPERTIES:
+:NOTER_PAGE: (449 . 0.176458)
+:END:
+
+**** Associative Algebras
+:PROPERTIES:
+:NOTER_PAGE: (451 . 0.55426)
+:END:
+
+***** The Associative -Operad
+:PROPERTIES:
+:NOTER_PAGE: (454 . 0.84127)
+:END:
+
+***** Monoid Objects of -Categories
+:PROPERTIES:
+:NOTER_PAGE: (460 . 0.39373)
+:END:
+
+***** Planar -Operads and A-Algebras
+:PROPERTIES:
+:NOTER_PAGE: (465 . 0.337215)
+:END:
+
+***** Nonunital An-Algebras and Nonunital An-Monoids
+:PROPERTIES:
+:NOTER_PAGE: (469 . 0.176458)
+:END:
+
+***** From An-Algebras to An+1-Algebras
+:PROPERTIES:
+:NOTER_PAGE: (474 . 0.378342)
+:END:
+
+***** The Associahedron
+:PROPERTIES:
+:NOTER_PAGE: (479 . 0.837826)
+:END:
+
+***** Monoidal Model Categories
+:PROPERTIES:
+:NOTER_PAGE: (485 . 0.393554)
+:END:
+
+***** Rectification of Associative Algebras
+:PROPERTIES:
+:NOTER_PAGE: (491 . 0.409196)
+:END:
+
+**** Left and Right Modules
+:PROPERTIES:
+:NOTER_PAGE: (503 . 0.72487)
+:END:
+
+***** The -Operad `39`42`"613A``45`47`"603ALM
+:PROPERTIES:
+:NOTER_PAGE: (504 . 0.795149)
+:END:
+
+***** Simplicial Models for Algebras and Modules
+:PROPERTIES:
+:NOTER_PAGE: (512 . 0.738364)
+:END:
+
+***** Limits and Colimits of Modules
+:PROPERTIES:
+:NOTER_PAGE: (524 . 0.362689)
+:END:
+
+***** Free Modules
+:PROPERTIES:
+:NOTER_PAGE: (529 . 0.703751)
+:END:
+
+**** Bimodules
+:PROPERTIES:
+:NOTER_PAGE: (534 . 0.671458)
+:END:
+
+***** The -Operad `39`42`"613A``45`47`"603AB M
+:PROPERTIES:
+:NOTER_PAGE: (535 . 0.783686)
+:END:
+
+***** Bimodules, Left Modules, and Right Modules
+:PROPERTIES:
+:NOTER_PAGE: (539 . 0.843615)
+:END:
+
+***** Limits, Colimits, and Free Bimodules
+:PROPERTIES:
+:NOTER_PAGE: (549 . 0.384985)
+:END:
+
+**** The Relative Tensor Product
+:PROPERTIES:
+:NOTER_PAGE: (556 . 0.760851)
+:END:
+
+***** Multilinear Maps
+:PROPERTIES:
+:NOTER_PAGE: (557 . 0.722538)
+:END:
+
+***** Tensor Products and the Bar Construction
+:PROPERTIES:
+:NOTER_PAGE: (573 . 0.176458)
+:END:
+
+***** Associativity of the Tensor Product
+:PROPERTIES:
+:NOTER_PAGE: (580 . 0.33737)
+:END:
+
+**** Modules over Commutative Algebras
+:PROPERTIES:
+:NOTER_PAGE: (591 . 0.830225)
+:END:
+
+***** Left and Right Modules over Commutative Algebras
+:PROPERTIES:
+:NOTER_PAGE: (592 . 0.726723)
+:END:
+
+***** Tensor Products over Commutative Algebras
+:PROPERTIES:
+:NOTER_PAGE: (598 . 0.628433)
+:END:
+
+***** Change of Algebra
+:PROPERTIES:
+:NOTER_PAGE: (601 . 0.306821)
+:END:
+
+***** Rectification of Commutative Algebras
+:PROPERTIES:
+:NOTER_PAGE: (606 . 0.276116)
+:END:
+
+**** Duality
+:PROPERTIES:
+:NOTER_PAGE: (615 . 0.45188)
+:END:
+
+***** Duality in Monoidal -Categories
+:PROPERTIES:
+:NOTER_PAGE: (616 . 0.478069)
+:END:
+
+***** Duality of Bimodules
+:PROPERTIES:
+:NOTER_PAGE: (620 . 0.326352)
+:END:
+
+***** Exchanging Right and Left Actions
+:PROPERTIES:
+:NOTER_PAGE: (630 . 0.528035)
+:END:
+
+***** Smooth and Proper Algebras
+:PROPERTIES:
+:NOTER_PAGE: (644 . 0.386848)
+:END:
+
+***** Frobenius Algebras
+:PROPERTIES:
+:NOTER_PAGE: (650 . 0.530668)
+:END:
+
+**** Monads and the Barr-Beck Theorem
+:PROPERTIES:
+:NOTER_PAGE: (656 . 0.394032)
+:END:
+
+***** Endomorphism -Categories
+:PROPERTIES:
+:NOTER_PAGE: (658 . 0.513225)
+:END:
+
+***** Split Simplicial Objects
+:PROPERTIES:
+:NOTER_PAGE: (677 . 0.176458)
+:END:
+
+***** The Barr-Beck Theorem
+:PROPERTIES:
+:NOTER_PAGE: (683 . 0.728359)
+:END:
+
+***** BiCartesian Fibrations
+:PROPERTIES:
+:NOTER_PAGE: (693 . 0.825792)
+:END:
+
+***** Descent and the Beck-Chevalley Condition
+:PROPERTIES:
+:NOTER_PAGE: (702 . 0.341135)
+:END:
+
+**** Tensor Products of -Categories
+:PROPERTIES:
+:NOTER_PAGE: (706 . 0.580749)
+:END:
+
+***** Tensor Products of -Categories
+:PROPERTIES:
+:NOTER_PAGE: (707 . 0.439819)
+:END:
+
+***** Smash Products of Spectra
+:PROPERTIES:
+:NOTER_PAGE: (716 . 0.176458)
+:END:
+
+***** Algebras and their Module Categories
+:PROPERTIES:
+:NOTER_PAGE: (723 . 0.640229)
+:END:
+
+***** Properties of `39`42`"613A``45`47`"603ARModA(`39`42`"613A``45`47`"603AC)
+:PROPERTIES:
+:NOTER_PAGE: (730 . 0.447128)
+:END:
+
+***** Behavior of the Functor
+:PROPERTIES:
+:NOTER_PAGE: (743 . 0.71534)
+:END:
+
+*** Little Cubes and Factorizable Sheaves
+:PROPERTIES:
+:NOTER_PAGE: (756 . 0.176458)
+:END:
+
+**** Definitions and Basic Properties
+:PROPERTIES:
+:NOTER_PAGE: (758 . 0.40742)
+:END:
+
+***** Little Cubes and Configuration Spaces
+:PROPERTIES:
+:NOTER_PAGE: (761 . 0.176458)
+:END:
+
+***** The Additivity Theorem
+:PROPERTIES:
+:NOTER_PAGE: (767 . 0.727431)
+:END:
+
+***** Tensor Products of Ek-Modules
+:PROPERTIES:
+:NOTER_PAGE: (781 . 0.329597)
+:END:
+
+***** Comparison of Tensor Products
+:PROPERTIES:
+:NOTER_PAGE: (792 . 0.657302)
+:END:
+
+**** Bar Constructions and Koszul Duality
+:PROPERTIES:
+:NOTER_PAGE: (801 . 0.371777)
+:END:
+
+***** Twisted Arrow -Categories
+:PROPERTIES:
+:NOTER_PAGE: (803 . 0.666891)
+:END:
+
+***** The Bar Construction for Associative Algebras
+:PROPERTIES:
+:NOTER_PAGE: (821 . 0.671293)
+:END:
+
+***** Iterated Bar Constructions
+:PROPERTIES:
+:NOTER_PAGE: (839 . 0.514554)
+:END:
+
+***** Reduced Pairings
+:PROPERTIES:
+:NOTER_PAGE: (848 . 0.573811)
+:END:
+
+***** Koszul Duality for Ek-Algebras
+:PROPERTIES:
+:NOTER_PAGE: (858 . 0.462405)
+:END:
+
+***** Iterated Loop Spaces
+:PROPERTIES:
+:NOTER_PAGE: (870 . 0.738361)
+:END:
+
+**** Centers and Centralizers
+:PROPERTIES:
+:NOTER_PAGE: (880 . 0.813948)
+:END:
+
+***** Centers and Centralizers
+:PROPERTIES:
+:NOTER_PAGE: (882 . 0.637855)
+:END:
+
+***** The Adjoint Representation
+:PROPERTIES:
+:NOTER_PAGE: (896 . 0.40378)
+:END:
+
+***** Tensor Products of Free Algebras
+:PROPERTIES:
+:NOTER_PAGE: (905 . 0.708121)
+:END:
+
+**** Little Cubes and Manifold Topology
+:PROPERTIES:
+:NOTER_PAGE: (922 . 0.363206)
+:END:
+
+***** Embeddings of Topological Manifolds
+:PROPERTIES:
+:NOTER_PAGE: (922 . 0.802338)
+:END:
+
+***** Variations on the Little Cubes Operads
+:PROPERTIES:
+:NOTER_PAGE: (929 . 0.268987)
+:END:
+
+***** Digression: Nonunital Associative Algebras and their Modules
+:PROPERTIES:
+:NOTER_PAGE: (933 . 0.614683)
+:END:
+
+***** Nonunital Ek-Algebras
+:PROPERTIES:
+:NOTER_PAGE: (945 . 0.620191)
+:END:
+
+***** Little Cubes in a Manifold
+:PROPERTIES:
+:NOTER_PAGE: (955 . 0.708775)
+:END:
+
+**** Topological Chiral Homology
+:PROPERTIES:
+:NOTER_PAGE: (963 . 0.604404)
+:END:
+
+***** The Ran Space
+:PROPERTIES:
+:NOTER_PAGE: (964 . 0.521872)
+:END:
+
+***** Topological Chiral Homology
+:PROPERTIES:
+:NOTER_PAGE: (971 . 0.624341)
+:END:
+
+***** Properties of Topological Chiral Homology
+:PROPERTIES:
+:NOTER_PAGE: (977 . 0.625648)
+:END:
+
+***** Factorizable Cosheaves and Ran Integration
+:PROPERTIES:
+:NOTER_PAGE: (983 . 0.612535)
+:END:
+
+***** Verdier Duality
+:PROPERTIES:
+:NOTER_PAGE: (991 . 0.265398)
+:END:
+
+***** Nonabelian Poincare Duality
+:PROPERTIES:
+:NOTER_PAGE: (998 . 0.718337)
+:END:
+
+*** The Calculus of Functors
+:PROPERTIES:
+:NOTER_PAGE: (1011 . 0.176458)
+:END:
+
+**** The Calculus of Functors
+:PROPERTIES:
+:NOTER_PAGE: (1012 . 0.360968)
+:END:
+
+***** n-Excisive Functors
+:PROPERTIES:
+:NOTER_PAGE: (1015 . 0.176458)
+:END:
+
+***** The Taylor Tower
+:PROPERTIES:
+:NOTER_PAGE: (1023 . 0.593913)
+:END:
+
+***** Functors of Many Variables
+:PROPERTIES:
+:NOTER_PAGE: (1035 . 0.176458)
+:END:
+
+***** Symmetric Functors
+:PROPERTIES:
+:NOTER_PAGE: (1045 . 0.176458)
+:END:
+
+***** Functors from Spaces to Spectra
+:PROPERTIES:
+:NOTER_PAGE: (1055 . 0.176458)
+:END:
+
+***** Norm Maps
+:PROPERTIES:
+:NOTER_PAGE: (1060 . 0.84127)
+:END:
+
+**** Differentiation
+:PROPERTIES:
+:NOTER_PAGE: (1070 . 0.31202)
+:END:
+
+***** Derivatives of Functors
+:PROPERTIES:
+:NOTER_PAGE: (1072 . 0.381861)
+:END:
+
+***** Stabilization of Differentiable Fibrations
+:PROPERTIES:
+:NOTER_PAGE: (1082 . 0.337643)
+:END:
+
+***** Differentials of Functors
+:PROPERTIES:
+:NOTER_PAGE: (1094 . 0.432535)
+:END:
+
+***** Generalized Smash Products
+:PROPERTIES:
+:NOTER_PAGE: (1107 . 0.336646)
+:END:
+
+***** Stabilization of -Operads
+:PROPERTIES:
+:NOTER_PAGE: (1111 . 0.602271)
+:END:
+
+***** Uniqueness of Stabilizations
+:PROPERTIES:
+:NOTER_PAGE: (1121 . 0.734771)
+:END:
+
+**** The Chain Rule
+:PROPERTIES:
+:NOTER_PAGE: (1130 . 0.176458)
+:END:
+
+***** Cartesian Structures
+:PROPERTIES:
+:NOTER_PAGE: (1135 . 0.563654)
+:END:
+
+***** Composition of Correspondences
+:PROPERTIES:
+:NOTER_PAGE: (1149 . 0.326687)
+:END:
+
+***** Derivatives of the Identity Functor
+:PROPERTIES:
+:NOTER_PAGE: (1157 . 0.358703)
+:END:
+
+***** Differentiation and Reduction
+:PROPERTIES:
+:NOTER_PAGE: (1163 . 0.176458)
+:END:
+
+***** Consequences of Theorem 6.3.3.14
+:PROPERTIES:
+:NOTER_PAGE: (1173 . 0.792029)
+:END:
+
+***** The Dual Chain Rule
+:PROPERTIES:
+:NOTER_PAGE: (1182 . 0.714593)
+:END:
+
+*** Algebra in the Stable Homotopy Category
+:PROPERTIES:
+:NOTER_PAGE: (1196 . 0.176458)
+:END:
+
+**** Structured Ring Spectra
+:PROPERTIES:
+:NOTER_PAGE: (1197 . 0.680581)
+:END:
+
+***** E1-Rings and Their Modules
+:PROPERTIES:
+:NOTER_PAGE: (1199 . 0.363222)
+:END:
+
+***** Recognition Principles
+:PROPERTIES:
+:NOTER_PAGE: (1206 . 0.392415)
+:END:
+
+***** Change of Ring
+:PROPERTIES:
+:NOTER_PAGE: (1213 . 0.429076)
+:END:
+
+***** Algebras over Commutative Rings
+:PROPERTIES:
+:NOTER_PAGE: (1220 . 0.176458)
+:END:
+
+**** Properties of Rings and Modules
+:PROPERTIES:
+:NOTER_PAGE: (1227 . 0.397402)
+:END:
+
+***** Free Resolutions and Spectral Sequences
+:PROPERTIES:
+:NOTER_PAGE: (1228 . 0.325828)
+:END:
+
+***** Flat and Projective Modules
+:PROPERTIES:
+:NOTER_PAGE: (1237 . 0.589659)
+:END:
+
+***** Localizations and Ore Conditions
+:PROPERTIES:
+:NOTER_PAGE: (1247 . 0.633501)
+:END:
+
+***** Finiteness Properties of Rings and Modules
+:PROPERTIES:
+:NOTER_PAGE: (1260 . 0.488072)
+:END:
+
+**** The Cotangent Complex Formalism
+:PROPERTIES:
+:NOTER_PAGE: (1276 . 0.811365)
+:END:
+
+***** Stable Envelopes and Tangent Bundles
+:PROPERTIES:
+:NOTER_PAGE: (1280 . 0.590587)
+:END:
+
+***** Relative Adjunctions
+:PROPERTIES:
+:NOTER_PAGE: (1287 . 0.463617)
+:END:
+
+***** The Relative Cotangent Complex
+:PROPERTIES:
+:NOTER_PAGE: (1297 . 0.784814)
+:END:
+
+***** Tangent Bundles to -Categories of Algebras
+:PROPERTIES:
+:NOTER_PAGE: (1309 . 0.176458)
+:END:
+
+***** The Cotangent Complex of an Ek-Algebra
+:PROPERTIES:
+:NOTER_PAGE: (1320 . 0.51004)
+:END:
+
+***** The Tangent Correspondence
+:PROPERTIES:
+:NOTER_PAGE: (1328 . 0.409702)
+:END:
+
+**** Deformation Theory
+:PROPERTIES:
+:NOTER_PAGE: (1334 . 0.303426)
+:END:
+
+***** Square-Zero Extensions
+:PROPERTIES:
+:NOTER_PAGE: (1335 . 0.302569)
+:END:
+
+***** Deformation Theory of E-Algebras
+:PROPERTIES:
+:NOTER_PAGE: (1349 . 0.334976)
+:END:
+
+***** Connectivity and Finiteness of the Cotangent Complex
+:PROPERTIES:
+:NOTER_PAGE: (1359 . 0.421855)
+:END:
+
+**** ÉtaleMorphisms
+:PROPERTIES:
+:NOTER_PAGE: (1373 . 0.36498)
+:END:
+
+***** ÉtaleMorphisms of E1-Rings
+:PROPERTIES:
+:NOTER_PAGE: (1375 . 0.325845)
+:END:
+
+***** The Nonconnective Case
+:PROPERTIES:
+:NOTER_PAGE: (1381 . 0.481636)
+:END:
+
+***** Cocentric Morphisms
+:PROPERTIES:
+:NOTER_PAGE: (1388 . 0.755586)
+:END:
+
+***** ÉtaleMorphisms of Ek-Rings
+:PROPERTIES:
+:NOTER_PAGE: (1395 . 0.613313)
+:END:
+
+*** Constructible Sheaves and Exit Paths
+:PROPERTIES:
+:NOTER_PAGE: (1401 . 0.176458)
+:END:
+
+**** Locally Constant Sheaves
+:PROPERTIES:
+:NOTER_PAGE: (1402 . 0.599111)
+:END:
+
+**** Homotopy Invariance
+:PROPERTIES:
+:NOTER_PAGE: (1407 . 0.527236)
+:END:
+
+**** The Seifert-van Kampen Theorem
+:PROPERTIES:
+:NOTER_PAGE: (1412 . 0.552302)
+:END:
+
+**** Singular Shape
+:PROPERTIES:
+:NOTER_PAGE: (1418 . 0.176458)
+:END:
+
+**** Constructible Sheaves
+:PROPERTIES:
+:NOTER_PAGE: (1421 . 0.31974)
+:END:
+
+**** -Categories of Exit Paths
+:PROPERTIES:
+:NOTER_PAGE: (1427 . 0.640486)
+:END:
+
+**** A Seifert-van Kampen Theorem for Exit Paths
+:PROPERTIES:
+:NOTER_PAGE: (1436 . 0.452015)
+:END:
+
+**** Digression: Recollement
+:PROPERTIES:
+:NOTER_PAGE: (1443 . 0.773913)
+:END:
+
+**** Exit Paths and Constructible Sheaves
+:PROPERTIES:
+:NOTER_PAGE: (1456 . 0.701956)
+:END:
+
+*** Categorical Patterns
+:PROPERTIES:
+:NOTER_PAGE: (1466 . 0.176458)
+:END:
+
+**** `39`42`"613A``45`47`"603AP-Anodyne Morphisms
+:PROPERTIES:
+:NOTER_PAGE: (1469 . 0.830225)
+:END:
+
+**** The Model Structure on (Set+)/`39`42`"613A``45`47`"603AP
+:PROPERTIES:
+:NOTER_PAGE: (1482 . 0.29213)
+:END:
+
+**** Flat Inner Fibrations
+:PROPERTIES:
+:NOTER_PAGE: (1493 . 0.559249)
+:END:
+
+**** Functoriality
+:PROPERTIES:
+:NOTER_PAGE: (1507 . 0.296485)
+:END:
+
+**** General Index
+:PROPERTIES:
+:NOTER_PAGE: (1521 . 0.279638)
+:END:
+
+**** Notation Index
+:PROPERTIES:
+:NOTER_PAGE: (1521 . 0.279638)
+:END:

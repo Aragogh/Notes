@@ -89,20 +89,6 @@
   number = {2}
 }
 
-@book{diamondFirstCourseModular2005,
-  title = {A {{First Course}} in {{Modular Forms}}},
-  author = {Diamond, Fred and Shurman, Jerry},
-  year = {2005},
-  volume = {228},
-  publisher = {{Springer New York}},
-  address = {{New York, NY}},
-  doi = {10.1007/978-0-387-27226-9},
-  file = {/storage/Zotero/storage/HWH2X4HU/2005 - A First Course in Modular Forms.pdf},
-  isbn = {978-0-387-27226-9},
-  language = {en},
-  series = {Graduate {{Texts}} in {{Mathematics}}}
-}
-
 @book{dieckAlgebraicTopology2008,
   title = {Algebraic Topology},
   author = {tom Dieck, Tammo},
@@ -654,20 +640,6 @@
   lccn = {QA3 QA252.3 .L28 no. 1500},
   number = {1500},
   series = {Lecture Notes in Mathematics}
-}
-
-@book{shimuraModularFormsBasics2012,
-  title = {Modular {{Forms}}: {{Basics}} and {{Beyond}}},
-  shorttitle = {Modular {{Forms}}},
-  author = {Shimura, Goro},
-  year = {2012},
-  publisher = {{Springer New York}},
-  address = {{New York, NY}},
-  doi = {10.1007/978-1-4614-2125-2},
-  file = {/storage/Zotero/storage/ZU584XD8/Shimura - 2012 - Modular Forms Basics and Beyond.pdf},
-  isbn = {978-1-4614-2124-5 978-1-4614-2125-2},
-  language = {en},
-  series = {Springer {{Monographs}} in {{Mathematics}}}
 }
 
 @article{spanierDualityHomotopyTheory1955,

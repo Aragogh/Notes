@@ -1,4 +1,5 @@
 #+TITLE: Notes on: Lurie, J. (): Spectral algebraic geometry (version: February 2018)
+
 * lurieSpectralAlgebraicGeometry
 :PROPERTIES:
 :NOTER_DOCUMENT: /storage/Zotero/storage/Q897D2S5/SAG-rootfile.pdf
